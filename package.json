@@ -1,0 +1,10 @@
+{
+  "name": "spectre-ui",
+  "private": true,
+  "packageManager": "pnpm@8.4.0",
+  "devDependencies": {
+    "@types/node": "^20.8.2",
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0"
+  }
+}

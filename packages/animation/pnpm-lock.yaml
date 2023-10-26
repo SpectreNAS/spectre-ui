@@ -1,0 +1,29 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  animejs:
+    specifier: ^3.2.1
+    version: registry.npmmirror.com/animejs@3.2.1
+
+devDependencies:
+  '@types/animejs':
+    specifier: ^3.1.10
+    version: registry.npmmirror.com/@types/animejs@3.1.10
+
+packages:
+
+  registry.npmmirror.com/@types/animejs@3.1.10:
+    resolution: {integrity: sha512-nCCSfdw7Ut/XwGSmkfh3nQJXKTnGe5wAhXoTBjMoGkBszbS7RYCxjggmZCAVf8mZJI4LEDTwQ7R6r7krFqPBFA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/animejs/-/animejs-3.1.10.tgz}
+    name: '@types/animejs'
+    version: 3.1.10
+    dev: true
+
+  registry.npmmirror.com/animejs@3.2.1:
+    resolution: {integrity: sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/animejs/-/animejs-3.2.1.tgz}
+    name: animejs
+    version: 3.2.1
+    dev: false
