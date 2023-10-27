@@ -1,0 +1,128 @@
+{
+  "root": true,
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "@typescript-eslint/semi": ["error", "never"],
+    "array-bracket-newline": ["error", "consistent"],
+    "array-element-newline": ["error", "consistent"],
+    "block-spacing": ["error", "always"],
+    "lines-between-class-members": ["error", "always"],
+    "lines-around-comment": ["error", { "beforeBlockComment": true }],
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "no-multi-spaces": "error",
+    "no-undef-init": "error",
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "arrow-spacing": "error",
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "quote-props": ["error", "as-needed"],
+    "key-spacing": ["error", { "afterColon": true }],
+    "space-before-blocks": "error",
+    "object-curly-spacing": ["error", "always"],
+    "keyword-spacing": ["error", { "after": true }],
+    "space-infix-ops": ["error", { "int32Hint": false }],
+    "space-in-parens": ["error"],
+    "no-unused-vars": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint", "@stylistic/ts"],
+      "rules": {
+        "@typescript-eslint/no-import-type-side-effects": "error",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/type-annotation-spacing": [
+          "error",
+          {
+            "before": false,
+            "after": true,
+            "overrides": { "arrow": { "before": true, "after": true } }
+          }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          { "argsIgnorePattern": "^_" }
+        ],
+        "@stylistic/ts/indent": ["error", 2],
+        "@stylistic/ts/member-delimiter-style": [
+          "error",
+          {
+            "multiline": {
+              "delimiter": "none",
+              "requireLast": true
+            },
+            "singleline": {
+              "delimiter": "comma",
+              "requireLast": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.tsx"],
+      "plugins": ["@stylistic/jsx"],
+      "rules": {
+        "@stylistic/jsx/jsx-one-expression-per-line": [
+          2,
+          { "allow": "literal" }
+        ],
+        "@stylistic/jsx/jsx-wrap-multilines": [2, { "return": "parens" }],
+        "@stylistic/jsx/jsx-tag-spacing": [
+          "error",
+          { "afterOpening": "never", "beforeClosing": "never" }
+        ],
+        "@stylistic/jsx/jsx-curly-spacing": ["error", { "when": "never" }],
+        "@stylistic/jsx/jsx-equals-spacing": ["error", "never"]
+      }
+    },
+    {
+      "files": ["*.js"],
+      "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "extends": ["plugin:import/recommended", "plugin:import/typescript"],
+      "settings": {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+          "typescript": {
+            "alwaysTryTypes": true,
+            "project": ["./packages/core/tsconfig.json"]
+          }
+        }
+      },
+      "rules": {
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              ["internal", "parent", "sibling", "index", "object", "type"],
+              "unknown"
+            ],
+            "pathGroupsExcludedImportTypes": ["builtin"],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "import/no-named-as-default-member": "off",
+        "import/no-named-as-default": "off",
+        "import/default": "off",
+        "import/namespace": "off"
+      }
+    }
+  ]
+}
