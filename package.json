@@ -3,6 +3,7 @@
   "private": true,
   "packageManager": "pnpm@8.4.0",
   "devDependencies": {
+    "@spectre-ui/eslint-config": "workspace:^",
     "@stylistic/eslint-plugin-jsx": "^0.1.1",
     "@stylistic/eslint-plugin-ts": "^0.1.1",
     "@types/node": "^20.8.2",
