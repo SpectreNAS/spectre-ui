@@ -1,4 +1,4 @@
 {
   "root": true,
-  "extends": ["@spectre-ui/eslint-config"]
+  "extends": ["@spectrekit/eslint-config"]
 }

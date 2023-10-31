@@ -1,18 +1,32 @@
 {
   "name": "@spectre-ui/core",
-  "type": "module",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "style": "./styles.css",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./styles.css": {
+      "import": "./styles.css",
+      "require": "./styles.css",
+      "default": "./styles.css"
     }
   },
-  "main": "./dist/index.cjs",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "dependencies": {
-    "solid-js": "^1.8.3"
+    "solid-js": "^1.8.5"
   }
 }
