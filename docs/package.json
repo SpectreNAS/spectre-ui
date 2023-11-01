@@ -1,0 +1,19 @@
+{
+  "name": "@spectre-ui/docs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@spectre-ui/core": "workspace:^",
+    "solid-js": "^1.8.5"
+  },
+  "devDependencies": {
+    "vite": "^4.5.0",
+    "vite-plugin-solid": "^2.7.2"
+  }
+}
