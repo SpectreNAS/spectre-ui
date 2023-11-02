@@ -1,13 +1,9 @@
-import { createSignal } from 'solid-js'
-import solidLogo from './assets/solid.svg'
-import { SpButton } from '@spectre-ui/core'
+import { SpButton, ButtonProps } from '@spectre-ui/core'
+import '@spectre-ui/core/styles.css'
 
 function App() {
-  const [count, setCount] = createSignal(0)
-
   return (
-    <div>Hello {count()}
-
+    <div>
       <SpButton></SpButton>
     </div>
   )
