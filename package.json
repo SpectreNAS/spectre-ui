@@ -2,6 +2,9 @@
   "name": "spectre-ui",
   "private": true,
   "packageManager": "pnpm@8.4.0",
+  "scripts": {
+    "lint": "eslint --ext .ts packages/**/src/"
+  },
   "devDependencies": {
     "@spectrekit/eslint-config": "^0.1.7",
     "@stylistic/eslint-plugin-jsx": "^0.1.2",
@@ -12,6 +15,6 @@
     "eslint": "^8.52.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.0"
   }
 }

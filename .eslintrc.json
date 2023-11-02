@@ -3,10 +3,16 @@
   "extends": ["@spectrekit/eslint-config"],
   "overrides": [
     {
-      "files": ["*.js"],
+      "files": ["*.mjs"],
       "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
+      }
+    },
+    {
+      "files": ["*.cjs"],
+      "parserOptions": {
+        "ecmaVersion": "latest"
       }
     }
   ]

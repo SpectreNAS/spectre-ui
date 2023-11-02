@@ -2,23 +2,30 @@
   "name": "@spectre-ui/core",
   "version": "0.0.1",
   "license": "MIT",
-  "type": "module",
   "types": "./dist/index.d.ts",
   "module": "./dist/index.mjs",
+  "style": "./dist/styles.css",
   "exports": {
     ".": {
       "import": {
         "types": "./dist/index.d.ts",
         "default": "./dist/index.mjs"
       }
+    },
+    "./styles.css": {
+      "import": "./dist/styles.css",
+      "default": "./dist/styles.css"
     }
   },
   "files": [
-    "dist"
+    "dist/**"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -c --watch"
+    "build": "pnpm build:js && pnpm build:css",
+    "build:js": "rollup -c",
+    "build:css": "postcss src/styles/index.css -o dist/styles.css",
+    "dev:js": "rollup -c --watch",
+    "dev:css": "postcss -w src/styles/index.css -o dist/styles.css"
   },
   "dependencies": {
     "@rollup/plugin-typescript": "^11.1.5",
@@ -27,6 +34,10 @@
     "solid-js": "^1.8.5"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
     "vite-plugin-solid": "^2.7.2"
   }
 }

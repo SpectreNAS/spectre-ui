@@ -16,7 +16,6 @@ export default defineConfig([
       file: 'dist/index.mjs',
       format: 'es',
     },
-
-    external: ['solid-js/web']
+    external: ['solid-js', 'solid-js/web']
   }
 ])
