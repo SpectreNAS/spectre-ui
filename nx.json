@@ -1,0 +1,29 @@
+{
+  "targetDefaults": {
+    "dev": {
+      "dependsOn": [
+        "^dev:docs"
+      ]
+    },
+    "dev:js": {
+      "dependsOn": [
+        "^dev:js"
+      ]
+    },
+    "dev:css": {
+      "dependsOn": [
+        "^dev:css"
+      ]
+    },
+    "build:js": {
+      "cache": true
+    },
+    "build:css": {
+      "cache": true
+    }
+  },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "nxCloudAccessToken": "MGI5MmQ5NjQtOTkzNy00NWRjLWJjZGQtNzA0ODljYjdjMzA2fHJlYWQtd3JpdGU="
+}
