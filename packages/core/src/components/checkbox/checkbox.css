@@ -1,1 +1,7 @@
 .sp-checkbox {}
+
+.sp-checkbox:hover {}
+
+.sp-checkbox:active {}
+
+.sp-checkbox.checked {}
