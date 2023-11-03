@@ -1,25 +1,10 @@
 {
   "targetDefaults": {
-    "dev": {
+    "dev:docs": {
       "dependsOn": [
-        "^dev:docs"
+        "@spectre-ui/core:build:css",
+        "@spectre-ui/core:build:js"
       ]
-    },
-    "dev:js": {
-      "dependsOn": [
-        "^dev:js"
-      ]
-    },
-    "dev:css": {
-      "dependsOn": [
-        "^dev:css"
-      ]
-    },
-    "build:js": {
-      "cache": true
-    },
-    "build:css": {
-      "cache": true
     }
   },
   "affected": {
