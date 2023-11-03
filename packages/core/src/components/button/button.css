@@ -1,2 +1,233 @@
-.sp-Button {
+.sp-button {
+  border: var(--sp-button-border);
+  border-radius: var(--sp-button-border-radius);
+  background-color: var(--sp-button-bg-color);
+  color: var(--sp-button-text-color);
+  padding: var(--sp-button-padding);
+  line-height: var(--sp-button-line-height);
+  font-size: var(--sp-button-font-size);
+}
+
+.sp-button:hover {
+  background-color: var(--sp-button-bg-color-hover);
+  color: var(--sp-button-text-color-hover);
+}
+
+.sp-button:active {
+  background-color: var(--sp-button-bg-color-active);
+  color: var(--sp-button-text-color-active);
+}
+
+.sp-button.disabled {
+  background-color: var(--sp-button-bg-color-disable);
+  color: var(--sp-button-text-color-disable);
+}
+
+.sp-button.small {
+  --sp-button-padding: 3px 8px;
+  --sp-button-line-height: 18px;
+  --sp-button-font-size: 12px;
+}
+
+.sp-button.medium {
+  --sp-button-padding: 6px 12px;
+  --sp-button-line-height: 20px;
+  --sp-button-font-size: 13px;
+}
+
+.sp-button.large {
+  --sp-button-padding: 12px 20px;
+  --sp-button-line-height: 24px;
+  --sp-button-font-size: 16px;
+}
+
+
+.sp-button.round {
+  --sp-button-border-radius: 20px;
+}
+
+.sp-button.small.round {
+  --sp-button-border-radius: 12px;
+}
+
+.sp-button.medium.round {
+  --sp-button-border-radius: 16px;
+}
+
+.sp-button.large.round {
+  --sp-button-border-radius: 24px;
+}
+
+/* default color */
+.sp-button.light {
+  --sp-button-bg-color: var(--bg-controls-default);
+  --sp-button-bg-color-hover: var(--bg-controls-hover);
+  --sp-button-bg-color-active: var(--bg-controls-active);
+  --sp-button-bg-color-disable: var(--bg-controls-disabled);
+
+  --sp-button-text-color: var(--text-static-primary);
+  --sp-button-text-color-hover: var(--text-static-primary);
+  --sp-button-text-color-active: var(--text-static-primary);
+  --sp-button-text-color-disable: var(--text-static-disabled);
+}
+
+.sp-button.text {
+  --sp-button-bg-color: none;
+  --sp-button-bg-color-hover: none;
+  --sp-button-bg-color-active: none;
+  --sp-button-bg-color-disable: none;
+
+  --sp-button-text-color: var(--text-common-tertiary);
+  --sp-button-text-color-hover: var(--text-common-secondary);
+  --sp-button-text-color-active: var(--text-common-primary);
+  --sp-button-text-color-disable: var(--text-common-disabled);
+}
+
+
+/* primary color */
+.sp-button.primary {
+  --sp-button-bg-color: var(--bg-brand-default);
+  --sp-button-bg-color-hover: var(--bg-brand-hover);
+  --sp-button-bg-color-active: var(--bg-brand-active);
+  --sp-button-bg-color-disable: var(--bg-brand-disabled);
+
+  --sp-button-text-color: var(--text-static-primary);
+  --sp-button-text-color-hover: var(--text-static-primary);
+  --sp-button-text-color-active: var(--text-static-primary);
+  --sp-button-text-color-disable: var(--text-static-disabled);
+}
+
+.sp-button.primary.light {
+  --sp-button-bg-color: var(--bg-brand-light-default);
+  --sp-button-bg-color-hover: var(--bg-brand-light-hover);
+  --sp-button-bg-color-active: var(--bg-brand-light-active);
+  --sp-button-bg-color-disable: var(--bg-brand-light-disabled);
+
+  --sp-button-text-color: var(--text-brand-default);
+  --sp-button-text-color-hover: var(--text-brand-default);
+  --sp-button-text-color-active: var(--text-brand-default);
+  --sp-button-text-color-disable: var(--text-brand-disabled);
+}
+
+.sp-button.primary.text {
+  --sp-button-bg-color: none;
+  --sp-button-bg-color-hover: none;
+  --sp-button-bg-color-active: none;
+  --sp-button-bg-color-disable: none;
+
+  --sp-button-text-color: var(--text-brand-default);
+  --sp-button-text-color-hover: var(--text-brand-hover);
+  --sp-button-text-color-active: var(--text-brand-active);
+  --sp-button-text-color-disable: var(--text-brand-disabled);
+}
+
+/* success color */
+.sp-button.success {
+  --sp-button-bg-color: var(--bg-success-default);
+  --sp-button-bg-color-hover: var(--bg-success-hover);
+  --sp-button-bg-color-active: var(--bg-success-active);
+  --sp-button-bg-color-disable: var(--bg-success-disabled);
+
+  --sp-button-text-color: var(--text-static-primary);
+  --sp-button-text-color-hover: var(--text-static-primary);
+  --sp-button-text-color-active: var(--text-static-primary);
+  --sp-button-text-color-disable: var(--text-static-disabled);
+}
+
+.sp-button.success.light {
+  --sp-button-bg-color: var(--bg-success-light-default);
+  --sp-button-bg-color-hover: var(--bg-success-light-hover);
+  --sp-button-bg-color-active: var(--bg-success-light-active);
+  --sp-button-bg-color-disable: var(--bg-success-light-disabled);
+
+  --sp-button-text-color: var(--text-success-default);
+  --sp-button-text-color-hover: var(--text-success-default);
+  --sp-button-text-color-active: var(--text-success-default);
+  --sp-button-text-color-disable: var(--text-success-disabled);
+}
+
+.sp-button.success.text {
+  --sp-button-bg-color: none;
+  --sp-button-bg-color-hover: none;
+  --sp-button-bg-color-active: none;
+  --sp-button-bg-color-disable: none;
+
+  --sp-button-text-color: var(--text-success-default);
+  --sp-button-text-color-hover: var(--text-success-hover);
+  --sp-button-text-color-active: var(--text-success-active);
+  --sp-button-text-color-disable: var(--text-success-disabled);
+}
+
+/* warn color */
+.sp-button.warn {
+  --sp-button-bg-color: var(--bg-warn-default);
+  --sp-button-bg-color-hover: var(--bg-warn-hover);
+  --sp-button-bg-color-active: var(--bg-warn-active);
+  --sp-button-bg-color-disable: var(--bg-warn-disabled);
+
+  --sp-button-text-color: var(--text-static-primary);
+  --sp-button-text-color-hover: var(--text-static-primary);
+  --sp-button-text-color-active: var(--text-static-primary);
+  --sp-button-text-color-disable: var(--text-static-disabled);
+}
+
+.sp-button.warn.light {
+  --sp-button-bg-color: var(--bg-warn-light-default);
+  --sp-button-bg-color-hover: var(--bg-warn-light-hover);
+  --sp-button-bg-color-active: var(--bg-warn-light-active);
+  --sp-button-bg-color-disable: var(--bg-warn-light-disabled);
+
+  --sp-button-text-color: var(--text-warn-default);
+  --sp-button-text-color-hover: var(--text-warn-default);
+  --sp-button-text-color-active: var(--text-warn-default);
+  --sp-button-text-color-disable: var(--text-warn-disabled);
+}
+
+.sp-button.warn.text {
+  --sp-button-bg-color: none;
+  --sp-button-bg-color-hover: none;
+  --sp-button-bg-color-active: none;
+  --sp-button-bg-color-disable: none;
+
+  --sp-button-text-color: var(--text-warn-default);
+  --sp-button-text-color-hover: var(--text-warn-hover);
+  --sp-button-text-color-active: var(--text-warn-active);
+  --sp-button-text-color-disable: var(--text-warn-disabled);
+}
+
+/* danger color */
+.sp-button.danger {
+  --sp-button-bg-color: var(--bg-danger-default);
+  --sp-button-bg-color-hover: var(--bg-danger-hover);
+  --sp-button-bg-color-active: var(--bg-danger-active);
+  --sp-button-bg-color-disable: var(--bg-danger-disabled);
+
+  --sp-button-text-color: var(--text-static-primary);
+  --sp-button-text-color-hover: var(--text-static-primary);
+  --sp-button-text-color-active: var(--text-static-primary);
+  --sp-button-text-color-disable: var(--text-static-disabled);
+}
+
+.sp-button.danger.light {
+  --sp-button-bg-color: var(--bg-danger-light-default);
+  --sp-button-bg-color-hover: var(--bg-danger-light-hover);
+  --sp-button-bg-color-active: var(--bg-danger-light-active);
+  --sp-button-bg-color-disable: var(--bg-danger-light-disabled);
+
+  --sp-button-text-color: var(--text-danger-default);
+  --sp-button-text-color-hover: var(--text-danger-default);
+  --sp-button-text-color-active: var(--text-danger-default);
+  --sp-button-text-color-disable: var(--text-danger-disabled);
+}
+
+.sp-button.danger.text {
+  --sp-button-bg-color: none;
+  --sp-button-bg-color-hover: none;
+  --sp-button-bg-color-active: none;
+  --sp-button-bg-color-disable: none;
+
+  --sp-button-text-color: var(--text-danger-default);
+  --sp-button-text-color-hover: var(--text-danger-hover);
+  --sp-button-text-color-active: var(--text-danger-active);
+  --sp-button-text-color-disable: var(--text-danger-disabled);
 }
