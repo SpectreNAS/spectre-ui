@@ -1,4 +1,3 @@
-import { type } from 'os'
 import { ComponentSize } from '../../types'
 
 export type ButtonType = 'default' | 'light' | 'text'
