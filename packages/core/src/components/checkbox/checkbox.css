@@ -5,3 +5,9 @@
 .sp-checkbox:active {}
 
 .sp-checkbox.checked {}
+
+.sp-checkbox.unchecked {}
+
+.sp-checkbox.indeterminate {}
+
+.sp-checkbox.checked {}

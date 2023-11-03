@@ -98,15 +98,15 @@
   --sp-checkbox-unchecked-border-color-disable: #000;
 
   /* checkbox half unchecked */
-  --sp-checkbox-half-unchecked-border-color: #000;
-  --sp-checkbox-half-unchecked-border-color-hover: #000;
-  --sp-checkbox-half-unchecked-border-color-active: #000;
-  --sp-checkbox-half-unchecked-border-color-disable: #000;
+  --sp-checkbox-indeterminate-border-color: #000;
+  --sp-checkbox-indeterminate-border-color-hover: #000;
+  --sp-checkbox-indeterminate-border-color-active: #000;
+  --sp-checkbox-indeterminate-border-color-disable: #000;
 
-  --sp-checkbox-half-unchecked-bg-color: #000;
-  --sp-checkbox-half-unchecked-bg-color-hover: #000;
-  --sp-checkbox-half-unchecked-bg-color-active: #000;
-  --sp-checkbox-half-unchecked-bg-color-disable: #000;
+  --sp-checkbox-indeterminate-bg-color: #000;
+  --sp-checkbox-indeterminate-bg-color-hover: #000;
+  --sp-checkbox-indeterminate-bg-color-active: #000;
+  --sp-checkbox-indeterminate-bg-color-disable: #000;
 
   /* checkbox checked */
   --sp-checkbox-checked-text-color: #000;
