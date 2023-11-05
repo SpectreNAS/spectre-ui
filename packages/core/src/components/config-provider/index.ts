@@ -1,0 +1,1 @@
+export { ConfigProvider as SpConfigProvider } from './ConfigProvider'
