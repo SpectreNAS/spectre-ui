@@ -5,6 +5,6 @@ export const Checkbox = (propsRaw: CheckboxProps) => {
   const props = mergeProps({ value: false, indeterminate: false }, propsRaw)
 
   return (
-    <div></div>
+    <div class='sp-checkbox'></div>
   )
 }
