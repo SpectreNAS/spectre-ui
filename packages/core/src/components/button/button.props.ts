@@ -1,12 +1,10 @@
-import { ComponentSize } from '../../types'
+import { ComponentSize, ComponentColor } from '../../types'
 
 export type ButtonType = 'light' | 'text'
 
-export type ButtonColor = 'primary' | 'success' | 'warn' | 'danger'
-
 export interface ButtonProps {
   type?: ButtonType
-  color?: ButtonColor
+  color?: ComponentColor
   size?: ComponentSize
   round?: boolean
 }
