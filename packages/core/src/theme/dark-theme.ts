@@ -1,4 +1,4 @@
-import { BaseTheme, ButtonTheme, CheckboxTheme } from './config-provider.props'
+import { BaseTheme, ButtonTheme, CheckboxTheme } from './theme'
 
 const baseTheme: BaseTheme = {
 
