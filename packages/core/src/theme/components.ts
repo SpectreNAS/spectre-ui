@@ -1,4 +1,4 @@
-import { ButtonTheme, CheckboxTheme } from './types'
+import { ButtonTheme, CheckboxTheme, TagTheme } from './types'
 
 export const buttonTheme: ButtonTheme = {
 
@@ -54,7 +54,24 @@ export const checkboxTheme: CheckboxTheme = {
   '--sp-checkbox-checked-bg-color-disable': 'var(--text-brand-disabled)',
 }
 
+export const tagTheme: TagTheme = {
+
+  /* tag base */
+  '--sp-tag-border': '1px solid var(--border-common-default)',
+  '--sp-tag-border-radius': '4px',
+  '--sp-tag-padding': '3px 8px',
+  '--sp-tag-line-height': '18px',
+  '--sp-tag-font-size': '12px',
+  
+  /* tag background */
+  '--sp-tag-bg-color': 'var(--bg-tag-default)',
+    
+  /* tag text */
+  '--sp-tag-text-color': 'var(--text-common-primary)',
+}
+
 export const componentsTheme = {
   ...buttonTheme,
   ...checkboxTheme,
+  ...tagTheme,
 }

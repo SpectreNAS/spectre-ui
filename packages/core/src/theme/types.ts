@@ -181,3 +181,19 @@ export interface CheckboxTheme {
   '--sp-checkbox-checked-bg-color-active'?: string
   '--sp-checkbox-checked-bg-color-disable'?: string
 }
+
+export interface TagTheme {
+
+  /* tag base */
+  '--sp-tag-border'?: string
+  '--sp-tag-border-radius'?: string
+  '--sp-tag-padding'?: string
+  '--sp-tag-line-height'?: string
+  '--sp-tag-font-size'?: string
+
+  /* tag background */
+  '--sp-tag-bg-color'?: string
+  
+  /* tag text */
+  '--sp-tag-text-color'?: string
+}

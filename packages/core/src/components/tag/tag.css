@@ -1,0 +1,45 @@
+.sp-tag {
+  border: var(--sp-tag-border);
+  border-radius: var(--sp-tag-border-radius);
+  padding: var(--sp-tag-padding);
+  line-height: var(--sp-tag-line-height);
+  font-size: var(--sp-tag-font-size);
+  color: var(--sp-tag-text-color);
+  background-color: var(--sp-tag-bg-color);
+}
+
+.sp-tag.small {
+
+}
+
+.sp-tag.medium {
+  
+}
+
+.sp-tag.large {
+  
+}
+
+.sp-tag.light{
+
+}
+
+.sp-tag.jelly{
+
+}
+
+.sp-tag.fill{
+
+}
+
+.sp-tag.bordered{
+
+}
+
+.sp-tag.colorfulBordered{
+
+}
+
+.sp-tag-closable {
+
+}
