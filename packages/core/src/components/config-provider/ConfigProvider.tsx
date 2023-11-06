@@ -1,6 +1,11 @@
-import { createEffect, mergeProps } from 'solid-js'
-import { ConfigProviderProps } from './config-provider.props'
+import { createContext, useContext, createEffect, mergeProps } from 'solid-js'
+import { ConfigProviderProps, ConfigProviderValue } from './config-provider.props'
 import { getSystemTheme, getRootStyleRule, setRootStyleRule } from '../../theme'
+import { ComponentSize } from '../../types'
+
+const ConfigProviderContext = createContext<ConfigProviderValue>()
+
+export const useConfigProvider = () => useContext(ConfigProviderContext)
 
 export const ConfigProvider = (propsRaw: ConfigProviderProps) => {
   const props = mergeProps({}, propsRaw)
@@ -19,9 +24,13 @@ export const ConfigProvider = (propsRaw: ConfigProviderProps) => {
     }
   })
 
+  const providerValue: ConfigProviderValue = {
+    size: props.size as ComponentSize
+  }
+
   return (
-    <>
+    <ConfigProviderContext.Provider value={providerValue}>
       {props.children}
-    </>
+    </ConfigProviderContext.Provider>
   )
 }
