@@ -30,7 +30,8 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "rollup": "^4.2.0",
     "rollup-plugin-dts": "^6.1.0",
-    "solid-js": "^1.8.5"
+    "solid-js": "^1.8.5",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
