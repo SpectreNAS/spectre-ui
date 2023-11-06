@@ -24,34 +24,32 @@ export const buttonTheme: ButtonTheme = {
 }
 
 export const checkboxTheme: CheckboxTheme = {
+  '--sp-checkbox-size': '20px',
+  '--sp-checkbox-border-width': '2px',
+  '--sp-checkbox-border-style': 'solid',
+  '--sp-checkbox-border-radius': '2px',
 
   /* checkbox unchecked border */
-  '--sp-checkbox-unchecked-border-color': '#000',
-  '--sp-checkbox-unchecked-border-color-hover': '#000',
-  '--sp-checkbox-unchecked-border-color-active': '#000',
-  '--sp-checkbox-unchecked-border-color-disable': '#000',
+  '--sp-checkbox-border-color': 'var(--text-common-quaternary)',
+  '--sp-checkbox-border-color-hover': 'var(--text-brand-hover)',
+  '--sp-checkbox-border-color-active': 'var(--text-brand-active)',
+  '--sp-checkbox-border-color-disable': 'var(--text-common-disabled)',
 
-  /* checkbox half unchecked */
-  '--sp-checkbox-indeterminate-border-color': '#000',
-  '--sp-checkbox-indeterminate-border-color-hover': '#000',
-  '--sp-checkbox-indeterminate-border-color-active': '#000',
-  '--sp-checkbox-indeterminate-border-color-disable': '#000',
-
-  '--sp-checkbox-indeterminate-bg-color': '#000',
-  '--sp-checkbox-indeterminate-bg-color-hover': '#000',
-  '--sp-checkbox-indeterminate-bg-color-active': '#000',
-  '--sp-checkbox-indeterminate-bg-color-disable': '#000',
+  /* checkbox indeterminate */
+  '--sp-checkbox-indeterminate-size': '12px',
+  '--sp-checkbox-indeterminate-margin': '2px',
+  '--sp-checkbox-indeterminate-radius': '1px',
+  '--sp-checkbox-indeterminate-bg-color': 'var(--text-brand-default)',
+  '--sp-checkbox-indeterminate-bg-color-hover': 'var(--text-brand-hover)',
+  '--sp-checkbox-indeterminate-bg-color-active': 'var(--text-brand-active)',
+  '--sp-checkbox-indeterminate-bg-color-disable': 'var(--text-brand-disabled)',
 
   /* checkbox checked */
-  '--sp-checkbox-checked-text-color': '#000',
-
-  '--sp-checkbox-checked-border-color': '#000',
-  '--sp-checkbox-checked-border-color-hover': '#000',
-  '--sp-checkbox-checked-border-color-active': '#000',
-  '--sp-checkbox-checked-border-color-disable': '#000',
-
-  '--sp-checkbox-checked-bg-color': '#000',
-  '--sp-checkbox-checked-bg-color-hover': '#000',
-  '--sp-checkbox-checked-bg-color-active': '#000',
-  '--sp-checkbox-checked-bg-color-disable': '#000',
+  '--sp-checkbox-checked-size': '16px',
+  '--sp-checkbox-checked-margin': '2px',
+  '--sp-checkbox-checked-text-color': 'var(--text-static-primary)',
+  '--sp-checkbox-checked-bg-color': 'var(--text-brand-default)',
+  '--sp-checkbox-checked-bg-color-hover': 'var(--text-brand-hover)',
+  '--sp-checkbox-checked-bg-color-active': 'var(--text-brand-active)',
+  '--sp-checkbox-checked-bg-color-disable': 'var(--text-brand-disabled)',
 }

@@ -156,32 +156,30 @@ export interface ButtonTheme {
 }
 
 export interface CheckboxTheme {
+  '--sp-checkbox-size'?: string
+  '--sp-checkbox-border-width'?: string
+  '--sp-checkbox-border-style'?: string
+  '--sp-checkbox-border-radius'?: string
 
   /* checkbox unchecked border */
-  '--sp-checkbox-unchecked-border-color'?: string
-  '--sp-checkbox-unchecked-border-color-hover'?: string
-  '--sp-checkbox-unchecked-border-color-active'?: string
-  '--sp-checkbox-unchecked-border-color-disable'?: string
+  '--sp-checkbox-border-color'?: string
+  '--sp-checkbox-border-color-hover'?: string
+  '--sp-checkbox-border-color-active'?: string
+  '--sp-checkbox-border-color-disable'?: string
 
   /* checkbox half unchecked */
-  '--sp-checkbox-indeterminate-border-color'?: string
-  '--sp-checkbox-indeterminate-border-color-hover'?: string
-  '--sp-checkbox-indeterminate-border-color-active'?: string
-  '--sp-checkbox-indeterminate-border-color-disable'?: string
-
+  '--sp-checkbox-indeterminate-size'?: string
+  '--sp-checkbox-indeterminate-margin'?: string
+  '--sp-checkbox-indeterminate-radius'?: string
   '--sp-checkbox-indeterminate-bg-color'?: string
   '--sp-checkbox-indeterminate-bg-color-hover'?: string
   '--sp-checkbox-indeterminate-bg-color-active'?: string
   '--sp-checkbox-indeterminate-bg-color-disable'?: string
 
   /* checkbox checked */
+  '--sp-checkbox-checked-size'?: string
+  '--sp-checkbox-checked-margin'?: string
   '--sp-checkbox-checked-text-color'?: string
-
-  '--sp-checkbox-checked-border-color'?: string
-  '--sp-checkbox-checked-border-color-hover'?: string
-  '--sp-checkbox-checked-border-color-active'?: string
-  '--sp-checkbox-checked-border-color-disable'?: string
-
   '--sp-checkbox-checked-bg-color'?: string
   '--sp-checkbox-checked-bg-color-hover'?: string
   '--sp-checkbox-checked-bg-color-active'?: string
