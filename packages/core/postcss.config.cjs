@@ -6,5 +6,8 @@ module.exports = {
       path: [path.relative(process.cwd(), '../')],
     }),
     require('autoprefixer'),
+    require('cssnano')({
+      preset: 'default',
+    }),
   ],
 }
