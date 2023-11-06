@@ -1,3 +1,3 @@
-export type { ComponentColor, ComponentSize } from './types'
+export type { ComponentTheme, ComponentSize } from './types'
 
 export * from './components'
