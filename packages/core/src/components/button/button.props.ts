@@ -1,8 +1,8 @@
 import { ComponentSize } from '../../types'
 
-export type ButtonType = 'default' | 'light' | 'text'
+export type ButtonType = 'light' | 'text'
 
-export type ButtonColor = 'default' | 'primary' | 'success' | 'warn' | 'danger'
+export type ButtonColor = 'primary' | 'success' | 'warn' | 'danger'
 
 export interface ButtonProps {
   type?: ButtonType
