@@ -9,18 +9,18 @@
 }
 
 .sp-button:hover {
-  background-color: var(--sp-button-bg-color-hover);
-  color: var(--sp-button-text-color-hover);
+  --sp-button-bg-color: var(--sp-button-bg-color-hover);
+  --sp-button-text-color: var(--sp-button-text-color-hover);
 }
 
 .sp-button:active {
-  background-color: var(--sp-button-bg-color-active);
-  color: var(--sp-button-text-color-active);
+  --sp-button-bg-color: var(--sp-button-bg-color-active);
+  --sp-button-text-color: var(--sp-button-text-color-active);
 }
 
 .sp-button.disabled {
-  background-color: var(--sp-button-bg-color-disable);
-  color: var(--sp-button-text-color-disable);
+  --sp-button-bg-color: var(--sp-button-bg-color-disable);
+  --sp-button-text-color: var(--sp-button-text-color-disable);
 }
 
 .sp-button.small {
