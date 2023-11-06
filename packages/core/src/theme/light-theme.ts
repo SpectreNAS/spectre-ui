@@ -1,4 +1,4 @@
-import { BaseTheme } from './theme'
+import { BaseTheme } from './types'
 
 export const lightTheme: BaseTheme = {
   '--text-common-primary': 'rgba(51,51,51,1)',

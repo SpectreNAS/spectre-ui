@@ -1,4 +1,4 @@
-import { BaseTheme } from './theme'
+import { BaseTheme } from './types'
 
 export const darkTheme: BaseTheme = {
   '--text-common-primary': 'rgba(255,255,255,0.85)',

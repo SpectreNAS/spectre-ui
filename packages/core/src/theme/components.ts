@@ -1,4 +1,4 @@
-import { ButtonTheme, CheckboxTheme } from './theme'
+import { ButtonTheme, CheckboxTheme } from './types'
 
 export const buttonTheme: ButtonTheme = {
 
@@ -52,4 +52,9 @@ export const checkboxTheme: CheckboxTheme = {
   '--sp-checkbox-checked-bg-color-hover': 'var(--text-brand-hover)',
   '--sp-checkbox-checked-bg-color-active': 'var(--text-brand-active)',
   '--sp-checkbox-checked-bg-color-disable': 'var(--text-brand-disabled)',
+}
+
+export const componentsTheme = {
+  ...buttonTheme,
+  ...checkboxTheme,
 }
