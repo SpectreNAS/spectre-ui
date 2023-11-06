@@ -9,37 +9,34 @@
 }
 
 .sp-tag.small {
-
+  --sp-tag-border-radius: 2px;
+  --sp-tag-line-height: 16px;
+  --sp-tag-padding: 0px 6px;
 }
 
 .sp-tag.medium {
-  
+  --sp-tag-border-radius: 2px;
+  --sp-tag-padding: 1px 6px;
 }
 
 .sp-tag.large {
-  
+  --sp-tag-font-size: 13px;
+  --sp-tag-line-height: 20px;
+  --sp-tag-padding: 4px 8px;
 }
 
-.sp-tag.light{
-
+.sp-tag.light {
+  --sp-tag-border:none;
+  --sp-tag-text-color:var(--text-common-primary);
+  --sp-tag-bg-color:var(--bg-brand-light-default);
 }
 
-.sp-tag.jelly{
+.sp-tag.jelly {}
 
-}
+.sp-tag.fill {}
 
-.sp-tag.fill{
+.sp-tag.bordered {}
 
-}
+.sp-tag.colorfulBordered {}
 
-.sp-tag.bordered{
-
-}
-
-.sp-tag.colorfulBordered{
-
-}
-
-.sp-tag-closable {
-
-}
+.sp-tag-closable {}
