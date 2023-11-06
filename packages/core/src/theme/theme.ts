@@ -1,5 +1,6 @@
 import { darkTheme } from './dark-theme'
 import { lightTheme } from './light-theme'
+import { buttonTheme, checkboxTheme } from './components'
 
 export type SystemThemeType = 'light' | 'dark'
 
@@ -8,8 +9,59 @@ export interface Theme extends BaseTheme, ButtonTheme, CheckboxTheme {
 }
 
 export interface BaseTheme {
-
-  /* background */
+  '--text-common-primary'?: string
+  '--text-common-secondary'?: string
+  '--text-common-tertiary'?: string
+  '--text-common-quaternary'?: string
+  '--text-common-disabled'?: string
+  '--text-brand-default'?: string
+  '--text-brand-hover'?: string
+  '--text-brand-active'?: string
+  '--text-brand-disabled'?: string
+  '--text-danger-default'?: string
+  '--text-danger-hover'?: string
+  '--text-danger-active'?: string
+  '--text-danger-disabled'?: string
+  '--text-success-default'?: string
+  '--text-success-hover'?: string
+  '--text-success-active'?: string
+  '--text-success-disabled'?: string
+  '--text-warn-default'?: string
+  '--text-warn-hover'?: string
+  '--text-warn-active'?: string
+  '--text-warn-disabled'?: string
+  '--text-link-default'?: string
+  '--text-link-hover'?: string
+  '--text-link-active'?: string
+  '--text-link-visted'?: string
+  '--text-link-disabled'?: string
+  '--text-static-primary'?: string
+  '--text-static-secondary'?: string
+  '--text-static-tertiary'?: string
+  '--text-static-disabled'?: string
+  '--text-reverse-default'?: string
+  '--bg-common-lower'?: string
+  '--bg-common-default'?: string
+  '--bg-common-high'?: string
+  '--bg-common-highest'?: string
+  '--bg-bgless-hover'?: string
+  '--bg-bgless-active'?: string
+  '--bg-controls-default'?: string
+  '--bg-controls-hover'?: string
+  '--bg-controls-active'?: string
+  '--bg-controls-disabled'?: string
+  '--bg-controls-elevate-default'?: string
+  '--bg-controls-elevate-high'?: string
+  '--bg-controls-degrade-default'?: string
+  '--bg-controls-degrade-high'?: string
+  '--bg-tag-default'?: string
+  '--bg-tag-hover'?: string
+  '--bg-tag-active'?: string
+  '--bg-tag-disabled'?: string
+  '--bg-scrollbar-default'?: string
+  '--bg-scrollbar-hover'?: string
+  '--bg-scrollbar-active'?: string
+  '--bg-mask-default'?: string
   '--bg-brand-default'?: string
   '--bg-brand-hover'?: string
   '--bg-brand-active'?: string
@@ -18,25 +70,6 @@ export interface BaseTheme {
   '--bg-brand-light-hover'?: string
   '--bg-brand-light-active'?: string
   '--bg-brand-light-disabled'?: string
-
-  '--bg-success-default'?: string
-  '--bg-success-hover'?: string
-  '--bg-success-active'?: string
-  '--bg-success-disabled'?: string
-  '--bg-success-light-default'?: string
-  '--bg-success-light-hover'?: string
-  '--bg-success-light-active'?: string
-  '--bg-success-light-disabled'?: string
-
-  '--bg-warn-default'?: string
-  '--bg-warn-hover'?: string
-  '--bg-warn-active'?: string
-  '--bg-warn-disabled'?: string
-  '--bg-warn-light-default'?: string
-  '--bg-warn-light-hover'?: string
-  '--bg-warn-light-active'?: string
-  '--bg-warn-light-disabled'?: string
-
   '--bg-danger-default'?: string
   '--bg-danger-hover'?: string
   '--bg-danger-active'?: string
@@ -45,41 +78,59 @@ export interface BaseTheme {
   '--bg-danger-light-hover'?: string
   '--bg-danger-light-active'?: string
   '--bg-danger-light-disabled'?: string
-
-  '--bg-controls-default'?: string
-  '--bg-controls-hover'?: string
-  '--bg-controls-active'?: string
-  '--bg-controls-disabled'?: string
-
-  /* text */
-  '--text-static-primary'?: string
-  '--text-static-disabled'?: string
-
-  '--text-common-primary'?: string
-  '--text-common-secondary'?: string
-  '--text-common-tertiary'?: string
-  '--text-common-quaternary'?: string
-  '--text-common-disabled'?: string
-
-  '--text-brand-default'?: string
-  '--text-brand-hover'?: string
-  '--text-brand-active'?: string
-  '--text-brand-disabled'?: string
-
-  '--text-danger-default'?: string
-  '--text-danger-hover'?: string
-  '--text-danger-active'?: string
-  '--text-danger-disabled'?: string
-
-  '--text-success-default'?: string
-  '--text-success-hover'?: string
-  '--text-success-active'?: string
-  '--text-success-disabled'?: string
-
-  '--text-warn-default'?: string
-  '--text-warn-hover'?: string
-  '--text-warn-active'?: string
-  '--text-warn-disabled'?: string
+  '--bg-success-default'?: string
+  '--bg-success-hover'?: string
+  '--bg-success-active'?: string
+  '--bg-success-disabled'?: string
+  '--bg-success-light-default'?: string
+  '--bg-success-light-hover'?: string
+  '--bg-success-light-active'?: string
+  '--bg-success-light-disabled'?: string
+  '--bg-warn-default'?: string
+  '--bg-warn-hover'?: string
+  '--bg-warn-active'?: string
+  '--bg-warn-disabled'?: string
+  '--bg-warn-light-default'?: string
+  '--bg-warn-light-hover'?: string
+  '--bg-warn-light-active'?: string
+  '--bg-warn-light-disabled'?: string
+  '--bg-static-light'?: string
+  '--bg-static-dark-low'?: string
+  '--bg-static-dark-default'?: string
+  '--bg-static-dark-high'?: string
+  '--bg-reverse-default'?: string
+  '--bg-gradient-horizontal'?: string
+  '--bg-gradient-vertical'?: string
+  '--border-common-default'?: string
+  '--border-common-hover'?: string
+  '--border-common-active'?: string
+  '--border-common-disabled'?: string
+  '--border-grid-vertical'?: string
+  '--border-grid-horizontal'?: string
+  '--border-brand-default'?: string
+  '--border-brand-hover'?: string
+  '--border-brand-active'?: string
+  '--border-brand-disabled'?: string
+  '--border-onbrand-default'?: string
+  '--border-onbrand-light'?: string
+  '--border-danger-default'?: string
+  '--border-danger-hover'?: string
+  '--border-danger-active'?: string
+  '--border-danger-disabled'?: string
+  '--border-ondanger-default'?: string
+  '--border-ondanger-light'?: string
+  '--border-success-default'?: string
+  '--border-success-hover'?: string
+  '--border-success-active'?: string
+  '--border-success-disabled'?: string
+  '--border-onsuccess-default'?: string
+  '--border-onsuccess-light'?: string
+  '--border-warn-default'?: string
+  '--border-warn-hover'?: string
+  '--border-warn-active'?: string
+  '--border-warn-disabled'?: string
+  '--border-onwarn-default'?: string
+  '--border-onwarn-light'?: string
 }
 
 export interface ButtonTheme {
@@ -141,10 +192,10 @@ export function getSystemTheme(type?: SystemThemeType): Theme {
   if (!type) {
     type = getSystemThemeType()
   }
-  return type === 'dark' ? darkTheme : lightTheme
+  return { ...(type === 'dark' ? darkTheme : lightTheme), ...buttonTheme, ...checkboxTheme }
 }
 
-export function getSystemThemeType() {
+export function getSystemThemeType(): SystemThemeType {
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     return 'dark'
   }
