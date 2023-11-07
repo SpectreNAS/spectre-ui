@@ -1,9 +1,10 @@
-import { ComponentSize, ValueChanged, ComponentProps } from '../../types'
+import { ComponentProps } from '../../types'
 
-export interface CascadeSelectPanel extends ComponentProps<HTMLDivElement> {
-  value?: boolean
-  indeterminate?: boolean
-  size?: ComponentSize
-  change?: ValueChanged<boolean>
+export interface CascadeSelectPanelProps extends ComponentProps<HTMLDivElement> {
+  
+}
+
+export interface CascadeSelectProps extends CascadeSelectPanelProps {
+  
 }
 
