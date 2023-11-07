@@ -1,6 +1,6 @@
 import { ComponentSize, ComponentColor, ComponentParentProps } from '../../types'
 
-export type TagType = 'light' | 'jelly' | 'fill' | 'bordered' | 'colorfulBordered'
+export type TagType = 'fill' | 'bordered'
 
 export interface TagProps extends ComponentParentProps<HTMLSpanElement> {
   type?: TagType

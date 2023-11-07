@@ -9,6 +9,7 @@ export const Tag = (propsRaw: TagProps) => {
   const tagClasses = () => mergeClasses([
     'sp-tag',
     props.type ?? '',
+    props.round ? 'round' : '',
     props.size ?? '',
     props.color ?? '',
   ])
@@ -17,7 +18,9 @@ export const Tag = (propsRaw: TagProps) => {
     <span class={tagClasses()}>
       {props.children}
       <Show when={props.closable}>
-        <CloseFilled></CloseFilled>
+        <div class='sp-tag-closable'>
+          <CloseFilled></CloseFilled>
+        </div>
       </Show>
     </span>
   )

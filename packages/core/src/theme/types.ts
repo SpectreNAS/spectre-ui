@@ -185,7 +185,9 @@ export interface CheckboxTheme {
 export interface TagTheme {
 
   /* tag base */
-  '--sp-tag-border'?: string
+  '--sp-tag-border-width'?: string
+  '--sp-tag-border-style'?: string
+  '--sp-tag-border-color'?: string
   '--sp-tag-border-radius'?: string
   '--sp-tag-padding'?: string
   '--sp-tag-line-height'?: string
@@ -196,4 +198,9 @@ export interface TagTheme {
   
   /* tag text */
   '--sp-tag-text-color'?: string
+
+  /* tag close */
+  '--sp-tag-closable-size'?: string
+  '--sp-tag-closable-border-radius'?: string
+  '--sp-tag-closable-bg-color'?: string
 }

@@ -57,7 +57,9 @@ export const checkboxTheme: CheckboxTheme = {
 export const tagTheme: TagTheme = {
 
   /* tag base */
-  '--sp-tag-border': '1px solid var(--border-common-default)',
+  '--sp-tag-border-width': '1px',
+  '--sp-tag-border-style': 'solid',
+  '--sp-tag-border-color': 'var(--border-common-default)',
   '--sp-tag-border-radius': '4px',
   '--sp-tag-padding': '3px 8px',
   '--sp-tag-line-height': '18px',
@@ -68,6 +70,11 @@ export const tagTheme: TagTheme = {
     
   /* tag text */
   '--sp-tag-text-color': 'var(--text-common-primary)',
+
+  /* tag closable */
+  '--sp-tag-closable-size': '16px',
+  '--sp-tag-closable-border-radius': '2px',
+  '--sp-tag-closable-bg-color': 'none',
 }
 
 export const componentsTheme = {
