@@ -1,6 +1,6 @@
-import { ComponentSize, ValueChanged } from '../../types'
+import { ComponentSize, ValueChanged, ComponentParentProps } from '../../types'
 
-export interface CheckboxProps {
+export interface CheckboxProps extends ComponentParentProps<HTMLSpanElement> {
   value?: boolean
   indeterminate?: boolean
   size?: ComponentSize
