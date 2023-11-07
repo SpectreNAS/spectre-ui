@@ -13,5 +13,5 @@ export const Button = (propsRaw: ButtonProps) => {
     props.round ? 'round' : ''
   ])
 
-  return <button class={buttonClasses()}>Button</button>
+  return <button class={buttonClasses()}>{props.children}</button>
 }

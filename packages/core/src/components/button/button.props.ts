@@ -1,8 +1,8 @@
-import { ComponentSize, ComponentColor } from '../../types'
+import { ComponentSize, ComponentColor, ComponentParentProps } from '../../types'
 
 export type ButtonType = 'light' | 'text'
 
-export interface ButtonProps {
+export interface ButtonProps extends ComponentParentProps<HTMLSpanElement> {
   type?: ButtonType
   color?: ComponentColor
   size?: ComponentSize
