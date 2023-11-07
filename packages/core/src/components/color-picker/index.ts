@@ -1,2 +1,2 @@
-export { ColorPicker } from './ColorPicker'
+export { ColorPicker as SpColorPicker } from './ColorPicker'
 export type { ColorPickerProps } from './color-picker.props'
