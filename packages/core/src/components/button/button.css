@@ -9,13 +9,13 @@
 }
 
 .sp-button:hover {
-  --sp-button-bg-color: var(--sp-button-bg-color-hover);
-  --sp-button-text-color: var(--sp-button-text-color-hover);
+  --sp-button-bg-color: var(--sp-button-bg-color-hover) !important;
+  --sp-button-text-color: var(--sp-button-text-color-hover) !important;
 }
 
 .sp-button:active {
-  --sp-button-bg-color: var(--sp-button-bg-color-active);
-  --sp-button-text-color: var(--sp-button-text-color-active);
+  --sp-button-bg-color: var(--sp-button-bg-color-active) !important;
+  --sp-button-text-color: var(--sp-button-text-color-active) !important;
 }
 
 .sp-button.disabled {
