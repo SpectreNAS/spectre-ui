@@ -1,3 +1,10 @@
 :root {
-  
+  --sp-font-style: normal;
+  --sp-font-family: Arial, sans-serif;
+  --sp-text-base-1: var(--sp-font-style) 400 16px/24px var(--sp-font-family);
+  --sp-text-base-2: var(--sp-font-style) 400 14px/22px var(--sp-font-family);
+  --sp-text-base-3: var(--sp-font-style) 400 13px/20px var(--sp-font-family);
+  --sp-text-base-4: var(--sp-font-style) 400 12px/18px var(--sp-font-family);
+  --sp-text-base-5: var(--sp-font-style) 400 10px/14px var(--sp-font-family);
+  font: var(--sp-text-base-1);
 }
