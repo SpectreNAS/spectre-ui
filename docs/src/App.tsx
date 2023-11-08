@@ -1,4 +1,4 @@
-import { SpCheckbox, SpConfigProvider, SpButton, SpTag } from '@spectre-ui/core'
+import { SpCheckbox, SpConfigProvider, SpButton, SpTag, SpPagination, SpIconButton } from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
 
 function App() {
@@ -26,6 +26,9 @@ function App() {
           <SpTag round size='medium' closable>Tag</SpTag>
           <SpTag closable round>Tag</SpTag>
           <SpTag size='large' round color='danger' closable>Tag</SpTag>
+        </div>
+        <div>
+          <SpPagination total={100}></SpPagination>
         </div>
       </SpConfigProvider>
 
