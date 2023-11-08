@@ -231,3 +231,21 @@
   --sp-button-text-color-active: var(--text-danger-active);
   --sp-button-text-color-disable: var(--text-danger-disabled);
 }
+
+.sp-button.icon {
+  display: flex;
+  --sp-button-font-size: var(--sp-button-line-height);
+  --sp-button-padding: 9px;
+}
+
+.sp-button.icon.small {
+  --sp-button-padding: 3px;
+}
+
+.sp-button.icon.medium {
+  --sp-button-padding: 6px;
+}
+
+.sp-button.icon.large {
+  --sp-button-padding: 12px;
+}
