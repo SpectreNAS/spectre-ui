@@ -1,0 +1,1 @@
+export { Tabs as SpTabs } from './Tabs'

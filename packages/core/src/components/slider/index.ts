@@ -1,0 +1,1 @@
+export { Slider as SpSlider } from './Slider'

@@ -1,0 +1,1 @@
+export { Progress as SpProgress } from './Progress'

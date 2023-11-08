@@ -1,0 +1,1 @@
+export { Table as SpTable } from './Table'

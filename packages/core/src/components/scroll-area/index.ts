@@ -1,0 +1,1 @@
+export { ScrollArea as SpScrollArea } from './ScrollArea'

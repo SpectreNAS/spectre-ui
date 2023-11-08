@@ -1,0 +1,1 @@
+export { Dialog as SpDialog } from './Dialog'

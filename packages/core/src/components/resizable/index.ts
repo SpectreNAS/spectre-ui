@@ -1,0 +1,1 @@
+export { Resizable as SpResizable } from './Resizable'

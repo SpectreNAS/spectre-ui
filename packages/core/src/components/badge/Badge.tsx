@@ -1,5 +1,5 @@
 
 export const Badge = () => {
 
-  return
+  return <sup></sup>
 }

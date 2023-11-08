@@ -1,5 +1,5 @@
 
 export const ColorPicker = () => {
 
-  return
+  return <div></div>
 }

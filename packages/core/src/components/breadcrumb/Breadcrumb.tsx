@@ -1,5 +1,7 @@
 
 export const Breadcrumb = () => {
 
-  return
+  return (
+    <div></div>
+  )
 }

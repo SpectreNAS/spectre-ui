@@ -1,0 +1,1 @@
+export { VirtualScrollArea as SpVirtualScrollArea } from './VirtualScrollArea'

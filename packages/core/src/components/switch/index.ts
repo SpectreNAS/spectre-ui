@@ -1,0 +1,1 @@
+export { Switch as SpSwitch } from './Switch'
