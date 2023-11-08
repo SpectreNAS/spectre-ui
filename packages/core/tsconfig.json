@@ -9,8 +9,16 @@
     "jsxImportSource": "solid-js",
     "isolatedModules": true,
     "skipLibCheck": true,
-    "noEmit": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "outDir": "./dist",
+    "declaration": true
+  },
+  "watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriority",
+    "synchronousWatchDirectory": true,
+    "excludeDirectories": ["**/node_modules", "dist"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]
