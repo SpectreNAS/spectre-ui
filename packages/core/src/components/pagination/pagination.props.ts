@@ -14,6 +14,9 @@ export interface PaginationProps extends ComponentProps<HTMLDivElement> {
   //颜色
   color?: ComponentColor
 
+  //半圆按钮
+  round?: boolean
+
   //当前分页
   currentPage?: number
 
