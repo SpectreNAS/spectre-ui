@@ -1,4 +1,5 @@
-import { ComponentSize, ComponentProps } from '../../types'
+import { ComponentSize, ComponentColor, ComponentProps } from '../../types'
+import { ButtonType } from '../button'
 import { JSX, mergeProps, splitProps } from 'solid-js'
 import { customEventHandlersName } from '../../events'
 
@@ -6,6 +7,12 @@ export interface PaginationProps extends ComponentProps<HTMLDivElement> {
   
   //大小
   size?: ComponentSize
+
+  //按钮类型
+  type?: ButtonType
+
+  //颜色
+  color?: ComponentColor
 
   //当前分页
   currentPage?: number

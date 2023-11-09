@@ -28,6 +28,11 @@ export const Pagination = (propsRaw: PaginationProps) => {
     props.size ?? '',
   ])
 
+  const paginationBtnClasses = (index: number) => mergeClasses([
+    'sp-pagination-btn',
+    currentPage() === index ? 'active' : ''
+  ])
+
   createEffect(() => {
     if (props.total <= 0) {
       return
@@ -81,7 +86,7 @@ export const Pagination = (propsRaw: PaginationProps) => {
     <Show when={showPagination()}>
       <div class={paginationClasses()} {...eventHandlers}>
         <Show when={props.prev}>
-          <SpButton type='text' onClick={onPrevPage}>
+          <SpButton class='sp-pagination-btn' color={props.color} type={props.type} onClick={onPrevPage}>
             <PrevPage />
           </SpButton>
         </Show>
@@ -89,19 +94,23 @@ export const Pagination = (propsRaw: PaginationProps) => {
           {
             (item) => {
               if (item.isQuickPrev) {
-                return <SpIconButton type='text' onClick={onQuickPrePage}><QuickPrePage /></SpIconButton>
+                return <SpIconButton class='sp-pagination-btn' type={props.type} color={props.color} onClick={onQuickPrePage}><QuickPrePage /></SpIconButton>
               }
               if (item.isQuickNext) {
-                return <SpIconButton type='text' onClick={onQuickNextPage}><QuickNextPage /></SpIconButton>
+                return <SpIconButton class='sp-pagination-btn' type={props.type} color={props.color} onClick={onQuickNextPage}><QuickNextPage /></SpIconButton>
               }
               if (item.page !== undefined) {
-                return <SpButton type='text' onClick={[onCurrentPage, item.page]}><Pager page={item.page} /></SpButton>
+                return (
+                  <SpButton class={paginationBtnClasses(item.page)} type={props.type} color={props.color} onClick={[onCurrentPage, item.page]}>
+                    <Pager page={item.page} />
+                  </SpButton>
+                )
               }
             }
           }
         </For>
         <Show when={props.next}>
-          <SpButton onClick={onNextPage}>
+          <SpButton class='sp-pagination-btn' type={props.type} color={props.color} onClick={onNextPage}>
             <NextPage />
           </SpButton>
         </Show>

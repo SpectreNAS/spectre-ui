@@ -1,3 +1,22 @@
 .sp-pagination {
   display: flex;
 }
+
+.sp-pagination-btn:not(:last-child) {
+  margin-right: 4px;
+}
+
+.sp-pagination-btn.active {
+  --sp-button-text-color: var(--sp-button-text-color-active);
+  --sp-button-bg-color: var(--sp-button-bg-color-active)
+}
+
+.sp-pagination-btn.light.active {
+  --sp-button-text-color: var(--sp-button-text-color-active);
+  --sp-button-bg-color: var(--sp-button-bg-color-active)
+}
+
+.sp-pagination-btn.text.active {
+  --sp-button-text-color: var(--sp-button-text-color-active);
+  --sp-button-bg-color: var(--sp-button-bg-color-active)
+}
