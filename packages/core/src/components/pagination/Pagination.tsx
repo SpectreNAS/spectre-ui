@@ -92,7 +92,7 @@ export const Pagination = (propsRaw: PaginationProps) => {
         {...eventHandlers}
       >
         <Show when={props.prev}>
-          <SpButton
+          <SpIconButton
             class='sp-pagination-btn'
             color={props.color}
             type={props.type}
@@ -101,7 +101,7 @@ export const Pagination = (propsRaw: PaginationProps) => {
             onClick={onPrevPage}
           >
             <PrevPage />
-          </SpButton>
+          </SpIconButton>
         </Show>
         <For each={pagers()}>
           {
@@ -149,7 +149,7 @@ export const Pagination = (propsRaw: PaginationProps) => {
           }
         </For>
         <Show when={props.next}>
-          <SpButton
+          <SpIconButton
             class='sp-pagination-btn'
             type={props.type}
             color={props.color}
@@ -158,7 +158,7 @@ export const Pagination = (propsRaw: PaginationProps) => {
             onClick={onNextPage}
           >
             <NextPage />
-          </SpButton>
+          </SpIconButton>
         </Show>
       </div>
     </Show>
