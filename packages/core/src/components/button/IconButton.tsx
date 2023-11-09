@@ -1,6 +1,8 @@
 import { ButtonProps } from './button.props'
 import { Button } from './Button'
+import { mergeClasses } from '../../utils'
 
 export const IconButton = (propsRaw: ButtonProps) => {
-  return <Button {...propsRaw} class='icon'></Button>
+  const iconClasses = () => mergeClasses(['icon', propsRaw.class ?? ''])
+  return <Button {...propsRaw} class={iconClasses()}></Button>
 }
