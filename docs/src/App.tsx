@@ -1,4 +1,4 @@
-import { SpCheckbox, SpConfigProvider, SpButton, SpTag, SpPagination, SpAlert } from '@spectre-ui/core'
+import { SpCheckbox, SpConfigProvider, SpButton, SpTag, SpPagination, SpAlert, SpBadge } from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
           <SpAlert icon title='info alert' description='info alert desc' light></SpAlert>
         </div>
       </SpConfigProvider>
-
+      <SpBadge></SpBadge>
     </div>
   )
 }
