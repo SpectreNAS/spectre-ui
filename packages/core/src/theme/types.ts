@@ -129,6 +129,19 @@ export interface BaseTheme {
   '--border-onwarn-light'?: string
 }
 
+export interface AlertTheme {
+  '--sp-alert-padding'?: string
+  '--sp-alert-border-width'?: string
+  '--sp-alert-border-style'?: string
+  '--sp-alert-border-color'?: string
+  '--sp-alert-border-radius'?: string
+  '--sp-alert-bg-color'?: string
+  '--sp-alert-text-color'?: string
+
+  '--sp-alert-title-font'?: string
+  '--sp-alert-description-font'?: string
+}
+
 export interface ButtonTheme {
 
   /*button base*/

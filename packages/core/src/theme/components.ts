@@ -1,4 +1,17 @@
-import { ButtonTheme, CheckboxTheme, TagTheme } from './types'
+import { AlertTheme, ButtonTheme, CheckboxTheme, TagTheme } from './types'
+
+export const alertTheme: AlertTheme = {
+  '--sp-alert-padding': '8px 16px',
+  '--sp-alert-border-width': 'none',
+  '--sp-alert-border-style': 'none',
+  '--sp-alert-border-color': 'none',
+  '--sp-alert-border-radius': '4px',
+  '--sp-alert-bg-color': 'var(--bg-brand-default)',
+  '--sp-alert-text-color': 'var(--text-static-primary)',
+
+  '--sp-alert-title-font': 'var(--sp-text-b2)',
+  '--sp-alert-description-font': 'var(--sp-text-b4)',
+}
 
 export const buttonTheme: ButtonTheme = {
 
@@ -78,6 +91,7 @@ export const tagTheme: TagTheme = {
 }
 
 export const componentsTheme = {
+  ...alertTheme,
   ...buttonTheme,
   ...checkboxTheme,
   ...tagTheme,
