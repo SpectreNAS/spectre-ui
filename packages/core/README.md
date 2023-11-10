@@ -9,10 +9,9 @@
 ### 静态组件
 
 - [x] Alert 提示
-- [ ] Anchor 锚点
 - [x] Badge 徽章
 - [x] Button 按钮
-- [ ] Link 链接
+- [x] Link 链接
 - [x] Tag 标签
 
 ### 表单组件
