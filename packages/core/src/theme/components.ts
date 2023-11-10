@@ -1,4 +1,4 @@
-import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, TagTheme } from './types'
+import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, LinkTheme, TagTheme } from './types'
 
 export const alertTheme: AlertTheme = {
   '--sp-alert-padding': '8px 16px',
@@ -77,6 +77,17 @@ export const checkboxTheme: CheckboxTheme = {
   '--sp-checkbox-checked-bg-color-disable': 'var(--text-brand-disabled)',
 }
 
+export const linkTheme: LinkTheme = {
+  '--sp-link-text-color': 'var(--text-common-primary)',
+  '--sp-link-text-color-hover': 'var(--text-brand-hover)',
+  '--sp-link-text-color-active': 'var(--text-brand-active)',
+  '--sp-link-underline-width': '1px',
+  '--sp-link-underline-style': 'solid',
+  '--sp-link-underline-color': 'var(--border-brand-default)',
+  '--sp-link-underline-color-hover': 'var(--border-brand-hover)',
+  '--sp-link-underline-color-active': 'var(--border-brand-active)',
+}
+
 export const tagTheme: TagTheme = {
 
   /* tag base */
@@ -105,5 +116,6 @@ export const componentsTheme = {
   ...badgeTheme,
   ...buttonTheme,
   ...checkboxTheme,
+  ...linkTheme,
   ...tagTheme,
 }

@@ -205,6 +205,18 @@ export interface CheckboxTheme {
   '--sp-checkbox-checked-bg-color-disable'?: string
 }
 
+export interface LinkTheme {
+  '--sp-link-text-color'?: string
+  '--sp-link-text-color-hover'?: string
+  '--sp-link-text-color-active'?: string
+  
+  '--sp-link-underline-width'?: string
+  '--sp-link-underline-style'?: string
+  '--sp-link-underline-color'?: string
+  '--sp-link-underline-color-hover'?: string
+  '--sp-link-underline-color-active'?: string
+}
+
 export interface TagTheme {
 
   /* tag base */

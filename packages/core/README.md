@@ -8,9 +8,9 @@
 
 ### 静态组件
 
-- [ ] Alert 提示
+- [x] Alert 提示
 - [ ] Anchor 锚点
-- [ ] Badge 徽章
+- [x] Badge 徽章
 - [x] Button 按钮
 - [ ] Link 链接
 - [x] Tag 标签
@@ -40,7 +40,7 @@
 ### 数据组件
 
 - [ ] Table 表格
-- [ ] Pagination 分页
+- [x] Pagination 分页
 
 ### 导航组件
 

@@ -1,2 +1,84 @@
 .sp-link {
+  position: relative;
+  text-decoration: none;
+  color: var(--sp-link-text-color);
+}
+
+.sp-link:hover {
+  --sp-link-text-color: var(--sp-link-text-color-hover) !important;
+}
+
+.sp-link:active {
+  --sp-link-text-color: var(--sp-link-text-color-active) !important;
+}
+
+.sp-link.is-underline.always:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  bottom: 0;
+  border-bottom-width: var(--sp-link-underline-width);
+  border-bottom-style: var(--sp-link-underline-style);
+  border-bottom-color: var(--sp-link-underline-color);
+}
+
+.sp-link.is-underline:hover:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  bottom: 0;
+  border-bottom-width: var(--sp-link-underline-width);
+  border-bottom-style: var(--sp-link-underline-style);
+  border-bottom-color: var(--sp-link-underline-color-hover);
+}
+
+.sp-link.is-underline:active:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  bottom: 0;
+  border-bottom-width: var(--sp-link-underline-width);
+  border-bottom-style: var(--sp-link-underline-style);
+  border-bottom-color: var(--sp-link-underline-color-active);
+}
+
+.sp-link.primary {
+  --sp-link-text-color: var(--text-brand-default);
+  --sp-link-text-color-hover: var(--text-brand-hover);
+  --sp-link-text-color-active: var(--text-brand-active);
+  --sp-link-underline-color-hover: var(--border-brand-hover);
+  --sp-link-underline-color-active: var(--border-brand-active);
+}
+
+.sp-link.success {
+  --sp-link-text-color: var(--text-success-default);
+  --sp-link-text-color-hover: var(--text-success-hover);
+  --sp-link-text-color-active: var(--text-success-active);
+  --sp-link-underline-color: var(--text-success-default);
+  --sp-link-underline-color-hover: var(--border-success-hover);
+  --sp-link-underline-color-active: var(--border-success-active);
+}
+
+.sp-link.warn {
+  --sp-link-text-color: var(--text-warn-default);
+  --sp-link-text-color-hover: var(--text-warn-hover);
+  --sp-link-text-color-active: var(--text-warn-active);
+  --sp-link-underline-color: var(--text-warn-default);
+  --sp-link-underline-color-hover: var(--border-warn-hover);
+  --sp-link-underline-color-active: var(--border-warn-active);
+}
+
+.sp-link.danger {
+  --sp-link-text-color: var(--text-danger-default);
+  --sp-link-text-color-hover: var(--text-danger-hover);
+  --sp-link-text-color-active: var(--text-danger-active);
+  --sp-link-underline-color: var(--text-danger-default);
+  --sp-link-underline-color-hover: var(--border-danger-hover);
+  --sp-link-underline-color-active: var(--border-danger-active);
 }
