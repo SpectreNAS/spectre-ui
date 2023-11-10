@@ -1,5 +1,6 @@
 import { BadgeProps, generateProps } from './badge.props'
 import { mergeClasses } from '../../utils'
+import { Show } from 'solid-js'
 
 export const Badge = (propsRaw: BadgeProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
@@ -7,6 +8,20 @@ export const Badge = (propsRaw: BadgeProps) => {
     'sp-badge',
     props.class ?? ''
   ])
+
+  const contentClasses = () => mergeClasses([
+    'sp-badge-content',
+    props.light ? 'light' : '',
+    props.color ?? '',
+    props.dot ? 'dot' : ''
+  ])
+
+  const value = () => {
+    if (typeof props.value === 'number') {
+      return props.value > props.max ? `${props.max}+` : props.value
+    }
+    return props.value
+  }
 
   return (
     <div
@@ -16,8 +31,12 @@ export const Badge = (propsRaw: BadgeProps) => {
       ref={props.ref}
       {...eventHandlers}
     >
-      <div></div>
       {props.children}
+      <Show when={!props.hidden}>
+        <div class={contentClasses()}>
+          <Show when={!props.dot}>{value()}</Show>
+        </div>
+      </Show>
     </div>
   )
 }

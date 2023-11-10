@@ -1,4 +1,4 @@
-import { AlertTheme, ButtonTheme, CheckboxTheme, TagTheme } from './types'
+import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, TagTheme } from './types'
 
 export const alertTheme: AlertTheme = {
   '--sp-alert-padding': '8px 16px',
@@ -11,6 +11,16 @@ export const alertTheme: AlertTheme = {
 
   '--sp-alert-title-font': 'var(--sp-text-b2)',
   '--sp-alert-description-font': 'var(--sp-text-b4)',
+}
+
+export const badgeTheme: BadgeTheme = {
+  '--sp-badge-padding': '0px 6px',
+  '--sp-badge-radius': '10px',
+  '--sp-badge-font': 'var(--sp-text-b4)',
+  '--sp-badge-bg-color': 'var(--bg-brand-default)',
+  '--sp-badge-text-color': 'var(--text-static-primary)',
+  '--sp-badge-size': '18px',
+  '--sp-badge-dot-size': '8px',
 }
 
 export const buttonTheme: ButtonTheme = {
@@ -92,6 +102,7 @@ export const tagTheme: TagTheme = {
 
 export const componentsTheme = {
   ...alertTheme,
+  ...badgeTheme,
   ...buttonTheme,
   ...checkboxTheme,
   ...tagTheme,

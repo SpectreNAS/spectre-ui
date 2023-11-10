@@ -142,6 +142,16 @@ export interface AlertTheme {
   '--sp-alert-description-font'?: string
 }
 
+export interface BadgeTheme {
+  '--sp-badge-padding'?: string
+  '--sp-badge-radius'?: string
+  '--sp-badge-font'?: string
+  '--sp-badge-bg-color'?: string
+  '--sp-badge-text-color'?: string
+  '--sp-badge-size'?: string
+  '--sp-badge-dot-size'?: string
+}
+
 export interface ButtonTheme {
 
   /*button base*/

@@ -1,2 +1,59 @@
-.sp-anchor {
+.sp-badge {
+  position: relative;
+  display: inline-flex;
+}
+
+.sp-badge-content {
+  position: absolute;
+  top: 0;
+  right: calc(var(--sp-badge-size)/2);
+  transform: translateY(-50%) translate(100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  height: var(--sp-badge-size);
+  font: var(--sp-badge-font);
+  padding: var(--sp-badge-padding);
+  border-radius: var(--sp-badge-radius);
+  background-color: var(--sp-badge-bg-color);
+  color: var(--sp-badge-text-color);
+}
+
+.sp-badge-content.success {
+  --sp-badge-bg-color: var(--bg-success-default);
+}
+
+.sp-badge-content.warn {
+  --sp-badge-bg-color: var(--bg-warn-default);
+}
+
+.sp-badge-content.danger {
+  --sp-badge-bg-color: var(--bg-danger-default);
+}
+
+.sp-badge-content.light {
+  --sp-badge-bg-color: var(--bg-brand-light-default);
+  --sp-badge-text-color: var(--text-brand-default);
+}
+
+.sp-badge-content.light.success {
+  --sp-badge-bg-color: var(--bg-success-light-default);
+  --sp-badge-text-color: var(--text-success-default);
+}
+
+.sp-badge-content.light.warn {
+  --sp-badge-bg-color: var(--bg-warn-light-default);
+  --sp-badge-text-color: var(--text-warn-default);
+}
+
+.sp-badge-content.light.danger {
+  --sp-badge-bg-color: var(--bg-danger-light-default);
+  --sp-badge-text-color: var(--text-danger-default);
+}
+
+.sp-badge-content.dot {
+  width: var(--sp-badge-dot-size);
+  --sp-badge-size: var(--sp-badge-dot-size);
+  padding: 0;
 }
