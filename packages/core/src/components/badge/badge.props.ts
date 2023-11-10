@@ -12,5 +12,5 @@ export interface BadgeProps extends ComponentParentProps<HTMLDivElement> {
 }
 
 export function generateProps(propsRaw: BadgeProps) {
-  return splitProps(mergeProps({ max: 99, hidden: false, dot: false, position: 'RT' }, propsRaw), customEventHandlersName)
+  return splitProps(mergeProps({ max: 99, hidden: false, dot: false }, propsRaw), customEventHandlersName)
 }
