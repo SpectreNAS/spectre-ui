@@ -1,1 +1,4 @@
-.sp-draggable {}
+.sp-draggable {
+  position: absolute;
+  touch-action: none;
+}
