@@ -1,3 +1,4 @@
+export * from './types'
 export { Scrollbar } from './scrollbar'
 export type { ScrollbarOptions } from './scrollbar'
 
