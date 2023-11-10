@@ -1,5 +1,4 @@
 export * from './alert'
-export * from './anchor'
 export * from './badge'
 export * from './breadcrumb'
 export * from './brush'
