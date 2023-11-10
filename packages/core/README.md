@@ -70,5 +70,5 @@
 
 - [ ] Calendar 日历
 - [ ] Brush 刷
-- [ ] Draggable 拖拽
+- [x] Draggable 拖拽
 - [ ] Resizable 调整大小
