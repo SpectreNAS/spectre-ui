@@ -1,5 +1,5 @@
 
-import { createSignal } from 'solid-js'
+import { Show, createSignal } from 'solid-js'
 import { mergeClasses } from '../../utils'
 import { InputProps, generateProps } from './input.props'
 
@@ -26,9 +26,17 @@ export const Input = (propsRaw: InputProps) => {
   return (
     <div class={inputClasses()}>
       <div class='sp-input-wrapper'>
-        <div></div>
+        <Show when={props.prefix}>
+          <div class='sp-input-prefix'>
+            {props.prefix}
+          </div>
+        </Show>
         <input class='sp-input-inner' onFocusIn={onFocusIn} onFocusOut={onFocusOut} />
-        <div></div>
+        <Show when={props.suffix}>
+          <div class='sp-input-suffix'>
+            {props.suffix}
+          </div>
+        </Show>
       </div>
     </div>
   )
