@@ -1,2 +1,9 @@
-.sp-input {
+.sp-input {}
+
+.sp-input-inner {
+  padding: 0;
+  outline: none;
+  border: none;
+  background: none;
+  box-sizing: border-box;
 }

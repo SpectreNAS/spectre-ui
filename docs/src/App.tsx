@@ -1,4 +1,4 @@
-import { SpCheckbox, SpConfigProvider, SpButton, SpTag, SpPagination, SpAlert, SpBadge, SpLink, SpDraggable } from '@spectre-ui/core'
+import { SpCheckbox, SpConfigProvider, SpButton, SpTag, SpPagination, SpAlert, SpBadge, SpLink, SpDraggable, SpInput } from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
 
 function App() {
@@ -39,6 +39,10 @@ function App() {
       </SpBadge>
       <div>
         <SpLink href='' underline='always'>Link</SpLink>
+      </div>
+
+      <div>
+        <SpInput></SpInput>
       </div>
       <div class=' relative w-300px h-300px bg-[var(--bg-brand-light-default)]'>
         <SpDraggable>

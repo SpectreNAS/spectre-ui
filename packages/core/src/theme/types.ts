@@ -205,6 +205,16 @@ export interface CheckboxTheme {
   '--sp-checkbox-checked-bg-color-disable'?: string
 }
 
+export interface InputTheme {
+  '--sp-input-height'?: string
+  '--sp-input-padding'?: string
+  '--sp-input-border-width'?: string
+  '--sp-input-border-style'?: string
+  '--sp-input-border-color'?: string
+  '--sp-input-border-color-hover'?: string
+  '--sp-input-border-color-focus'?: string
+}
+
 export interface LinkTheme {
   '--sp-link-text-color'?: string
   '--sp-link-text-color-hover'?: string
