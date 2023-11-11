@@ -42,7 +42,7 @@ function App() {
       </div>
 
       <div class='w-200px'>
-        <SpInput></SpInput>
+        <SpInput value={'123'} clearable></SpInput>
       </div>
       <div class=' relative w-300px h-300px bg-[var(--bg-brand-light-default)]'>
         <SpDraggable>
