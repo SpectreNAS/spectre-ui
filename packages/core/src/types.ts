@@ -1,6 +1,6 @@
 import type { ParentProps, JSX } from 'solid-js'
 
-export type ComponentSize = 'default' | 'small' | 'medium' | 'large'
+export type ComponentSize = 'small' | 'medium' | 'large'
 
 export type ComponentTheme = 'dark' | 'light'
 
