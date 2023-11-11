@@ -208,11 +208,15 @@ export interface CheckboxTheme {
 export interface InputTheme {
   '--sp-input-height'?: string
   '--sp-input-padding'?: string
+  '--sp-input-border-radius'?: string
   '--sp-input-border-width'?: string
   '--sp-input-border-style'?: string
   '--sp-input-border-color'?: string
   '--sp-input-border-color-hover'?: string
   '--sp-input-border-color-focus'?: string
+  '--sp-input-bg-color'?: string
+  '--sp-input-text-color'?: string
+  '--sp-input-font'?: string
 }
 
 export interface LinkTheme {

@@ -1,4 +1,40 @@
-.sp-input {}
+.sp-input {
+  padding: var(--sp-input-padding);
+  background-color: var(--sp-input-bg-color);
+  color: var(--sp-input-text-color);
+  border-radius: var(--sp-input-border-radius);
+  font: var(--sp-input-font);
+  border-width: var(--sp-input-border-width);
+  border-style: var(--sp-input-border-style);
+  border-color: var(--sp-input-border-color);
+}
+
+.sp-input.small {
+  --sp-input-padding: 3px 8px;
+  --sp-input-font: var(--sp-text-b4);
+}
+
+.sp-input.medium {
+  --sp-input-padding: 6px 12px;
+  --sp-input-font: var(--sp-text-b3);
+}
+
+.sp-input.large {
+  --sp-input-padding: 12px 20px;
+  --sp-input-font: var(--sp-text-b1);
+}
+
+.sp-input:hover {
+  --sp-input-border-color: var(--sp-input-border-color-hover);
+}
+
+.sp-input.focus {
+  --sp-input-border-color: var(--sp-input-border-color-focus);
+}
+
+.sp-input-wrapper {
+  display: flex;
+}
 
 .sp-input-inner {
   padding: 0;
@@ -6,4 +42,7 @@
   border: none;
   background: none;
   box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  width: 100%;
 }

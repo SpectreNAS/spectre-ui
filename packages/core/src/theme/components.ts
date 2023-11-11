@@ -80,11 +80,15 @@ export const checkboxTheme: CheckboxTheme = {
 export const inputTheme: InputTheme = {
   '--sp-input-height': '22px',
   '--sp-input-padding': '9px 16px',
-  '--sp-input-border-width': '',
-  '--sp-input-border-style': '',
-  '--sp-input-border-color': '',
-  '--sp-input-border-color-hover': '',
-  '--sp-input-border-color-focus': '',
+  '--sp-input-border-radius': '4px',
+  '--sp-input-border-width': '1px',
+  '--sp-input-border-style': 'solid',
+  '--sp-input-border-color': 'transparent',
+  '--sp-input-border-color-hover': 'var(--border-common-default)',
+  '--sp-input-border-color-focus': 'var(--border-brand-default)',
+  '--sp-input-bg-color': 'var(--bg-controls-default)',
+  '--sp-input-text-color': 'var(--text-common-primary)',
+  '--sp-input-font': 'var(--sp-text-b2)',
 }
 
 export const linkTheme: LinkTheme = {
