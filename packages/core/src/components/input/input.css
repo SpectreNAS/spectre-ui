@@ -46,3 +46,11 @@
   color: inherit;
   width: 100%;
 }
+
+.sp-input-clear {}
+
+.sp-input-clear.small {}
+
+.sp-input-clear.medium {}
+
+.sp-input-clear.large {}

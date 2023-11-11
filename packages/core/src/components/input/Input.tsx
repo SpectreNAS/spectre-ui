@@ -78,7 +78,7 @@ export const Input = (propsRaw: InputProps) => {
           </div>
         </Show>
         <Show when={showClearable()}>
-          <SpIconButton type='text' size='small' onClick={onClear}>
+          <SpIconButton class='sp-input-clear' type='text' size='small' onClick={onClear}>
             <CloseCircleOutlined />
           </SpIconButton>
         </Show>
