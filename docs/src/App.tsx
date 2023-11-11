@@ -41,7 +41,7 @@ function App() {
         <SpLink href='' underline='always'>Link</SpLink>
       </div>
 
-      <div>
+      <div class='w-200px'>
         <SpInput></SpInput>
       </div>
       <div class=' relative w-300px h-300px bg-[var(--bg-brand-light-default)]'>
