@@ -15,6 +15,10 @@ export interface InputProps extends ComponentProps<HTMLInputElement> {
   
   //大小
   size?: ComponentSize
+
+  //输入长度限制
+  maxLength?: number
+
   prepend?: JSX.Element
   append?: JSX.Element
   prefix?: JSX.Element

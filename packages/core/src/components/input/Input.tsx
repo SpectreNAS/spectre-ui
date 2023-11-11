@@ -7,6 +7,7 @@ export const Input = (propsRaw: InputProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
   const [focus, setFocus] = createSignal(false)
+  const [inputValue, setInputValue] = createSignal('')
 
   const inputClasses = () => mergeClasses([
     'sp-input',
@@ -23,6 +24,14 @@ export const Input = (propsRaw: InputProps) => {
     setFocus(false)
   }
 
+  function onInput(event: InputEvent) {
+    const target = event.target as HTMLInputElement
+    if (props.maxLength !== undefined && target.value.length > props.maxLength) {
+      target.value = inputValue()
+    }
+    setInputValue(target.value)
+  }
+
   return (
     <div class={inputClasses()}>
       <div class='sp-input-wrapper'>
@@ -31,7 +40,13 @@ export const Input = (propsRaw: InputProps) => {
             {props.prefix}
           </div>
         </Show>
-        <input class='sp-input-inner' onFocusIn={onFocusIn} onFocusOut={onFocusOut} />
+        <input
+          class='sp-input-inner'
+          value={inputValue()}
+          onFocusIn={onFocusIn}
+          onFocusOut={onFocusOut}
+          onInput={onInput}
+        />
         <Show when={props.suffix}>
           <div class='sp-input-suffix'>
             {props.suffix}
