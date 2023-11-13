@@ -18,7 +18,7 @@ export const Input = (propsRaw: InputProps) => {
     props.size ?? '',
     focus() ? 'focus' : '',
   ])
-  const showClearable = () => inputValue() && (hover() || focus())
+  const showClearable = () => props.clearable && inputValue() && (hover() || focus())
 
   createEffect(() => {
     setInputValue(props.value)
@@ -79,7 +79,7 @@ export const Input = (propsRaw: InputProps) => {
           </div>
         </Show>
         <Show when={showClearable()}>
-          <SpIconButton class='sp-input-clear' type='text' size={props.size} onClick={onClear}>
+          <SpIconButton class='sp-input-clear' type='text' onClick={onClear}>
             <CloseCircleOutlined />
           </SpIconButton>
         </Show>

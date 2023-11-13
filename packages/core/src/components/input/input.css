@@ -52,15 +52,15 @@
   --sp-button-padding: 2px !important;
 }
 
-.sp-input-clear.small {
+.sp-input.small .sp-input-clear {
   --sp-button-padding: 0 !important;
 }
 
-.sp-input-clear.medium {
+.sp-input.medium .sp-input-clear {
   --sp-button-padding: 1px !important;
 }
 
-.sp-input-clear.large {
+.sp-input.large .sp-input-clear {
   --sp-button-line-height: 18px;
   --sp-button-padding: 3px !important;
 }
