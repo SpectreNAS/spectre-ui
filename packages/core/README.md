@@ -64,7 +64,7 @@
 ### 加载组件
 
 - [ ] Loading 加载
-- [ ] Progress 进度
+- [x] Progress 进度
 
 ### 其他组件
 
