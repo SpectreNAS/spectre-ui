@@ -1,4 +1,8 @@
-import { SpCheckbox, SpConfigProvider, SpButton, SpTag, SpPagination, SpAlert, SpBadge, SpLink, SpDraggable, SpInput } from '@spectre-ui/core'
+import {
+  SpCheckbox, SpConfigProvider, SpButton, SpTag,
+  SpPagination, SpAlert, SpBadge, SpLink,
+  SpDraggable, SpInput, SpInputNumber, SpProgress,
+} from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
 
 function App() {
@@ -41,12 +45,30 @@ function App() {
         <SpLink href='' underline='always'>Link</SpLink>
       </div>
 
-      <div class='w-200px'>
+      <div class='w-200px my-2'>
         <SpInput value={'123'} clearable></SpInput>
       </div>
-      <div class=' relative w-300px h-300px bg-[var(--bg-brand-light-default)]'>
+      <div class='w-200px my-2'>
+        <SpInputNumber showStep={true} min={0}></SpInputNumber>
+      </div>
+      <div class='my-2'>
+        <SpProgress class='w-150px' size='small' percentage={10} />
+      </div>
+      <div class='my-2'>
+        <SpProgress class='w-200px' color='primary' size='medium' percentage={30} />
+      </div>
+      <div class='my-2'>
+        <SpProgress class='w-220px' color='success' percentage={50} />
+      </div>
+      <div class='my-2'>
+        <SpProgress class='w-240px' color='warn' size='large' percentage={70} />
+      </div>
+      <div class='my-2'>
+        <SpProgress class='w-260px' color='danger' percentage={90} />
+      </div>
+      <div class=' relative w-200px h-200px bg-[var(--bg-brand-light-default)]'>
         <SpDraggable>
-          <div class='w-100px h-100px bg-[var(--bg-brand-default)]'></div>
+          <div class='w-50px h-50px bg-[var(--bg-brand-default)]'></div>
         </SpDraggable>
       </div>
     </div>
