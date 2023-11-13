@@ -4,7 +4,7 @@ import { InputNumberProps, generateProps } from './input-number.props'
 
 const INPUT_NUMBER_REGEX = /^[0-9+\-.]*$/
 
-const NUMBER_REGEX = /^-?\d+(\.\d+)?$/
+const NUMBER_REGEX = /^-?\d*\.?\d*$|^$/
 
 export const InputNumber = (propsRaw: InputNumberProps) => {
 
