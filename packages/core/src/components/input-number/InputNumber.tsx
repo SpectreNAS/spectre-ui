@@ -74,7 +74,11 @@ export const InputNumber = (propsRaw: InputNumberProps) => {
   }
 
   return (
-    <div class={inputNumberClasses()}>
+    <div
+      class={inputNumberClasses()}
+      classList={props.classList}
+      style={props.style}
+    >
       <SpInput
         value={inputValue()}
         placeholder={props.placeholder}

@@ -56,6 +56,8 @@ export const Input = (propsRaw: InputProps) => {
   return (
     <div
       class={inputClasses()}
+      classList={props.classList}
+      style={props.style}
       onMouseEnter={onEnter}
       onmouseleave={onLeave}
     >
@@ -67,6 +69,7 @@ export const Input = (propsRaw: InputProps) => {
         </Show>
         <input
           class='sp-input-inner'
+          ref={props.ref}
           value={inputValue()}
           {...eventHandlers}
           onFocusIn={onFocusIn}
