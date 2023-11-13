@@ -36,7 +36,7 @@ export const Input = (propsRaw: InputProps) => {
     setHover(true)
   }
 
-  function onOut() {
+  function onLeave() {
     setHover(false)
   }
 
@@ -56,8 +56,8 @@ export const Input = (propsRaw: InputProps) => {
   return (
     <div
       class={inputClasses()}
-      onMouseOver={onEnter}
-      onMouseOut={onOut}
+      onMouseEnter={onEnter}
+      onmouseleave={onLeave}
     >
       <div class='sp-input-wrapper'>
         <Show when={props.prefix}>
