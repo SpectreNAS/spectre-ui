@@ -1,1 +1,26 @@
-.sp-scroll-area {}
+.sp-scroll-area {
+  position: relative;
+}
+
+.sp-scroll-area-view {
+  overflow: auto;
+  height: 100%;
+}
+
+.sp-scroll-area-vertical-bar {
+  position: absolute;
+  width: 8px;
+}
+
+.sp-scroll-area-vertical-slider {
+  position: absolute;
+  width: 6px;
+}
+
+.sp-scroll-area-horizontal-bar {
+  position: absolute;
+}
+
+.sp-scroll-area-horizontal-slider {
+  position: absolute;
+}
