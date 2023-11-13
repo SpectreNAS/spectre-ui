@@ -231,6 +231,14 @@ export interface LinkTheme {
   '--sp-link-underline-color-active'?: string
 }
 
+export interface ProgressTheme {
+  '--sp-progress-height'?: string
+  '--sp-progress-outer-border-radius'?: string
+  '--sp-progress-outer-bg-color'?: string
+  '--sp-progress-inner-border-radius'?: string
+  '--sp-progress-inner-bg-color'?: string
+}
+
 export interface TagTheme {
 
   /* tag base */

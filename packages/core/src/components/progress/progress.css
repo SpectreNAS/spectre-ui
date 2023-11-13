@@ -1,1 +1,50 @@
-.sp-progress {}
+.sp-progress {
+  display: flex;
+  height: var(--sp-progress-height);
+}
+
+.sp-progress.small {
+  --sp-progress-height: 2px;
+  --sp-progress-outer-border-radius: 1px;
+  --sp-progress-inner-border-radius: 1px;
+}
+
+.sp-progress.medium {
+  --sp-progress-height: 4px;
+  --sp-progress-outer-border-radius: 2px;
+  --sp-progress-inner-border-radius: 2px;
+}
+
+.sp-progress.large {
+  --sp-progress-height: 8px;
+  --sp-progress-outer-border-radius: 4px;
+  --sp-progress-inner-border-radius: 4px;
+}
+
+.sp-progress.primary {
+  --sp-progress-inner-bg-color: var(--bg-brand-default);
+}
+
+.sp-progress.success {
+  --sp-progress-inner-bg-color: var(--bg-success-default);
+}
+
+.sp-progress.warn {
+  --sp-progress-inner-bg-color: var(--bg-warn-default);
+}
+
+.sp-progress.danger {
+  --sp-progress-inner-bg-color: var(--bg-danger-default);
+}
+
+.sp-progress-outer {
+  width: 100%;
+  background-color: var(--sp-progress-outer-bg-color);
+  border-radius: var(--sp-progress-outer-border-radius);
+}
+
+.sp-progress-inner {
+  height: 100%;
+  background-color: var(--sp-progress-inner-bg-color);
+  border-radius: var(--sp-progress-inner-border-radius);
+}

@@ -8,6 +8,7 @@ import { CloseCircleOutlined } from '../icon/close-circle-outlined'
 export const Input = (propsRaw: InputProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
+  let inputRef: HTMLInputElement
   const [focus, setFocus] = createSignal(false)
   const [hover, setHover] = createSignal(false)
   const [inputValue, setInputValue] = createSignal('')
@@ -24,6 +25,11 @@ export const Input = (propsRaw: InputProps) => {
     setInputValue(props.value)
   })
 
+  function setInputRef(el: HTMLInputElement) {
+    inputRef = el
+    props.ref = el
+  }
+
   function onFocusIn() {
     setFocus(true)
   }
@@ -38,6 +44,11 @@ export const Input = (propsRaw: InputProps) => {
 
   function onLeave() {
     setHover(false)
+  }
+
+  function onClick() {
+    inputRef.focus()
+    setFocus(true)
   }
 
   function onInput(event: InputEvent) {
@@ -59,7 +70,8 @@ export const Input = (propsRaw: InputProps) => {
       classList={props.classList}
       style={props.style}
       onMouseEnter={onEnter}
-      onmouseleave={onLeave}
+      onMouseLeave={onLeave}
+      onClick={onClick}
     >
       <div class='sp-input-wrapper'>
         <Show when={props.prefix}>
@@ -69,7 +81,7 @@ export const Input = (propsRaw: InputProps) => {
         </Show>
         <input
           class='sp-input-inner'
-          ref={props.ref}
+          ref={setInputRef}
           value={inputValue()}
           {...eventHandlers}
           onFocusIn={onFocusIn}

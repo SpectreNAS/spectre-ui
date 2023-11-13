@@ -1,4 +1,4 @@
-import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, InputTheme, LinkTheme, TagTheme } from './types'
+import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, InputTheme, LinkTheme, ProgressTheme, TagTheme } from './types'
 
 export const alertTheme: AlertTheme = {
   '--sp-alert-padding': '8px 16px',
@@ -102,6 +102,14 @@ export const linkTheme: LinkTheme = {
   '--sp-link-underline-color-active': 'var(--border-brand-active)',
 }
 
+export const progressTheme: ProgressTheme = {
+  '--sp-progress-height': '6px',
+  '--sp-progress-outer-border-radius': '3px',
+  '--sp-progress-outer-bg-color': 'var(--bg-controls-default)',
+  '--sp-progress-inner-border-radius': '3px',
+  '--sp-progress-inner-bg-color': 'var(--bg-controls-elevate-default)',
+}
+
 export const tagTheme: TagTheme = {
 
   /* tag base */
@@ -132,5 +140,6 @@ export const componentsTheme = {
   ...checkboxTheme,
   ...inputTheme,
   ...linkTheme,
+  ...progressTheme,
   ...tagTheme,
 }
