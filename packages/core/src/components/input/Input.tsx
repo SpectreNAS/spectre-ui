@@ -46,6 +46,7 @@ export const Input = (propsRaw: InputProps) => {
       target.value = inputValue()
     }
     setInputValue(target.value)
+    props.input?.(target.value, event)
   }
 
   function onClear() {
@@ -67,10 +68,10 @@ export const Input = (propsRaw: InputProps) => {
         <input
           class='sp-input-inner'
           value={inputValue()}
+          {...eventHandlers}
           onFocusIn={onFocusIn}
           onFocusOut={onFocusOut}
           onInput={onInput}
-
         />
         <Show when={props.suffix}>
           <div class='sp-input-suffix'>

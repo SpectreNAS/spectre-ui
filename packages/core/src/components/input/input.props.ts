@@ -1,5 +1,5 @@
 import { JSX, splitProps, mergeProps } from 'solid-js'
-import { ComponentProps, ComponentSize } from '../../types'
+import { ComponentProps, ComponentSize, ValueChanged } from '../../types'
 import { customEventHandlersName } from '../../events'
 
 export interface InputProps extends ComponentProps<HTMLInputElement> {
@@ -23,6 +23,9 @@ export interface InputProps extends ComponentProps<HTMLInputElement> {
   append?: JSX.Element
   prefix?: JSX.Element
   suffix?: JSX.Element
+
+  input?: (value: string, event: InputEvent) => void
+  change?: ValueChanged<string>
 }
 
 export function generateProps(propsRaw: InputProps) {
