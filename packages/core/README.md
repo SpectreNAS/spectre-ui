@@ -18,8 +18,8 @@
 
 - [x] Checkbox 多选框
 - [ ] Radio 单选框
-- [ ] Input 输入框
-- [ ] InputNumber 数字输入框
+- [x] Input 输入框
+- [x] InputNumber 数字输入框
 - [ ] Select 下拉选择框
 - [ ] CascadeSelect 级联选择框
 - [ ] Switch 开关
