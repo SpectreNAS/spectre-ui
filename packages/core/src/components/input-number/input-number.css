@@ -1,2 +1,35 @@
 .sp-input-number {
+  display: flex;
+}
+
+.sp-input-number-wrapper {
+  margin-left: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid var(--border-common-default);
+}
+
+.sp-input-number :where(.sp-input-number-up, .sp-input-number-down) {
+  --sp-button-line-height: 16px;
+  --sp-button-padding: 2px !important;
+  --sp-button-border-radius: 0 !important;
+}
+
+.sp-input-number.small :where(.sp-input-number-up, .sp-input-number-down) {
+  --sp-button-line-height: 12px;
+  --sp-button-padding: 0 !important;
+  --sp-button-border-radius: 0 !important;
+}
+
+.sp-input-number.medium :where(.sp-input-number-up, .sp-input-number-down) {
+  --sp-button-line-height: 14px;
+  --sp-button-padding: 1px !important;
+  --sp-button-border-radius: 0 !important;
+}
+
+.sp-input-number.large :where(.sp-input-number-up, .sp-input-number-down) {
+  --sp-button-line-height: 20px;
+  --sp-button-padding: 2px !important;
+  --sp-button-border-radius: 0 !important;
 }

@@ -6,6 +6,14 @@ export interface InputNumberProps extends ComponentProps<HTMLInputElement> {
   //输入值
   value?: number
   
+  min?: number
+
+  max?: number
+
+  step?: number
+
+  showStep?: boolean
+  
   //占位符
   placeholder?: string
    
@@ -20,11 +28,15 @@ export interface InputNumberProps extends ComponentProps<HTMLInputElement> {
 
   input?: (value: number, event: InputEvent) => void
   change?: ValueChanged<number>
+  add?: (value: number) => number
+  subtract?: (value: number) => number
 }
 
 export function generateProps(propsRaw: InputNumberProps) {
   return splitProps(
     mergeProps({ 
+      step: 1,
+      showStep: false,
       placeholder: '',
       clearable: false,
     }, propsRaw), 

@@ -1,5 +1,9 @@
-import { createEffect, createSignal } from 'solid-js'
+import { Show, createEffect, createSignal } from 'solid-js'
+import { mergeClasses, getRangeValue } from '../../utils'
 import { SpInput } from '../input'
+import { SpIconButton } from '../button'
+import { ChevronUpFilled } from '../icon/chevron-up-filled'
+import { ChevronDownFilled } from '../icon/chevron-down-filled'
 import { InputNumberProps, generateProps } from './input-number.props'
 
 const INPUT_NUMBER_REGEX = /^[0-9+\-.]*$/
@@ -11,6 +15,12 @@ export const InputNumber = (propsRaw: InputNumberProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
   const [inputValue, setInputValue] = createSignal('')
+
+  const inputNumberClasses = () => mergeClasses([
+    'sp-input-number',
+    props.size ?? '',
+    props.class ?? '',
+  ])
 
   createEffect(() => {
     setInputValue(props.value?.toString() ?? '')
@@ -35,6 +45,26 @@ export const InputNumber = (propsRaw: InputNumberProps) => {
     emitChange()
   }
 
+  function onAdd() {
+    let value = Number(inputValue())
+    if (props.add) {
+      value = props.add(value)
+    } else {
+      value = getRangeValue(value + props.step, props.min, props.max)
+    }
+    setInputValue(value.toString())
+  }
+
+  function onSubtract() {
+    let value = Number(inputValue())
+    if (props.subtract) {
+      value = props.subtract(value)
+    } else {
+      value = getRangeValue(value - props.step, props.min, props.max)
+    }
+    setInputValue(value.toString())
+  }
+
   function emitInput(value: string, event: InputEvent) {
     props.input?.(Number(getNumberString(value)), event)
   }
@@ -44,17 +74,29 @@ export const InputNumber = (propsRaw: InputNumberProps) => {
   }
 
   return (
-    <SpInput
-      value={inputValue()}
-      placeholder={props.placeholder}
-      clearable={props.clearable}
-      size={props.size}
-      prefix={props.prefix}
-      suffix={props.suffix}
-      {...eventHandlers}
-      input={onInput}
-      onBlur={onBlur}
-    />
+    <div class={inputNumberClasses()}>
+      <SpInput
+        value={inputValue()}
+        placeholder={props.placeholder}
+        clearable={props.clearable}
+        size={props.size}
+        prefix={props.prefix}
+        suffix={props.suffix}
+        {...eventHandlers}
+        input={onInput}
+        onBlur={onBlur}
+      />
+      <Show when={props.showStep}>
+        <div class='sp-input-number-wrapper'>
+          <SpIconButton class='sp-input-number-up' onClick={onAdd}>
+            <ChevronUpFilled />
+          </SpIconButton>
+          <SpIconButton class='sp-input-number-down' onClick={onSubtract}>
+            <ChevronDownFilled />
+          </SpIconButton>
+        </div>
+      </Show>
+    </div>
   )
 }
 
