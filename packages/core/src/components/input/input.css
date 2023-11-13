@@ -47,10 +47,20 @@
   width: 100%;
 }
 
-.sp-input-clear {}
+.sp-input-clear {
+  --sp-button-line-height: 18px;
+  --sp-button-padding: 2px !important;
+}
 
-.sp-input-clear.small {}
+.sp-input-clear.small {
+  --sp-button-padding: 0 !important;
+}
 
-.sp-input-clear.medium {}
+.sp-input-clear.medium {
+  --sp-button-padding: 1px !important;
+}
 
-.sp-input-clear.large {}
+.sp-input-clear.large {
+  --sp-button-line-height: 18px;
+  --sp-button-padding: 3px !important;
+}

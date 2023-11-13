@@ -55,7 +55,7 @@ export const Input = (propsRaw: InputProps) => {
   return (
     <div
       class={inputClasses()}
-      onMouseEnter={onEnter}
+      onMouseOver={onEnter}
       onMouseOut={onOut}
     >
       <div class='sp-input-wrapper'>
@@ -78,7 +78,7 @@ export const Input = (propsRaw: InputProps) => {
           </div>
         </Show>
         <Show when={showClearable()}>
-          <SpIconButton class='sp-input-clear' type='text' size='small' onClick={onClear}>
+          <SpIconButton class='sp-input-clear' type='text' size={props.size} onClick={onClear}>
             <CloseCircleOutlined />
           </SpIconButton>
         </Show>
