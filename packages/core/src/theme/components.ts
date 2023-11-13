@@ -1,4 +1,4 @@
-import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, InputTheme, LinkTheme, ProgressTheme, TagTheme } from './types'
+import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, InputTheme, LinkTheme, ProgressTheme, ScrollAreaTheme, TagTheme } from './types'
 
 export const alertTheme: AlertTheme = {
   '--sp-alert-padding': '8px 16px',
@@ -110,6 +110,13 @@ export const progressTheme: ProgressTheme = {
   '--sp-progress-inner-bg-color': 'var(--bg-controls-elevate-default)',
 }
 
+export const scrollAreaTheme: ScrollAreaTheme = {
+  '--sp-scroll-area-vertical-bar-bg-color': 'var(--bg-controls-default)',
+  '--sp-scroll-area-vertical-slider-bg-color': 'var(--bg-controls-elevate-default)',
+  '--sp-scroll-area-horizontal-bar-bg-color': 'var(--bg-controls-default)',
+  '--sp-scroll-area-horizontal-slider-bg-color': 'var(--bg-controls-elevate-default)',
+}
+
 export const tagTheme: TagTheme = {
 
   /* tag base */
@@ -141,5 +148,6 @@ export const componentsTheme = {
   ...inputTheme,
   ...linkTheme,
   ...progressTheme,
+  ...scrollAreaTheme,
   ...tagTheme,
 }

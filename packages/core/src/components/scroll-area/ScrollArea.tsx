@@ -30,9 +30,14 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     scrollbar.thumbTo({ x })
   }
 
+  function onWheelScroll(event: Event) {
+    const target = event.target as HTMLDivElement
+    scrollbar.scrollTo({ y: target.scrollTop })
+  }
+
   return (
     <div class={scrollAreaClasses()}>
-      <div class='sp-scroll-area-view'>
+      <div class='sp-scroll-area-view' onScroll={onWheelScroll}>
         <div>
           {props.children}
         </div>

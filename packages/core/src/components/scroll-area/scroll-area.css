@@ -1,5 +1,12 @@
 .sp-scroll-area {
   position: relative;
+  overflow: auto;
+  height: 100%;
+}
+
+.sp-scroll-area::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
 }
 
 .sp-scroll-area-view {
@@ -7,20 +14,41 @@
   height: 100%;
 }
 
+.sp-scroll-area-view::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
 .sp-scroll-area-vertical-bar {
   position: absolute;
+  user-select: none;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
   width: 8px;
+  background-color: var(--sp-scroll-area-vertical-bar-bg-color);
 }
 
 .sp-scroll-area-vertical-slider {
   position: absolute;
+  user-select: none;
   width: 6px;
+  background-color: var(--sp-scroll-area-vertical-slider-bg-color);
 }
 
 .sp-scroll-area-horizontal-bar {
   position: absolute;
+  user-select: none;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  height: 8px;
+  background-color: var(--sp-scroll-area-horizontal-bar-bg-color);
 }
 
 .sp-scroll-area-horizontal-slider {
   position: absolute;
+  user-select: none;
+  height: 6px;
+  background-color: var(--sp-scroll-area-horizontal-slider-bg-color);
 }

@@ -239,6 +239,13 @@ export interface ProgressTheme {
   '--sp-progress-inner-bg-color'?: string
 }
 
+export interface ScrollAreaTheme {
+  '--sp-scroll-area-vertical-bar-bg-color'?: string 
+  '--sp-scroll-area-vertical-slider-bg-color'?: string
+  '--sp-scroll-area-horizontal-bar-bg-color'?: string
+  '--sp-scroll-area-horizontal-slider-bg-color'?: string
+}
+
 export interface TagTheme {
 
   /* tag base */
