@@ -2,6 +2,8 @@ import {
   SpCheckbox, SpConfigProvider, SpButton, SpTag,
   SpPagination, SpAlert, SpBadge, SpLink,
   SpDraggable, SpInput, SpInputNumber, SpProgress,
+  SpScrollArea,
+  SpVirtualScrollArea
 } from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
 
@@ -66,11 +68,17 @@ function App() {
       <div class='my-2'>
         <SpProgress class='w-260px' color='danger' percentage={90} />
       </div>
-      <div class=' relative w-200px h-200px bg-[var(--bg-brand-light-default)]'>
-        <SpDraggable>
-          <div class='w-50px h-50px bg-[var(--bg-brand-default)]'></div>
-        </SpDraggable>
-      </div>
+      <SpVirtualScrollArea class='my-2 w-300px h-300px' />
+      <SpScrollArea class='my-2 w-300px h-300px' scrollX={100}>
+
+        <div class='w-2000px h-2000px '>
+          <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+          <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+          <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+          <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+        </div>
+      </SpScrollArea>
+
     </div>
   )
 }
