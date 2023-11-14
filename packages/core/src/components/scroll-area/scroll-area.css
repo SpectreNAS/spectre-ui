@@ -33,6 +33,7 @@
   position: absolute;
   user-select: none;
   width: 6px;
+  border-radius: 3px;
   background-color: var(--sp-scroll-area-vertical-slider-bg-color);
 }
 
@@ -50,5 +51,6 @@
   position: absolute;
   user-select: none;
   height: 6px;
+  border-radius: 3px;
   background-color: var(--sp-scroll-area-horizontal-slider-bg-color);
 }

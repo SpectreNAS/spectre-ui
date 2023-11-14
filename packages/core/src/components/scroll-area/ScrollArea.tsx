@@ -1,4 +1,4 @@
-import { createSignal, onMount } from 'solid-js'
+import { createEffect, createSignal, onMount, on } from 'solid-js'
 import { mergeClasses } from '../../utils'
 import { ScrollAreaProps, generateProps } from './scroll-area.props'
 import { SpDraggable } from '../draggable'
@@ -24,22 +24,38 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
   const verticalSliderStyles = () => `height:${verticalSliderHeight()}px;`
   const horizontalSliderStyles = () => `width:${horizontalSliderWidth()}px;`
 
+  createEffect(on(
+    () => props.scrollX,
+    (value) => setHorizontalSliderX(scrollbar.scrollTo({ x: value }).thumbX),
+    { defer: true },
+  ))
+  createEffect(on(
+    () => props.scrollY,
+    (value) => setVerticalSliderY(scrollbar.scrollTo({ y: value }).thumbY),
+    { defer: true },
+  ))
+
   function setViewRef(el: HTMLDivElement) {
     viewRef = el
-    onMount(() => {
-      const { width, height } = el.getBoundingClientRect()
-      scrollbar
-        .setContentWidth(el.scrollHeight)
-        .setContentHeight(el.scrollHeight)
-        .setViewWidth(width)
-        .setViewHeight(height)
-      setVerticalSliderY(scrollbar.thumbY)
-      setHorizontalSliderX(scrollbar.thumbX)
-      setVerticalSliderMaxY(scrollbar.viewHeight - scrollbar.thumbHeight)
-      setHorizontalSliderMaxX(scrollbar.viewWidth - scrollbar.thumbWidth)
-      setVerticalSliderHeight(scrollbar.thumbHeight)
-      setHorizontalSliderWidth(scrollbar.thumbWidth)
-    })
+    onMount(() => init(el))
+  }
+
+  function init(el: HTMLDivElement) {
+    const { width, height } = el.getBoundingClientRect()
+    scrollbar
+      .setContentWidth(el.scrollHeight)
+      .setContentHeight(el.scrollHeight)
+      .setViewWidth(width)
+      .setViewHeight(height)
+      .scrollTo({ x: props.scrollX, y: props.scrollY })
+    el.scrollLeft = scrollbar.scrollX
+    el.scrollTop = scrollbar.scrollY
+    setVerticalSliderY(scrollbar.thumbY)
+    setHorizontalSliderX(scrollbar.thumbX)
+    setVerticalSliderMaxY(scrollbar.viewHeight - scrollbar.thumbHeight)
+    setHorizontalSliderMaxX(scrollbar.viewWidth - scrollbar.thumbWidth)
+    setVerticalSliderHeight(scrollbar.thumbHeight)
+    setHorizontalSliderWidth(scrollbar.thumbWidth)
   }
 
   function setViewScroll(point: Partial<Point>) {
@@ -62,7 +78,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
 
   function onWheelScroll(event: Event) {
     const target = event.target as HTMLDivElement
-    scrollbar.scrollTo({ y: target.scrollTop })
+    scrollbar.scrollTo({ x: target.scrollLeft, y: target.scrollTop })
     setVerticalSliderY(scrollbar.thumbY)
     setHorizontalSliderX(scrollbar.thumbX)
   }
@@ -85,6 +101,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
           class='sp-scroll-area-vertical-slider'
           style={verticalSliderStyles()}
           only='y'
+          x={1}
           y={verticalSliderY()}
           minY={0}
           maxY={verticalSliderMaxY()}
@@ -97,6 +114,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
           style={horizontalSliderStyles()}
           only='x'
           x={horizontalSliderX()}
+          y={1}
           minX={0}
           maxX={horizontalSliderMaxX()}
           change={onHorizontalSlider}
