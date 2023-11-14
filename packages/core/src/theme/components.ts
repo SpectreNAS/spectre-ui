@@ -112,9 +112,20 @@ export const progressTheme: ProgressTheme = {
 
 export const scrollAreaTheme: ScrollAreaTheme = {
   '--sp-scroll-area-vertical-bar-bg-color': 'var(--bg-controls-default)',
+  '--sp-scroll-area-vertical-bar-width': '8px',
+  '--sp-scroll-area-vertical-bar-border-radius': '4px',
+
   '--sp-scroll-area-vertical-slider-bg-color': 'var(--bg-controls-elevate-default)',
+  '--sp-scroll-area-vertical-slider-width': '6px',
+  '--sp-scroll-area-vertical-slider-border-radius': '3px',
+
   '--sp-scroll-area-horizontal-bar-bg-color': 'var(--bg-controls-default)',
+  '--sp-scroll-area-horizontal-bar-height': '8px',
+  '--sp-scroll-area-horizontal-bar-border-radius': '4px',
+  
   '--sp-scroll-area-horizontal-slider-bg-color': 'var(--bg-controls-elevate-default)',
+  '--sp-scroll-area-horizontal-slider-height': '6px',
+  '--sp-scroll-area-horizontal-slider-border-radius': '3px',
 }
 
 export const tagTheme: TagTheme = {

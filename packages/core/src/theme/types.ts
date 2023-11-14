@@ -241,9 +241,20 @@ export interface ProgressTheme {
 
 export interface ScrollAreaTheme {
   '--sp-scroll-area-vertical-bar-bg-color'?: string 
+  '--sp-scroll-area-vertical-bar-width'?: string
+  '--sp-scroll-area-vertical-bar-border-radius'?: string
+
   '--sp-scroll-area-vertical-slider-bg-color'?: string
+  '--sp-scroll-area-vertical-slider-width'?: string
+  '--sp-scroll-area-vertical-slider-border-radius'?: string
+
   '--sp-scroll-area-horizontal-bar-bg-color'?: string
+  '--sp-scroll-area-horizontal-bar-height'?: string
+  '--sp-scroll-area-horizontal-bar-border-radius'?: string
+
   '--sp-scroll-area-horizontal-slider-bg-color'?: string
+  '--sp-scroll-area-horizontal-slider-height'?: string
+  '--sp-scroll-area-horizontal-slider-border-radius'?: string
 }
 
 export interface TagTheme {

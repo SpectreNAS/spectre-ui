@@ -25,15 +25,16 @@
   top: 0px;
   right: 0px;
   bottom: 0px;
-  width: 8px;
+  width: var(--sp-scroll-area-vertical-bar-width);
+  border-radius: var(--sp-scroll-area-vertical-bar-border-radius);
   background-color: var(--sp-scroll-area-vertical-bar-bg-color);
 }
 
 .sp-scroll-area-vertical-slider {
   position: absolute;
   user-select: none;
-  width: 6px;
-  border-radius: 3px;
+  width: var(--sp-scroll-area-vertical-slider-width);
+  border-radius: var(--sp-scroll-area-vertical-slider-border-radius);
   background-color: var(--sp-scroll-area-vertical-slider-bg-color);
 }
 
@@ -43,14 +44,15 @@
   right: 0px;
   bottom: 0px;
   left: 0px;
-  height: 8px;
+  height: var(--sp-scroll-area-horizontal-bar-height);
+  border-radius: var(--sp-scroll-area-horizontal-bar-border-radius);
   background-color: var(--sp-scroll-area-horizontal-bar-bg-color);
 }
 
 .sp-scroll-area-horizontal-slider {
   position: absolute;
   user-select: none;
-  height: 6px;
-  border-radius: 3px;
+  height: var(--sp-scroll-area-horizontal-slider-height);
+  border-radius: var(--sp-scroll-area-horizontal-slider-border-radius);
   background-color: var(--sp-scroll-area-horizontal-slider-bg-color);
 }
