@@ -10,6 +10,7 @@ export interface DraggableProps extends ComponentParentProps<HTMLDivElement> {
   minY?: number
   maxX?: number
   maxY?: number
+  only?: 'x' | 'y'
   change?: ValueChanged<Point>
 }
 

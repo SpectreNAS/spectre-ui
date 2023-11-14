@@ -1,15 +1,24 @@
-import { createSignal } from 'solid-js'
+import { createEffect, createSignal } from 'solid-js'
 import { mergeClasses, mergeStyles, getRangeValue } from '../../utils'
 import { DraggableProps, generateProps } from './draggable.props'
+import { Point } from '@spectre-ui/utils'
 
 export const Draggable = (propsRaw: DraggableProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
   const [x, setX] = createSignal(0)
   const [y, setY] = createSignal(0)
-  const draggableClasses = () => mergeClasses(['sp-draggable'])
+  const draggableClasses = () => mergeClasses(['sp-draggable', props.class ?? ''])
 
   const draggableStyles = () => `left: ${x()}px; top: ${y()}px`
+
+  createEffect(() => {
+    setX(props.x)
+  })
+
+  createEffect(() => {
+    setY(props.y)
+  })
 
   function dragRef(el: HTMLDivElement) {
     props.ref = el
@@ -25,13 +34,17 @@ export const Draggable = (propsRaw: DraggableProps) => {
       const onDrag = (moveEvent: PointerEvent) => {
         const _x = getRangeValue(moveEvent.pageX - startX, props.minX, props.maxX)
         const _y = getRangeValue(moveEvent.pageY - startY, props.minY, props.maxY)
-        if (_x !== x()) {
+        if (props.only === 'x') {
           setX(_x)
-        }
-        if (_y !== y()) {
+          emitChange({ x: _x })
+        } else if (props.only === 'y') {
           setY(_y)
+          emitChange({ y: _y })
+        } else {
+          setX(_x)
+          setY(_y)
+          props.change?.({ x: _x, y: _y })
         }
-        props.change?.({ x: _x, y: _y })
       }
       const onDragEnd = () => {
         window.removeEventListener('pointerdown', onDragStart)
@@ -41,6 +54,10 @@ export const Draggable = (propsRaw: DraggableProps) => {
       window.addEventListener('pointermove', onDrag)
       window.addEventListener('pointerup', onDragEnd)
     }
+  }
+
+  function emitChange(point: Partial<Point>) {
+    props.change?.({ x: point.x ?? x(), y: point.y ?? y() })
   }
 
   return (
