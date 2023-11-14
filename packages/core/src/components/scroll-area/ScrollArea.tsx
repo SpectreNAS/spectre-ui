@@ -62,7 +62,6 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     if (viewRef?.scrollLeft !== undefined && point.x !== undefined) {
       viewRef.scrollLeft = point.x
     }
-
     if (viewRef?.scrollTop !== undefined && point.y !== undefined) {
       viewRef.scrollTop = point.y
     }
@@ -70,10 +69,12 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
 
   function onVerticalSlider({ y }: Point) {
     setViewScroll({ y: scrollbar.thumbTo({ y }).scrollY })
+    emitScroll()
   }
 
   function onHorizontalSlider({ x }: Point) {
     setViewScroll({ x: scrollbar.thumbTo({ x }).scrollX })
+    emitScroll()
   }
 
   function onWheelScroll(event: Event) {
@@ -81,6 +82,11 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     scrollbar.scrollTo({ x: target.scrollLeft, y: target.scrollTop })
     setVerticalSliderY(scrollbar.thumbY)
     setHorizontalSliderX(scrollbar.thumbX)
+    emitScroll()
+  }
+
+  function emitScroll() {
+    props.scroll?.({ x: scrollbar.scrollX, y: scrollbar.scrollY })
   }
 
   return (
