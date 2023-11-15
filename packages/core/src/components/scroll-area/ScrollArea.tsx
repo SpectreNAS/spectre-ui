@@ -1,8 +1,8 @@
 import { createEffect, createSignal, onMount, on } from 'solid-js'
 import { mergeClasses } from '../../utils'
 import { ScrollAreaProps, generateProps } from './scroll-area.props'
-import { SpDraggable } from '../draggable'
 import { Point, Scrollbar } from '@spectre-ui/utils'
+import { SpVerticalScrollbar, SpHorizontalScrollbar } from '../scrollbar'
 
 export const ScrollArea = (propsRaw: ScrollAreaProps) => {
 
@@ -10,19 +10,17 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
 
   let viewRef: HTMLDivElement | undefined
   const scrollbar = new Scrollbar()
+  const [verticalBarHeight, setVerticalBarHeight] = createSignal(0)
   const [verticalSliderY, setVerticalSliderY] = createSignal(0)
-  const [verticalSliderMaxY, setVerticalSliderMaxY] = createSignal(0)
   const [verticalSliderHeight, setVerticalSliderHeight] = createSignal(0)
+  const [horizontalBarWidth, setHorizontalBarWidth] = createSignal(0)
   const [horizontalSliderX, setHorizontalSliderX] = createSignal(0)
-  const [horizontalSliderMaxX, setHorizontalSliderMaxX] = createSignal(0)
   const [horizontalSliderWidth, setHorizontalSliderWidth] = createSignal(0)
 
   const scrollAreaClasses = () => mergeClasses([
     'sp-scroll-area',
     props.class ?? ''
   ])
-  const verticalSliderStyles = () => `height:${verticalSliderHeight()}px;`
-  const horizontalSliderStyles = () => `width:${horizontalSliderWidth()}px;`
 
   createEffect(on(
     () => props.scrollX,
@@ -35,11 +33,15 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     { defer: true },
   ))
 
-  function setViewRef(el: HTMLDivElement) {
+  function initViewRef(el: HTMLDivElement) {
     viewRef = el
     onMount(() => init(el))
   }
 
+  /**
+   * 根据dom初始化滚动区域
+   * @param el 
+   */
   function init(el: HTMLDivElement) {
     const { width, height } = el.getBoundingClientRect()
     scrollbar
@@ -50,14 +52,18 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
       .scrollTo({ x: props.scrollX, y: props.scrollY })
     el.scrollLeft = scrollbar.scrollX
     el.scrollTop = scrollbar.scrollY
-    setVerticalSliderY(scrollbar.thumbY)
-    setHorizontalSliderX(scrollbar.thumbX)
-    setVerticalSliderMaxY(scrollbar.viewHeight - scrollbar.thumbHeight)
-    setHorizontalSliderMaxX(scrollbar.viewWidth - scrollbar.thumbWidth)
+    setVerticalBarHeight(scrollbar.viewHeight)
     setVerticalSliderHeight(scrollbar.thumbHeight)
+    setVerticalSliderY(scrollbar.thumbY)
+    setHorizontalBarWidth(scrollbar.viewWidth)
+    setHorizontalSliderX(scrollbar.thumbX)
     setHorizontalSliderWidth(scrollbar.thumbWidth)
   }
 
+  /**
+   * 设置原生滚动条滚动位置
+   * @param point 
+   */
   function setViewScroll(point: Partial<Point>) {
     if (viewRef?.scrollLeft !== undefined && point.x !== undefined) {
       viewRef.scrollLeft = point.x
@@ -67,16 +73,28 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     }
   }
 
+  /**
+   * 拖拽垂直滑块事件
+   * @param param0 
+   */
   function onVerticalSlider({ y }: Point) {
     setViewScroll({ y: scrollbar.thumbTo({ y }).scrollY })
     emitScroll()
   }
 
+  /**
+   * 拖拽水平滑块事件
+   * @param param0 
+   */
   function onHorizontalSlider({ x }: Point) {
     setViewScroll({ x: scrollbar.thumbTo({ x }).scrollX })
     emitScroll()
   }
 
+  /**
+   * 滚轮滚动事件
+   * @param event 
+   */
   function onWheelScroll(event: Event) {
     const target = event.target as HTMLDivElement
     scrollbar.scrollTo({ x: target.scrollLeft, y: target.scrollTop })
@@ -85,6 +103,9 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     emitScroll()
   }
 
+  /**
+   * 触发组件滚动事件
+   */
   function emitScroll() {
     props.scroll?.({ x: scrollbar.scrollX, y: scrollbar.scrollY })
   }
@@ -97,35 +118,23 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
       ref={props.ref}
       {...eventHandlers}
     >
-      <div class='sp-scroll-area-view' ref={setViewRef} onScroll={onWheelScroll}>
+      <div class='sp-scroll-area-view' ref={initViewRef} onScroll={onWheelScroll}>
         <div>
           {props.children}
         </div>
       </div>
-      <div class='sp-scroll-area-vertical-bar'>
-        <SpDraggable
-          class='sp-scroll-area-vertical-slider'
-          style={verticalSliderStyles()}
-          only='y'
-          x={1}
-          y={verticalSliderY()}
-          minY={0}
-          maxY={verticalSliderMaxY()}
-          change={onVerticalSlider}
-        />
-      </div>
-      <div class='sp-scroll-area-horizontal-bar'>
-        <SpDraggable
-          class='sp-scroll-area-horizontal-slider'
-          style={horizontalSliderStyles()}
-          only='x'
-          x={horizontalSliderX()}
-          y={1}
-          minX={0}
-          maxX={horizontalSliderMaxX()}
-          change={onHorizontalSlider}
-        />
-      </div>
+      <SpVerticalScrollbar
+        height={verticalBarHeight()}
+        sliderY={verticalSliderY()}
+        sliderHeight={verticalSliderHeight()}
+        change={onVerticalSlider}
+      />
+      <SpHorizontalScrollbar
+        width={horizontalBarWidth()}
+        sliderX={horizontalSliderX()}
+        sliderWidth={horizontalSliderWidth()}
+        change={onHorizontalSlider}
+      />
     </div>
   )
 }
