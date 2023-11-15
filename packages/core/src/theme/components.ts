@@ -1,4 +1,4 @@
-import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, InputTheme, LinkTheme, ProgressTheme, ScrollAreaTheme, TagTheme } from './types'
+import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, InputTheme, LinkTheme, ProgressTheme, ScrollAreaTheme, ScrollbarTheme, TagTheme } from './types'
 
 export const alertTheme: AlertTheme = {
   '--sp-alert-padding': '8px 16px',
@@ -110,22 +110,26 @@ export const progressTheme: ProgressTheme = {
   '--sp-progress-inner-bg-color': 'var(--bg-controls-elevate-default)',
 }
 
-export const scrollAreaTheme: ScrollAreaTheme = {
-  '--sp-scroll-area-vertical-bar-bg-color': 'var(--bg-controls-default)',
-  '--sp-scroll-area-vertical-bar-width': '8px',
-  '--sp-scroll-area-vertical-bar-border-radius': '4px',
+export const scrollbarTheme: ScrollbarTheme = {
+  '--sp-vertical-scrollbar-bg-color': 'var(--bg-controls-default)',
+  '--sp-vertical-scrollbar-width': '8px',
+  '--sp-vertical-scrollbar-border-radius': '4px',
 
-  '--sp-scroll-area-vertical-slider-bg-color': 'var(--bg-controls-elevate-default)',
-  '--sp-scroll-area-vertical-slider-width': '6px',
-  '--sp-scroll-area-vertical-slider-border-radius': '3px',
+  '--sp-vertical-scrollbar-slider-bg-color': 'var(--bg-controls-elevate-default)',
+  '--sp-vertical-scrollbar-slider-width': '6px',
+  '--sp-vertical-scrollbar-slider-border-radius': '3px',
 
-  '--sp-scroll-area-horizontal-bar-bg-color': 'var(--bg-controls-default)',
-  '--sp-scroll-area-horizontal-bar-height': '8px',
-  '--sp-scroll-area-horizontal-bar-border-radius': '4px',
+  '--sp-horizontal-scrollbar-bg-color': 'var(--bg-controls-default)',
+  '--sp-horizontal-scrollbar-height': '8px',
+  '--sp-horizontal-scrollbar-border-radius': '4px',
   
-  '--sp-scroll-area-horizontal-slider-bg-color': 'var(--bg-controls-elevate-default)',
-  '--sp-scroll-area-horizontal-slider-height': '6px',
-  '--sp-scroll-area-horizontal-slider-border-radius': '3px',
+  '--sp-horizontal-scrollbar-slider-bg-color': 'var(--bg-controls-elevate-default)',
+  '--sp-horizontal-scrollbar-slider-height': '6px',
+  '--sp-horizontal-scrollbar-slider-border-radius': '3px',
+}
+
+export const scrollAreaTheme: ScrollAreaTheme = {
+
 }
 
 export const tagTheme: TagTheme = {
@@ -159,6 +163,7 @@ export const componentsTheme = {
   ...inputTheme,
   ...linkTheme,
   ...progressTheme,
+  ...scrollbarTheme,
   ...scrollAreaTheme,
   ...tagTheme,
 }
