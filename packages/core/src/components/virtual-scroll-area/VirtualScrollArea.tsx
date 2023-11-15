@@ -19,6 +19,7 @@ export const VirtualScrollArea = (propsRaw: VirtualScrollAreaProps) => {
       style={props.style}
       ref={props.ref}
       {...eventHandlers}
-    ></div>
+    >
+    </div>
   )
 }

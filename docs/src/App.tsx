@@ -68,9 +68,8 @@ function App() {
       <div class='my-2'>
         <SpProgress class='w-260px' color='danger' percentage={90} />
       </div>
-      <SpVirtualScrollArea class='my-2 w-300px h-300px' />
+      {/* <SpVirtualScrollArea class='my-2 w-300px h-300px' /> */}
       <SpScrollArea class='my-2 w-300px h-300px' scrollX={100}>
-
         <div class='w-2000px h-2000px '>
           <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
           <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
