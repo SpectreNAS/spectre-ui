@@ -45,7 +45,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
   function init(el: HTMLDivElement) {
     const { width, height } = el.getBoundingClientRect()
     scrollbar
-      .setContentWidth(el.scrollHeight)
+      .setContentWidth(el.scrollWidth)
       .setContentHeight(el.scrollHeight)
       .setViewWidth(width)
       .setViewHeight(height)
