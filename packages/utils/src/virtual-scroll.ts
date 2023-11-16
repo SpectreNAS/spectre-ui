@@ -1,12 +1,18 @@
 
 export interface VirtualScrollItem {
+  [key: string]: any
   index: number
   y: number
   height: number
 }
 
+export interface VirtualScrollItemRaw {
+  [key: string]: any
+  height: number
+}
+
 export interface VirtualScrollOptions {
-  items: number[]
+  items: VirtualScrollItemRaw[]
   viewHeight: number
   scrollTop?: number
   buffer?: number
@@ -26,7 +32,7 @@ export class VirtualScroll {
   }
 
   //缓存数量
-  private _buffer = 10
+  private _buffer = 0
 
   //可见区域高度
   private _viewHeight = 0
@@ -129,9 +135,11 @@ export class VirtualScroll {
       const item = this._beforeBufferItems[0]
       if (item.y + item.height > this._scrollTop) {
         return true
+      } else {
+        return false
       }
     }
-    return false
+    return true
   }
 
   private _isRenderAfterBufferItems() {
@@ -139,10 +147,12 @@ export class VirtualScroll {
       const item = this._afterBufferItems[this._afterBufferItems.length - 1]
       if (item.y < this._scrollTop + this._viewHeight) {
         return true
-      } 
+      } else {
+        return false
+      }
     }
-    return false
-  }
+    return true
+  } 
 
   private _createVirtualItems() {
     this._startIndex = this.findStartIndex(0, this._items.length - 1)
@@ -161,13 +171,13 @@ export class VirtualScroll {
     return [...this._beforeBufferItems, ...viewItems, ...this._afterBufferItems]
   }
 
-  private _generateItems(items: number[]): VirtualScrollItem[] {
+  private _generateItems(items: VirtualScrollItemRaw[]): VirtualScrollItem[] {
     let totalHeight = 0
     const vItems: VirtualScrollItem[] = []
     for (let i = 0;i < items.length;i++) {
-      const height = items[i]
-      this._items.push({ index: i, height, y: totalHeight })
-      totalHeight += height
+      const item = items[i]
+      vItems.push({ index: i, height: item.height, y: totalHeight })
+      totalHeight += item.height
     }
     return vItems
   }
