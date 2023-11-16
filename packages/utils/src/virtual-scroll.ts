@@ -52,6 +52,8 @@ export class VirtualScroll {
 
   //所有items
   private _items: VirtualScrollItem[] = []
+
+  private _virtualItems: VirtualScrollItem[] = []
   
   //前置缓存items
   private _beforeBufferItems: VirtualScrollItem[] = []
@@ -102,7 +104,8 @@ export class VirtualScroll {
   }
 
   get virtualItems(): VirtualScrollItem[] {
-    return this._createVirtualItems()
+    this._resetVirtualItems()
+    return this._virtualItems
   }
 
   setBuffer(value: number): this {
@@ -133,9 +136,7 @@ export class VirtualScroll {
   private _isRenderBeforeBufferItems() {
     if (this._beforeBufferItems.length > 0) {
       const item = this._beforeBufferItems[0]
-      if (item.y + item.height > this._scrollTop) {
-        return true
-      } else {
+      if (!(item.y + item.height > this._scrollTop)) {
         return false
       }
     }
@@ -145,30 +146,24 @@ export class VirtualScroll {
   private _isRenderAfterBufferItems() {
     if (this._afterBufferItems.length > 0) {
       const item = this._afterBufferItems[this._afterBufferItems.length - 1]
-      if (item.y < this._scrollTop + this._viewHeight) {
-        return true
-      } else {
+      if (!(item.y < this._scrollTop + this._viewHeight)) {
         return false
       }
     }
     return true
   } 
 
-  private _createVirtualItems() {
+  private _resetVirtualItems() {
     this._startIndex = this.findStartIndex(0, this._items.length - 1)
     if (this._startIndex === -1) return []
     const viewItems = this._generateViewItems(this._startIndex)
     this._endIndex = this._startIndex + viewItems.length - 1
-    if (this._scrollDirection > 0) {
-      if (this._isRenderAfterBufferItems()) {
-        this._afterBufferItems = this._generateAfterBufferItems(this._endIndex)
-      } 
-    } else {
-      if (this._isRenderBeforeBufferItems()) {
-        this._beforeBufferItems = this._generateBeforeBufferItems(this._startIndex)
-      }
+    const isReset = this._scrollDirection > 0 ? this._isRenderAfterBufferItems() : this._isRenderBeforeBufferItems()
+    if (isReset) {
+      this._afterBufferItems = this._generateAfterBufferItems(this._endIndex)
+      this._beforeBufferItems = this._generateBeforeBufferItems(this._startIndex)
+      this._virtualItems = [...this._beforeBufferItems, ...viewItems, ...this._afterBufferItems]
     }
-    return [...this._beforeBufferItems, ...viewItems, ...this._afterBufferItems]
   }
 
   private _generateItems(items: VirtualScrollItemRaw[]): VirtualScrollItem[] {
