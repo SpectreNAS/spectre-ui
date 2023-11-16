@@ -1,9 +1,8 @@
 import {
   SpCheckbox, SpConfigProvider, SpButton, SpTag,
   SpPagination, SpAlert, SpBadge, SpLink,
-  SpDraggable, SpInput, SpInputNumber, SpProgress,
-  SpScrollArea,
-  SpVirtualScrollArea
+  SpInput, SpInputNumber, SpProgress,
+  SpVirtualScrollArea, SpVirtualList
 } from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
 
@@ -11,6 +10,7 @@ function App() {
   function change(value: boolean) {
     console.log(value)
   }
+  const items = Array.from({ length: 100 }).map((_, index) => ({ key: `${index + 1}`, height: 80 }))
   return (
     <div class=' bg-[#1a1a1a] text-white top-0 right-0 bottom-0 left-0 absolute'>
       Hello
@@ -68,15 +68,17 @@ function App() {
       <div class='my-2'>
         <SpProgress class='w-260px' color='danger' percentage={90} />
       </div>
-      {/* <SpVirtualScrollArea class='my-2 w-300px h-300px' /> */}
-      <SpScrollArea class='my-2 w-300px h-300px' scrollX={100}>
+      <SpVirtualScrollArea class='my-2 w-300px h-300px'>
+        <SpVirtualList items={items}></SpVirtualList>
+      </SpVirtualScrollArea>
+      {/* <SpScrollArea class='my-2 w-300px h-300px' scrollX={100}>
         <div class='w-2000px h-2000px '>
           <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
           <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
           <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
           <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
         </div>
-      </SpScrollArea>
+      </SpScrollArea> */}
 
     </div>
   )

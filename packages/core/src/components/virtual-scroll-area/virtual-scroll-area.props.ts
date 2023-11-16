@@ -1,20 +1,20 @@
-import { JSX, mergeProps, splitProps } from 'solid-js'
-import { ComponentSize, ComponentColor, ComponentProps, ValueChanged } from '../../types'
+import { mergeProps, splitProps, Accessor } from 'solid-js'
+import { ComponentSize, ComponentColor, ComponentParentProps, ValueChanged } from '../../types'
 import { customEventHandlersName } from '../../events'
 import { Point } from '@spectre-ui/utils'
 
-export interface VirtualScrollItem {
-  key: string
-  height: number
-}
-export interface VirtualScrollAreaProps extends ComponentProps<HTMLDivElement> {
+export interface VirtualScrollAreaProps extends ComponentParentProps<HTMLDivElement> {
   color?: ComponentColor
   size?: ComponentSize
   scrollX?: number
   scrollY?: number
-  items?: VirtualScrollItem[]
-  renderItem?: (item: VirtualScrollItem, index: number) => JSX.Element
   scroll?: ValueChanged<Point>
+}
+
+export interface VirtualScrollAreaProviderValue {
+  setContentHeight: (value: number) => void
+  viewHeight: Accessor<number>
+  addListener: ValueChanged<ValueChanged<Point>>
 }
 
 export function generateProps(propsRaw: VirtualScrollAreaProps) {
@@ -23,7 +23,6 @@ export function generateProps(propsRaw: VirtualScrollAreaProps) {
       { 
         scrollX: 0,
         scrollY: 0,
-        items: [],
       }, 
       propsRaw,
     ), 

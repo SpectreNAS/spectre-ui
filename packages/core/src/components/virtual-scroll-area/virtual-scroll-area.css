@@ -1,1 +1,11 @@
-.sp-virtual-scroll-area {}
+.sp-virtual-scroll-area {
+  position: relative;
+}
+
+.sp-virtual-scroll-area-view {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sp-virtual-list {}

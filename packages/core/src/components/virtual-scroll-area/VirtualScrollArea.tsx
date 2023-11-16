@@ -1,8 +1,13 @@
-import { createEffect, createSignal, onMount, on } from 'solid-js'
+import { createEffect, createSignal, onMount, on, createContext, useContext } from 'solid-js'
 import { mergeClasses } from '../../utils'
-import { VirtualScrollAreaProps, generateProps } from './virtual-scroll-area.props'
+import { VirtualScrollAreaProps, generateProps, VirtualScrollAreaProviderValue } from './virtual-scroll-area.props'
 import { Point, Scrollbar } from '@spectre-ui/utils'
 import { SpVerticalScrollbar, SpHorizontalScrollbar } from '../scrollbar'
+import { ValueChanged } from '../../types'
+
+const VirtualScrollAreaContext = createContext<VirtualScrollAreaProviderValue>()
+
+export const useVirtualScrollContext = () => useContext(VirtualScrollAreaContext)
 
 export const VirtualScrollArea = (propsRaw: VirtualScrollAreaProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
@@ -14,6 +19,7 @@ export const VirtualScrollArea = (propsRaw: VirtualScrollAreaProps) => {
   const [horizontalBarWidth, setHorizontalBarWidth] = createSignal(0)
   const [horizontalSliderX, setHorizontalSliderX] = createSignal(0)
   const [horizontalSliderWidth, setHorizontalSliderWidth] = createSignal(0)
+  const listeners: ValueChanged<Point>[] = []
 
   const virtualScrollAreaClasses = () => mergeClasses([
     'sp-virtual-scroll-area',
@@ -42,8 +48,6 @@ export const VirtualScrollArea = (propsRaw: VirtualScrollAreaProps) => {
   function init(el: HTMLDivElement) {
     const { width, height } = el.getBoundingClientRect()
     scrollbar
-      .setContentWidth(el.scrollWidth)
-      .setContentHeight(el.scrollHeight)
       .setViewWidth(width)
       .setViewHeight(height)
       .scrollTo({ x: props.scrollX, y: props.scrollY })
@@ -60,7 +64,8 @@ export const VirtualScrollArea = (propsRaw: VirtualScrollAreaProps) => {
    * @param param0 
    */
   function onVerticalSlider({ y }: Point) {
-
+    scrollbar.thumbTo({ y })
+    execListeners()
   }
 
   /**
@@ -68,29 +73,58 @@ export const VirtualScrollArea = (propsRaw: VirtualScrollAreaProps) => {
      * @param param0 
      */
   function onHorizontalSlider({ x }: Point) {
+    //
+  }
+
+  function setContentHeight(value: number) {
+    scrollbar.setContentHeight(value)
+    setVerticalSliderHeight(scrollbar.thumbHeight)
+    setVerticalSliderY(scrollbar.thumbY)
+  }
+
+  function addListener(listener: ValueChanged<Point>) {
+    listeners.push(listener)
+  }
+
+  function execListeners() {
+    listeners.forEach(listener => listener({ x: scrollbar.scrollX, y: scrollbar.scrollY }))
+  }
+
+  function onWheel(event: WheelEvent) {
+    scrollbar.scrollTo({ y: scrollbar.scrollY + (event.deltaY > 0 ? 40 : -40) })
+    setVerticalSliderY(scrollbar.thumbY)
+    execListeners()
   }
 
   return (
-    <div
-      class={virtualScrollAreaClasses()}
-      classList={props.classList}
-      style={props.style}
-      ref={props.ref}
-      {...eventHandlers}
-    >
-      <div ref={initViewRef}></div>
-      <SpVerticalScrollbar
-        height={verticalBarHeight()}
-        sliderY={verticalSliderY()}
-        sliderHeight={verticalSliderHeight()}
-        change={onVerticalSlider}
-      />
-      <SpHorizontalScrollbar
-        width={horizontalBarWidth()}
-        sliderX={horizontalSliderX()}
-        sliderWidth={horizontalSliderWidth()}
-        change={onHorizontalSlider}
-      />
-    </div>
+    <VirtualScrollAreaContext.Provider value={{
+      setContentHeight,
+      viewHeight: verticalBarHeight,
+      addListener
+    }}>
+      <div
+        class={virtualScrollAreaClasses()}
+        classList={props.classList}
+        style={props.style}
+        ref={props.ref}
+        {...eventHandlers}
+      >
+        <div class='sp-virtual-scroll-area-view' ref={initViewRef} onWheel={onWheel}>
+          {props.children}
+        </div>
+        <SpVerticalScrollbar
+          height={verticalBarHeight()}
+          sliderY={verticalSliderY()}
+          sliderHeight={verticalSliderHeight()}
+          change={onVerticalSlider}
+        />
+        <SpHorizontalScrollbar
+          width={horizontalBarWidth()}
+          sliderX={horizontalSliderX()}
+          sliderWidth={horizontalSliderWidth()}
+          change={onHorizontalSlider}
+        />
+      </div>
+    </VirtualScrollAreaContext.Provider>
   )
 }
