@@ -21,9 +21,9 @@
     "dist/**"
   ],
   "scripts": {
-    "build:js": "tsc --project ./tsconfig.json",
+    "build:core": "tsc --build --clean && tsc --project ./tsconfig.json",
     "build:css": "postcss src/styles/index.css -o dist/styles.css",
-    "dev:js": "tsc --watch --project ./tsconfig.json",
+    "dev:core": "tsc --watch --project ./tsconfig.json",
     "dev:css": "postcss -w src/styles/index.css -o dist/styles.css"
   },
   "dependencies": {

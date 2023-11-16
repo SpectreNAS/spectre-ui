@@ -3,12 +3,22 @@
     "dev:docs": {
       "dependsOn": [
         "@spectre-ui/core:build:css",
-        "@spectre-ui/core:build:js"
+        "@spectre-ui/core:build:core"
+      ]
+    },
+    "build:docs": {
+      "dependsOn": [
+        "@spectre-ui/core:build:css",
+        "@spectre-ui/core:build:core"
+      ]
+    },
+    "build:core": {
+      "dependsOn": [
+        "@spectre-ui/utils:build"
       ]
     }
   },
   "affected": {
     "defaultBase": "master"
-  },
-  "nxCloudAccessToken": "MGI5MmQ5NjQtOTkzNy00NWRjLWJjZGQtNzA0ODljYjdjMzA2fHJlYWQtd3JpdGU="
+  }
 }
