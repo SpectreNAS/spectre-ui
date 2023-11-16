@@ -7,8 +7,9 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "skipLibCheck": true,
-    "noEmit": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "outDir": "./dist",
+    "declaration": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]

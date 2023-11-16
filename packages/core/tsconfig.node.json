@@ -6,6 +6,5 @@
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
     "allowJs": true
-  },
-  "include": ["rollup.config.js"]
+  }
 }
