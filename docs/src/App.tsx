@@ -5,12 +5,12 @@ import {
   SpVirtualScrollArea, SpVirtualList
 } from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
+import { createSignal } from 'solid-js'
 
 function App() {
-  function change(value: boolean) {
-    console.log(value)
-  }
-  const items = Array.from({ length: 100 }).map((_, index) => ({ key: `${index + 1}`, height: 80 }))
+  const [virtualItemCount, setVirtualItemCount] = createSignal(1000000)
+  const items = () => Array.from({ length: virtualItemCount() }).map((_, index) => ({ key: `${index + 1}`, height: 80 }))
+
   return (
     <div class=' bg-[#1a1a1a] text-white top-0 right-0 bottom-0 left-0 absolute'>
       Hello
@@ -24,7 +24,7 @@ function App() {
         <div class='flex w-100px justify-between items-end'>
           <SpCheckbox size='small'></SpCheckbox>
           <SpCheckbox size='medium'></SpCheckbox>
-          <SpCheckbox indeterminate change={change}></SpCheckbox>
+          <SpCheckbox indeterminate></SpCheckbox>
           <SpCheckbox size='large'></SpCheckbox>
         </div>
         <div class='flex w-200px justify-between items-end'>
@@ -50,9 +50,6 @@ function App() {
       <div class='w-200px my-2'>
         <SpInput value={'123'} clearable></SpInput>
       </div>
-      <div class='w-200px my-2'>
-        <SpInputNumber showStep={true} min={0}></SpInputNumber>
-      </div>
       <div class='my-2'>
         <SpProgress class='w-150px' size='small' percentage={10} />
       </div>
@@ -68,8 +65,11 @@ function App() {
       <div class='my-2'>
         <SpProgress class='w-260px' color='danger' percentage={90} />
       </div>
+      <div class='w-200px my-2'>
+        <SpInputNumber showStep={true} min={0}></SpInputNumber>
+      </div>
       <SpVirtualScrollArea class='my-2 w-300px h-300px'>
-        <SpVirtualList items={items}></SpVirtualList>
+        <SpVirtualList items={items()}></SpVirtualList>
       </SpVirtualScrollArea>
       {/* <SpScrollArea class='my-2 w-300px h-300px' scrollX={100}>
         <div class='w-2000px h-2000px '>
