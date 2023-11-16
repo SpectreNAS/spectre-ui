@@ -169,10 +169,9 @@ class Thumb {
 
   setViewWidth(value: number): this {
     const viewWidth = getWidth(this._viewWidth, value)
-    if (viewWidth != this._viewWidth && this._contentWidth > viewWidth) {
+    if (viewWidth != this._viewWidth) {
       this._viewWidth = viewWidth
-      this._thumbWidth = this._getCalcThumbWidth()
-      this._thumbX = this._getCalcThumbX()
+      this._setThumb()
     }
     return this
   }
@@ -185,10 +184,9 @@ class Thumb {
    */
   setContentWidth(value: number): this {
     const contentWidth = getWidth(this._contentWidth, value)
-    if (contentWidth != this._contentWidth && contentWidth > this._viewWidth) {
+    if (contentWidth != this._contentWidth) {
       this._contentWidth = contentWidth
-      this._thumbWidth = this._getCalcThumbWidth()
-      this._thumbX = this._getCalcThumbX()
+      this._setThumb()
     }
     return this
   }
@@ -228,6 +226,16 @@ class Thumb {
     this._scrollX = this._getCalcScrollX()
     this.scrollTo(this._scrollX)
     return this
+  }
+
+  private _setThumb() {
+    if (this._contentWidth > this._viewWidth) {
+      this._thumbWidth = this._getCalcThumbWidth()
+      this._thumbX = this._getCalcThumbX()
+    } else {
+      this._thumbWidth = 0
+      this._thumbX = 0
+    }
   }
 
   private _getCalcThumbWidth(): number {
