@@ -5,11 +5,9 @@ import {
   SpVirtualScrollArea, SpVirtualList
 } from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
-import { createSignal } from 'solid-js'
 
 function App() {
-  const [virtualItemCount, setVirtualItemCount] = createSignal(1000000)
-  const items = () => Array.from({ length: virtualItemCount() }).map((_, index) => ({ key: `${index + 1}`, height: 80 }))
+  const items = () => Array.from({ length: 1000000 }).map((_, index) => ({ key: `${index + 1}`, height: 80 }))
 
   return (
     <div class=' bg-[#1a1a1a] text-white top-0 right-0 bottom-0 left-0 absolute'>
