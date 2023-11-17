@@ -39,9 +39,8 @@ export const Popover = (propsRaw: PopoverProps) => {
       case 'bottom':
         setBottomCenterPosition(left, top, width, height)
       case 'top':
-        const position = getTopCenterPosition(left, window.innerHeight - top, width, height, props.width)
+        setTopCenterPosition(left, top, width, height)
     }
-
   }
 
   function setBottomCenterPosition(left: number, top: number, width: number, height: number) {
@@ -57,9 +56,9 @@ export const Popover = (propsRaw: PopoverProps) => {
     if (!popoverRef) {
       return
     }
-    const position = getBottomCenterPosition(left, top, width, height, props.width)
+    const position = getTopCenterPosition(left, window.innerHeight - top, width, height, props.width)
     popoverRef.style.left = `${position.left}px`
-    popoverRef.style.top = `${position.top}px`
+    popoverRef.style.bottom = `${position.bottom}px`
   }
 
   return (
@@ -88,7 +87,7 @@ function findScrollableParentElement(el: HTMLElement): HTMLElement | undefined {
 
 //获取popover位于顶部中间的位置
 function getTopCenterPosition(left: number, bottom: number, width: number, height: number, popoverWidth: number): { left: number, bottom: number, } {
-  return { left: 0, bottom: 0 }
+  return { left: left + width / 2 - popoverWidth / 2, bottom: bottom }
 }
 
 //获取popover位于底部中间的位置
