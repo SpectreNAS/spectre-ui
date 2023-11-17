@@ -1,15 +1,10 @@
 import { SpConfigProvider, SpScrollArea } from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
 import { ThemeSwitch } from './components/theme-switch'
-import { AlertUsage } from './components/alert-usage'
-import { BadgeUsage } from './components/badge-usage'
-import { ButtonUsage } from './components/button-usage'
-import { CheckboxUsage } from './components/checkbox-usage'
-import { PaginationUsage } from './components/pagination-usage'
 import { themeType } from './store/global'
+import { Showroom } from './pages/showroom'
 
 function App() {
-  // const items = () => Array.from({ length: 1000000 }).map((_, index) => ({ key: `${index + 1}`, height: 80 }))
 
   return (
     <SpConfigProvider themeType={themeType()}>
@@ -21,16 +16,7 @@ function App() {
           </div>
         </div>
         <SpScrollArea>
-          <div class='flex'>
-            <AlertUsage />
-
-            <ButtonUsage />
-            <CheckboxUsage />
-            <BadgeUsage />
-          </div>
-          <div class='flex'>
-            <PaginationUsage />
-          </div>
+          <Showroom />
         </SpScrollArea>
       </div>
     </SpConfigProvider>

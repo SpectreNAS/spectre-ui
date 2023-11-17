@@ -1,1 +1,0 @@
-export { BadgeUsage } from './BadgeUsage'
