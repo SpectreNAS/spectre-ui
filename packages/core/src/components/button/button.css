@@ -66,10 +66,10 @@
   --sp-button-bg-color-active: var(--bg-controls-active);
   --sp-button-bg-color-disable: var(--bg-controls-disabled);
 
-  --sp-button-text-color: var(--text-static-primary);
-  --sp-button-text-color-hover: var(--text-static-primary);
-  --sp-button-text-color-active: var(--text-static-primary);
-  --sp-button-text-color-disable: var(--text-static-disabled);
+  --sp-button-text-color: var(--text-common-tertiary);
+  --sp-button-text-color-hover: var(--text-common-secondary);
+  --sp-button-text-color-active: var(--text-common-primary);
+  --sp-button-text-color-disable: var(--text-common-disabled);
 }
 
 .sp-button.text {
