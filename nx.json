@@ -6,6 +6,11 @@
         "@spectre-ui/core:build:core"
       ]
     },
+    "dev:core": {
+      "dependsOn": [
+        "@spectre-ui/utils:build"
+      ]
+    },
     "build:docs": {
       "dependsOn": [
         "@spectre-ui/core:build:css",
