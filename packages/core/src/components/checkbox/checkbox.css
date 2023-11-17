@@ -6,7 +6,7 @@
   border-color: var(--sp-checkbox-border-color);
   width: var(--sp-checkbox-size);
   height: var(--sp-checkbox-size);
-  display: flex;
+  display: inline-flex;
   user-select: none;
 }
 

@@ -14,6 +14,7 @@ export const Checkbox = (propsRaw: CheckboxProps) => {
     'sp-checkbox',
     showChecked() ? 'checked' : '',
     props.size ?? '',
+    props.class ?? '',
   ])
 
   createEffect(() => {
