@@ -160,6 +160,7 @@ export const Pagination = (propsRaw: PaginationProps) => {
             <NextPage />
           </SpIconButton>
         </Show>
+        {props.children}
       </div>
     </Show>
   )

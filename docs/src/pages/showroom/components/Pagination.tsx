@@ -1,4 +1,4 @@
-import { SpPagination } from '@spectre-ui/core'
+import { SpPagination, SpPaginationJumper } from '@spectre-ui/core'
 
 export const PaginationUsage = () => {
   return (
@@ -8,6 +8,14 @@ export const PaginationUsage = () => {
       </div>
       <div class=' mb-4'>
         <SpPagination total={100} prev next></SpPagination>
+      </div>
+      <div class=' mb-4'>
+        <SpPagination type='text' total={100} prev next></SpPagination>
+      </div>
+      <div class=' mb-4'>
+        <SpPagination total={30} prev next>
+          <SpPaginationJumper />
+        </SpPagination>
       </div>
     </div>
   )

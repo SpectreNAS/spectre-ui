@@ -1,6 +1,7 @@
+import { SpInputNumber } from '../input-number'
 
 export const PaginationJumper = () => {
   return (
-    <div></div>
+    <SpInputNumber />
   )
 }
