@@ -15,7 +15,7 @@ export interface PopoverProps extends ComponentParentProps<HTMLButtonElement> {
 export function generateProps(propsRaw: PopoverProps) {
   return splitProps(mergeProps({
     trigger: 'hover',
-    placement: 'bottom',
+    placement: 'top',
     width: 150,
   }, propsRaw), customEventHandlersName)
 }
