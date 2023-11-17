@@ -12,7 +12,7 @@ function App() {
 
   return (
     <SpConfigProvider themeType='light'>
-      <div class=' bg-[var(--bg-common-default)]  top-0 right-0 bottom-0 left-0 absolute'>
+      <div class='top-0 right-0 bottom-0 left-0 absolute'>
 
         Hello
         <div class='flex w-100px justify-between items-end'>
@@ -30,7 +30,7 @@ function App() {
         <div class='flex w-200px justify-between items-end'>
           <SpSwitch size='small'></SpSwitch>
           <SpSwitch size='medium'></SpSwitch>
-          <SpSwitch renderOff={'a'} renderOn={'b'}></SpSwitch>
+          <SpSwitch></SpSwitch>
           <SpSwitch size='large'></SpSwitch>
         </div>
         <div class='flex w-200px justify-between items-end'>
