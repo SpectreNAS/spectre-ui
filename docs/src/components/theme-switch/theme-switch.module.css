@@ -1,0 +1,5 @@
+.themeSwitch {
+  --sp-switch-on-bg-color: var(--bg-controls-default);
+  --sp-switch-on-bg-color-hover: var(--bg-controls-hover);
+  --sp-switch-on-action-bg-color: var(--bg-common-default);
+}
