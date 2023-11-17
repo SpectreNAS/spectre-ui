@@ -6,6 +6,7 @@
   padding: var(--sp-button-padding);
   line-height: var(--sp-button-line-height);
   font-size: var(--sp-button-font-size);
+  white-space: nowrap;
 }
 
 .sp-button:hover {
