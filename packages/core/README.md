@@ -22,7 +22,7 @@
 - [x] InputNumber 数字输入框
 - [ ] Select 下拉选择框
 - [ ] CascadeSelect 级联选择框
-- [ ] Switch 开关
+- [x] Switch 开关
 - [ ] Slider 滑块
 - [ ] DateTimePicker 日期时间选择器
 - [ ] TimePicker 时间选择器
