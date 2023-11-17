@@ -1,4 +1,5 @@
 .sp-switch {
+  display: inline-flex;
   position: relative;
   background-color: var(--sp-switch-off-bg-color);
   width: calc(var(--sp-switch-height) * 2);
