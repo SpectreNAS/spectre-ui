@@ -4,6 +4,7 @@
   width: calc(var(--sp-switch-height) * 2);
   height: var(--sp-switch-height);
   border-radius: calc(var(--sp-switch-height) / 2);
+  user-select: none;
 }
 
 .sp-switch.small {
@@ -32,6 +33,9 @@
 
 .sp-switch-action {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   left: 2px;
   top: 2px;
   --sp-switch-size: calc(var(--sp-switch-height) - 4px);

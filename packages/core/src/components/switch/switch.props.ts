@@ -1,5 +1,5 @@
 import { JSX, mergeProps, splitProps } from 'solid-js'
-import { ComponentSize, ComponentColor, ComponentProps } from '../../types'
+import { ComponentSize, ComponentColor, ComponentProps, ValueChanged } from '../../types'
 import { customEventHandlersName } from '../../events'
 
 export interface SwitchProps extends ComponentProps<HTMLDivElement> {
@@ -10,6 +10,7 @@ export interface SwitchProps extends ComponentProps<HTMLDivElement> {
   onValue?: string
   renderOff?: JSX.Element
   renderOn?: JSX.Element
+  change?: ValueChanged<boolean>
 }
 
 export function generateProps(propsRaw: SwitchProps) {

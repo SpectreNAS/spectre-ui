@@ -29,7 +29,8 @@ export const Switch = (propsRaw: SwitchProps) => {
   })
 
   function onSwitch() {
-    setIsOn(value => !value)
+    const value = setIsOn(value => !value)
+    props.change?.(value)
   }
 
   return (
