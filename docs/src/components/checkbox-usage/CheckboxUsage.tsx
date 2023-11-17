@@ -9,8 +9,11 @@ export const CheckboxUsage = () => {
       <div class=' mb-4'>
         <SpCheckbox size='small'></SpCheckbox>
         <SpCheckbox class='ml-3' size='medium'></SpCheckbox>
-        <SpCheckbox class='ml-3'></SpCheckbox>
-        <SpCheckbox class='ml-3' size='large'></SpCheckbox>
+        <SpCheckbox class='ml-3' value={true}></SpCheckbox>
+        <SpCheckbox class='ml-3' size='large' value={true}></SpCheckbox>
+      </div>
+      <div class=' mb-4'>
+        <SpCheckbox indeterminate></SpCheckbox>
       </div>
     </div>
   )

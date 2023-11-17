@@ -1,8 +1,11 @@
 import { SpConfigProvider, SpScrollArea } from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
 import { ThemeSwitch } from './components/theme-switch'
+import { AlertUsage } from './components/alert-usage'
+import { BadgeUsage } from './components/badge-usage'
 import { ButtonUsage } from './components/button-usage'
 import { CheckboxUsage } from './components/checkbox-usage'
+import { PaginationUsage } from './components/pagination-usage'
 import { themeType } from './store/global'
 
 function App() {
@@ -19,8 +22,14 @@ function App() {
         </div>
         <SpScrollArea>
           <div class='flex'>
+            <AlertUsage />
+
             <ButtonUsage />
             <CheckboxUsage />
+            <BadgeUsage />
+          </div>
+          <div class='flex'>
+            <PaginationUsage />
           </div>
         </SpScrollArea>
       </div>
