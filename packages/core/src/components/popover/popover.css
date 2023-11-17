@@ -1,1 +1,4 @@
-.sp-popover {}
+.sp-popover {
+  position: relative;
+  display: inline-flex;
+}

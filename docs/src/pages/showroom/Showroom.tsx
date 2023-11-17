@@ -11,6 +11,7 @@ import { SwitchUsage } from './components/Switch'
 import { PaginationUsage } from './components/Pagination'
 import { ProgressUsage } from './components/Progress'
 import { DraggableUsage } from './components/Draggable'
+import { SpButton, SpPopover } from '@spectre-ui/core'
 
 export const Showroom = () => {
   const components = [
@@ -29,6 +30,11 @@ export const Showroom = () => {
   ]
   return (
     <div>
+      <div class='flex justify-center'>
+        <SpPopover>
+          <SpButton>Button</SpButton>
+        </SpPopover>
+      </div>
       <For each={components}>
         {
           (component) => {
