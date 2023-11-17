@@ -258,7 +258,20 @@ export interface ScrollbarTheme {
 }
 
 export interface ScrollAreaTheme {
+  
+}
 
+export interface SwitchTheme {
+  '--sp-switch-on-bg-color'?: string
+  '--sp-switch-on-bg-color-hover'?: string
+
+  '--sp-switch-off-bg-color'?: string
+  '--sp-switch-off-bg-color-hover'?: string
+
+  '--sp-switch-on-action-bg-color'?: string
+  '--sp-switch-off-action-bg-color'?: string
+
+  '--sp-switch-height'?: string
 }
 
 export interface TagTheme {

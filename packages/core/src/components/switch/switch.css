@@ -1,1 +1,48 @@
-.sp-switch {}
+.sp-switch {
+  position: relative;
+  background-color: var(--sp-switch-off-bg-color);
+  width: calc(var(--sp-switch-height) * 2);
+  height: var(--sp-switch-height);
+  border-radius: calc(var(--sp-switch-height) / 2);
+}
+
+.sp-switch.small {
+  --sp-switch-height: 12px
+}
+
+.sp-switch.medium {
+  --sp-switch-height: 16px
+}
+
+.sp-switch.large {
+  --sp-switch-height: 24px
+}
+
+.sp-switch:hover {
+  --sp-switch-off-bg-color: var(--sp-switch-off-bg-color-hover);
+}
+
+.sp-switch.on {
+  background-color: var(--sp-switch-on-bg-color);
+}
+
+.sp-switch.on:hover {
+  --sp-switch-on-bg-color: var(--sp-switch-on-bg-color-hover)
+}
+
+.sp-switch-action {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  --sp-switch-size: calc(var(--sp-switch-height) - 4px);
+  width: var(--sp-switch-size);
+  height: var(--sp-switch-size);
+  border-radius: calc(var(--sp-switch-size) / 2);
+  background-color: var(--sp-switch-off-action-bg-color);
+}
+
+.sp-switch-action.on {
+  left: auto;
+  right: 2px;
+  background-color: var(--sp-switch-on-action-bg-color);
+}
