@@ -1,3 +1,4 @@
 export type { ComponentTheme, ComponentSize } from './types'
-export * from './theme'
+export { getSystemThemeType } from './theme'
+export type { Theme } from './theme'
 export * from './components'
