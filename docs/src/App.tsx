@@ -1,91 +1,28 @@
-import {
-  SpCheckbox, SpConfigProvider, SpButton, SpTag,
-  SpPagination, SpAlert, SpBadge, SpLink,
-  SpInput, SpInputNumber, SpProgress,
-  SpVirtualScrollArea, SpVirtualList,
-  SpSwitch
-} from '@spectre-ui/core'
+import { SpConfigProvider, SpScrollArea } from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
+import { ThemeSwitch } from './components/theme-switch'
+import { ButtonUsage } from './components/button-usage'
+import { CheckboxUsage } from './components/checkbox-usage'
+import { themeType } from './store/global'
 
 function App() {
-  const items = () => Array.from({ length: 1000000 }).map((_, index) => ({ key: `${index + 1}`, height: 80 }))
+  // const items = () => Array.from({ length: 1000000 }).map((_, index) => ({ key: `${index + 1}`, height: 80 }))
 
   return (
-    <SpConfigProvider themeType='light'>
-      <div class='top-0 right-0 bottom-0 left-0 absolute'>
-
-        Hello
-        <div class='flex w-100px justify-between items-end'>
-          <SpButton size='small'>Button</SpButton>
-          <SpButton size='medium'>Button</SpButton>
-          <SpButton type='text' color='primary'>Button</SpButton>
-          <SpButton size='large'>Button</SpButton>
+    <SpConfigProvider themeType={themeType()}>
+      <div class='h-screen w-screen flex flex-col'>
+        <div class='flex h-56px w-full py-2 border-b border-b-solid border-b-[var(--border-common-default)] flex-shrink-0'>
+          <div class='w-256px h-full flex-shrink-0'></div>
+          <div class='flex items-center w-full h-full px-40px'>
+            <div class='ml-auto'><ThemeSwitch /></div>
+          </div>
         </div>
-        <div class='flex w-100px justify-between items-end'>
-          <SpCheckbox size='small'></SpCheckbox>
-          <SpCheckbox size='medium'></SpCheckbox>
-          <SpCheckbox indeterminate></SpCheckbox>
-          <SpCheckbox size='large'></SpCheckbox>
-        </div>
-        <div class='flex w-200px justify-between items-end'>
-          <SpSwitch size='small'></SpSwitch>
-          <SpSwitch size='medium'></SpSwitch>
-          <SpSwitch></SpSwitch>
-          <SpSwitch size='large'></SpSwitch>
-        </div>
-        <div class='flex w-200px justify-between items-end'>
-          <SpTag size='small' round closable>超小标签</SpTag>
-          <SpTag round size='medium' closable>Tag</SpTag>
-          <SpTag closable round>Tag</SpTag>
-          <SpTag size='large' round color='danger' closable>Tag</SpTag>
-        </div>
-        <div>
-          <SpPagination total={100}></SpPagination>
-        </div>
-        <div>
-          <SpAlert icon title='info alert' description='info alert desc' light></SpAlert>
-        </div>
-
-        <SpBadge value={99}>
-          <SpButton>Button</SpButton>
-        </SpBadge>
-        <div>
-          <SpLink href='' underline='always'>Link</SpLink>
-        </div>
-
-        <div class='w-200px my-2'>
-          <SpInput value={'123'} clearable></SpInput>
-        </div>
-        <div class='my-2'>
-          <SpProgress class='w-150px' size='small' percentage={10} />
-        </div>
-        <div class='my-2'>
-          <SpProgress class='w-200px' color='primary' size='medium' percentage={30} />
-        </div>
-        <div class='my-2'>
-          <SpProgress class='w-220px' color='success' percentage={50} />
-        </div>
-        <div class='my-2'>
-          <SpProgress class='w-240px' color='warn' size='large' percentage={70} />
-        </div>
-        <div class='my-2'>
-          <SpProgress class='w-260px' color='danger' percentage={90} />
-        </div>
-        <div class='w-200px my-2'>
-          <SpInputNumber showStep={true} min={0}></SpInputNumber>
-        </div>
-        <SpVirtualScrollArea class='my-2 w-300px h-300px'>
-          <SpVirtualList items={items()}></SpVirtualList>
-        </SpVirtualScrollArea>
-        {/* <SpScrollArea class='my-2 w-300px h-300px' scrollX={100}>
-        <div class='w-2000px h-2000px '>
-          <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-          <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-          <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-          <div>aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-        </div>
-      </SpScrollArea> */}
-
+        <SpScrollArea>
+          <div class='flex'>
+            <ButtonUsage />
+            <CheckboxUsage />
+          </div>
+        </SpScrollArea>
       </div>
     </SpConfigProvider>
   )

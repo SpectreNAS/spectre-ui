@@ -3,5 +3,5 @@ import Solid from 'vite-plugin-solid'
 import UnoCSS from 'unocss/vite'
 
 export default defineConfig({
-  plugins: [Solid(), UnoCSS(),],
+  plugins: [ UnoCSS(), Solid(),],
 })
