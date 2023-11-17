@@ -23,3 +23,7 @@
   font: var(--sp-text-b1);
   color: var(--text-common-primary);
 }
+
+body {
+  background-color: var(--bg-common-default);
+}
