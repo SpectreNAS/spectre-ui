@@ -1,4 +1,4 @@
-import { createEffect, createSignal, onMount, on } from 'solid-js'
+import { createEffect, createSignal, onMount, on, Show } from 'solid-js'
 import { mergeClasses } from '../../utils'
 import { ScrollAreaProps, generateProps } from './scroll-area.props'
 import { Point, Scrollbar } from '@spectre-ui/utils'
@@ -22,6 +22,9 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     props.class ?? ''
   ])
 
+  const showVerticalScroll = () => verticalSliderHeight() > 0
+  const showHorizontalScroll = () => horizontalSliderWidth() > 0
+
   createEffect(on(
     () => props.scrollX,
     (value) => setHorizontalSliderX(scrollbar.scrollTo({ x: value }).thumbX),
@@ -35,6 +38,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
 
   function initViewRef(el: HTMLDivElement) {
     viewRef = el
+    watchViewResize(el)
     onMount(() => init(el))
   }
 
@@ -58,6 +62,58 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     setHorizontalBarWidth(scrollbar.viewWidth)
     setHorizontalSliderX(scrollbar.thumbX)
     setHorizontalSliderWidth(scrollbar.thumbWidth)
+  }
+
+  /**
+   * 监听可见区域大小变化
+   * @param el 
+   */
+  function watchViewResize(el: HTMLDivElement) {
+    const resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0]
+      if (entry) {
+        const { width, height } = entry.contentRect
+        if (width !== scrollbar.viewWidth) {
+          scrollbar.setViewWidth(width)
+          setHorizontalBarWidth(scrollbar.viewWidth)
+          setHorizontalSliderX(scrollbar.thumbX)
+          setHorizontalSliderWidth(scrollbar.thumbWidth)
+        }
+        if (height !== scrollbar.viewHeight) {
+          scrollbar.setViewHeight(height)
+          setVerticalBarHeight(scrollbar.viewHeight)
+          setVerticalSliderHeight(scrollbar.thumbHeight)
+          setVerticalSliderY(scrollbar.thumbY)
+        }
+      }
+    })
+    resizeObserver.observe(el, {})
+  }
+
+  /**
+   * 监听内容大小变化
+   * @param el 
+   */
+  function watchContentResize(el: HTMLDivElement) {
+    const resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0]
+      if (entry) {
+        const { width, height } = entry.contentRect
+        if (width !== scrollbar.contentWidth) {
+          scrollbar.setContentWidth(width)
+          setHorizontalBarWidth(scrollbar.viewWidth)
+          setHorizontalSliderX(scrollbar.thumbX)
+          setHorizontalSliderWidth(scrollbar.thumbWidth)
+        }
+        if (height !== scrollbar.contentHeight) {
+          scrollbar.setContentHeight(height)
+          setVerticalBarHeight(scrollbar.viewHeight)
+          setVerticalSliderHeight(scrollbar.thumbHeight)
+          setVerticalSliderY(scrollbar.thumbY)
+        }
+      }
+    })
+    resizeObserver.observe(el)
   }
 
   /**
@@ -119,22 +175,26 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
       {...eventHandlers}
     >
       <div class='sp-scroll-area-view' ref={initViewRef} onScroll={onWheelScroll}>
-        <div>
+        <div ref={watchContentResize}>
           {props.children}
         </div>
       </div>
-      <SpVerticalScrollbar
-        height={verticalBarHeight()}
-        sliderY={verticalSliderY()}
-        sliderHeight={verticalSliderHeight()}
-        change={onVerticalSlider}
-      />
-      <SpHorizontalScrollbar
-        width={horizontalBarWidth()}
-        sliderX={horizontalSliderX()}
-        sliderWidth={horizontalSliderWidth()}
-        change={onHorizontalSlider}
-      />
+      <Show when={showVerticalScroll()}>
+        <SpVerticalScrollbar
+          height={verticalBarHeight()}
+          sliderY={verticalSliderY()}
+          sliderHeight={verticalSliderHeight()}
+          change={onVerticalSlider}
+        />
+      </Show>
+      <Show when={showHorizontalScroll()}>
+        <SpHorizontalScrollbar
+          width={horizontalBarWidth()}
+          sliderX={horizontalSliderX()}
+          sliderWidth={horizontalSliderWidth()}
+          change={onHorizontalSlider}
+        />
+      </Show>
     </div>
   )
 }
