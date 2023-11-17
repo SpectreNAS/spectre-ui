@@ -1,5 +1,5 @@
 .sp-tag {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   border-width: var(--sp-tag-border-width);
   border-style: var(--sp-tag-border-style);

@@ -12,6 +12,7 @@ export const Tag = (propsRaw: TagProps) => {
     props.round ? 'round' : '',
     props.size ?? '',
     props.color ?? '',
+    props.class ?? '',
   ])
 
   return (
