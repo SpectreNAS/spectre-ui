@@ -2,6 +2,17 @@ import { Portal } from 'solid-js/web'
 import { PopoverPlacement, PopoverProps, generateProps } from './popover.props'
 import { mergeClasses } from '../../utils'
 import { Show, createSignal, onMount } from 'solid-js'
+import { number } from 'yup'
+
+interface LeftBottom {
+  left: number
+  bottom: number
+}
+
+interface LeftTop {
+  left: number
+  top: number
+}
 
 export const Popover = (propsRaw: PopoverProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
@@ -17,11 +28,9 @@ export const Popover = (propsRaw: PopoverProps) => {
 
     onMount(() => {
       const scrollableElement = findScrollableParentElement(el)
-      const { left, top, width, height } = el.getBoundingClientRect()
-      setPopoverPosition(left, top, width, height)
+      setPopoverPosition(el.getBoundingClientRect())
       scrollableElement?.addEventListener('scroll', () => {
-        const { left, top, width, height } = el.getBoundingClientRect()
-        setPopoverPosition(left, top, width, height)
+        setPopoverPosition(el.getBoundingClientRect())
       })
     })
   }
@@ -31,42 +40,19 @@ export const Popover = (propsRaw: PopoverProps) => {
     el.style.position = 'absolute'
     el.style.width = `${props.width}px`
     el.style.backgroundColor = 'var(--bg-common-highest)'
-    el.style.boxShadow = '0px 12px 24px 0px rgba(0, 0, 0, 0.16), 0px 3px 6px 0px rgba(0, 0, 0, 0.12)'
+    el.style.boxShadow = 'var(--sp-shadow-default)'
   }
 
-  function setPopoverPosition(left: number, top: number, width: number, height: number) {
-    switch (props.placement as PopoverPlacement) {
-      case 'bottom':
-        setBottomCenterPosition(left, top, width, height)
-      case 'top':
-        setTopCenterPosition(left, top, width, height)
-    }
-  }
+  function setPopoverPosition(targetRect: DOMRect) {
 
-  function setBottomCenterPosition(left: number, top: number, width: number, height: number) {
-    if (!popoverRef) {
-      return
-    }
-    const position = getBottomCenterPosition(left, top, width, height, props.width)
-    popoverRef.style.left = `${position.left}px`
-    popoverRef.style.top = `${position.top}px`
-  }
-
-  function setTopCenterPosition(left: number, top: number, width: number, height: number) {
-    if (!popoverRef) {
-      return
-    }
-    const position = getTopCenterPosition(left, window.innerHeight - top, width, height, props.width)
-    popoverRef.style.left = `${position.left}px`
-    popoverRef.style.bottom = `${position.bottom}px`
   }
 
   return (
-    <div class='sp-popover' ref={initTargetRef}>
+    <div class={popoverClasses()} ref={initTargetRef}>
       {props.children}
-      <Portal mount={document.body} ref={initPopoverRef}>
+      {/* <Portal mount={document.body} ref={initPopoverRef}>
         <div style='width:100%; height:100px'></div>
-      </Portal>
+      </Portal> */}
     </div>
   )
 }
@@ -91,7 +77,7 @@ function getTopCenterPosition(left: number, bottom: number, width: number, heigh
 }
 
 //获取popover位于底部中间的位置
-function getBottomCenterPosition(left: number, top: number, width: number, height: number, popoverWidth: number): { left: number, top: number, } {
+function getBottomCenterPosition(left: number, top: number, width: number, height: number, popoverWidth: number): LeftTop {
   return { left: left + width / 2 - popoverWidth / 2, top: top + height }
 }
 

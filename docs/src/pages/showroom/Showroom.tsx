@@ -15,26 +15,27 @@ import { SpButton, SpPopover } from '@spectre-ui/core'
 
 export const Showroom = () => {
   const components = [
-    <AlertUsage />,
-    <ButtonUsage />,
-    <BadgeUsage />,
-    <LinkUsage />,
-    <TagUsage />,
-    <InputUsage />,
-    <InputNumberUsage />,
-    <CheckboxUsage />,
-    <SwitchUsage />,
-    <PaginationUsage />,
-    <ProgressUsage />,
-    <DraggableUsage />,
+    // <AlertUsage />,
+    // <ButtonUsage />,
+    // <BadgeUsage />,
+    // <LinkUsage />,
+    // <TagUsage />,
+    // <InputUsage />,
+    // <InputNumberUsage />,
+    // <CheckboxUsage />,
+    // <SwitchUsage />,
+    // <PaginationUsage />,
+    // <ProgressUsage />,
+    // <DraggableUsage />,
   ]
   return (
     <div>
-      <div class='flex justify-center'>
-        <SpPopover>
+      <div class='flex justify-center items-center h-600px'>
+        <SpPopover class='mt-20px'>
           <SpButton>Button</SpButton>
         </SpPopover>
       </div>
+      <div class='w-2000px h-2000px'></div>
       <For each={components}>
         {
           (component) => {
