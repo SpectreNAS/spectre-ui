@@ -1,58 +1,182 @@
 import { Portal } from 'solid-js/web'
-import { PopoverPlacement, PopoverProps, generateProps } from './popover.props'
-import { mergeClasses } from '../../utils'
-import { Show, createSignal, onMount } from 'solid-js'
-import { number } from 'yup'
+import { PopoverPlacement, PopoverProps, PopoverTrigger, generateProps } from './popover.props'
+import { mergeClasses, clickOutside } from '../../utils'
+import { Show, createEffect, createSignal, on, onMount } from 'solid-js'
+import { ValueChanged } from '../../types'
 
-interface LeftBottom {
-  left: number
-  bottom: number
-}
-
-interface LeftTop {
-  left: number
-  top: number
+interface PopoverInset {
+  left?: number
+  bottom?: number
+  right?: number
+  top?: number
 }
 
 export const Popover = (propsRaw: PopoverProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
-  let popoverRef: HTMLDivElement | undefined
+  let targetRef: HTMLDivElement | undefined
 
   const popoverClasses = () => mergeClasses([
     'sp-popover',
     props.class ?? ''
   ])
 
-  function initTargetRef(el: HTMLDivElement) {
+  const [enterTarget, setEnterTarget] = createSignal(false)
+  const [enterPopover, setEnterPopover] = createSignal(false)
+  const [visiblePopover, setVisiblePopover] = createSignal(false)
 
+  let targetTimeout: NodeJS.Timeout | undefined
+  let popoverTimeout: NodeJS.Timeout | undefined
+
+  createEffect(on(enterTarget, () => {
+    if (!enterTarget()) {
+      clearTimeout(targetTimeout)
+      clearTimeout(popoverTimeout)
+      targetTimeout = setTimeout(() => {
+        if (!enterTarget()) {
+          setVisiblePopover(enterPopover())
+        }
+      }, props.hideAfter)
+    } else {
+      setVisiblePopover(true)
+    }
+  }, { defer: true }))
+
+  createEffect(on(enterPopover, () => {
+    if (!enterPopover()) {
+      clearTimeout(popoverTimeout)
+      clearTimeout(targetTimeout)
+      popoverTimeout = setTimeout(() => {
+        if (!enterPopover()) {
+          setVisiblePopover(enterTarget())
+        }
+      }, props.hideAfter)
+    } else {
+      setVisiblePopover(true)
+    }
+  }, { defer: true }))
+
+  function initPopoverRef(popover: HTMLDivElement) {
     onMount(() => {
-      const scrollableElement = findScrollableParentElement(el)
-      setPopoverPosition(el.getBoundingClientRect())
+      if (!targetRef) {
+        return
+      }
+      const target = targetRef
+      clickOutside([target, popover], (event) => {
+        onTrigger('click', onClickOutsideTarget)(event)
+        onTrigger('contextmenu', onContextMenuOutsideTarget)(event)
+      })
+      initPopoverStyles(popover)
+      initPopoverEvents(popover)
+      setPopoverPosition(
+        popover,
+        getPopoverPosition(
+          props.placement as PopoverPlacement,
+          target.getBoundingClientRect(),
+          popover.getBoundingClientRect(),
+          window.innerWidth,
+          window.innerHeight
+        )
+      )
+      const scrollableElement = findScrollableParentElement(targetRef)
       scrollableElement?.addEventListener('scroll', () => {
-        setPopoverPosition(el.getBoundingClientRect())
+        setPopoverPosition(
+          popover,
+          getPopoverPosition(
+            props.placement as PopoverPlacement,
+            target.getBoundingClientRect(),
+            popover.getBoundingClientRect(),
+            window.innerWidth,
+            window.innerHeight
+          )
+        )
       })
     })
   }
 
-  function initPopoverRef(el: HTMLDivElement) {
-    popoverRef = el
+  function initPopoverEvents(el: HTMLDivElement) {
+    el.addEventListener('mouseenter', onTrigger('hover', onMouseEnterPopover))
+    el.addEventListener('mouseleave', onTrigger('hover', onMouseLeavePopover))
+  }
+
+  function initPopoverStyles(el: HTMLDivElement) {
     el.style.position = 'absolute'
-    el.style.width = `${props.width}px`
     el.style.backgroundColor = 'var(--bg-common-highest)'
     el.style.boxShadow = 'var(--sp-shadow-default)'
   }
 
-  function setPopoverPosition(targetRect: DOMRect) {
+  function setPopoverPosition(el: HTMLDivElement, value: PopoverInset) {
+    if (value.left !== undefined) {
+      el.style.left = `${value.left}px`
+    }
+    if (value.bottom !== undefined) {
+      el.style.bottom = `${value.bottom}px`
+    }
+    if (value.right !== undefined) {
+      el.style.right = `${value.right}px`
+    }
+    if (value.top !== undefined) {
+      el.style.top = `${value.top}px`
+    }
+  }
 
+  function onTrigger(triggerType: PopoverTrigger, callback: ValueChanged<Event>) {
+    return (event: Event) => {
+      if (props.trigger === triggerType) {
+        callback(event)
+      }
+    }
+  }
+
+  function onMouseEnterTarget() {
+    setEnterTarget(true)
+  }
+
+  function onMouseLeaveTarget() {
+    setEnterTarget(false)
+  }
+
+  function onMouseEnterPopover() {
+    setEnterPopover(true)
+  }
+
+  function onMouseLeavePopover() {
+    setEnterPopover(false)
+  }
+
+  function onClickTarget() {
+    setVisiblePopover(true)
+  }
+
+  function onClickOutsideTarget() {
+    setVisiblePopover(false)
+  }
+
+  function onContextMenuTarget(event: Event) {
+    event.preventDefault()
+    setVisiblePopover(true)
+  }
+
+  function onContextMenuOutsideTarget() {
+    setVisiblePopover(false)
   }
 
   return (
-    <div class={popoverClasses()} ref={initTargetRef}>
+    <div
+      class={popoverClasses()}
+      ref={targetRef}
+      {...eventHandlers}
+      onMouseEnter={onTrigger('hover', onMouseEnterTarget)}
+      onMouseLeave={onTrigger('hover', onMouseLeaveTarget)}
+      onClick={onTrigger('click', onClickTarget)}
+      onContextMenu={onTrigger('contextmenu', onContextMenuTarget)}
+    >
       {props.children}
-      {/* <Portal mount={document.body} ref={initPopoverRef}>
-        <div style='width:100%; height:100px'></div>
-      </Portal> */}
+      <Show when={visiblePopover()}>
+        <Portal mount={document.body} ref={initPopoverRef}>
+          {props.renderContent}
+        </Portal>
+      </Show>
     </div>
   )
 }
@@ -71,13 +195,38 @@ function findScrollableParentElement(el: HTMLElement): HTMLElement | undefined {
   }
 }
 
-//获取popover位于顶部中间的位置
-function getTopCenterPosition(left: number, bottom: number, width: number, height: number, popoverWidth: number): { left: number, bottom: number, } {
-  return { left: left + width / 2 - popoverWidth / 2, bottom: bottom }
+function getPopoverPosition(placement: PopoverPlacement, targetRect: DOMRect, popoverRect: DOMRect, innerWidth: number, innerHeight: number): PopoverInset {
+  const popoverInset: PopoverInset = {}
+  if (placement === 'bottom') {
+    return { left: getCenterLeft(targetRect.left, targetRect.width, popoverRect.width), top: targetRect.bottom }
+  } else if (placement === 'bottom-start') {
+    return { left: targetRect.right - popoverRect.width, top: targetRect.bottom }
+  } else if (placement === 'bottom-end') {
+    return { left: targetRect.left, top: targetRect.bottom }
+  } else if (placement === 'top') {
+    return { left: getCenterLeft(targetRect.left, targetRect.width, popoverRect.width), bottom: innerHeight - targetRect.top }
+  } else if (placement === 'top-start') {
+    return { left: targetRect.right - popoverRect.width, bottom: innerHeight - targetRect.top }
+  } else if (placement === 'top-end') {
+    return { left: targetRect.left, bottom: innerHeight - targetRect.top }
+  } else if (placement === 'left') {
+    return { right: innerWidth - targetRect.left, top: getCenterLeft(targetRect.top, targetRect.height, popoverRect.height) }
+  } else if (placement === 'left-start') {
+    return { right: innerWidth - targetRect.left, top: targetRect.bottom - popoverRect.height }
+  } else if (placement === 'left-end') {
+    return { right: innerWidth - targetRect.left, top: targetRect.top }
+  } else if (placement === 'right') {
+    return { left: targetRect.right, top: getCenterLeft(targetRect.top, targetRect.height, popoverRect.height) }
+  } else if (placement === 'right-start') {
+    return { left: targetRect.right, top: targetRect.bottom - popoverRect.height }
+  } else if (placement === 'right-end') {
+    return { left: targetRect.right, top: targetRect.top }
+  }
+  return popoverInset
 }
 
-//获取popover位于底部中间的位置
-function getBottomCenterPosition(left: number, top: number, width: number, height: number, popoverWidth: number): LeftTop {
-  return { left: left + width / 2 - popoverWidth / 2, top: top + height }
+//获取popover中间的位置
+function getCenterLeft(left: number, width: number, popoverWidth: number): number {
+  return left + width / 2 - popoverWidth / 2
 }
 
