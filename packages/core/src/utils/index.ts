@@ -1,4 +1,5 @@
-import { JSX } from 'solid-js'
+import { JSX, onCleanup } from 'solid-js'
+import { VoidCallback } from '../types'
 
 export function mergeClasses(classes: string[]): string {
   return classes.filter(item => item !== '').join(' ')
@@ -33,4 +34,14 @@ export function getRangeValue(value: number, min?: number, max?: number): number
     value = max
   }
   return value
+}
+
+export function clickOutside(elements: HTMLElement[], accessor?: VoidCallback) {
+  const onClick = (e: MouseEvent) => {
+    if (elements.every(element => !element.contains(e.target as Node))) {
+      accessor?.()
+    }
+  }
+  document.body.addEventListener('click', onClick)
+  onCleanup(() => document.body.removeEventListener('click', onClick))
 }
