@@ -9,6 +9,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
   let viewRef: HTMLDivElement | undefined
+  let contentRef: HTMLDivElement | undefined
   const scrollbar = new Scrollbar()
   const [verticalBarHeight, setVerticalBarHeight] = createSignal(0)
   const [verticalSliderY, setVerticalSliderY] = createSignal(0)
@@ -36,11 +37,15 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     { defer: true },
   ))
 
-  function initViewRef(el: HTMLDivElement) {
-    viewRef = el
-    watchViewResize(el)
-    onMount(() => init(el))
-  }
+  onMount(() => {
+    if (viewRef) {
+      init(viewRef)
+      watchViewResize(viewRef)
+    }
+    if (contentRef) {
+      watchContentResize(contentRef)
+    }
+  })
 
   /**
    * 根据dom初始化滚动区域
@@ -72,7 +77,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     const resizeObserver = new ResizeObserver((entries) => {
       const entry = entries[0]
       if (entry) {
-        const { width, height } = entry.contentRect
+        const { width, height } = entry.target.getBoundingClientRect()
         if (width !== scrollbar.viewWidth) {
           scrollbar.setViewWidth(width)
           setHorizontalBarWidth(scrollbar.viewWidth)
@@ -98,7 +103,8 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     const resizeObserver = new ResizeObserver((entries) => {
       const entry = entries[0]
       if (entry) {
-        const { width, height } = entry.contentRect
+        const width = entry.target.scrollWidth
+        const height = entry.target.scrollHeight
         if (width !== scrollbar.contentWidth) {
           scrollbar.setContentWidth(width)
           setHorizontalBarWidth(scrollbar.viewWidth)
@@ -174,8 +180,8 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
       ref={props.ref}
       {...eventHandlers}
     >
-      <div class='sp-scroll-area-view' ref={initViewRef} onScroll={onWheelScroll}>
-        <div ref={watchContentResize}>
+      <div class='sp-scroll-area-view' ref={viewRef} onScroll={onWheelScroll}>
+        <div ref={contentRef}>
           {props.children}
         </div>
       </div>
