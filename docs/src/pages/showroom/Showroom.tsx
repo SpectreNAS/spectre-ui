@@ -11,31 +11,26 @@ import { SwitchUsage } from './components/Switch'
 import { PaginationUsage } from './components/Pagination'
 import { ProgressUsage } from './components/Progress'
 import { DraggableUsage } from './components/Draggable'
-import { SpButton, SpPopover } from '@spectre-ui/core'
+import { PopoverUsage } from './components/Popover'
 
 export const Showroom = () => {
   const components = [
-    // <AlertUsage />,
-    // <ButtonUsage />,
-    // <BadgeUsage />,
-    // <LinkUsage />,
-    // <TagUsage />,
-    // <InputUsage />,
-    // <InputNumberUsage />,
-    // <CheckboxUsage />,
-    // <SwitchUsage />,
-    // <PaginationUsage />,
-    // <ProgressUsage />,
-    // <DraggableUsage />,
+    <AlertUsage />,
+    <ButtonUsage />,
+    <BadgeUsage />,
+    <LinkUsage />,
+    <TagUsage />,
+    <InputUsage />,
+    <InputNumberUsage />,
+    <PopoverUsage />,
+    <CheckboxUsage />,
+    <SwitchUsage />,
+    <PaginationUsage />,
+    <ProgressUsage />,
+    <DraggableUsage />,
   ]
   return (
     <div>
-      <div class='flex justify-center items-center h-600px'>
-        <SpPopover class='mt-20px'>
-          <SpButton>Button</SpButton>
-        </SpPopover>
-      </div>
-      <div class='w-2000px h-2000px'></div>
       <For each={components}>
         {
           (component) => {
