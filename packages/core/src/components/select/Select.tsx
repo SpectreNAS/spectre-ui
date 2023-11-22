@@ -1,5 +1,11 @@
+import { SpInput } from '../input'
+import { SpPopover } from '../popover'
 
 export const Select = () => {
 
-  return <div></div>
+  return (
+    <SpPopover>
+      <SpInput></SpInput>
+    </SpPopover>
+  )
 }

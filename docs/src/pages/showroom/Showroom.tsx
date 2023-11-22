@@ -6,6 +6,7 @@ import { LinkUsage } from './components/Link'
 import { TagUsage } from './components/Tag'
 import { InputUsage } from './components/Input'
 import { InputNumberUsage } from './components/InputNumber'
+import { TimePickerUsage } from './components/TimePicker'
 import { CheckboxUsage } from './components/Checkbox'
 import { SwitchUsage } from './components/Switch'
 import { PaginationUsage } from './components/Pagination'
@@ -22,6 +23,7 @@ export const Showroom = () => {
     <TagUsage />,
     <InputUsage />,
     <InputNumberUsage />,
+    <TimePickerUsage />,
     <PopoverUsage />,
     <CheckboxUsage />,
     <SwitchUsage />,
