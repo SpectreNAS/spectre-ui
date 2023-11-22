@@ -65,6 +65,7 @@ export const Popover = (propsRaw: PopoverProps) => {
       clickOutside([target, popover], (event) => {
         onTrigger('click', onClickOutsideTarget)(event)
         onTrigger('contextmenu', onContextMenuOutsideTarget)(event)
+        onTrigger('focus', onFocusOutTarget)(event)
       })
       initPopoverStyles(popover)
       initPopoverEvents(popover)
@@ -101,8 +102,12 @@ export const Popover = (propsRaw: PopoverProps) => {
 
   function initPopoverStyles(el: HTMLDivElement) {
     el.style.position = 'absolute'
-    el.style.backgroundColor = 'var(--bg-common-highest)'
-    el.style.boxShadow = 'var(--sp-shadow-default)'
+    el.style.backgroundColor = 'var(--sp-popover-bg-color)'
+    el.style.boxShadow = 'var(--sp-popover-shadow)'
+    el.style.borderRadius = 'var(--sp-popover-border-radius)'
+    el.style.borderWidth = 'var(--sp-popover-border-width)'
+    el.style.borderStyle = 'var(--sp-popover-border-style)'
+    el.style.borderColor = 'var(--sp-popover-border-color)'
   }
 
   function setPopoverPosition(el: HTMLDivElement, value: PopoverInset) {
@@ -161,6 +166,14 @@ export const Popover = (propsRaw: PopoverProps) => {
     setVisiblePopover(false)
   }
 
+  function onFocusInTarget() {
+    setVisiblePopover(true)
+  }
+
+  function onFocusOutTarget() {
+    setVisiblePopover(false)
+  }
+
   return (
     <div
       class={popoverClasses()}
@@ -170,6 +183,7 @@ export const Popover = (propsRaw: PopoverProps) => {
       onMouseLeave={onTrigger('hover', onMouseLeaveTarget)}
       onClick={onTrigger('click', onClickTarget)}
       onContextMenu={onTrigger('contextmenu', onContextMenuTarget)}
+      onFocusIn={onTrigger('focus', onFocusInTarget)}
     >
       {props.children}
       <Show when={visiblePopover()}>
@@ -195,32 +209,32 @@ function findScrollableParentElement(el: HTMLElement): HTMLElement | undefined {
   }
 }
 
-function getPopoverPosition(placement: PopoverPlacement, targetRect: DOMRect, popoverRect: DOMRect, innerWidth: number, innerHeight: number): PopoverInset {
+function getPopoverPosition(placement: PopoverPlacement, targetRect: DOMRect, popoverRect: DOMRect, innerWidth: number, innerHeight: number, offset = 8): PopoverInset {
   const popoverInset: PopoverInset = {}
   if (placement === 'bottom') {
-    return { left: getCenterLeft(targetRect.left, targetRect.width, popoverRect.width), top: targetRect.bottom }
+    return { left: getCenterLeft(targetRect.left, targetRect.width, popoverRect.width), top: targetRect.bottom + offset }
   } else if (placement === 'bottom-start') {
-    return { left: targetRect.right - popoverRect.width, top: targetRect.bottom }
+    return { left: targetRect.right - popoverRect.width, top: targetRect.bottom + offset }
   } else if (placement === 'bottom-end') {
-    return { left: targetRect.left, top: targetRect.bottom }
+    return { left: targetRect.left, top: targetRect.bottom + offset }
   } else if (placement === 'top') {
-    return { left: getCenterLeft(targetRect.left, targetRect.width, popoverRect.width), bottom: innerHeight - targetRect.top }
+    return { left: getCenterLeft(targetRect.left, targetRect.width, popoverRect.width), bottom: innerHeight - targetRect.top + offset }
   } else if (placement === 'top-start') {
-    return { left: targetRect.right - popoverRect.width, bottom: innerHeight - targetRect.top }
+    return { left: targetRect.right - popoverRect.width, bottom: innerHeight - targetRect.top + offset }
   } else if (placement === 'top-end') {
-    return { left: targetRect.left, bottom: innerHeight - targetRect.top }
+    return { left: targetRect.left, bottom: innerHeight - targetRect.top + offset }
   } else if (placement === 'left') {
-    return { right: innerWidth - targetRect.left, top: getCenterLeft(targetRect.top, targetRect.height, popoverRect.height) }
+    return { right: innerWidth - targetRect.left + offset, top: getCenterLeft(targetRect.top, targetRect.height, popoverRect.height) }
   } else if (placement === 'left-start') {
-    return { right: innerWidth - targetRect.left, top: targetRect.bottom - popoverRect.height }
+    return { right: innerWidth - targetRect.left + offset, top: targetRect.bottom - popoverRect.height }
   } else if (placement === 'left-end') {
-    return { right: innerWidth - targetRect.left, top: targetRect.top }
+    return { right: innerWidth - targetRect.left + offset, top: targetRect.top }
   } else if (placement === 'right') {
-    return { left: targetRect.right, top: getCenterLeft(targetRect.top, targetRect.height, popoverRect.height) }
+    return { left: targetRect.right + offset, top: getCenterLeft(targetRect.top, targetRect.height, popoverRect.height) }
   } else if (placement === 'right-start') {
-    return { left: targetRect.right, top: targetRect.bottom - popoverRect.height }
+    return { left: targetRect.right + offset, top: targetRect.bottom - popoverRect.height }
   } else if (placement === 'right-end') {
-    return { left: targetRect.right, top: targetRect.top }
+    return { left: targetRect.right + offset, top: targetRect.top }
   }
   return popoverInset
 }

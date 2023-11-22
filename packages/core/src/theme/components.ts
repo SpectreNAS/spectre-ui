@@ -1,4 +1,4 @@
-import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, InputTheme, LinkTheme, ProgressTheme, ScrollAreaTheme, ScrollbarTheme, SwitchTheme, TagTheme } from './types'
+import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, InputTheme, LinkTheme, PopoverTheme, ProgressTheme, ScrollAreaTheme, ScrollbarTheme, SwitchTheme, TagTheme } from './types'
 
 export const alertTheme: AlertTheme = {
   '--sp-alert-padding': '8px 16px',
@@ -102,6 +102,15 @@ export const linkTheme: LinkTheme = {
   '--sp-link-underline-color-active': 'var(--border-brand-active)',
 }
 
+export const popoverTheme: PopoverTheme = {
+  '--sp-popover-shadow': 'var(--sp-shadow-default)',
+  '--sp-popover-bg-color': 'var(--bg-common-highest)',
+  '--sp-popover-border-radius': '4px',
+  '--sp-popover-border-width': '1px',
+  '--sp-popover-border-style': 'solid',
+  '--sp-popover-border-color': 'var(--border-common-default)',
+}
+
 export const progressTheme: ProgressTheme = {
   '--sp-progress-height': '6px',
   '--sp-progress-outer-border-radius': '3px',
@@ -175,6 +184,7 @@ export const componentsTheme = {
   ...checkboxTheme,
   ...inputTheme,
   ...linkTheme,
+  ...popoverTheme,
   ...progressTheme,
   ...scrollbarTheme,
   ...scrollAreaTheme,

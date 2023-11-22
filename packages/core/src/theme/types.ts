@@ -231,6 +231,15 @@ export interface LinkTheme {
   '--sp-link-underline-color-active'?: string
 }
 
+export interface PopoverTheme {
+  '--sp-popover-shadow'?: string
+  '--sp-popover-bg-color'?: string
+  '--sp-popover-border-radius'?: string
+  '--sp-popover-border-width'?: string
+  '--sp-popover-border-style'?: string
+  '--sp-popover-border-color'?: string
+}
+
 export interface ProgressTheme {
   '--sp-progress-height'?: string
   '--sp-progress-outer-border-radius'?: string
