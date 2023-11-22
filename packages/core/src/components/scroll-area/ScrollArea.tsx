@@ -28,46 +28,23 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
 
   createEffect(on(
     () => props.scrollX,
-    (value) => setHorizontalSliderX(scrollbar.scrollTo({ x: value }).thumbX),
+    (value) => setScrollX(value),
     { defer: true },
   ))
   createEffect(on(
     () => props.scrollY,
-    (value) => setVerticalSliderY(scrollbar.scrollTo({ y: value }).thumbY),
+    (value) => setScrollY(value),
     { defer: true },
   ))
 
   onMount(() => {
     if (viewRef) {
-      init(viewRef)
       watchViewResize(viewRef)
     }
     if (contentRef) {
       watchContentResize(contentRef)
     }
   })
-
-  /**
-   * 根据dom初始化滚动区域
-   * @param el 
-   */
-  function init(el: HTMLDivElement) {
-    const { width, height } = el.getBoundingClientRect()
-    scrollbar
-      .setContentWidth(el.scrollWidth)
-      .setContentHeight(el.scrollHeight)
-      .setViewWidth(width)
-      .setViewHeight(height)
-      .scrollTo({ x: props.scrollX, y: props.scrollY })
-    el.scrollLeft = scrollbar.scrollX
-    el.scrollTop = scrollbar.scrollY
-    setVerticalBarHeight(scrollbar.viewHeight)
-    setVerticalSliderHeight(scrollbar.thumbHeight)
-    setVerticalSliderY(scrollbar.thumbY)
-    setHorizontalBarWidth(scrollbar.viewWidth)
-    setHorizontalSliderX(scrollbar.thumbX)
-    setHorizontalSliderWidth(scrollbar.thumbWidth)
-  }
 
   /**
    * 监听可见区域大小变化
@@ -90,6 +67,8 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
           setVerticalSliderHeight(scrollbar.thumbHeight)
           setVerticalSliderY(scrollbar.thumbY)
         }
+        setScrollY(props.scrollY)
+        setScrollX(props.scrollX)
       }
     })
     resizeObserver.observe(el, {})
@@ -117,22 +96,49 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
           setVerticalSliderHeight(scrollbar.thumbHeight)
           setVerticalSliderY(scrollbar.thumbY)
         }
+        setScrollY(props.scrollY)
+        setScrollX(props.scrollX)
       }
     })
     resizeObserver.observe(el)
   }
 
   /**
-   * 设置原生滚动条滚动位置
-   * @param point 
+   * 设置原生滚动y轴
+   * @param y 
    */
-  function setViewScroll(point: Partial<Point>) {
-    if (viewRef?.scrollLeft !== undefined && point.x !== undefined) {
-      viewRef.scrollLeft = point.x
+  function setViewScrollY(y: number) {
+    if (viewRef) {
+      viewRef.scrollTop = y
     }
-    if (viewRef?.scrollTop !== undefined && point.y !== undefined) {
-      viewRef.scrollTop = point.y
+  }
+
+  /**
+   * 设置原生滚动x轴
+   * @param x 
+   */
+  function setViewScrollX(x: number) {
+    if (viewRef) {
+      viewRef.scrollLeft = x
     }
+  }
+
+  /**
+   * 设置滚动y轴
+   * @param y 
+   */
+  function setScrollY(y: number) {
+    setVerticalSliderY(scrollbar.scrollTo({ y }).thumbY)
+    setViewScrollY(scrollbar.scrollY)
+  }
+
+  /**
+   * 设置滚动x轴
+   * @param x 
+   */
+  function setScrollX(x: number) {
+    setHorizontalSliderX(scrollbar.scrollTo({ x }).thumbX)
+    setViewScrollX(scrollbar.scrollX)
   }
 
   /**
@@ -140,7 +146,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
    * @param param0 
    */
   function onVerticalSlider({ y }: Point) {
-    setViewScroll({ y: scrollbar.thumbTo({ y }).scrollY })
+    setViewScrollY(scrollbar.thumbTo({ y }).scrollY)
     emitScroll()
   }
 
@@ -149,7 +155,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
    * @param param0 
    */
   function onHorizontalSlider({ x }: Point) {
-    setViewScroll({ x: scrollbar.thumbTo({ x }).scrollX })
+    setViewScrollX(scrollbar.thumbTo({ x }).scrollX)
     emitScroll()
   }
 
