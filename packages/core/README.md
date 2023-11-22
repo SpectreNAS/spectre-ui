@@ -33,8 +33,8 @@
 
 ### 滚动组件
 
-- [ ] ScrollArea 滚动区域
-- [ ] VirtualScrollArea 虚拟滚动区域
+- [x] ScrollArea 滚动区域
+- [x] VirtualScrollArea 虚拟滚动区域
 
 ### 数据组件
 
@@ -58,7 +58,7 @@
 - [ ] Drawer 抽屉
 - [ ] Message 消息
 - [ ] Notification 通知
-- [ ] Popover 弹出框
+- [x] Popover 弹出框
 - [ ] Tooltip 文字提示
 
 ### 加载组件
