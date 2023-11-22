@@ -45,3 +45,7 @@ export function clickOutside(elements: HTMLElement[], accessor?: ValueChanged<Ev
   document.body.addEventListener('click', onClick)
   onCleanup(() => document.body.removeEventListener('click', onClick))
 }
+
+export function fillNumber(value: number, maxLength = 2, fillString = '0') {
+  return value.toString().padStart(maxLength, fillString)
+}
