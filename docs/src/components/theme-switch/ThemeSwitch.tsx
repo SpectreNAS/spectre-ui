@@ -1,17 +1,13 @@
-import { SpSwitch, getSystemThemeType } from '@spectre-ui/core'
+import { SpSwitch } from '@spectre-ui/core'
 import { SunLinear } from '../icon/SunLinear'
 import { MoonLinear } from '../icon/MoonLinear'
-import { globalStore, setIsDark } from '../../store/global'
+import * as globalStore from '../../store/global'
 import styles from './theme-switch.module.css'
 
 export const ThemeSwitch = () => {
-  const themeType = getSystemThemeType()
-  if (themeType === 'dark') {
-    setIsDark(true)
-  }
 
   function change(value: boolean) {
-    setIsDark(value)
+    globalStore.setThemeType(value ? 'dark' : 'light')
   }
 
   return (
@@ -20,7 +16,7 @@ export const ThemeSwitch = () => {
       size='large'
       renderOff={<SunLinear />}
       renderOn={<MoonLinear />}
-      value={globalStore.isDark}
+      value={globalStore.store.themeType === 'dark'}
       change={change}
     />
   )

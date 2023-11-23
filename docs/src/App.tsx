@@ -1,23 +1,13 @@
-import { SpConfigProvider, SpScrollArea } from '@spectre-ui/core'
+import { SpConfigProvider } from '@spectre-ui/core'
 import '@spectre-ui/core/styles.css'
-import { ThemeSwitch } from './components/theme-switch'
-import { themeType } from './store/global'
-import { Showroom } from './pages/showroom'
+import * as globalStore from './store/global'
+import { RouteConfig } from './router'
 
 function App() {
-
   return (
-    <SpConfigProvider themeType={themeType()}>
-      <div class='h-screen w-screen flex flex-col'>
-        <div class='flex h-56px w-full py-2 border-b border-b-solid border-b-[var(--border-common-default)] flex-shrink-0'>
-          <div class='w-256px h-full flex-shrink-0'></div>
-          <div class='flex items-center w-full h-full px-40px'>
-            <div class='ml-auto'><ThemeSwitch /></div>
-          </div>
-        </div>
-        <SpScrollArea>
-          <Showroom />
-        </SpScrollArea>
+    <SpConfigProvider themeType={globalStore.store.themeType}>
+      <div class='h-screen w-screen'>
+        <RouteConfig />
       </div>
     </SpConfigProvider>
   )

@@ -40,6 +40,9 @@ importers:
 
   docs:
     dependencies:
+      '@solidjs/router':
+        specifier: ^0.9.1
+        version: 0.9.1(solid-js@1.8.5)
       '@spectre-ui/core':
         specifier: workspace:^
         version: link:../packages/core
@@ -908,6 +911,14 @@ packages:
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
+
+  /@solidjs/router@0.9.1(solid-js@1.8.5):
+    resolution: {integrity: sha512-kRY75piOQsyoH75E/RP6lr7uVGFCjeeCCCJx7Z2D1Vc6+I1yFQjLCvE+6agXGwqDoWi6vbETP1g7gmp/L1mNLg==}
+    peerDependencies:
+      solid-js: ^1.8.4
+    dependencies:
+      solid-js: 1.8.5
+    dev: false
 
   /@spectrekit/eslint-config@0.1.7(eslint@8.53.0)(typescript@5.2.2):
     resolution: {integrity: sha512-+DS/7kj3wz860lbyiFCI21ETGoxez6WDD/7Oj277r2qZdXrfS6mmSTxH1xceCZGCOvvaS42hIcJqwP5fpLlrMQ==}

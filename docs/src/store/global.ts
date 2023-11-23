@@ -1,12 +1,10 @@
 import { createStore } from 'solid-js/store'
+import { getSystemThemeType, SystemThemeType } from '@spectre-ui/core'
+const [store, setStore] = createStore({ themeType: getSystemThemeType(), version: '0.0.1' })
 
-const [store, setStore] = createStore({ isDark: false })
+export { store }
 
-export const globalStore = store
-
-export const themeType = () => globalStore.isDark ? 'dark' : 'light'
-
-export function setIsDark(value: boolean) {
-  setStore('isDark', value)
+export function setThemeType(value: SystemThemeType) {
+  setStore('themeType', value)
 }
 
