@@ -32,10 +32,10 @@ export const Scaffold = () => {
         </div>
       </div>
       <div class='flex h-full'>
-        <div class='w-300px <xl:hidden h-full'>
+        <div class='flex flex-col absolute left-0 top-64px bottom-0 w-300px <xl:hidden border-r border-r-solid border-[var(--border-common-default)]'>
           <SlideBar />
         </div>
-        <div class='absolute xl:left-300px left-0 right-0 top-64px bottom-0'>
+        <div class='absolute left-0 right-0 top-64px bottom-0 xl:left-300px'>
           <SpScrollArea>
             <Outlet />
           </SpScrollArea>
