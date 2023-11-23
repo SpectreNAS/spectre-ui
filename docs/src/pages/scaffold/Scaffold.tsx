@@ -19,7 +19,7 @@ export const Scaffold = () => {
             <Menu />
           </SpIconButton>
         </div>
-        <div class='flex items-center w-full h-full px-40px'>
+        <div class='flex items-center w-full h-full px-5'>
           <div class='ml-auto flex'>
             <ThemeSwitch />
           </div>
