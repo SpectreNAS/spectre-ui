@@ -1,2 +1,19 @@
 .sp-list {
+  padding: 8px;
+}
+
+.sp-list-item {
+  cursor: pointer;
+  user-select: none;
+  padding: 10px 8px;
+  border-radius: var(--sp-list-item-border-radius);
+  background-color: var(--sp-list-item-bg-color);
+}
+
+.sp-list-item:hover {
+  --sp-list-item-bg-color: var(--sp-list-item-bg-color-hover);
+}
+
+.sp-list-item:active {
+  --sp-list-item-bg-color: var(--sp-list-item-bg-color-active);
 }

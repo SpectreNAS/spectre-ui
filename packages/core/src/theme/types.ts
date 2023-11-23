@@ -231,6 +231,13 @@ export interface LinkTheme {
   '--sp-link-underline-color-active'?: string
 }
 
+export interface ListTheme {
+  '--sp-list-item-border-radius'?: string
+  '--sp-list-item-bg-color'?: string
+  '--sp-list-item-bg-color-hover'?: string
+  '--sp-list-item-bg-color-active'?: string
+}
+
 export interface PopoverTheme {
   '--sp-popover-shadow'?: string
   '--sp-popover-bg-color'?: string
