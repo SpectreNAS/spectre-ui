@@ -3,6 +3,7 @@
 }
 
 .sp-list-item {
+  display: flex;
   cursor: pointer;
   user-select: none;
   padding: 10px 8px;
@@ -16,4 +17,8 @@
 
 .sp-list-item:active {
   --sp-list-item-bg-color: var(--sp-list-item-bg-color-active);
+}
+
+.sp-list-item-icon {
+  margin-right: 4px;
 }
