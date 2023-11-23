@@ -5,7 +5,8 @@ import Home from '../pages/home'
 const Scaffold = lazy(() => import('../pages/scaffold'))
 const NotFound = lazy(() => import('../pages/notFound'))
 const GettingStarted = lazy(() => import('../pages/getting-started'))
-const Button = lazy(() => import('../pages/buttons'))
+const Buttons = lazy(() => import('../pages/buttons'))
+const Lists = lazy(() => import('../pages/lists'))
 
 export const RouteConfig = () => {
 
@@ -18,7 +19,9 @@ export const RouteConfig = () => {
           <Route path='guides' component={GettingStarted}>
           </Route>
           <Route path='components'>
-            <Route path='buttons' component={Button}>
+            <Route path='buttons' component={Buttons}>
+            </Route>
+            <Route path='lists' component={Lists}>
             </Route>
           </Route>
           <Route path='*' component={NotFound}></Route>

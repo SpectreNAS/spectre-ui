@@ -1,4 +1,4 @@
-export const Button = () => {
+export const Buttons = () => {
 
   return (
     <div class='p-5'>
