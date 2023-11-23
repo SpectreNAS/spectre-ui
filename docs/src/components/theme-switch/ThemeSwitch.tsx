@@ -1,6 +1,6 @@
 import { SpSwitch, getSystemThemeType } from '@spectre-ui/core'
-import { SunLinear } from './SunLinear'
-import { MoonLinear } from './MoonLinear'
+import { SunLinear } from '../icon/SunLinear'
+import { MoonLinear } from '../icon/MoonLinear'
 import { globalStore, setIsDark } from '../../store/global'
 import styles from './theme-switch.module.css'
 
