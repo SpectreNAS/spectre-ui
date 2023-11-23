@@ -14,7 +14,7 @@ export const Scaffold = () => {
     <div class='h-full w-full flex flex-col'>
       <div class='flex h-64px box-border w-full border-b border-b-solid border-b-[var(--border-common-default)] flex-shrink-0'>
         <div class='flex px-5 items-center h-full flex-shrink-0'>
-          <Ghost class='text-32px cursor-pointer' onClick={() => navigate('/')}></Ghost>
+          <Ghost class='text-32px cursor-pointer hover:text-[var(--text-brand-hover)] active:text-[var(--text-brand-active)]' onClick={() => navigate('/')}></Ghost>
           <SpIconButton class='xl:hidden!' size='large' type='text'>
             <Menu />
           </SpIconButton>
