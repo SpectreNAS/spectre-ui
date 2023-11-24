@@ -1,0 +1,1 @@
+export { Switches as default } from './Switches'

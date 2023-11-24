@@ -9,6 +9,7 @@ export const componentsRoutes = [
   {
     title: 'Badges',
     path: '/badges',
+    component: lazy(() => import('../pages/badges')),
   },
   {
     title: 'Buttons',
@@ -18,15 +19,18 @@ export const componentsRoutes = [
   {
     title: 'Links',
     path: '/links',
+    component: lazy(() => import('../pages/links')),
   },
   {
     title: 'Tags',
     path: '/tags',
+    component: lazy(() => import('../pages/tags')),
   },
 
   {
     title: 'Checkboxes',
     path: '/checkboxes',
+    component: lazy(() => import('../pages/checkboxes')),
   },
   {
     title: 'Radios',
@@ -35,10 +39,12 @@ export const componentsRoutes = [
   {
     title: 'Inputs',
     path: '/inputs',
+    component: lazy(() => import('../pages/inputs')),
   },
   {
     title: 'InputNumbers',
     path: '/inputNumbers',
+    component: lazy(() => import('../pages/input-numbers')),
   },
   {
     title: 'Selects',
@@ -51,6 +57,7 @@ export const componentsRoutes = [
   {
     title: 'Switches',
     path: '/switches',
+    component: lazy(() => import('../pages/switches')),
   },
   {
     title: 'Sliders',
@@ -63,6 +70,7 @@ export const componentsRoutes = [
   {
     title: 'TimePickers',
     path: '/timePickers',
+    component: lazy(() => import('../pages/time-pickers')),
   },
   {
     title: 'ColorPickers',
@@ -95,10 +103,12 @@ export const componentsRoutes = [
   {
     title: 'Pagination',
     path: '/pagination',
+    component: lazy(() => import('../pages/pagination')),
   },
   {
     title: 'Lists',
     path: '/lists',
+    component: lazy(() => import('../pages/lists')),
   },
   {
     title: 'Tabs',
@@ -135,6 +145,7 @@ export const componentsRoutes = [
   {
     title: 'Popovers',
     path: '/popovers',
+    component: lazy(() => import('../pages/popovers')),
   },
   {
     title: 'Tooltips',
@@ -147,6 +158,7 @@ export const componentsRoutes = [
   {
     title: 'Progresses',
     path: '/progresses',
+    component: lazy(() => import('../pages/progresses')),
   },
   {
     title: 'Calendar',
@@ -159,6 +171,7 @@ export const componentsRoutes = [
   {
     title: 'Draggable',
     path: '/draggable',
+    component: lazy(() => import('../pages/draggable')),
   },
   {
     title: 'Resizable',
