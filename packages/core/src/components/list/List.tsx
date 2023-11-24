@@ -1,6 +1,8 @@
-import { createContext, useContext, createSignal, createEffect } from 'solid-js'
-import { ListProps, generateProps, ListProviderValue, ItemValue } from './list.props'
+import { createContext, useContext, createSignal, createEffect, JSX } from 'solid-js'
+import { ListProps, generateProps, ListProviderValue, ItemValue, ListItemData } from './list.props'
 import { mergeClasses } from '../../utils'
+import { ListGroup } from './ListGroup'
+import { ListItem } from './ListItem'
 
 const ListContext = createContext<ListProviderValue>()
 
@@ -52,6 +54,18 @@ export const List = (propsRaw: ListProps) => {
     }
   }
 
+  function generateTree(items: ListItemData[]): JSX.Element {
+    const children: JSX.Element = []
+    for (const item of items) {
+      if (Array.isArray(item.children)) {
+        children.push(<ListGroup title={item.title} value={item.value} children={generateTree(item.children)} />)
+      } else {
+        children.push(<ListItem children={item.title} value={item.value}></ListItem>)
+      }
+    }
+    return children
+  }
+
   return (
     <ListContext.Provider value={{
       indent,
@@ -68,7 +82,7 @@ export const List = (propsRaw: ListProps) => {
         ref={props.ref}
         {...eventHandlers}
       >
-        {props.children}
+        {props.items ? generateTree(props.items) : props.children}
       </div>
     </ListContext.Provider>
   )

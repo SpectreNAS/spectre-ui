@@ -1,16 +1,17 @@
-import { mergeProps, splitProps, Accessor, Setter } from 'solid-js'
+import { mergeProps, splitProps, Accessor, Setter, JSX } from 'solid-js'
 import { customEventHandlersName } from '../../events'
 import { ComponentParentProps, ValueChanged } from '../../types'
 
-interface ListItem {
-  title?: string
+export interface ListItemData {
+  [key: string]: any
+  title?: JSX.Element
   value?: string
-  children?: ListItem[]
+  children?: ListItemData[]
   disabled?: boolean
 }
 
 export interface ListProps extends ComponentParentProps<HTMLDivElement> {
-  items?: ListItem
+  items?: ListItemData[]
   indent?: number
   activeItem?: string
   expands?: string[] | 'all'
@@ -35,5 +36,5 @@ export interface ListProviderValue {
 }
 
 export function generateProps(propsRaw: ListProps) {
-  return splitProps(mergeProps({ items: [], indent: 20 }, propsRaw), customEventHandlersName)
+  return splitProps(mergeProps({ indent: 20 }, propsRaw), customEventHandlersName)
 }
