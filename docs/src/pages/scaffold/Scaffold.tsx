@@ -11,11 +11,16 @@ import { createSignal } from 'solid-js'
 export const Scaffold = () => {
   const navigate = useNavigate()
   const [visibleSideBarDrawer, setVisibleSideBarDrawer] = createSignal(false)
+
+  function selectItem() {
+    setVisibleSideBarDrawer(false)
+  }
+
   return (
     <div class='h-full w-full flex flex-col'>
-      <SpDrawer width='300px' value={visibleSideBarDrawer()} change={setVisibleSideBarDrawer}>
+      <SpDrawer class='xl:hidden!' width='300px' value={visibleSideBarDrawer()} change={setVisibleSideBarDrawer}>
         <div class='flex flex-col h-full'>
-          <SlideBar />
+          <SlideBar selectItem={selectItem} />
         </div>
       </SpDrawer>
       <div class='flex h-64px box-border w-full border-b border-b-solid border-b-[var(--border-common-default)] flex-shrink-0'>
