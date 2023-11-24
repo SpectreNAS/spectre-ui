@@ -1,16 +1,13 @@
-import { Router, Route, Routes } from '@solidjs/router'
-import { lazy } from 'solid-js'
+import { Router, Route, Routes, useRoutes } from '@solidjs/router'
+import { lazy, For } from 'solid-js'
 import Home from '../pages/home'
+import { componentsRoutes } from './components-routes'
 
 const Scaffold = lazy(() => import('../pages/scaffold'))
 const NotFound = lazy(() => import('../pages/notFound'))
 const GettingStarted = lazy(() => import('../pages/getting-started'))
-const Alerts = lazy(() => import('../pages/alerts'))
-const Buttons = lazy(() => import('../pages/buttons'))
-const Lists = lazy(() => import('../pages/lists'))
 
 export const RouteConfig = () => {
-
   return (
     <Router>
       <Routes>
@@ -20,15 +17,15 @@ export const RouteConfig = () => {
           <Route path='guides' component={GettingStarted}>
           </Route>
           <Route path='components'>
-            <Route path='alerts' component={Alerts}>
-            </Route>
-            <Route path='buttons' component={Buttons}>
-            </Route>
-            <Route path='lists' component={Lists}>
-            </Route>
+            <For each={componentsRoutes}>
+              {
+                (item) => <Route path={item.path} component={item.component}></Route>
+              }
+            </For>
+            <Route path='*' component={NotFound}></Route>
           </Route>
-          <Route path='*' component={NotFound}></Route>
         </Route>
+
       </Routes>
     </Router>
   )
