@@ -10,7 +10,7 @@ export const Draggable = (propsRaw: DraggableProps) => {
   const [y, setY] = createSignal(0)
   const draggableClasses = () => mergeClasses(['sp-draggable', props.class ?? ''])
 
-  const draggableStyles = () => `left: ${x()}px; top: ${y()}px`
+  const draggableStyles = () => `left: ${x()}px; top: ${y()}px;`
 
   createEffect(() => {
     setX(props.x)
