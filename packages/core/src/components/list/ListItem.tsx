@@ -53,6 +53,7 @@ export const ListItem = (propsRaw: ListItemProps) => {
 
   function onActive() {
     listContext?.activeItem(itemKey)
+    listContext?.selectItem?.(itemKey)
   }
 
   return (

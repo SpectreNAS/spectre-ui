@@ -47,10 +47,7 @@ export const List = (propsRaw: ListProps) => {
 
   function activeItem(key: string) {
     for (const [itemKey, itemValue] of itemMap.entries()) {
-      const isActive = itemValue.setActive?.(itemKey === key)
-      if (isActive) {
-        props.selectItem?.(key)
-      }
+      itemValue.setActive?.(itemKey === key)
     }
   }
 
@@ -74,6 +71,7 @@ export const List = (propsRaw: ListProps) => {
       addItem,
       removeItem,
       activeItem,
+      selectItem: props.selectItem
     }}>
       <div
         class={listClasses()}

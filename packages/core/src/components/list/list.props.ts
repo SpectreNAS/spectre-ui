@@ -31,8 +31,9 @@ export interface ListProviderValue {
   defaultActiveItem: Accessor<string | undefined>
   expands: Accessor<string[] | 'all' | undefined>
   addItem: (value: ItemValue, key?: string) => string
-  removeItem: (key: string) => void
-  activeItem: (key: string) => void
+  removeItem: ValueChanged<string>
+  activeItem: ValueChanged<string>
+  selectItem?: ValueChanged<string>
 }
 
 export function generateProps(propsRaw: ListProps) {
