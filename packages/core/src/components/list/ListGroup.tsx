@@ -25,8 +25,8 @@ export const ListGroup = (propsRaw: ListGroupProps) => {
   return (
     <div class={listGroupClasses()}>
       <ListItem onClick={onExpand}>
-        <div>
-          <div class='sp-list-item-icon'><ExpandIcon /></div>
+        <div class='sp-list-group-expand'>
+          <div class='sp-list-item-icon'>{ExpandIcon()}</div>
         </div>
         {props.title}
       </ListItem>
