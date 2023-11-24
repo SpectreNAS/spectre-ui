@@ -49,7 +49,7 @@ export const List = (propsRaw: ListProps) => {
     for (const [itemKey, itemValue] of itemMap.entries()) {
       const isActive = itemValue.setActive?.(itemKey === key)
       if (isActive) {
-        props.change?.(key)
+        props.selectItem?.(key)
       }
     }
   }

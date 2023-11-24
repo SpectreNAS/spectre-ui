@@ -15,7 +15,7 @@ export interface ListProps extends ComponentParentProps<HTMLDivElement> {
   indent?: number
   activeItem?: string
   expands?: string[] | 'all'
-  change?: ValueChanged<string>
+  selectItem?: ValueChanged<string>
 }
 
 export interface ItemValue {
