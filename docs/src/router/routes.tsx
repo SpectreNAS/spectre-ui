@@ -1,4 +1,4 @@
-import { Router, Route, Routes, useRoutes } from '@solidjs/router'
+import { Router, Route, Routes } from '@solidjs/router'
 import { lazy, For } from 'solid-js'
 import Home from '../pages/home'
 import { componentsRoutes } from './components-routes'
