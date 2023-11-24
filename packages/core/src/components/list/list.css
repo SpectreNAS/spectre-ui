@@ -21,9 +21,32 @@
   --sp-list-item-bg-color: var(--sp-list-item-bg-color-active);
 }
 
+.sp-list-item.active {
+  --sp-list-item-bg-color: var(--sp-list-item-bg-color-active);
+}
+
+.sp-list-group-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px 8px;
+  font: var(--sp-list-item-font);
+  border-radius: var(--sp-list-item-border-radius);
+  background-color: var(--sp-list-item-bg-color);
+}
+
+.sp-list-group-item:hover {
+  --sp-list-item-bg-color: var(--sp-list-item-bg-color-hover);
+}
+
+.sp-list-group-item:active {
+  --sp-list-item-bg-color: var(--sp-list-item-bg-color-active);
+}
+
 .sp-list-group-expand {}
 
-.sp-list-item-icon {
+.sp-list-group-icon {
   margin-right: 4px;
   height: 100%;
   display: flex;

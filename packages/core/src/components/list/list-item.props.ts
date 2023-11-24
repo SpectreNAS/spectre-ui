@@ -3,7 +3,6 @@ import { customEventHandlersName } from '../../events'
 import { ComponentParentProps } from '../../types'
 
 export interface ListItemProps extends ComponentParentProps<HTMLDivElement> {
-  title?: string
   value?: string
 }
 

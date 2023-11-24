@@ -1,10 +1,14 @@
-import { mergeProps, splitProps } from 'solid-js'
+import { Accessor, JSX, mergeProps, splitProps } from 'solid-js'
 import { customEventHandlersName } from '../../events'
 import { ComponentParentProps } from '../../types'
 
 export interface ListGroupProps extends ComponentParentProps<HTMLDivElement> {
-  title?: string
+  title?: JSX.Element
   value?: string
+}
+
+export interface ListGroupProviderValue {
+  level: Accessor<number>
 }
 
 export function generateProps(propsRaw: ListGroupProps) {
