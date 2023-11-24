@@ -103,6 +103,7 @@ export const linkTheme: LinkTheme = {
 }
 
 export const listTheme: ListTheme = {
+  '--sp-list-item-font': 'var(--sp-text-b3)',
   '--sp-list-item-border-radius': '4px',
   '--sp-list-item-bg-color': 'none',
   '--sp-list-item-bg-color-hover': 'var(--bg-bgless-hover)',

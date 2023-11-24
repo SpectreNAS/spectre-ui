@@ -1,2 +1,41 @@
+.sp-drawer-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
 .sp-drawer {
+  position: absolute;
+  box-shadow: var(--sp-shadow-default);
+  background-color: var(--bg-common-default);
+}
+
+.sp-drawer.left {
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.sp-drawer.right {
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.sp-drawer.top {
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.sp-drawer.bottom {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

@@ -232,6 +232,7 @@ export interface LinkTheme {
 }
 
 export interface ListTheme {
+  '--sp-list-item-font'?: string
   '--sp-list-item-border-radius'?: string
   '--sp-list-item-bg-color'?: string
   '--sp-list-item-bg-color-hover'?: string
