@@ -1,9 +1,10 @@
 import { SpButton } from '@spectre-ui/core'
+import { ComponentPageLayout } from '@/components/layouts'
 
 export const Buttons = () => {
 
   return (
-    <div class='p-5'>
+    <ComponentPageLayout>
       <h1>Buttons</h1>
 
       <h2>基础用法</h2>
@@ -38,6 +39,6 @@ export const Buttons = () => {
         <SpButton class='ml-3'>Button</SpButton>
         <SpButton class='ml-3' size='large'>Button</SpButton>
       </div>
-    </div>
+    </ComponentPageLayout>
   )
 }
