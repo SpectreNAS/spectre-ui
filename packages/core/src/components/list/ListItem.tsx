@@ -15,8 +15,7 @@ export const ListItem = (propsRaw: ListItemProps) => {
 
   const [active, setActive] = createSignal(false)
   const [level, setLevel] = createSignal(0)
-
-  let itemKey = listContext.addItem({ active, setActive }, props.value)
+  const [itemKey, setItemKey] = createSignal(listContext.addItem({ active, setActive, parentKey: parentGroupContext?.parentKey }, props.value))
 
   const listItemClasses = () => mergeClasses([
     'sp-list-item',
@@ -27,9 +26,10 @@ export const ListItem = (propsRaw: ListItemProps) => {
   const Indent = () => <div style={`width:${listContext.indent() * level()}px`}></div>
 
   createEffect(on(() => props.value, () => {
-    if (props.value !== itemKey) {
-      listContext.removeItem(itemKey)
-      itemKey = listContext.addItem({ active, setActive }, props.value)
+    const key = itemKey()
+    if (props.value !== key) {
+      listContext.removeItem(key)
+      setItemKey(listContext.addItem({ active, setActive, parentKey: parentGroupContext?.parentKey }, props.value))
     }
   }, { defer: true }))
 
@@ -42,18 +42,20 @@ export const ListItem = (propsRaw: ListItemProps) => {
 
   createEffect(() => {
     const defaultActiveItem = listContext.defaultActiveItem()
-    if (defaultActiveItem === itemKey) {
-      listContext.activeItem(itemKey)
+    const key = itemKey()
+    if (defaultActiveItem === key) {
+      listContext.activeItem(key)
     }
   })
 
   onCleanup(() => {
-    listContext.removeItem(itemKey)
+    listContext.removeItem(itemKey())
   })
 
   function onActive() {
-    listContext?.activeItem(itemKey)
-    listContext?.selectItem?.(itemKey)
+    const key = itemKey()
+    listContext?.activeItem(key)
+    listContext?.selectItem?.(key)
   }
 
   return (

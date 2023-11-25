@@ -24,6 +24,8 @@ export interface ItemValue {
 
   expand?: Accessor<boolean>
   setExpand?: Setter<boolean>
+
+  parentKey?: Accessor<string>
 }
 
 export interface ListProviderValue {

@@ -47,7 +47,20 @@ export const List = (propsRaw: ListProps) => {
 
   function activeItem(key: string) {
     for (const [itemKey, itemValue] of itemMap.entries()) {
-      itemValue.setActive?.(itemKey === key)
+      if (itemKey === key) {
+        itemValue.setActive?.(true)
+        expandParentGroup(itemMap.get(key)?.parentKey?.())
+      } else {
+        itemValue.setActive?.(false)
+      }
+    }
+  }
+
+  function expandParentGroup(key?: string) {
+    if (key !== undefined) {
+      const item = itemMap.get(key)
+      item?.setExpand?.(true)
+      expandParentGroup(item?.parentKey?.())
     }
   }
 

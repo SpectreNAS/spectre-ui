@@ -22,8 +22,7 @@ export const ListGroup = (propsRaw: ListGroupProps) => {
 
   const [expand, setExpand] = createSignal(false)
   const [level, setLevel] = createSignal(0)
-
-  let itemKey = listContext.addItem({ expand, setExpand }, props.value)
+  const [itemKey, setItemKey] = createSignal(listContext.addItem({ expand, setExpand, parentKey: parentGroupContext?.parentKey }, props.value))
 
   const listGroupClasses = () => mergeClasses([
     'sp-list-group',
@@ -34,9 +33,10 @@ export const ListGroup = (propsRaw: ListGroupProps) => {
   const ExpandIcon = () => expand() ? <TriangleDownFilled /> : <TriangleRightFilled />
 
   createEffect(on(() => props.value, () => {
-    if (props.value !== itemKey) {
-      listContext.removeItem(itemKey)
-      itemKey = listContext.addItem({ expand, setExpand }, props.value)
+    const key = itemKey()
+    if (props.value !== key) {
+      listContext.removeItem(key)
+      setItemKey(listContext.addItem({ expand, setExpand, parentKey: parentGroupContext?.parentKey }, props.value))
     }
   }, { defer: true }))
 
@@ -51,13 +51,13 @@ export const ListGroup = (propsRaw: ListGroupProps) => {
     const expands = listContext.expands()
     if (expands === 'all') {
       setExpand(true)
-    } else if (expands && expands.includes(itemKey)) {
+    } else if (expands && expands.includes(itemKey())) {
       setExpand(true)
     }
   })
 
   onCleanup(() => {
-    listContext.removeItem(itemKey)
+    listContext.removeItem(itemKey())
   })
 
   function onExpand() {
@@ -66,7 +66,8 @@ export const ListGroup = (propsRaw: ListGroupProps) => {
 
   return (
     <ListGroupContext.Provider value={{
-      level
+      level,
+      parentKey: itemKey,
     }}>
       <div
         class={listGroupClasses()}
@@ -82,9 +83,7 @@ export const ListGroup = (propsRaw: ListGroupProps) => {
           </div>
           {props.title}
         </div>
-        <Show when={expand()}>
-          <div>{props.children}</div>
-        </Show>
+        <div style={`height:${expand() ? 'auto' : '0px'};overflow:hidden;`}>{props.children}</div>
       </div>
     </ListGroupContext.Provider>
   )

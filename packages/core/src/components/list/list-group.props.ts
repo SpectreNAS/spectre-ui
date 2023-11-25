@@ -9,6 +9,7 @@ export interface ListGroupProps extends ComponentParentProps<HTMLDivElement> {
 
 export interface ListGroupProviderValue {
   level: Accessor<number>
+  parentKey: Accessor<string>
 }
 
 export function generateProps(propsRaw: ListGroupProps) {
