@@ -40,7 +40,9 @@ export const VirtualList = (propsRaw: VirtualListProps) => {
     if (isVirtualItemsDiff(source, target)) {
       setVirtualItems(target)
     }
-    setTranslateY(0 - (y - target[0].y))
+    if (target.length > 0) {
+      setTranslateY(0 - (y - target[0].y))
+    }
   }
 
   return (
