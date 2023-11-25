@@ -95,6 +95,7 @@ export const componentsRoutes = [
   {
     title: 'VirtualScrollAreas',
     path: '/virtualScrollAreas',
+    component: lazy(() => import('../pages/virtual-scroll-areas')),
   },
   {
     title: 'Table',
