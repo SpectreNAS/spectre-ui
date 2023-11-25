@@ -1,14 +1,11 @@
-import { mergeProps, splitProps } from 'solid-js'
+import { JSX, mergeProps, splitProps } from 'solid-js'
 import { ComponentProps } from '../../types'
 import { customEventHandlersName } from '../../events'
-
-export interface VirtualItem {
-  key: string
-  height: number
-}
+import { VirtualScrollItemRaw, VirtualScrollItem } from '@spectre-ui/utils'
 
 export interface VirtualListProps extends ComponentProps<HTMLDivElement> {
-  items?: VirtualItem[]
+  items?: VirtualScrollItemRaw[]
+  children?: (item: VirtualScrollItem) => JSX.Element
 }
 
 export function generateProps(propsRaw: VirtualListProps) {

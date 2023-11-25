@@ -54,7 +54,7 @@ export const VirtualList = (propsRaw: VirtualListProps) => {
     >
       <For each={virtualItems()}>
         {
-          (item) => <div style={`height:${item.height}px`}>{item.index}</div>
+          (item) => <div style={`height:${item.height}px`}>{props.children?.(item)}</div>
         }
       </For>
     </div>

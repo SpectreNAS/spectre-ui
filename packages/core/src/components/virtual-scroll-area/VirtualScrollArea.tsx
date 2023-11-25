@@ -1,4 +1,4 @@
-import { createEffect, createSignal, onMount, on, createContext, useContext } from 'solid-js'
+import { createEffect, createSignal, onMount, on, createContext, useContext, Show } from 'solid-js'
 import { mergeClasses } from '../../utils'
 import { VirtualScrollAreaProps, generateProps, VirtualScrollAreaProviderValue } from './virtual-scroll-area.props'
 import { Point, Scrollbar } from '@spectre-ui/utils'
@@ -20,6 +20,9 @@ export const VirtualScrollArea = (propsRaw: VirtualScrollAreaProps) => {
   const [horizontalSliderX, setHorizontalSliderX] = createSignal(0)
   const [horizontalSliderWidth, setHorizontalSliderWidth] = createSignal(0)
   const listeners: ValueChanged<Point>[] = []
+
+  const showVerticalScroll = () => verticalSliderHeight() > 0
+  const showHorizontalScroll = () => horizontalSliderWidth() > 0
 
   const virtualScrollAreaClasses = () => mergeClasses([
     'sp-virtual-scroll-area',
@@ -112,18 +115,22 @@ export const VirtualScrollArea = (propsRaw: VirtualScrollAreaProps) => {
         <div class='sp-virtual-scroll-area-view' ref={initViewRef} onWheel={onWheel}>
           {props.children}
         </div>
-        <SpVerticalScrollbar
-          height={verticalBarHeight()}
-          sliderY={verticalSliderY()}
-          sliderHeight={verticalSliderHeight()}
-          change={onVerticalSlider}
-        />
-        <SpHorizontalScrollbar
-          width={horizontalBarWidth()}
-          sliderX={horizontalSliderX()}
-          sliderWidth={horizontalSliderWidth()}
-          change={onHorizontalSlider}
-        />
+        <Show when={showVerticalScroll()}>
+          <SpVerticalScrollbar
+            height={verticalBarHeight()}
+            sliderY={verticalSliderY()}
+            sliderHeight={verticalSliderHeight()}
+            change={onVerticalSlider}
+          />
+        </Show>
+        <Show when={showHorizontalScroll()}>
+          <SpHorizontalScrollbar
+            width={horizontalBarWidth()}
+            sliderX={horizontalSliderX()}
+            sliderWidth={horizontalSliderWidth()}
+            change={onHorizontalSlider}
+          />
+        </Show>
       </div>
     </VirtualScrollAreaContext.Provider>
   )

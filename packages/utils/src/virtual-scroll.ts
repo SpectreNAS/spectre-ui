@@ -173,7 +173,7 @@ export class VirtualScroll {
     const vItems: VirtualScrollItem[] = []
     for (let i = 0;i < items.length;i++) {
       const item = items[i]
-      vItems.push({ index: i, height: item.height, y: totalHeight })
+      vItems.push({ ...item, index: i, y: totalHeight })
       totalHeight += item.height
     }
     return vItems
