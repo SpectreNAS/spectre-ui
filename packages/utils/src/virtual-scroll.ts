@@ -1,5 +1,6 @@
 
 export interface VirtualScrollItem {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
   index: number
   y: number
@@ -7,6 +8,7 @@ export interface VirtualScrollItem {
 }
 
 export interface VirtualScrollItemRaw {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
   height: number
 }

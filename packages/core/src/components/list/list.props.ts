@@ -3,6 +3,7 @@ import { customEventHandlersName } from '../../events'
 import { ComponentParentProps, ValueChanged } from '../../types'
 
 export interface ListItemData {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
   title?: JSX.Element
   value?: string

@@ -1,4 +1,4 @@
-import { Show, createSignal, createContext, useContext, createEffect, onCleanup, on } from 'solid-js'
+import { createSignal, createContext, useContext, createEffect, onCleanup, on } from 'solid-js'
 import { ListGroupProps, ListGroupProviderValue, generateProps } from './list-group.props'
 import { mergeClasses } from '../../utils'
 import { useListContext } from './List'
