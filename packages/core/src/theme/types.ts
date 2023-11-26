@@ -158,8 +158,7 @@ export interface ButtonTheme {
   '--sp-button-border'?: string
   '--sp-button-border-radius'?: string
   '--sp-button-padding'?: string
-  '--sp-button-line-height'?: string
-  '--sp-button-font-size'?: string
+  '--sp-button-font'?: string
 
   /* button background */
   '--sp-button-bg-color'?: string

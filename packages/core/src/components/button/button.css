@@ -1,11 +1,13 @@
 .sp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: var(--sp-button-border);
   border-radius: var(--sp-button-border-radius);
   background-color: var(--sp-button-bg-color);
   color: var(--sp-button-text-color);
   padding: var(--sp-button-padding);
-  line-height: var(--sp-button-line-height);
-  font-size: var(--sp-button-font-size);
+  font: var(--sp-button-font);
   white-space: nowrap;
 }
 
@@ -26,20 +28,17 @@
 
 .sp-button.small {
   --sp-button-padding: 3px 8px;
-  --sp-button-line-height: 18px;
-  --sp-button-font-size: 12px;
+  --sp-button-font: var(--sp-text-b4);
 }
 
 .sp-button.medium {
   --sp-button-padding: 6px 12px;
-  --sp-button-line-height: 20px;
-  --sp-button-font-size: 13px;
+  --sp-button-font: var(--sp-text-b3);
 }
 
 .sp-button.large {
   --sp-button-padding: 12px 20px;
-  --sp-button-line-height: 24px;
-  --sp-button-font-size: 16px;
+  --sp-button-font: var(--sp-text-b1);
 }
 
 
@@ -234,8 +233,6 @@
 }
 
 .sp-button.icon {
-  display: flex;
-  --sp-button-font-size: var(--sp-button-line-height);
   --sp-button-padding: 9px;
 }
 

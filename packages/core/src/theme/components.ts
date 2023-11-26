@@ -29,8 +29,7 @@ export const buttonTheme: ButtonTheme = {
   '--sp-button-border': 'none',
   '--sp-button-border-radius': '4px',
   '--sp-button-padding': '9px 16px',
-  '--sp-button-line-height': '22px',
-  '--sp-button-font-size': '14px',
+  '--sp-button-font': 'var(--sp-text-b2)',
 
   /* button background */
   '--sp-button-bg-color': 'var(--bg-controls-default)',
