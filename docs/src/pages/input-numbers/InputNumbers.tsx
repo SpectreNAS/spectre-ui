@@ -1,18 +1,23 @@
 import { SpInputNumber } from '@spectre-ui/core'
+import { ComponentPageLayout } from '@/components/layouts'
+import { Anchor } from '@/components/anchor'
+import { Card } from '@/components/card'
 
 export const InputNumbers = () => {
 
   return (
-    <div class='p-5'>
-      <h1>InputNumbers</h1>
+    <ComponentPageLayout>
+      <h1>Input Numbers</h1>
 
-      <h2>基础用法</h2>
-      <div class='mb-4'>
+      <Anchor href='#basic-usage'>基础用法</Anchor>
+      <Card>
         <SpInputNumber></SpInputNumber>
-      </div>
-      <div class='mb-4'>
+      </Card>
+
+      <Anchor href='#basic-usage'>带步骤按钮</Anchor>
+      <Card>
         <SpInputNumber showStep></SpInputNumber>
-      </div>
-    </div>
+      </Card>
+    </ComponentPageLayout>
   )
 }

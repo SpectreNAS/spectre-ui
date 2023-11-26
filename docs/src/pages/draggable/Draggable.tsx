@@ -1,17 +1,22 @@
 import { SpDraggable } from '@spectre-ui/core'
+import { ComponentPageLayout } from '@/components/layouts'
+import { Anchor } from '@/components/anchor'
+import { Card } from '@/components/card'
 
 export const Draggable = () => {
 
   return (
-    <div class='p-5'>
+    <ComponentPageLayout>
       <h1>Draggable</h1>
 
-      <h2>基础用法</h2>
-      <div class=' mb-4 relative h-200px'>
-        <SpDraggable>
-          <div class='w-50px h-50px bg-[var(--bg-brand-default)]'></div>
-        </SpDraggable>
-      </div>
-    </div>
+      <Anchor href='#basic-usage'>基础用法</Anchor>
+      <Card>
+        <div class=' mb-4 relative h-200px'>
+          <SpDraggable>
+            <div class='w-50px h-50px bg-[var(--bg-brand-default)]'></div>
+          </SpDraggable>
+        </div>
+      </Card>
+    </ComponentPageLayout>
   )
 }

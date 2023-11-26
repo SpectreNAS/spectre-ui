@@ -1,21 +1,23 @@
 import { SpList, SpListGroup, SpListItem } from '@spectre-ui/core'
+import { ComponentPageLayout } from '@/components/layouts'
+import { Anchor } from '@/components/anchor'
+import { Card } from '@/components/card'
 
 export const Lists = () => {
 
   return (
-    <div class='p-5'>
+    <ComponentPageLayout>
       <h1>Lists</h1>
 
-      <div>
+      <Anchor href='#basic-usage'>基础用法</Anchor>
+      <Card>
         <SpList>
           <SpListItem>One</SpListItem>
-          <SpListGroup title='Group One'>
-            <SpListItem>One</SpListItem>
-            <SpListItem>One</SpListItem>
-          </SpListGroup>
           <SpListItem>Two</SpListItem>
+          <SpListItem>Three</SpListItem>
+          <SpListItem>Four</SpListItem>
         </SpList>
-      </div>
-    </div>
+      </Card>
+    </ComponentPageLayout>
   )
 }

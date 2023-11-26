@@ -1,26 +1,35 @@
 import { SpPagination, SpPaginationJumper } from '@spectre-ui/core'
+import { ComponentPageLayout } from '@/components/layouts'
+import { Anchor } from '@/components/anchor'
+import { Card } from '@/components/card'
 
 export const Pagination = () => {
 
   return (
-    <div class='p-5'>
+    <ComponentPageLayout>
       <h1>Pagination</h1>
 
-      <h2>基础用法</h2>
-      <div class=' mb-4'>
+      <Anchor href='#basic-usage'>基础用法</Anchor>
+      <Card>
         <SpPagination total={100}></SpPagination>
-      </div>
-      <div class=' mb-4'>
+      </Card>
+
+      <Anchor href='#basic-usage'>上下页按钮</Anchor>
+      <Card>
         <SpPagination total={100} prev next></SpPagination>
-      </div>
-      <div class=' mb-4'>
+      </Card>
+
+      <Anchor href='#basic-usage'>文字按钮</Anchor>
+      <Card>
         <SpPagination type='text' total={100} prev next></SpPagination>
-      </div>
-      <div class=' mb-4'>
+      </Card>
+
+      <Anchor href='#basic-usage'>跳转输入框</Anchor>
+      <Card>
         <SpPagination total={30} prev next>
           <SpPaginationJumper />
         </SpPagination>
-      </div>
-    </div>
+      </Card>
+    </ComponentPageLayout>
   )
 }
