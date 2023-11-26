@@ -9,7 +9,7 @@ export const ComponentPageLayout = (props: ComponentPageLayoutProps) => {
 
   return (
     <div class='p-5 flex'>
-      <div class='w-full'>
+      <div class='w-full pr-40px'>
         {props.children}
       </div>
       <div class='flex-shrink-0 w-64'>
