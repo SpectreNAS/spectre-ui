@@ -51,6 +51,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
    * @param el 
    */
   function watchViewResize(el: HTMLDivElement) {
+    let init = true
     const resizeObserver = new ResizeObserver((entries) => {
       const entry = entries[0]
       if (entry) {
@@ -58,17 +59,22 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
         if (width !== scrollbar.viewWidth) {
           scrollbar.setViewWidth(width)
           setHorizontalBarWidth(scrollbar.viewWidth)
-          setHorizontalSliderX(scrollbar.thumbX)
           setHorizontalSliderWidth(scrollbar.thumbWidth)
+          setHorizontalSliderX(scrollbar.thumbX)
+          setViewScrollX(scrollbar.scrollX)
         }
         if (height !== scrollbar.viewHeight) {
           scrollbar.setViewHeight(height)
           setVerticalBarHeight(scrollbar.viewHeight)
           setVerticalSliderHeight(scrollbar.thumbHeight)
           setVerticalSliderY(scrollbar.thumbY)
+          setViewScrollY(scrollbar.scrollY)
         }
-        setScrollY(props.scrollY)
-        setScrollX(props.scrollX)
+        if (init) {
+          setScrollY(props.scrollY)
+          setScrollX(props.scrollX)
+          init = false
+        }
       }
     })
     resizeObserver.observe(el, {})
@@ -79,6 +85,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
    * @param el 
    */
   function watchContentResize(el: HTMLDivElement) {
+    let init = true
     const resizeObserver = new ResizeObserver((entries) => {
       const entry = entries[0]
       if (entry) {
@@ -87,17 +94,22 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
         if (width !== scrollbar.contentWidth) {
           scrollbar.setContentWidth(width)
           setHorizontalBarWidth(scrollbar.viewWidth)
-          setHorizontalSliderX(scrollbar.thumbX)
           setHorizontalSliderWidth(scrollbar.thumbWidth)
+          setHorizontalSliderX(scrollbar.thumbX)
+          setViewScrollX(scrollbar.scrollX)
         }
         if (height !== scrollbar.contentHeight) {
           scrollbar.setContentHeight(height)
           setVerticalBarHeight(scrollbar.viewHeight)
           setVerticalSliderHeight(scrollbar.thumbHeight)
           setVerticalSliderY(scrollbar.thumbY)
+          setViewScrollY(scrollbar.scrollY)
         }
-        setScrollY(props.scrollY)
-        setScrollX(props.scrollX)
+        if (init) {
+          setScrollY(props.scrollY)
+          setScrollX(props.scrollX)
+          init = false
+        }
       }
     })
     resizeObserver.observe(el)
