@@ -1,6 +1,6 @@
 import { SpButton, SpIconButton } from '@spectre-ui/core'
-import { ComponentPageLayout } from '@/components/layouts'
 import { Menu } from '@/components/icon/Menu'
+import { ComponentPageLayout } from '@/components/layouts'
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'
 
@@ -19,7 +19,7 @@ export const Buttons = () => {
         <SpButton class='ml-3' color='danger'>Button</SpButton>
       </Card>
 
-      <Anchor href='#basic-usage'>文字按钮</Anchor>
+      <Anchor href='#text'>文字按钮</Anchor>
       <Card>
         <SpButton type='text'>Button</SpButton>
         <SpButton class='ml-3' type='text' color='primary'>Button</SpButton>
@@ -28,16 +28,15 @@ export const Buttons = () => {
         <SpButton class='ml-3' type='text' color='danger'>Button</SpButton>
       </Card>
 
-      <Anchor href='#sizes'>图标按钮</Anchor>
+      <Anchor href='#icon'>图标按钮</Anchor>
       <Card>
         <SpIconButton>
           <Menu></Menu>
         </SpIconButton>
       </Card>
 
-      <Anchor href='#sizes'>按钮尺寸</Anchor>
+      <Anchor href='#size'>按钮尺寸</Anchor>
       <Card>
-
         <SpButton size='large'>Button</SpButton>
         <SpButton class='ml-3'>Button</SpButton>
         <SpButton class='ml-3' size='medium'>Button</SpButton>

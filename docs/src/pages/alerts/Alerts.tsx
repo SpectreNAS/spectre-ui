@@ -1,36 +1,45 @@
 import { SpAlert } from '@spectre-ui/core'
+import { ComponentPageLayout } from '@/components/layouts'
+import { Anchor } from '@/components/anchor'
+import { Card } from '@/components/card'
 
 export const Alerts = () => {
 
   return (
-    <div class='p-5'>
-      <h1>Buttons</h1>
+    <ComponentPageLayout>
+      <h1>Alerts</h1>
 
-      <h2>基础用法</h2>
-      <div class=' mb-4'>
-        <SpAlert title='Alert Title'></SpAlert>
-      </div>
-      <div class=' mb-4'>
-        <SpAlert title='Alert Title' color='success'></SpAlert>
-      </div>
-      <div class=' mb-4'>
-        <SpAlert title='Alert Title' color='warn'></SpAlert>
-      </div>
-      <div class=' mb-4'>
-        <SpAlert title='Alert Title' color='danger'></SpAlert>
-      </div>
-      <div class=' mb-4'>
-        <SpAlert title='Alert Title' light></SpAlert>
-      </div>
-      <div class=' mb-4'>
-        <SpAlert title='Alert Title' color='success' light></SpAlert>
-      </div>
-      <div class=' mb-4'>
-        <SpAlert title='Alert Title' color='warn' light></SpAlert>
-      </div>
-      <div class=' mb-4'>
-        <SpAlert title='Alert Title' color='danger' light></SpAlert>
-      </div>
-    </div>
+      <Anchor href='#basic-usage'>基础用法</Anchor>
+      <Card>
+        <SpAlert class=' mb-4' title='Alert Title'></SpAlert>
+        <SpAlert class=' mb-4' title='Alert Title' color='success'></SpAlert>
+        <SpAlert class=' mb-4' title='Alert Title' color='warn'></SpAlert>
+        <SpAlert class=' mb-4' title='Alert Title' color='danger'></SpAlert>
+      </Card>
+
+      <Anchor href='#center'>主题</Anchor>
+      <p>提供light主题</p>
+      <Card>
+        <SpAlert class=' mb-4' title='Alert Title' light></SpAlert>
+        <SpAlert class=' mb-4' title='Alert Title' light color='success'></SpAlert>
+        <SpAlert class=' mb-4' title='Alert Title' light color='warn'></SpAlert>
+        <SpAlert class=' mb-4' title='Alert Title' light color='danger'></SpAlert>
+      </Card>
+
+      <Anchor href='#center'>居中</Anchor>
+      <Card>
+        <SpAlert class=' mb-4' title='Alert Title' center></SpAlert>
+      </Card>
+
+      <Anchor href='#closable'>带关闭按钮</Anchor>
+      <Card>
+        <SpAlert class=' mb-4' title='Alert Title' closable></SpAlert>
+      </Card>
+
+      <Anchor href='#description'>带描述</Anchor>
+      <Card>
+        <SpAlert class=' mb-4' title='Alert Title' description='The contents of the alert'></SpAlert>
+      </Card>
+    </ComponentPageLayout>
   )
 }
