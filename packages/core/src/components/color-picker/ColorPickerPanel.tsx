@@ -19,7 +19,8 @@ export const ColorPickerPanel = (propsRaw: ColorPickerPanelProps) => {
 
   return (
     <ColorPickerPanelContext.Provider value={{
-      color
+      color,
+      setColor,
     }}>
       <div
         class={colorPickerPanelClasses()}
