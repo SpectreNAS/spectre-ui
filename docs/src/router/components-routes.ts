@@ -75,6 +75,7 @@ export const componentsRoutes = [
   {
     title: 'ColorPickers',
     path: '/colorPickers',
+    component: lazy(() => import('../pages/color-pickers')),
   },
   {
     title: 'Transfers',
