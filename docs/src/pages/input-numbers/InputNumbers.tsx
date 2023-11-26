@@ -14,9 +14,27 @@ export const InputNumbers = () => {
         <SpInputNumber></SpInputNumber>
       </Card>
 
-      <Anchor href='#basic-usage'>带步骤按钮</Anchor>
+      <Anchor href='#step'>带步骤按钮</Anchor>
       <Card>
         <SpInputNumber showStep></SpInputNumber>
+      </Card>
+
+      <Anchor href='#size'>尺寸</Anchor>
+      <Card>
+        <div class='flex items-end'>
+          <div>
+            <SpInputNumber size='small' showStep></SpInputNumber>
+          </div>
+          <div class='ml-3'>
+            <SpInputNumber size='medium' showStep></SpInputNumber>
+          </div>
+          <div class='ml-3'>
+            <SpInputNumber showStep></SpInputNumber>
+          </div>
+          <div class='ml-3'>
+            <SpInputNumber size='large' showStep></SpInputNumber>
+          </div>
+        </div>
       </Card>
     </ComponentPageLayout>
   )
