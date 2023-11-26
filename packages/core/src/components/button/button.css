@@ -46,15 +46,15 @@
   --sp-button-border-radius: 20px;
 }
 
-.sp-button.small.round {
+.sp-button.round.small {
   --sp-button-border-radius: 12px;
 }
 
-.sp-button.medium.round {
+.sp-button.round.medium {
   --sp-button-border-radius: 16px;
 }
 
-.sp-button.large.round {
+.sp-button.round.large {
   --sp-button-border-radius: 24px;
 }
 
