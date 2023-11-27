@@ -1,9 +1,9 @@
 .sp-vertical-scrollbar {
-  position: absolute;
+  position: relative;
   user-select: none;
-  top: 0px;
+  /* top: 0px;
   right: 0px;
-  bottom: 0px;
+  bottom: 0px; */
   width: var(--sp-vertical-scrollbar-width);
   border-radius: var(--sp-vertical-scrollbar-border-radius);
   background-color: var(--sp-vertical-scrollbar-bg-color);
@@ -18,18 +18,17 @@
 }
 
 .sp-horizontal-scrollbar {
-  position: absolute;
+  position: relative;
   user-select: none;
-  right: 0px;
+  /* right: 0px;
   bottom: 0px;
-  left: 0px;
+  left: 0px; */
   height: var(--sp-horizontal-scrollbar-height);
   border-radius: var(--sp-horizontal-scrollbar-border-radius);
   background-color: var(--sp-horizontal-scrollbar-bg-color);
 }
 
 .sp-horizontal-scrollbar-slider {
-  position: absolute;
   user-select: none;
   height: var(--sp-horizontal-scrollbar-slider-height);
   border-radius: var(--sp-horizontal-scrollbar-slider-border-radius);

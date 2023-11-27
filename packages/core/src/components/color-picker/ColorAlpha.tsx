@@ -1,10 +1,10 @@
-import { ColorAlphaSliderProps, generateProps } from './color-alpha-slider.props'
+import { ColorAlphaProps, generateProps } from './color-alpha.props'
 import { SpHorizontalScrollbar, SpVerticalScrollbar } from '../scrollbar'
 import { useColorPickerPanelContext } from './ColorPickerPanel'
 import { createEffect, createSignal } from 'solid-js'
 import { Point } from '@spectre-ui/utils'
 
-export const ColorAlphaSlider = (propsRaw: ColorAlphaSliderProps) => {
+export const ColorAlpha = (propsRaw: ColorAlphaProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
   const colorPickerPanelContext = useColorPickerPanelContext()

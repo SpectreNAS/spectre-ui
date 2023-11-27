@@ -4,7 +4,7 @@ import { customEventHandlersName } from '../../events'
 import Color from 'color'
 
 export interface ColorPickerPanelProps extends ComponentParentProps<HTMLDivElement> {
-  value: Color
+  value?: Color
   change?: ValueChanged<Color>
 }
 
@@ -15,6 +15,6 @@ export interface ColorPickerPanelProviderValue {
 
 export function generateProps(propsRaw: ColorPickerPanelProps) {
   return splitProps(mergeProps({
-    value: Color('#fff'), 
+    value: Color('#fff'),
   }, propsRaw), customEventHandlersName)
 }

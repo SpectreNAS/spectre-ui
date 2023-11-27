@@ -1,10 +1,10 @@
-import { ColorSliderProps, generateProps } from './color-slider.props'
+import { ColorSaturationProps, generateProps } from './color-saturation.props'
 import { useColorPickerPanelContext } from './ColorPickerPanel'
 import { createEffect, createSignal } from 'solid-js'
 import { SpDraggable } from '../draggable'
 import { Point } from '@spectre-ui/utils'
 
-export const ColorSlider = (propsRaw: ColorSliderProps) => {
+export const ColorSaturation = (propsRaw: ColorSaturationProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
   const colorPickerPanelContext = useColorPickerPanelContext()

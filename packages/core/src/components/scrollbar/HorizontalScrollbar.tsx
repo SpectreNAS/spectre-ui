@@ -14,6 +14,8 @@ export const HorizontalScrollbar = (propsRaw: HorizontalScrollbarProps) => {
   const sliderStyles = () => `width:${props.sliderWidth}px;`
   const sliderMaxX = () => props.width - props.sliderWidth
 
+  const Slider = () => <div class='sp-horizontal-scrollbar-slider' style={sliderStyles()}></div>
+
   return (
     <div
       class={horizontalScrollbarClasses()}
@@ -23,15 +25,15 @@ export const HorizontalScrollbar = (propsRaw: HorizontalScrollbarProps) => {
       {...eventHandlers}
     >
       <SpDraggable
-        class='sp-horizontal-scrollbar-slider'
-        style={sliderStyles()}
         only='x'
         x={props.sliderX}
-        y={1}
+        y={0}
         minX={0}
         maxX={sliderMaxX()}
         change={props.change}
-      />
+      >
+        {props.children ?? <Slider />}
+      </SpDraggable>
     </div>
   )
 }

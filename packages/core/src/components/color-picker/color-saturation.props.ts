@@ -2,16 +2,16 @@ import { mergeProps, splitProps } from 'solid-js'
 import { ComponentProps } from '../../types'
 import { customEventHandlersName } from '../../events'
 
-export interface ColorHueSliderProps extends ComponentProps<HTMLDivElement> {
-  vertical?: boolean
+export interface ColorSaturationProps extends ComponentProps<HTMLDivElement> {
   width?: number
+  height?: number
   sliderWidth?: number
 }
 
-export function generateProps(propsRaw: ColorHueSliderProps) {
+export function generateProps(propsRaw: ColorSaturationProps) {
   return splitProps(mergeProps({
-    vertical: false,
-    width: 168,
+    width: 240,
+    height: 240,
     sliderWidth: 12,
   }, propsRaw), customEventHandlersName)
 }

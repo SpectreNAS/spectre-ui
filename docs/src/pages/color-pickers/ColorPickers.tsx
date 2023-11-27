@@ -1,4 +1,4 @@
-import { SpDraggable } from '@spectre-ui/core'
+import { SpColorPickerPanel, SpColorSaturation, SpColorHue, SpColorAlpha } from '@spectre-ui/core'
 import { ComponentPageLayout } from '@/components/layouts'
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'
@@ -11,10 +11,12 @@ export const ColorPickers = () => {
 
       <Anchor href='#basic-usage'>基础用法</Anchor>
       <Card>
-        <div class=' mb-4 relative h-200px'>
-          <SpDraggable>
-            <div class='w-50px h-50px bg-[var(--bg-brand-default)]'></div>
-          </SpDraggable>
+        <div class=' h-200px mb-4 relative'>
+          <SpColorPickerPanel>
+            <SpColorSaturation />
+            <SpColorHue />
+            <SpColorAlpha />
+          </SpColorPickerPanel>
         </div>
       </Card>
     </ComponentPageLayout>

@@ -1,10 +1,10 @@
-import { ColorHueSliderProps, generateProps } from './color-hue-slider.props'
+import { ColorHueProps, generateProps } from './color-hue.props'
 import { SpHorizontalScrollbar, SpVerticalScrollbar } from '../scrollbar'
 import { useColorPickerPanelContext } from './ColorPickerPanel'
 import { createEffect, createSignal } from 'solid-js'
 import { Point } from '@spectre-ui/utils'
 
-export const ColorHueSlider = (propsRaw: ColorHueSliderProps) => {
+export const ColorHue = (propsRaw: ColorHueProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
   const colorPickerPanelContext = useColorPickerPanelContext()
@@ -14,12 +14,14 @@ export const ColorHueSlider = (propsRaw: ColorHueSliderProps) => {
 
   const [sliderX, setSliderX] = createSignal(0)
 
+  const Slider = () => <div style='width:12px;height:12px;background-color:#fff;border-radius:6px'></div>
+
   createEffect(() => {
     setSliderX(hueTransformX(colorPickerPanelContext.color().hue(), props.width - props.sliderWidth))
   })
 
   function onVertical({ y }: Point) {
-    colorPickerPanelContext?.setColor(value => value.hue(xTransformHue(y, props.width - props.sliderWidth)))
+    colorPickerPanelContext?.setColor(value => value.hue(xTransformHue(y, props.width - props. sliderWidth)))
   }
 
   function onHorizontal({ x }: Point) {
@@ -30,8 +32,26 @@ export const ColorHueSlider = (propsRaw: ColorHueSliderProps) => {
     <>
       {
         props.vertical ?
-          <SpVerticalScrollbar height={props.width} sliderY={sliderX()} sliderHeight={props.sliderWidth} change={onVertical} /> :
-          <SpHorizontalScrollbar width={props.width} sliderX={sliderX()} sliderWidth={props.sliderWidth} change={onHorizontal} />
+          <SpVerticalScrollbar
+            class='sp-color-hue vertical'
+            height={props.width}
+            sliderY={sliderX()}
+            sliderHeight={props.sliderWidth}
+            change={onVertical}
+          >
+            <Slider />
+          </SpVerticalScrollbar>
+          :
+          <SpHorizontalScrollbar
+            class='sp-color-hue horizontal'
+            style={'--sp-horizontal-scrollbar-height:12px;'}
+            width={props.width}
+            sliderX={sliderX()}
+            sliderWidth={props.sliderWidth}
+            change={onHorizontal}
+          >
+            <Slider />
+          </SpHorizontalScrollbar>
       }
     </>
   )
