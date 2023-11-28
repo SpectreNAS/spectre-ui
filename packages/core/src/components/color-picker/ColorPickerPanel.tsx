@@ -17,6 +17,10 @@ export const ColorPickerPanel = (propsRaw: ColorPickerPanelProps) => {
     props.class ?? ''
   ])
 
+  // createEffect(() => {
+  //   console.log(color().hue())
+  // })
+
   return (
     <ColorPickerPanelContext.Provider value={{
       color,

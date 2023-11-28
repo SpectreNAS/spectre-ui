@@ -213,6 +213,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
       </Show>
       <Show when={showHorizontalScroll()}>
         <SpHorizontalScrollbar
+          class='sp-scroll-area-horizontal-bar'
           width={horizontalBarWidth()}
           sliderX={horizontalSliderX()}
           sliderWidth={horizontalSliderWidth()}

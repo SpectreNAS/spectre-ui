@@ -12,6 +12,8 @@ export interface DraggableProps extends ComponentParentProps<HTMLDivElement> {
   maxY?: number
   only?: 'x' | 'y'
   change?: ValueChanged<Point>
+  drag?: (value: Point) => Partial<Point>
+
 }
 
 export function generateProps(propsRaw: DraggableProps) {

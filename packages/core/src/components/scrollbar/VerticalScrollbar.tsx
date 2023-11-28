@@ -1,4 +1,4 @@
-import { mergeClasses } from '../../utils'
+import { mergeClasses, mergeStyles } from '../../utils'
 import { SpDraggable } from '../draggable'
 import { VerticalScrollbarProps, generateProps } from './vertical-scrollbar.props'
 
@@ -11,6 +11,11 @@ export const VerticalScrollbar = (propsRaw: VerticalScrollbarProps) => {
     props.size ?? '',
     props.color ?? '',
   ])
+  const verticalScrollbarStyles = () => mergeStyles([
+    props.style,
+    `height:${props.height}px`
+  ])
+
   const sliderStyles = () => `height:${props.sliderHeight}px;`
   const sliderMaxY = () => props.height - props.sliderHeight
 
@@ -18,7 +23,7 @@ export const VerticalScrollbar = (propsRaw: VerticalScrollbarProps) => {
     <div
       class={verticalScrollbarClasses()}
       classList={props.classList}
-      style={props.style}
+      style={verticalScrollbarStyles()}
       ref={props.ref}
       {...eventHandlers}
     >
@@ -26,12 +31,14 @@ export const VerticalScrollbar = (propsRaw: VerticalScrollbarProps) => {
         class='sp-vertical-scrollbar-slider'
         style={sliderStyles()}
         only='y'
-        x={1}
+        x={props.x}
         y={props.sliderY}
         minY={0}
         maxY={sliderMaxY()}
         change={props.change}
-      />
+      >
+        {props.children}
+      </SpDraggable>
     </div>
   )
 }

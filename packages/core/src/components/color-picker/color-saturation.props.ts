@@ -6,6 +6,7 @@ export interface ColorSaturationProps extends ComponentProps<HTMLDivElement> {
   width?: number
   height?: number
   sliderWidth?: number
+  sliderHeight?: number
 }
 
 export function generateProps(propsRaw: ColorSaturationProps) {
@@ -13,5 +14,6 @@ export function generateProps(propsRaw: ColorSaturationProps) {
     width: 240,
     height: 240,
     sliderWidth: 12,
+    sliderHeight: 12,
   }, propsRaw), customEventHandlersName)
 }

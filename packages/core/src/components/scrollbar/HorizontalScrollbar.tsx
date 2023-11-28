@@ -1,4 +1,4 @@
-import { mergeClasses } from '../../utils'
+import { mergeClasses, mergeStyles } from '../../utils'
 import { SpDraggable } from '../draggable'
 import { HorizontalScrollbarProps, generateProps } from './horizontal-scrollbar.props'
 
@@ -11,28 +11,33 @@ export const HorizontalScrollbar = (propsRaw: HorizontalScrollbarProps) => {
     props.size ?? '',
     props.color ?? '',
   ])
+  const horizontalScrollbarStyles = () => mergeStyles([
+    props.style,
+    `width:${props.width}px;`
+  ])
+
   const sliderStyles = () => `width:${props.sliderWidth}px;`
   const sliderMaxX = () => props.width - props.sliderWidth
-
-  const Slider = () => <div class='sp-horizontal-scrollbar-slider' style={sliderStyles()}></div>
 
   return (
     <div
       class={horizontalScrollbarClasses()}
       classList={props.classList}
-      style={props.style}
+      style={horizontalScrollbarStyles()}
       ref={props.ref}
       {...eventHandlers}
     >
       <SpDraggable
+        class='sp-horizontal-scrollbar-slider'
+        style={sliderStyles()}
         only='x'
         x={props.sliderX}
-        y={0}
+        y={props.y}
         minX={0}
         maxX={sliderMaxX()}
         change={props.change}
       >
-        {props.children ?? <Slider />}
+        {props.children}
       </SpDraggable>
     </div>
   )

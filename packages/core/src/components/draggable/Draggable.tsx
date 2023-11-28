@@ -34,16 +34,18 @@ export const Draggable = (propsRaw: DraggableProps) => {
       const onDrag = (moveEvent: PointerEvent) => {
         const _x = getRangeValue(moveEvent.pageX - startX, props.minX, props.maxX)
         const _y = getRangeValue(moveEvent.pageY - startY, props.minY, props.maxY)
+        const pos = { x: _x, y: _y }
         if (props.only === 'x') {
-          setX(_x)
-          emitChange({ x: _x })
+          setX(drag(pos).x)
+          emitChange()
         } else if (props.only === 'y') {
-          setY(_y)
-          emitChange({ y: _y })
+          setY(drag(pos).y)
+          emitChange()
         } else {
-          setX(_x)
-          setY(_y)
-          props.change?.({ x: _x, y: _y })
+          const p = drag(pos)
+          setX(p.x)
+          setY(p.y)
+          emitChange()
         }
       }
       const onDragEnd = () => {
@@ -56,8 +58,16 @@ export const Draggable = (propsRaw: DraggableProps) => {
     }
   }
 
-  function emitChange(point: Partial<Point>) {
-    props.change?.({ x: point.x ?? x(), y: point.y ?? y() })
+  function drag(point: Point): Point {
+    const p = props.drag?.(point)
+    return p ? {
+      x: p.x ?? point.x,
+      y: p.y ?? point.y,
+    } : point
+  }
+
+  function emitChange() {
+    props.change?.({ x: x(), y: y() })
   }
 
   return (

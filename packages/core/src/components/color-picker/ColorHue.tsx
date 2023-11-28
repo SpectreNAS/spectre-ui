@@ -3,6 +3,7 @@ import { SpHorizontalScrollbar, SpVerticalScrollbar } from '../scrollbar'
 import { useColorPickerPanelContext } from './ColorPickerPanel'
 import { createEffect, createSignal } from 'solid-js'
 import { Point } from '@spectre-ui/utils'
+import { mergeClasses, mergeStyles } from '../../utils'
 
 export const ColorHue = (propsRaw: ColorHueProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
@@ -14,17 +15,44 @@ export const ColorHue = (propsRaw: ColorHueProps) => {
 
   const [sliderX, setSliderX] = createSignal(0)
 
-  const Slider = () => <div style='width:12px;height:12px;background-color:#fff;border-radius:6px'></div>
+  const hueVerticalClasses = () => mergeClasses([
+    'sp-color-hue',
+    props.class ?? '',
+  ])
+
+  const hueHorizontalClasses = () => mergeClasses([
+    'sp-color-hue',
+    props.class ?? '',
+  ])
+
+  const hueVerticalStyles = () => mergeStyles([
+    `
+    --sp-vertical-scrollbar-width:${props.sliderWidth}px;
+    --sp-vertical-scrollbar-slider-width:${props.sliderWidth}px;
+    `,
+    props.style
+  ])
+
+  const hueHorizontalStyles = () => mergeStyles([
+    `
+    --sp-horizontal-scrollbar-height:${props.sliderWidth}px;
+    --sp-horizontal-scrollbar-slider-height:${props.sliderWidth}px;
+    `,
+    props.style
+  ])
 
   createEffect(() => {
-    setSliderX(hueTransformX(colorPickerPanelContext.color().hue(), props.width - props.sliderWidth))
+    setSliderX(hueTransformX(colorPickerPanelContext.color().hue(), props.width - props.sliderWidth)
+    )
   })
 
   function onVertical({ y }: Point) {
-    colorPickerPanelContext?.setColor(value => value.hue(xTransformHue(y, props.width - props. sliderWidth)))
+    setSliderX(y)
+    colorPickerPanelContext?.setColor(value => value.hue(xTransformHue(y, props.width - props.sliderWidth)))
   }
 
   function onHorizontal({ x }: Point) {
+    setSliderX(x)
     colorPickerPanelContext?.setColor(value => value.hue(xTransformHue(x, props.width - props.sliderWidth)))
   }
 
@@ -33,24 +61,29 @@ export const ColorHue = (propsRaw: ColorHueProps) => {
       {
         props.vertical ?
           <SpVerticalScrollbar
-            class='sp-color-hue vertical'
+            class={hueVerticalClasses()}
+            classList={props.classList}
+            style={hueVerticalStyles()}
             height={props.width}
             sliderY={sliderX()}
             sliderHeight={props.sliderWidth}
+            {...eventHandlers}
             change={onVertical}
           >
-            <Slider />
+            <div class='sp-color-hue-slider vertical'></div>
           </SpVerticalScrollbar>
           :
           <SpHorizontalScrollbar
-            class='sp-color-hue horizontal'
-            style={'--sp-horizontal-scrollbar-height:12px;'}
+            class={hueHorizontalClasses()}
+            classList={props.classList}
+            style={hueHorizontalStyles()}
             width={props.width}
             sliderX={sliderX()}
             sliderWidth={props.sliderWidth}
+            {...eventHandlers}
             change={onHorizontal}
           >
-            <Slider />
+            <div class='sp-color-hue-slider'></div>
           </SpHorizontalScrollbar>
       }
     </>
@@ -59,10 +92,10 @@ export const ColorHue = (propsRaw: ColorHueProps) => {
 
 //hue转换x轴坐标
 function hueTransformX(hue: number, width: number) {
-  return (hue / 360) * width
+  return (hue / 359) * width
 }
 
 //x坐标转换hue
 function xTransformHue(x: number, width: number) {
-  return (x / width) * 360
+  return Math.round((x / width) * 359)
 }
