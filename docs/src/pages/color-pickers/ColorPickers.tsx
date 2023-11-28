@@ -1,10 +1,13 @@
-import { SpColorPickerPanel, SpColorSaturation, SpColorHue, SpColorAlpha } from '@spectre-ui/core'
+import { SpColorPickerPanel, SpColorSaturation, SpColorHue, SpColorAlpha, Color } from '@spectre-ui/core'
 import { ComponentPageLayout } from '@/components/layouts'
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'
 
 export const ColorPickers = () => {
 
+  function change(value: Color) {
+    console.log(value.hexa())
+  }
   return (
     <ComponentPageLayout>
       {/* <h1>ColorPickers</h1>
@@ -12,7 +15,7 @@ export const ColorPickers = () => {
       <Anchor href='#basic-usage'>基础用法</Anchor> */}
       <Card>
         <div class=' h-200px mb-4 relative'>
-          <SpColorPickerPanel>
+          <SpColorPickerPanel change={change}>
             <SpColorSaturation />
             <SpColorHue />
             <SpColorAlpha />
