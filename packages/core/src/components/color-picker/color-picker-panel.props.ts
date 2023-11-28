@@ -15,6 +15,6 @@ export interface ColorPickerPanelProviderValue {
 
 export function generateProps(propsRaw: ColorPickerPanelProps) {
   return splitProps(mergeProps({
-    value: Color('#fff'),
+    value: Color('#FFFFFFFF'),
   }, propsRaw), customEventHandlersName)
 }

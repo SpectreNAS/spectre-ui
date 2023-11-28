@@ -14,11 +14,13 @@
 }
 
 .sp-color-saturation-slider {
+  position: absolute;
+  left: -6px;
+  top: -6px;
   border: 2px solid #fff;
   border-radius: 50%;
   box-sizing: border-box;
 }
-
 
 /*hue*/
 .sp-color-hue.sp-vertical-scrollbar {

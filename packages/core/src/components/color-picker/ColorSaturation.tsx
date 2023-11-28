@@ -1,9 +1,10 @@
 import { ColorSaturationProps, generateProps } from './color-saturation.props'
 import { useColorPickerPanelContext } from './ColorPickerPanel'
-import { createEffect, createSignal } from 'solid-js'
+import { createEffect, createSignal, onMount } from 'solid-js'
 import { SpDraggable } from '../draggable'
 import { Point } from '@spectre-ui/utils'
 import { mergeStyles, mergeClasses } from '../../utils'
+import Color from 'color'
 
 export const ColorSaturation = (propsRaw: ColorSaturationProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
@@ -30,22 +31,43 @@ export const ColorSaturation = (propsRaw: ColorSaturationProps) => {
     `
     width:${props.width}px;
     height:${props.height}px;
-    background: linear-gradient(to right, #ffffff 0%, ${colorPickerPanelContext.color().hsv(colorPickerPanelContext.color().hue(), 100, 100)} 100%);
+    background: linear-gradient(to right, #ffffff 0%, ${Color().hsv(colorPickerPanelContext.color().hue(), 100, 100)} 100%);
     `
   ])
 
-  function drag({ x, y }: Point): Partial<Point> {
-    const xCenter = getCenter(x, props.width)
-    const yCenter = getCenter(y, props.height)
-    colorPickerPanelContext?.setColor(
-      value => value.saturationv(xTransformSaturation(xCenter, props.width) * 100)
-        .value(yTransformValue(yCenter, props.height) * 100)
-    )
-    return { x: xCenter, y: yCenter }
+  const sliderStyles = () => mergeStyles([
+    `
+    width:${props.sliderWidth}px;
+    height:${props.sliderHeight}px;
+    `
+  ])
+
+  createEffect(() => {
+    setSliderMinX(0)
+    setSliderMinY(0)
+    setSliderMaxX(props.width)
+    setSliderMaxY(props.height)
+    const color = colorPickerPanelContext.color()
+    setSliderX(saturationTransformX(color.saturationv() / 100, props.width))
+    setSliderY(valueTransformY(color.value() / 100, props.height))
+  })
+
+  function onSelectColor(event: PointerEvent) {
+    const target = event.target as HTMLDivElement
+    const draggable = target.children[0] as HTMLDivElement
+    if (draggable) {
+      onChangeSlider({ x: event.offsetX, y: event.offsetY })
+      draggable.dispatchEvent(new PointerEvent('pointerdown', { clientX: event.clientX, clientY: event.clientY }))
+    }
   }
 
-  function onSelect() {
-
+  function onChangeSlider({ x, y }: Point) {
+    colorPickerPanelContext?.setColor(
+      value => value.saturationv(xTransformSaturation(x, props.width) * 100)
+        .value(yTransformValue(y, props.height) * 100)
+    )
+    setSliderX(x)
+    setSliderY(y)
   }
 
   return (
@@ -54,7 +76,7 @@ export const ColorSaturation = (propsRaw: ColorSaturationProps) => {
       classList={props.classList}
       style={saturationStyles()}
       {...eventHandlers}
-      onPointerDown={onSelect}
+      onPointerDown={onSelectColor}
     >
       <SpDraggable
         minX={sliderMinX()}
@@ -63,8 +85,13 @@ export const ColorSaturation = (propsRaw: ColorSaturationProps) => {
         maxY={sliderMaxY()}
         x={sliderX()}
         y={sliderY()}
-        drag={drag}
+        change={onChangeSlider}
       >
+        <div
+          class='sp-color-saturation-slider'
+          style={sliderStyles()}
+        >
+        </div>
       </SpDraggable>
     </div>
   )
@@ -88,8 +115,4 @@ function yTransformValue(y: number, height: number) {
 //明度转换y坐标
 function valueTransformY(value: number, height: number) {
   return (1 - value) * height
-}
-
-function getCenter(x: number, width: number) {
-  return x + width / 2
 }

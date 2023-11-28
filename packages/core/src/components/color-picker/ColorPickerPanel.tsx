@@ -1,6 +1,5 @@
 import { createContext, useContext, createSignal, createEffect } from 'solid-js'
 import { ColorPickerPanelProps, generateProps, ColorPickerPanelProviderValue } from './color-picker-panel.props'
-import Color from 'color'
 import { mergeClasses } from '../../utils'
 
 const ColorPickerPanelContext = createContext<ColorPickerPanelProviderValue>()
@@ -10,16 +9,20 @@ export const useColorPickerPanelContext = () => useContext(ColorPickerPanelConte
 export const ColorPickerPanel = (propsRaw: ColorPickerPanelProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
-  const [color, setColor] = createSignal(Color().hsv())
+  const [color, setColor] = createSignal(props.value.hsv())
 
   const colorPickerPanelClasses = () => mergeClasses([
     'sp-color-picker-panel',
     props.class ?? ''
   ])
 
-  // createEffect(() => {
-  //   console.log(color().hue())
-  // })
+  createEffect(() => {
+    setColor(props.value.hsv())
+  })
+
+  createEffect(() => {
+    props.change?.(color())
+  })
 
   return (
     <ColorPickerPanelContext.Provider value={{

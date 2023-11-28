@@ -92,10 +92,10 @@ export const ColorHue = (propsRaw: ColorHueProps) => {
 
 //hue转换x轴坐标
 function hueTransformX(hue: number, width: number) {
-  return (hue / 359) * width
+  return (hue / 360) * width
 }
 
 //x坐标转换hue
 function xTransformHue(x: number, width: number) {
-  return Math.round((x / width) * 359)
+  return Math.round((x / width) * 360)
 }
