@@ -1,6 +1,6 @@
 import { ColorSaturationProps, generateProps } from './color-saturation.props'
 import { useColorPickerPanelContext } from './ColorPickerPanel'
-import { createEffect, createSignal, onMount } from 'solid-js'
+import { createEffect, createSignal } from 'solid-js'
 import { SpDraggable } from '../draggable'
 import { Point } from '@spectre-ui/utils'
 import { mergeStyles, mergeClasses } from '../../utils'
@@ -14,6 +14,8 @@ export const ColorSaturation = (propsRaw: ColorSaturationProps) => {
     throw Error('colorPickerPanelContext is undefined')
   }
 
+  let saturationRef: HTMLDivElement | undefined
+  let sliderRef: HTMLDivElement | undefined
   const [sliderX, setSliderX] = createSignal(0)
   const [sliderY, setSliderY] = createSignal(0)
   const [sliderMinX, setSliderMinX] = createSignal(0)
@@ -53,11 +55,10 @@ export const ColorSaturation = (propsRaw: ColorSaturationProps) => {
   })
 
   function onSelectColor(event: PointerEvent) {
-    const target = event.target as HTMLDivElement
-    const draggable = target.children[0] as HTMLDivElement
-    if (draggable) {
-      onChangeSlider({ x: event.offsetX, y: event.offsetY })
-      draggable.dispatchEvent(new PointerEvent('pointerdown', { clientX: event.clientX, clientY: event.clientY }))
+    if (saturationRef && sliderRef) {
+      const { x, y } = saturationRef.getBoundingClientRect()
+      onChangeSlider({ x: event.clientX - x, y: event.clientY - y })
+      sliderRef.dispatchEvent(new PointerEvent('pointerdown', { clientX: event.clientX, clientY: event.clientY }))
     }
   }
 
@@ -72,6 +73,7 @@ export const ColorSaturation = (propsRaw: ColorSaturationProps) => {
 
   return (
     <div
+      ref={saturationRef}
       class={saturationClasses()}
       classList={props.classList}
       style={saturationStyles()}
@@ -79,6 +81,7 @@ export const ColorSaturation = (propsRaw: ColorSaturationProps) => {
       onPointerDown={onSelectColor}
     >
       <SpDraggable
+        ref={(el) => sliderRef = el}
         minX={sliderMinX()}
         maxX={sliderMaxX()}
         minY={sliderMinY()}

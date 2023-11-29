@@ -11,8 +11,8 @@ export interface ColorSaturationProps extends ComponentProps<HTMLDivElement> {
 
 export function generateProps(propsRaw: ColorSaturationProps) {
   return splitProps(mergeProps({
-    width: 240,
-    height: 240,
+    width: 280,
+    height: 180,
     sliderWidth: 12,
     sliderHeight: 12,
   }, propsRaw), customEventHandlersName)
