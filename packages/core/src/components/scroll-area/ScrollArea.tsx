@@ -205,7 +205,9 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
       </div>
       <Show when={showVerticalScroll()}>
         <SpVerticalScrollbar
+          class='sp-scroll-area-vertical-bar'
           height={verticalBarHeight()}
+          sliderX={1}
           sliderY={verticalSliderY()}
           sliderHeight={verticalSliderHeight()}
           change={onVerticalSlider}
@@ -215,6 +217,7 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
         <SpHorizontalScrollbar
           class='sp-scroll-area-horizontal-bar'
           width={horizontalBarWidth()}
+          sliderY={1}
           sliderX={horizontalSliderX()}
           sliderWidth={horizontalSliderWidth()}
           change={onHorizontalSlider}

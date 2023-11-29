@@ -31,7 +31,7 @@ export const VerticalScrollbar = (propsRaw: VerticalScrollbarProps) => {
         class='sp-vertical-scrollbar-slider'
         style={sliderStyles()}
         only='y'
-        x={props.x}
+        x={props.sliderX}
         y={props.sliderY}
         minY={0}
         maxY={sliderMaxY()}

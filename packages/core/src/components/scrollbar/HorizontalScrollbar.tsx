@@ -32,7 +32,7 @@ export const HorizontalScrollbar = (propsRaw: HorizontalScrollbarProps) => {
         style={sliderStyles()}
         only='x'
         x={props.sliderX}
-        y={props.y}
+        y={props.sliderY}
         minX={0}
         maxX={sliderMaxX()}
         change={props.change}
