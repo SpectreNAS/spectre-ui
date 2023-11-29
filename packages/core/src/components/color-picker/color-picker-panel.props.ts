@@ -11,6 +11,9 @@ export interface ColorPickerPanelProps extends ComponentParentProps<HTMLDivEleme
 export interface ColorPickerPanelProviderValue {
   color: Accessor<Color>
   setColor: Setter<Color>
+
+  hue: Accessor<number>
+  setHue: Setter<number>
 }
 
 export function generateProps(propsRaw: ColorPickerPanelProps) {

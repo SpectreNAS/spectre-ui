@@ -6,12 +6,14 @@ export interface ColorHueProps extends ComponentProps<HTMLDivElement> {
   vertical?: boolean
   width?: number
   sliderWidth?: number
+  sliderHeight?: number
 }
 
 export function generateProps(propsRaw: ColorHueProps) {
   return splitProps(mergeProps({
     vertical: false,
-    width: 168,
-    sliderWidth: 12,
+    width: 280,
+    sliderWidth: 4,
+    sliderHeight: 12,
   }, propsRaw), customEventHandlersName)
 }

@@ -10,6 +10,7 @@ export const ColorPickerPanel = (propsRaw: ColorPickerPanelProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
   const [color, setColor] = createSignal(props.value.hsv())
+  const [hue, setHue] = createSignal(0)
 
   const colorPickerPanelClasses = () => mergeClasses([
     'sp-color-picker-panel',
@@ -17,7 +18,9 @@ export const ColorPickerPanel = (propsRaw: ColorPickerPanelProps) => {
   ])
 
   createEffect(() => {
-    setColor(props.value.hsv())
+    const hsv = props.value.hsv()
+    setColor(hsv)
+    setHue(hsv.hue())
   })
 
   createEffect(() => {
@@ -28,6 +31,8 @@ export const ColorPickerPanel = (propsRaw: ColorPickerPanelProps) => {
     <ColorPickerPanelContext.Provider value={{
       color,
       setColor,
+      hue,
+      setHue,
     }}>
       <div
         class={colorPickerPanelClasses()}

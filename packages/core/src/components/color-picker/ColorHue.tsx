@@ -27,33 +27,40 @@ export const ColorHue = (propsRaw: ColorHueProps) => {
 
   const hueVerticalStyles = () => mergeStyles([
     `
-    --sp-vertical-scrollbar-width:${props.sliderWidth}px;
-    --sp-vertical-scrollbar-slider-width:${props.sliderWidth}px;
+    --sp-vertical-scrollbar-width:${props.sliderHeight}px;
+    --sp-vertical-scrollbar-slider-width:${props.sliderHeight}px;
     `,
     props.style
   ])
 
   const hueHorizontalStyles = () => mergeStyles([
     `
-    --sp-horizontal-scrollbar-height:${props.sliderWidth}px;
-    --sp-horizontal-scrollbar-slider-height:${props.sliderWidth}px;
+    --sp-horizontal-scrollbar-height:${props.sliderHeight}px;
+    --sp-horizontal-scrollbar-slider-height:${props.sliderHeight}px;
     `,
     props.style
   ])
 
   createEffect(() => {
-    setSliderX(hueTransformX(colorPickerPanelContext.color().hue(), props.width - props.sliderWidth)
+    setSliderX(
+      colorPickerPanelContext.hue() === 360 ?
+        props.width - props.sliderWidth :
+        hueTransformX(colorPickerPanelContext.color().hue(), props.width - props.sliderWidth)
     )
   })
 
   function onVertical({ y }: Point) {
     setSliderX(y)
-    colorPickerPanelContext?.setColor(value => value.hue(xTransformHue(y, props.width - props.sliderWidth)))
+    const hue = xTransformHue(y, props.width - props.sliderWidth)
+    colorPickerPanelContext?.setHue(hue)
+    colorPickerPanelContext?.setColor(value => value.hue(hue))
   }
 
   function onHorizontal({ x }: Point) {
     setSliderX(x)
-    colorPickerPanelContext?.setColor(value => value.hue(xTransformHue(x, props.width - props.sliderWidth)))
+    const hue = xTransformHue(x, props.width - props.sliderWidth)
+    colorPickerPanelContext?.setHue(hue)
+    colorPickerPanelContext?.setColor(value => value.hue(hue))
   }
 
   return (
