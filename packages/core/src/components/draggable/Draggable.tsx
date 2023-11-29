@@ -21,7 +21,9 @@ export const Draggable = (propsRaw: DraggableProps) => {
   })
 
   function dragRef(el: HTMLDivElement) {
-    props.ref = el
+    if (typeof props.ref === 'function' && props.ref) {
+      props.ref(el)
+    }
     el.addEventListener('pointerdown', onDragStart())
   }
 
@@ -29,11 +31,11 @@ export const Draggable = (propsRaw: DraggableProps) => {
     let startX = 0
     let startY = 0
     return (downEvent: PointerEvent) => {
-      startX = downEvent.pageX - x()
-      startY = downEvent.pageY - y()
+      startX = downEvent.clientX - x()
+      startY = downEvent.clientY - y()
       const onDrag = (moveEvent: PointerEvent) => {
-        const _x = getRangeValue(moveEvent.pageX - startX, props.minX, props.maxX)
-        const _y = getRangeValue(moveEvent.pageY - startY, props.minY, props.maxY)
+        const _x = getRangeValue(moveEvent.clientX - startX, props.minX, props.maxX)
+        const _y = getRangeValue(moveEvent.clientY - startY, props.minY, props.maxY)
         const pos = { x: _x, y: _y }
         if (props.only === 'x') {
           setX(drag(pos).x)
