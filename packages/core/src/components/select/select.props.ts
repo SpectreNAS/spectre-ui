@@ -1,17 +1,15 @@
 import { mergeProps, splitProps } from 'solid-js'
 
+import type { SelectOptionValue } from './select-option.props'
 import { customEventHandlersName } from '../../events'
-import { ComponentSize, ComponentColor, ComponentParentProps } from '../../types'
-
-export type ButtonType = 'light' | 'text'
-
-export interface ButtonProps extends ComponentParentProps<HTMLInputElement> {
-  type?: ButtonType
-  color?: ComponentColor
+import { ComponentSize, ComponentParentProps } from '../../types'
+export interface SelectProps extends ComponentParentProps<HTMLInputElement> {
   size?: ComponentSize
-  round?: boolean
+  value?: SelectOptionValue
+  placeholder?: string
+  disabled?: boolean
 }
 
-export function generateProps(propsRaw: ButtonProps) {
-  return splitProps(mergeProps({ round: false }, propsRaw), customEventHandlersName)
+export function generateProps(propsRaw: SelectProps) {
+  return splitProps(mergeProps({ disabled: false }, propsRaw), customEventHandlersName)
 }
