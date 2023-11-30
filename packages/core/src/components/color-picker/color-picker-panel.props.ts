@@ -1,9 +1,8 @@
-import { Accessor, Setter, mergeProps, splitProps } from 'solid-js'
-import { ComponentParentProps, ValueChanged } from '../../types'
-import { customEventHandlersName } from '../../events'
+import { Accessor, Setter, mergeProps, ParentProps } from 'solid-js'
+import { ValueChanged } from '../../types'
 import Color from 'color'
 
-export interface ColorPickerPanelProps extends ComponentParentProps<HTMLDivElement> {
+export interface ColorPickerPanelProps extends ParentProps {
   value?: Color
   change?: ValueChanged<Color>
 }
@@ -17,7 +16,5 @@ export interface ColorPickerPanelProviderValue {
 }
 
 export function generateProps(propsRaw: ColorPickerPanelProps) {
-  return splitProps(mergeProps({
-    value: Color('#FFFFFFFF'),
-  }, propsRaw), customEventHandlersName)
+  return mergeProps({ value: Color('#FFFFFFFF') }, propsRaw)
 }

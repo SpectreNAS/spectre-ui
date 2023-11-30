@@ -104,3 +104,22 @@
   width: 12px;
   height: 4px;
 }
+
+
+.sp-color-picker-preset {
+  width: 280px;
+  padding: 16px;
+  background-color: var(--bg-common-default);
+}
+
+.sp-color-picker-preset-hue {
+  margin-top: 16px;
+}
+
+.sp-color-picker-preset-alpha {
+  margin-top: 16px;
+}
+
+.sp-color-picker-preset-inputs {
+  margin-top: 16px;
+}
