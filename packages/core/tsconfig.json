@@ -11,7 +11,10 @@
     "skipLibCheck": true,
     "noImplicitAny": true,
     "outDir": "./dist",
-    "declaration": true
+    "declaration": true,
+    "paths": {
+      "@spectre-ui/utils": ["../utils/src/index.ts"]
+    }
   },
   "watchOptions": {
     "watchFile": "useFsEvents",
