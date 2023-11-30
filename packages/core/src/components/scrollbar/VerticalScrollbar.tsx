@@ -30,7 +30,7 @@ export const VerticalScrollbar = (propsRaw: VerticalScrollbarProps) => {
       <SpDraggable
         class='sp-vertical-scrollbar-slider'
         style={sliderStyles()}
-        only='y'
+        axis='y'
         x={props.sliderX}
         y={props.sliderY}
         minY={0}

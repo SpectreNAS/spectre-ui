@@ -30,7 +30,7 @@ export const HorizontalScrollbar = (propsRaw: HorizontalScrollbarProps) => {
       <SpDraggable
         class='sp-horizontal-scrollbar-slider'
         style={sliderStyles()}
-        only='x'
+        axis='x'
         x={props.sliderX}
         y={props.sliderY}
         minX={0}
