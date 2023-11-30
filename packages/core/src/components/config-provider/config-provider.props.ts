@@ -1,4 +1,5 @@
 import { JSXElement } from 'solid-js'
+
 import { Theme, SystemThemeType } from '../../theme'
 import { ComponentSize } from '../../types'
 

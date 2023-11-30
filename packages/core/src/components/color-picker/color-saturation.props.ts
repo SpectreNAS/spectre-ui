@@ -1,6 +1,7 @@
 import { mergeProps, splitProps } from 'solid-js'
-import { ComponentProps } from '../../types'
+
 import { customEventHandlersName } from '../../events'
+import { ComponentProps } from '../../types'
 
 export interface ColorSaturationProps extends ComponentProps<HTMLDivElement> {
   width?: number

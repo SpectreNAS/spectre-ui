@@ -1,7 +1,8 @@
 
 import { Show, createEffect, createSignal } from 'solid-js'
-import { mergeClasses } from '../../utils'
+
 import { InputProps, generateProps } from './input.props'
+import { mergeClasses } from '../../utils'
 import { SpIconButton } from '../button'
 import { CloseCircleOutlined } from '../icon/close-circle-outlined'
 

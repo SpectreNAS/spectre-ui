@@ -1,6 +1,6 @@
+import { componentsTheme } from './components'
 import { darkTheme } from './dark-theme'
 import { lightTheme } from './light-theme'
-import { componentsTheme } from './components'
 import { SystemThemeType, Theme } from './types'
 
 export function getSystemTheme(type?: SystemThemeType): Theme {

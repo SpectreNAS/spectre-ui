@@ -1,6 +1,7 @@
 import { JSX, mergeProps, splitProps } from 'solid-js'
-import { ComponentColor, ComponentProps, VoidCallback } from '../../types'
+
 import { customEventHandlersName } from '../../events'
+import { ComponentColor, ComponentProps, VoidCallback } from '../../types'
 
 export interface AlertProps extends ComponentProps<HTMLDivElement> {
   

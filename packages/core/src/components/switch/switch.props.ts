@@ -1,6 +1,7 @@
 import { JSX, mergeProps, splitProps } from 'solid-js'
-import { ComponentSize, ComponentColor, ComponentProps, ValueChanged } from '../../types'
+
 import { customEventHandlersName } from '../../events'
+import { ComponentSize, ComponentColor, ComponentProps, ValueChanged } from '../../types'
 
 export interface SwitchProps extends ComponentProps<HTMLDivElement> {
   color?: ComponentColor

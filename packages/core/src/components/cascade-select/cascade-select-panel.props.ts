@@ -1,6 +1,7 @@
-import { ComponentProps } from '../../types'
 import { mergeProps, splitProps, JSX } from 'solid-js'
+
 import { customEventHandlersName } from '../../events'
+import { ComponentProps } from '../../types'
 
 export interface CascadeSelectOption {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -1,5 +1,5 @@
-import { ButtonProps } from './button.props'
 import { Button } from './Button'
+import { ButtonProps } from './button.props'
 import { mergeClasses } from '../../utils'
 
 export const IconButton = (propsRaw: ButtonProps) => {

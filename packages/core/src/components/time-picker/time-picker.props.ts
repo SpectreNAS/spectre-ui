@@ -1,7 +1,8 @@
-import { mergeProps, splitProps } from 'solid-js'
-import { customEventHandlersName } from '../../events'
 import dayjs from 'dayjs'
+import { mergeProps, splitProps } from 'solid-js'
+
 import { TimePickerPanelProps } from './time-picker-panel.props'
+import { customEventHandlersName } from '../../events'
 
 export interface TimePickerProps extends TimePickerPanelProps {
   disabled?: boolean

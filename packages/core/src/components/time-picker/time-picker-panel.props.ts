@@ -1,7 +1,8 @@
-import { mergeProps, splitProps } from 'solid-js'
-import { ComponentProps, ValueChanged } from '../../types'
-import { customEventHandlersName } from '../../events'
 import dayjs from 'dayjs'
+import { mergeProps, splitProps } from 'solid-js'
+
+import { customEventHandlersName } from '../../events'
+import { ComponentProps, ValueChanged } from '../../types'
 
 export interface TimePickerPanelProps extends ComponentProps<HTMLDivElement> {
   value?: dayjs.ConfigType

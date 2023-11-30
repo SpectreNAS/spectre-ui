@@ -1,5 +1,3 @@
 import { ComponentParentProps } from '../../types'
 
-export interface MessageProps extends ComponentParentProps<HTMLDivElement> {
-  
-}
+export type MessageProps = ComponentParentProps<HTMLDivElement>

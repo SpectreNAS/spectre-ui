@@ -1,4 +1,5 @@
 import { createContext, useContext, createEffect, mergeProps } from 'solid-js'
+
 import { ConfigProviderProps, ConfigProviderValue } from './config-provider.props'
 import { getSystemTheme, getRootStyleRule, setRootStyleRule } from '../../theme'
 import { ComponentSize } from '../../types'

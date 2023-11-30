@@ -1,8 +1,9 @@
-import { createEffect, createSignal } from 'solid-js'
-import { SliderAreaProps, generateProps } from './slider-area.props'
-import { SpDraggable } from '../draggable'
 import { Point } from '@spectre-ui/utils'
+import { createEffect, createSignal } from 'solid-js'
+
+import { SliderAreaProps, generateProps } from './slider-area.props'
 import { mergeStyles, mergeClasses } from '../../utils'
+import { SpDraggable } from '../draggable'
 
 export const SliderArea = (propsRaw: SliderAreaProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)

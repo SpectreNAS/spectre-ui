@@ -1,9 +1,10 @@
-import { Show, createSignal, For, createEffect, on } from 'solid-js'
-import { TimePickerPanelProps, generateProps } from './time-picker-panel.props'
-import { SpScrollArea } from '../scroll-area'
-import { mergeClasses, fillNumber } from '../../utils'
 import { Point } from '@spectre-ui/utils'
 import dayjs from 'dayjs'
+import { Show, createSignal, For, createEffect, on } from 'solid-js'
+
+import { TimePickerPanelProps, generateProps } from './time-picker-panel.props'
+import { mergeClasses, fillNumber } from '../../utils'
+import { SpScrollArea } from '../scroll-area'
 
 export const TimePickerPanel = (propsRaw: TimePickerPanelProps) => {
 

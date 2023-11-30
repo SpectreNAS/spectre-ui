@@ -1,12 +1,13 @@
+import Color from 'color'
+import { createEffect, createSignal } from 'solid-js'
+
+import { ColorPickerPresetProps, generateProps } from './color-picker-preset.props'
+import { ColorAlpha } from './ColorAlpha'
+import { ColorHue } from './ColorHue'
 import { ColorPickerPanel } from './ColorPickerPanel'
 import { ColorSaturation } from './ColorSaturation'
-import { ColorHue } from './ColorHue'
-import { ColorAlpha } from './ColorAlpha'
-import { SpInput } from '../input'
-import { ColorPickerPresetProps, generateProps } from './color-picker-preset.props'
 import { mergeClasses } from '../../utils'
-import { createEffect, createSignal } from 'solid-js'
-import Color from 'color'
+import { SpInput } from '../input'
 
 export const ColorPickerPreset = (propsRaw: ColorPickerPresetProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)

@@ -1,7 +1,8 @@
-import { createEffect, createSignal } from 'solid-js'
-import { mergeClasses, mergeStyles, getRangeValue } from '../../utils'
-import { DraggableProps, generateProps } from './draggable.props'
 import { Point } from '@spectre-ui/utils'
+import { createEffect, createSignal } from 'solid-js'
+
+import { DraggableProps, generateProps } from './draggable.props'
+import { mergeClasses, mergeStyles, getRangeValue } from '../../utils'
 
 export const Draggable = (propsRaw: DraggableProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)

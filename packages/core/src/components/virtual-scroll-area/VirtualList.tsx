@@ -1,7 +1,8 @@
-import { VirtualListProps, generateProps } from './virtual-list.props'
 import { Point, VirtualScroll, VirtualScrollItem } from '@spectre-ui/utils'
-import { useVirtualScrollContext } from './VirtualScrollArea'
 import { For, createEffect, createSignal, on } from 'solid-js'
+
+import { VirtualListProps, generateProps } from './virtual-list.props'
+import { useVirtualScrollContext } from './VirtualScrollArea'
 import { mergeClasses, mergeStyles } from '../../utils'
 
 export const VirtualList = (propsRaw: VirtualListProps) => {

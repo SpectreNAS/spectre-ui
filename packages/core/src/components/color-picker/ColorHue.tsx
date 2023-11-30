@@ -1,7 +1,8 @@
+import { Point } from '@spectre-ui/utils'
+import { createEffect, createSignal } from 'solid-js'
+
 import { ColorHueProps, generateProps } from './color-hue.props'
 import { useColorPickerPanelContext } from './ColorPickerPanel'
-import { createEffect, createSignal } from 'solid-js'
-import { Point } from '@spectre-ui/utils'
 import { mergeClasses } from '../../utils'
 import { SpSliderArea } from '../slider-area'
 

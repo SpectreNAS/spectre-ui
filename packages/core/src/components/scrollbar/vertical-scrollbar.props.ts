@@ -1,4 +1,5 @@
 import { mergeProps, splitProps } from 'solid-js'
+
 import { ScrollBarProps } from './scrollbar.props'
 import { customEventHandlersName } from '../../events'
 

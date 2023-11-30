@@ -1,10 +1,11 @@
 import { Show, createEffect, createSignal } from 'solid-js'
-import { mergeClasses, getRangeValue } from '../../utils'
-import { SpInput } from '../input'
-import { SpIconButton } from '../button'
-import { ChevronUpFilled } from '../icon/chevron-up-filled'
-import { ChevronDownFilled } from '../icon/chevron-down-filled'
+
 import { InputNumberProps, generateProps } from './input-number.props'
+import { mergeClasses, getRangeValue } from '../../utils'
+import { SpIconButton } from '../button'
+import { ChevronDownFilled } from '../icon/chevron-down-filled'
+import { ChevronUpFilled } from '../icon/chevron-up-filled'
+import { SpInput } from '../input'
 
 const INPUT_NUMBER_REGEX = /^[0-9+\-.]*$/
 

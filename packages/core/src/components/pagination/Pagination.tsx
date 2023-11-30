@@ -1,10 +1,11 @@
 import { createSignal, createEffect, on, Show, For } from 'solid-js'
+
 import { PaginationProps, generateProps } from './pagination.props'
+import { mergeClasses } from '../../utils'
 import { SpButton, SpIconButton } from '../button'
-import { MoreFilled } from '../icon/more-filled'
 import { ChevronLeftFilled } from '../icon/chevron-left-filled'
 import { ChevronRightFilled } from '../icon/chevron-right-filled'
-import { mergeClasses } from '../../utils'
+import { MoreFilled } from '../icon/more-filled'
 
 interface Pager {
   page?: number

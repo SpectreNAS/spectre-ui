@@ -1,6 +1,7 @@
 import { mergeProps, splitProps, JSX } from 'solid-js'
-import { ComponentColor, ComponentParentProps } from '../../types'
+
 import { customEventHandlersName } from '../../events'
+import { ComponentColor, ComponentParentProps } from '../../types'
 
 export interface BadgeProps extends ComponentParentProps<HTMLDivElement> {
   value?: string | number | JSX.Element

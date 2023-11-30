@@ -1,6 +1,7 @@
 import { JSX, mergeProps, splitProps } from 'solid-js'
-import { ComponentParentProps } from '../../types'
+
 import { customEventHandlersName } from '../../events'
+import { ComponentParentProps } from '../../types'
 
 export type PopoverTrigger = 'click' | 'focus' | 'hover' | 'contextmenu'
 

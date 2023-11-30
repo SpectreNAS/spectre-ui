@@ -1,6 +1,7 @@
 import { JSX, splitProps, mergeProps } from 'solid-js'
-import { ComponentProps, ComponentSize, ValueChanged } from '../../types'
+
 import { customEventHandlersName } from '../../events'
+import { ComponentProps, ComponentSize, ValueChanged } from '../../types'
 
 export interface InputProps extends ComponentProps<HTMLInputElement> {
 

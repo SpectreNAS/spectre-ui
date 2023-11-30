@@ -1,9 +1,10 @@
-import { createEffect, createSignal, onMount, on, createContext, useContext, Show } from 'solid-js'
-import { mergeClasses } from '../../utils'
-import { VirtualScrollAreaProps, generateProps, VirtualScrollAreaProviderValue } from './virtual-scroll-area.props'
 import { Point, Scrollbar } from '@spectre-ui/utils'
-import { SpVerticalScrollbar, SpHorizontalScrollbar } from '../scrollbar'
+import { createEffect, createSignal, onMount, on, createContext, useContext, Show } from 'solid-js'
+
+import { VirtualScrollAreaProps, generateProps, VirtualScrollAreaProviderValue } from './virtual-scroll-area.props'
 import { ValueChanged } from '../../types'
+import { mergeClasses } from '../../utils'
+import { SpVerticalScrollbar, SpHorizontalScrollbar } from '../scrollbar'
 
 const VirtualScrollAreaContext = createContext<VirtualScrollAreaProviderValue>()
 

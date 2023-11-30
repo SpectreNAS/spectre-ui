@@ -1,4 +1,5 @@
 import { Show, createEffect, createSignal, mergeProps, createMemo } from 'solid-js'
+
 import { CheckboxProps } from './checkbox.props'
 import { mergeClasses } from '../../utils'
 import { CheckFilled } from '../icon/check-filled'

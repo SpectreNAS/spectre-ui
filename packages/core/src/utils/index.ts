@@ -1,4 +1,5 @@
 import { JSX, onCleanup } from 'solid-js'
+
 import { ValueChanged } from '../types'
 
 export function mergeClasses(classes: string[]): string {

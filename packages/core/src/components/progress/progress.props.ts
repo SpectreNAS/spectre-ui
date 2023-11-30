@@ -1,6 +1,7 @@
 import { mergeProps, splitProps } from 'solid-js'
-import { ComponentSize, ComponentColor, ComponentProps } from '../../types'
+
 import { customEventHandlersName } from '../../events'
+import { ComponentSize, ComponentColor, ComponentProps } from '../../types'
 
 export interface ProgressProps extends ComponentProps<HTMLDivElement> {
   percentage?: number

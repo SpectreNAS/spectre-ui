@@ -1,6 +1,7 @@
 import { mergeProps, splitProps } from 'solid-js'
-import { ComponentParentProps, ValueChanged } from '../../types'
+
 import { customEventHandlersName } from '../../events'
+import { ComponentParentProps, ValueChanged } from '../../types'
 
 export type DrawerPosition = 'left' | 'top' | 'right' | 'bottom'
 

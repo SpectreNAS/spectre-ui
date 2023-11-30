@@ -1,9 +1,10 @@
+import { Point } from '@spectre-ui/utils'
+import Color from 'color'
+import { createEffect, createSignal } from 'solid-js'
+
 import { ColorSaturationProps, generateProps } from './color-saturation.props'
 import { useColorPickerPanelContext } from './ColorPickerPanel'
-import { createEffect, createSignal } from 'solid-js'
-import { Point } from '@spectre-ui/utils'
 import { mergeStyles, mergeClasses } from '../../utils'
-import Color from 'color'
 import { SpSliderArea } from '../slider-area'
 
 export const ColorSaturation = (propsRaw: ColorSaturationProps) => {

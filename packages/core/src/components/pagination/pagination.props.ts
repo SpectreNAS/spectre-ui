@@ -1,7 +1,8 @@
+import { JSX, mergeProps, splitProps } from 'solid-js'
+
+import { customEventHandlersName } from '../../events'
 import { ComponentSize, ComponentColor, ComponentParentProps } from '../../types'
 import { ButtonType } from '../button'
-import { JSX, mergeProps, splitProps } from 'solid-js'
-import { customEventHandlersName } from '../../events'
 
 export interface PaginationProps extends ComponentParentProps<HTMLDivElement> {
   

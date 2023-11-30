@@ -1,8 +1,9 @@
-import { Portal } from 'solid-js/web'
-import { PopoverPlacement, PopoverProps, PopoverTrigger, generateProps } from './popover.props'
-import { mergeClasses, clickOutside } from '../../utils'
 import { Show, createEffect, createSignal, on, onMount } from 'solid-js'
+import { Portal } from 'solid-js/web'
+
+import { PopoverPlacement, PopoverProps, PopoverTrigger, generateProps } from './popover.props'
 import { ValueChanged } from '../../types'
+import { mergeClasses, clickOutside } from '../../utils'
 
 interface PopoverInset {
   left?: number

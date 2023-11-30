@@ -1,8 +1,9 @@
-import { mergeProps, splitProps } from 'solid-js'
-import { ComponentProps } from '../../types'
-import { customEventHandlersName } from '../../events'
 import Color from 'color'
+import { mergeProps, splitProps } from 'solid-js'
+
 import { ColorPickerPanelProps } from './color-picker-panel.props'
+import { customEventHandlersName } from '../../events'
+import { ComponentProps } from '../../types'
 
 export interface ColorPickerPresetProps extends ComponentProps<HTMLDivElement>, ColorPickerPanelProps {
 }

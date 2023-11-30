@@ -1,8 +1,9 @@
 import { createContext, useContext, createSignal, createEffect, JSX } from 'solid-js'
+
 import { ListProps, generateProps, ListProviderValue, ItemValue, ListItemData } from './list.props'
-import { mergeClasses } from '../../utils'
 import { ListGroup } from './ListGroup'
 import { ListItem } from './ListItem'
+import { mergeClasses } from '../../utils'
 
 const ListContext = createContext<ListProviderValue>()
 

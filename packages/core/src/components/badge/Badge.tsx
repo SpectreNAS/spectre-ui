@@ -1,6 +1,7 @@
+import { Show } from 'solid-js'
+
 import { BadgeProps, generateProps } from './badge.props'
 import { mergeClasses } from '../../utils'
-import { Show } from 'solid-js'
 
 export const Badge = (propsRaw: BadgeProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)

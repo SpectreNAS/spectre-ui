@@ -1,9 +1,10 @@
+import dayjs from 'dayjs'
 import { createEffect, createSignal } from 'solid-js'
+
+import { TimePickerProps, generateProps } from './time-picker.props'
+import { TimePickerPanel } from './TimePickerPanel'
 import { SpInput } from '../input'
 import { SpPopover } from '../popover'
-import { TimePickerPanel } from './TimePickerPanel'
-import { TimePickerProps, generateProps } from './time-picker.props'
-import dayjs from 'dayjs'
 
 export const TimePicker = (propsRaw: TimePickerProps) => {
 

@@ -1,7 +1,8 @@
-import { JSX, mergeProps, splitProps } from 'solid-js'
-import { ComponentParentProps, ValueChanged } from '../../types'
-import { customEventHandlersName } from '../../events'
 import { Point } from '@spectre-ui/utils'
+import { JSX, mergeProps, splitProps } from 'solid-js'
+
+import { customEventHandlersName } from '../../events'
+import { ComponentParentProps, ValueChanged } from '../../types'
 import { DraggableAxis } from '../draggable'
 
 export interface SliderAreaProps extends ComponentParentProps<HTMLDivElement> {

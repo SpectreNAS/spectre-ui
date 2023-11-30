@@ -1,5 +1,3 @@
 import { ComponentParentProps } from '../../types'
 
-export interface LoadingProps extends ComponentParentProps<HTMLDivElement> {
-  
-}
+export type LoadingProps = ComponentParentProps<HTMLDivElement>

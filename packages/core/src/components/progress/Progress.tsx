@@ -1,4 +1,5 @@
 import { createEffect, createSignal } from 'solid-js'
+
 import { ProgressProps, generateProps } from './progress.props'
 import { getRangeValue, mergeClasses } from '../../utils'
 

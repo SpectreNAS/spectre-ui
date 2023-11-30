@@ -1,8 +1,9 @@
-import { ListItemProps, generateProps } from './list-item.props'
-import { mergeClasses } from '../../utils'
-import { useListContext } from './List'
 import { createEffect, createSignal, onCleanup, on } from 'solid-js'
+
+import { useListContext } from './List'
+import { ListItemProps, generateProps } from './list-item.props'
 import { useListGroupContext } from './ListGroup'
+import { mergeClasses } from '../../utils'
 
 export const ListItem = (propsRaw: ListItemProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)

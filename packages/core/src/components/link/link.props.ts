@@ -1,6 +1,7 @@
 import { mergeProps, splitProps } from 'solid-js'
-import { ComponentColor, ComponentParentProps } from '../../types'
+
 import { customEventHandlersName } from '../../events'
+import { ComponentColor, ComponentParentProps } from '../../types'
 
 export interface LinkProps extends ComponentParentProps<HTMLAnchorElement> {
   color?: ComponentColor

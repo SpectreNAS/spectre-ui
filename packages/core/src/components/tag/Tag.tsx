@@ -1,4 +1,5 @@
 import { mergeProps, Show } from 'solid-js'
+
 import { TagProps } from './tag.props'
 import { mergeClasses } from '../../utils'
 import { CloseFilled } from '../icon/close-filled'

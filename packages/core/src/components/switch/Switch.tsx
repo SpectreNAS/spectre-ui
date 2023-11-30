@@ -1,4 +1,5 @@
 import { createEffect, createSignal } from 'solid-js'
+
 import { SwitchProps, generateProps } from './switch.props'
 import { mergeClasses } from '../../utils'
 

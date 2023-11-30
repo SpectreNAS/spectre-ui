@@ -1,5 +1,3 @@
 import { ComponentParentProps } from '../../types'
 
-export interface FormProps extends ComponentParentProps<HTMLDivElement> {
-  
-}
+export type FormProps = ComponentParentProps<HTMLDivElement>

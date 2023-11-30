@@ -1,6 +1,7 @@
 import { mergeProps, splitProps } from 'solid-js'
-import { ComponentSize, ComponentColor, ComponentParentProps } from '../../types'
+
 import { customEventHandlersName } from '../../events'
+import { ComponentSize, ComponentColor, ComponentParentProps } from '../../types'
 
 export type ButtonType = 'light' | 'text'
 

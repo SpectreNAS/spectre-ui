@@ -1,6 +1,6 @@
+import { HorizontalScrollbarProps, generateProps } from './horizontal-scrollbar.props'
 import { mergeClasses, mergeStyles } from '../../utils'
 import { SpDraggable } from '../draggable'
-import { HorizontalScrollbarProps, generateProps } from './horizontal-scrollbar.props'
 
 export const HorizontalScrollbar = (propsRaw: HorizontalScrollbarProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)

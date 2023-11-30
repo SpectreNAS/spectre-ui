@@ -1,6 +1,7 @@
-import { Accessor, Setter, mergeProps, ParentProps } from 'solid-js'
-import { ValueChanged } from '../../types'
 import Color from 'color'
+import { Accessor, Setter, mergeProps, ParentProps } from 'solid-js'
+
+import { ValueChanged } from '../../types'
 
 export interface ColorPickerPanelProps extends ParentProps {
   value?: Color

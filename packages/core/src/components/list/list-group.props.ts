@@ -1,4 +1,5 @@
 import { Accessor, JSX, mergeProps, splitProps } from 'solid-js'
+
 import { customEventHandlersName } from '../../events'
 import { ComponentParentProps } from '../../types'
 

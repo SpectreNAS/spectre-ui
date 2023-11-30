@@ -1,13 +1,14 @@
 import { Component, Show } from 'solid-js'
-import { mergeClasses } from '../../utils'
+
 import { AlertProps, generateProps } from './alert.props'
+import { ComponentColor } from '../../types'
+import { mergeClasses } from '../../utils'
+import { SpIconButton } from '../button'
+import { CheckCircleFilled } from '../icon/check-circle-filled'
+import { CloseCircleFilled } from '../icon/close-circle-filled'
 import { CloseFilled } from '../icon/close-filled'
 import { InfoCircleFilled } from '../icon/info-circle-filled'
-import { CheckCircleFilled } from '../icon/check-circle-filled'
 import { WarnCircleFilled } from '../icon/warn-circle-filled'
-import { CloseCircleFilled } from '../icon/close-circle-filled'
-import { ComponentColor } from '../../types'
-import { SpIconButton } from '../button'
 
 const iconTypes: Record<ComponentColor, Component> = {
   primary: InfoCircleFilled,

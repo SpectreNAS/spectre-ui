@@ -1,5 +1,5 @@
-import { mergeClasses } from '../../utils'
 import { LinkProps, generateProps } from './link.props'
+import { mergeClasses } from '../../utils'
 
 export const Link = (propsRaw: LinkProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)

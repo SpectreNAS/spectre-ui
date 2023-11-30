@@ -1,7 +1,8 @@
-import { createEffect, createSignal, onMount, on, Show } from 'solid-js'
-import { mergeClasses } from '../../utils'
-import { ScrollAreaProps, generateProps } from './scroll-area.props'
 import { Point, Scrollbar } from '@spectre-ui/utils'
+import { createEffect, createSignal, onMount, on, Show } from 'solid-js'
+
+import { ScrollAreaProps, generateProps } from './scroll-area.props'
+import { mergeClasses } from '../../utils'
 import { SpVerticalScrollbar, SpHorizontalScrollbar } from '../scrollbar'
 
 export const ScrollArea = (propsRaw: ScrollAreaProps) => {

@@ -1,7 +1,8 @@
 import { createSignal, createContext, useContext, createEffect, onCleanup, on } from 'solid-js'
+
+import { useListContext } from './List'
 import { ListGroupProps, ListGroupProviderValue, generateProps } from './list-group.props'
 import { mergeClasses } from '../../utils'
-import { useListContext } from './List'
 import { TriangleDownFilled } from '../icon/TriangleDownFilled'
 import { TriangleRightFilled } from '../icon/TriangleRightFilled'
 
