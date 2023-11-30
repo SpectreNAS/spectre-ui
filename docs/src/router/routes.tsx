@@ -1,4 +1,4 @@
-import { Router, Route, Routes } from '@solidjs/router'
+import { Router, Route, Routes, hashIntegration } from '@solidjs/router'
 import { lazy, For } from 'solid-js'
 import Home from '../pages/home'
 import { guidesRoutes } from './guides.routes'
@@ -9,7 +9,7 @@ const NotFound = lazy(() => import('../pages/notFound'))
 
 export const RouteConfig = () => {
   return (
-    <Router>
+    <Router source={hashIntegration()}>
       <Routes>
         <Route path='/' component={Home}>
         </Route>
