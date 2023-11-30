@@ -17,5 +17,11 @@
   ],
   "scripts": {
     "build": "tsc --build --clean && tsc --project ./tsconfig.json"
+  },
+  "dependencies": {
+    "dagre": "^0.8.5"
+  },
+  "devDependencies": {
+    "@types/dagre": "^0.7.49"
   }
 }
