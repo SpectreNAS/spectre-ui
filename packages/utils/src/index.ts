@@ -1,4 +1,5 @@
 export * from './types'
+export * from './math'
 export { Scrollbar } from './scrollbar'
 export type { ScrollbarOptions } from './scrollbar'
 
