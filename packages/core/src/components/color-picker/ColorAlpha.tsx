@@ -1,9 +1,9 @@
 import { ColorAlphaProps, generateProps } from './color-alpha.props'
-import { SpHorizontalScrollbar, SpVerticalScrollbar } from '../scrollbar'
 import { useColorPickerPanelContext } from './ColorPickerPanel'
 import { createEffect, createSignal } from 'solid-js'
 import { Point } from '@spectre-ui/utils'
 import { mergeClasses, mergeStyles } from '../../utils'
+import { SpSliderArea } from '../slider-area'
 
 export const ColorAlpha = (propsRaw: ColorAlphaProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
@@ -17,77 +17,75 @@ export const ColorAlpha = (propsRaw: ColorAlphaProps) => {
 
   const alphaVerticalClasses = () => mergeClasses([
     props.class ?? '',
-    'sp-color-alpha',
+    'sp-color-alpha vertical',
   ])
 
   const alphaHorizontalClasses = () => mergeClasses([
     props.class ?? '',
-    'sp-color-alpha',
+    'sp-color-alpha horizontal',
   ])
 
   const alphaVerticalStyles = () => mergeStyles([
     `
     background: linear-gradient(to bottom, ${colorPickerPanelContext.color().alpha(0).hexa()} 0%, 
     ${colorPickerPanelContext.color().alpha(1).hexa()} 100%);
-    --sp-vertical-scrollbar-width:${props.sliderWidth}px;
-    --sp-vertical-scrollbar-slider-width:${props.sliderWidth}px;
     `,
-    props.style
   ])
 
   const alphaHorizontalStyles = () => mergeStyles([
     `
     background: linear-gradient(to right, ${colorPickerPanelContext.color().alpha(0).hexa()} 0%, 
     ${colorPickerPanelContext.color().alpha(1).hexa()} 100%);
-    --sp-horizontal-scrollbar-height:${props.sliderWidth}px;
-    --sp-horizontal-scrollbar-slider-height:${props.sliderWidth}px;
     `,
-    props.style
   ])
 
   createEffect(() => {
-    setSliderX(alphaTransformX(colorPickerPanelContext.color().alpha(), props.width - props.sliderWidth))
+    setSliderX(alphaTransformX(colorPickerPanelContext.color().alpha(), props.width))
   })
 
-  function onVertical({ y }: Point) {
+  function onChangeVerticalSlider({ y }: Point) {
     setSliderX(y)
-    colorPickerPanelContext?.setColor(value => value.alpha(xTransformAlpha(y, props.width - props.sliderWidth)))
+    colorPickerPanelContext?.setColor(value => value.alpha(xTransformAlpha(y, props.width)))
   }
 
-  function onHorizontal({ x }: Point) {
+  function onChangeHorizontalSlider({ x }: Point) {
     setSliderX(x)
-    colorPickerPanelContext?.setColor(value => value.alpha(xTransformAlpha(x, props.width - props.sliderWidth)))
+    colorPickerPanelContext?.setColor(value => value.alpha(xTransformAlpha(x, props.width)))
   }
 
   return (
     <>
       {
         props.vertical ?
-          <SpVerticalScrollbar
+          <SpSliderArea
+            ref={props.ref}
             class={alphaVerticalClasses()}
             classList={props.classList}
-            style={alphaVerticalStyles()}
+            style={props.style}
+            width={props.height}
             height={props.width}
+            axis='y'
+            renderSlider={<div class='sp-color-alpha-slider vertical'></div>}
             sliderY={sliderX()}
-            sliderHeight={props.sliderWidth}
             {...eventHandlers}
-            change={onVertical}
-          >
-            <div class='sp-color-alpha-slider vertical'></div>
-          </SpVerticalScrollbar>
+            change={onChangeVerticalSlider}>
+            <div class='sp-color-alpha-color' style={alphaVerticalStyles()}></div>
+          </SpSliderArea>
           :
-          <SpHorizontalScrollbar
+          <SpSliderArea
+            ref={props.ref}
             class={alphaHorizontalClasses()}
             classList={props.classList}
-            style={alphaHorizontalStyles()}
+            style={props.style}
             width={props.width}
+            height={props.height}
+            axis='x'
+            renderSlider={<div class='sp-color-alpha-slider horizontal'></div>}
             sliderX={sliderX()}
-            sliderWidth={props.sliderWidth}
             {...eventHandlers}
-            change={onHorizontal}
-          >
-            <div class='sp-color-alpha-slider'></div>
-          </SpHorizontalScrollbar>
+            change={onChangeHorizontalSlider}>
+            <div class='sp-color-alpha-color' style={alphaHorizontalStyles()}></div>
+          </SpSliderArea>
       }
     </>
   )

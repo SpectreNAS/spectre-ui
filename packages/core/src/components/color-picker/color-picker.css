@@ -15,6 +15,8 @@
 
 .sp-color-saturation-slider {
   position: absolute;
+  width: 12px;
+  height: 12px;
   left: -6px;
   top: -6px;
   border: 1px solid #fff;
@@ -23,8 +25,7 @@
 }
 
 /*hue*/
-.sp-color-hue.sp-vertical-scrollbar {
-  border-radius: 0;
+.sp-color-hue.vertical {
   background: linear-gradient(to bottom,
       #ff0000 0%,
       #ffff00 17%,
@@ -35,8 +36,7 @@
       #ff0000 100%);
 }
 
-.sp-color-hue.sp-horizontal-scrollbar {
-  border-radius: 0;
+.sp-color-hue.horizontal {
   background: linear-gradient(to right,
       #ff0000 0%,
       #ffff00 17%,
@@ -48,39 +48,59 @@
 }
 
 .sp-color-hue-slider {
-  width: 100%;
-  height: 100%;
+  position: absolute;
   box-sizing: border-box;
+  background-color: var(--bg-static-light);
   border: 1px solid #000;
-  border-radius: calc(var(--sp-horizontal-scrollbar-slider-height)/2);
-  background-color: #fff;
+}
+
+.sp-color-hue-slider.horizontal {
+  left: -2px;
+  width: 4px;
+  height: 12px
 }
 
 .sp-color-hue-slider.vertical {
-  border-radius: calc(var(--sp-vertical-scrollbar-slider-width)/2);
+  top: -2px;
+  width: 12px;
+  height: 4px;
 }
 
 /*alpha*/
-.sp-color-alpha.sp-horizontal-scrollbar {
+.sp-color-alpha {
   --el-color-picker-alpha-bg-a: #333333;
   --el-color-picker-alpha-bg-b: transparent;
-  border-radius: 0;
   background-image: linear-gradient(45deg, var(--el-color-picker-alpha-bg-a) 25%, var(--el-color-picker-alpha-bg-b) 25%), linear-gradient(135deg, var(--el-color-picker-alpha-bg-a) 25%, var(--el-color-picker-alpha-bg-b) 25%), linear-gradient(45deg, var(--el-color-picker-alpha-bg-b) 75%, var(--el-color-picker-alpha-bg-a) 75%), linear-gradient(135deg, var(--el-color-picker-alpha-bg-b) 75%, var(--el-color-picker-alpha-bg-a) 75%);
   background-size: 12px 12px;
   background-position: 0 0, 6px 0, 6px -6px, 0 6px;
 }
 
-.sp-color-alpha.sp-vertical-scrollbar {
-  border-radius: 0;
+
+.sp-color-alpha-color {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
 }
 
 .sp-color-alpha-slider {
-  width: 100%;
-  height: 100%;
-  border-radius: calc(var(--sp-horizontal-scrollbar-slider-height)/2);
-  background-color: #fff;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: var(--bg-static-light);
+  border: 1px solid #000;
+  z-index: 1;
+}
+
+.sp-color-alpha-slider.horizontal {
+  left: -2px;
+  width: 4px;
+  height: 12px
 }
 
 .sp-color-alpha-slider.vertical {
-  border-radius: calc(var(--sp-vertical-scrollbar-slider-width)/2);
+  top: -2px;
+  width: 12px;
+  height: 4px;
 }

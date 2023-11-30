@@ -1,9 +1,9 @@
 import { ColorHueProps, generateProps } from './color-hue.props'
-import { SpHorizontalScrollbar, SpVerticalScrollbar } from '../scrollbar'
 import { useColorPickerPanelContext } from './ColorPickerPanel'
 import { createEffect, createSignal } from 'solid-js'
 import { Point } from '@spectre-ui/utils'
-import { mergeClasses, mergeStyles } from '../../utils'
+import { mergeClasses } from '../../utils'
+import { SpSliderArea } from '../slider-area'
 
 export const ColorHue = (propsRaw: ColorHueProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
@@ -16,49 +16,33 @@ export const ColorHue = (propsRaw: ColorHueProps) => {
   const [sliderX, setSliderX] = createSignal(0)
 
   const hueVerticalClasses = () => mergeClasses([
-    'sp-color-hue',
+    'sp-color-hue vertical',
     props.class ?? '',
   ])
 
   const hueHorizontalClasses = () => mergeClasses([
-    'sp-color-hue',
+    'sp-color-hue horizontal',
     props.class ?? '',
-  ])
-
-  const hueVerticalStyles = () => mergeStyles([
-    `
-    --sp-vertical-scrollbar-width:${props.sliderHeight}px;
-    --sp-vertical-scrollbar-slider-width:${props.sliderHeight}px;
-    `,
-    props.style
-  ])
-
-  const hueHorizontalStyles = () => mergeStyles([
-    `
-    --sp-horizontal-scrollbar-height:${props.sliderHeight}px;
-    --sp-horizontal-scrollbar-slider-height:${props.sliderHeight}px;
-    `,
-    props.style
   ])
 
   createEffect(() => {
     setSliderX(
       colorPickerPanelContext.hue() === 360 ?
-        props.width - props.sliderWidth :
-        hueTransformX(colorPickerPanelContext.color().hue(), props.width - props.sliderWidth)
+        props.width :
+        hueTransformX(colorPickerPanelContext.color().hue(), props.width)
     )
   })
 
-  function onVertical({ y }: Point) {
+  function onChangeVerticalSlider({ y }: Point) {
     setSliderX(y)
-    const hue = xTransformHue(y, props.width - props.sliderWidth)
+    const hue = xTransformHue(y, props.width)
     colorPickerPanelContext?.setHue(hue)
     colorPickerPanelContext?.setColor(value => value.hue(hue))
   }
 
-  function onHorizontal({ x }: Point) {
+  function onChangeHorizontalSlider({ x }: Point) {
     setSliderX(x)
-    const hue = xTransformHue(x, props.width - props.sliderWidth)
+    const hue = xTransformHue(x, props.width)
     colorPickerPanelContext?.setHue(hue)
     colorPickerPanelContext?.setColor(value => value.hue(hue))
   }
@@ -67,31 +51,31 @@ export const ColorHue = (propsRaw: ColorHueProps) => {
     <>
       {
         props.vertical ?
-          <SpVerticalScrollbar
+          <SpSliderArea
+            ref={props.ref}
             class={hueVerticalClasses()}
             classList={props.classList}
-            style={hueVerticalStyles()}
+            style={props.style}
+            width={props.height}
             height={props.width}
+            axis='y'
+            renderSlider={<div class='sp-color-hue-slider vertical'></div>}
             sliderY={sliderX()}
-            sliderHeight={props.sliderWidth}
             {...eventHandlers}
-            change={onVertical}
-          >
-            <div class='sp-color-hue-slider vertical'></div>
-          </SpVerticalScrollbar>
+            change={onChangeVerticalSlider} />
           :
-          <SpHorizontalScrollbar
+          <SpSliderArea
+            ref={props.ref}
             class={hueHorizontalClasses()}
             classList={props.classList}
-            style={hueHorizontalStyles()}
+            style={props.style}
             width={props.width}
+            height={props.height}
+            axis='x'
+            renderSlider={<div class='sp-color-hue-slider horizontal'></div>}
             sliderX={sliderX()}
-            sliderWidth={props.sliderWidth}
             {...eventHandlers}
-            change={onHorizontal}
-          >
-            <div class='sp-color-hue-slider'></div>
-          </SpHorizontalScrollbar>
+            change={onChangeHorizontalSlider} />
       }
     </>
   )
@@ -99,10 +83,10 @@ export const ColorHue = (propsRaw: ColorHueProps) => {
 
 //hue转换x轴坐标
 function hueTransformX(hue: number, width: number) {
-  return (hue / 360) * width
+  return hue / 360 * width
 }
 
 //x坐标转换hue
 function xTransformHue(x: number, width: number) {
-  return Math.round((x / width) * 360)
+  return Math.round(x / width * 360)
 }
