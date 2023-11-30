@@ -1,4 +1,5 @@
 .sp-slider-area {
   position: relative;
   user-select: none;
+  touch-action: none;
 }
