@@ -14,6 +14,38 @@
       "parserOptions": {
         "ecmaVersion": "latest"
       }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:import/recommended", "plugin:import/typescript"],
+      "settings": {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"]
+        }
+      },
+      "rules": {
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              ["internal", "parent", "sibling", "index", "object", "type"],
+              "unknown"
+            ],
+            "pathGroupsExcludedImportTypes": ["builtin"],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "import/no-named-as-default-member": "off",
+        "import/no-named-as-default": "off",
+        "import/default": "off",
+        "import/namespace": "off"
+      }
     }
   ]
 }
