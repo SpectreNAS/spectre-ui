@@ -12,7 +12,7 @@ export const ComponentPageLayout = (props: ComponentPageLayoutProps) => {
       <div class='w-full pr-40px'>
         {props.children}
       </div>
-      <div class='flex-shrink-0 w-64'>
+      <div class='<xl:hidden flex-shrink-0 w-64'>
         {props.right}
       </div>
     </div>
