@@ -75,7 +75,7 @@ export const VirtualScrollArea = (propsRaw: VirtualScrollAreaProps) => {
      * 拖拽水平滑块事件
      * @param param0 
      */
-  function onHorizontalSlider({ x }: Point) {
+  function onHorizontalSlider({ x: _ }: Point) {
     //
   }
 
