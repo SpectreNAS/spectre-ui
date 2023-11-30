@@ -37,10 +37,10 @@ export const Draggable = (propsRaw: DraggableProps) => {
         const _x = getRangeValue(moveEvent.clientX - startX, props.minX, props.maxX)
         const _y = getRangeValue(moveEvent.clientY - startY, props.minY, props.maxY)
         const pos = { x: _x, y: _y }
-        if (props.only === 'x') {
+        if (props.axis === 'x') {
           setX(drag(pos).x)
           emitChange()
-        } else if (props.only === 'y') {
+        } else if (props.axis === 'y') {
           setY(drag(pos).y)
           emitChange()
         } else {
