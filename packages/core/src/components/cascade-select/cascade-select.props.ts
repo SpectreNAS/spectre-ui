@@ -1,10 +1,6 @@
-import { ComponentProps } from '../../types'
-
-export interface CascadeSelectPanelProps extends ComponentProps<HTMLDivElement> {
-  
-}
+import { CascadeSelectPanelProps } from './cascade-select-panel.props'
 
 export interface CascadeSelectProps extends CascadeSelectPanelProps {
-  
+  disabled?: boolean
 }
 
