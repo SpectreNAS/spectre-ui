@@ -21,7 +21,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@spectre-ui/core": ["../packages/core/src/index.ts"]
     }
   },
   "include": ["src"],
