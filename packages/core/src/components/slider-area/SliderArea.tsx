@@ -17,7 +17,7 @@ export const SliderArea = (propsRaw: SliderAreaProps) => {
   const [sliderMaxY, setSliderMaxY] = createSignal(0)
 
   const areaClasses = () => mergeClasses([
-    'sp-color-saturation',
+    'sp-slider-area',
     props.class ?? '',
   ])
 
@@ -36,11 +36,46 @@ export const SliderArea = (propsRaw: SliderAreaProps) => {
     setSliderMaxY(props.height)
   })
 
-  function onPointerDownArea() {
+  createEffect(() => {
+    setSliderX(props.sliderX)
+  })
 
+  createEffect(() => {
+    setSliderY(props.sliderY)
+  })
+
+  function onPointerDownArea(event: PointerEvent) {
+    if (areaRef && sliderRef) {
+      const { x, y } = areaRef.getBoundingClientRect()
+      const offsetX = event.clientX - x
+      const offsetY = event.clientY - y
+      if (offsetX < sliderMinX() || offsetX > sliderMaxX()) {
+        return
+      }
+      if (offsetY < sliderMinY() || offsetY > sliderMaxY()) {
+        return
+      }
+      if (props.axis === 'x') {
+        setSliderX(offsetX)
+      } else if (props.axis === 'y') {
+        setSliderY(offsetY)
+      } else {
+        setSliderX(offsetX)
+        setSliderY(offsetY)
+      }
+      emitChange()
+      sliderRef.dispatchEvent(new PointerEvent('pointerdown', { clientX: event.clientX, clientY: event.clientY }))
+    }
   }
 
   function onChangeSlider({ x, y }: Point) {
+    setSliderX(x)
+    setSliderY(y)
+    emitChange()
+  }
+
+  function emitChange() {
+    props.change?.({ x: sliderX(), y: sliderY() })
   }
 
   return (
@@ -54,6 +89,7 @@ export const SliderArea = (propsRaw: SliderAreaProps) => {
     >
       <SpDraggable
         ref={(el) => sliderRef = el}
+        axis={props.axis}
         minX={sliderMinX()}
         maxX={sliderMaxX()}
         minY={sliderMinY()}
@@ -62,8 +98,9 @@ export const SliderArea = (propsRaw: SliderAreaProps) => {
         y={sliderY()}
         change={onChangeSlider}
       >
-        {props.children}
+        {props.renderSlider}
       </SpDraggable>
+      {props.children}
     </div>
   )
 }
