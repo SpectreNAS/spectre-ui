@@ -2,6 +2,7 @@ import { For, JSX, createEffect, createSignal } from 'solid-js'
 
 import { CascadeSelectPanelProps, generateProps, CascadeSelectOption } from './cascade-select-panel.props'
 import { mergeClasses } from '../../utils'
+import { SpButton } from '../button'
 import { SpScrollArea } from '../scroll-area'
 
 interface OptionStatus {
@@ -85,13 +86,13 @@ export const CascadeSelectPanel = (propsRaw: CascadeSelectPanelProps) => {
                 <For each={options}>
                   {
                     (option) => (
-                      <div
+                      <SpButton
                         class='sp-cascade-select-option'
-                        classList={{ active: selected().includes(option.value) }}
+                        classList={{ selected: selected().includes(option.value) }}
                         onClick={() => onActiveOption(level(), option)}
                       >
                         {option.label}
-                      </div>
+                      </SpButton>
                     )
                   }
                 </For>

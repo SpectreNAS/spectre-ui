@@ -8,6 +8,8 @@
 
 
 .sp-cascade-select-column {
+  display: flex;
+  flex-direction: column;
   padding: 8px;
 }
 
@@ -16,16 +18,15 @@
 }
 
 .sp-cascade-select-option {
-  display: flex;
-  padding: 8px;
-  align-items: center;
-  border-radius: 4px;
-  cursor: pointer;
-  font: var(--sp-text-b3);
+  --sp-button-padding: 8px;
+  --sp-button-font: var(--sp-text-b3);
+  --sp-button-bg-color: transparent;
+  --sp-button-bg-color-hover: var(--bg-bgless-hover);
+  --sp-button-bg-color-active: var(--bg-bgless-active);
 }
 
-.sp-cascade-select-option.active {
-  font: var(--sp-text-h8);
-  color: var(--text-brand-default);
-  background-color: var(--bg-brand-light-default);
+.sp-cascade-select-option.selected {
+  --sp-button-font: var(--sp-text-h8);
+  --sp-button-text-color: var(--text-brand-default) !important;
+  --sp-button-bg-color: var(--bg-brand-light-default) !important;
 }
