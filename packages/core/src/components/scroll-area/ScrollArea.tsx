@@ -56,7 +56,8 @@ export const ScrollArea = (propsRaw: ScrollAreaProps) => {
     const resizeObserver = new ResizeObserver((entries) => {
       const entry = entries[0]
       if (entry) {
-        const { width, height } = entry.target.getBoundingClientRect()
+        const width = entry.target.clientWidth
+        const height = entry.target.clientHeight
         if (width !== scrollbar.viewWidth) {
           scrollbar.setViewWidth(width)
           setHorizontalBarWidth(scrollbar.viewWidth)
