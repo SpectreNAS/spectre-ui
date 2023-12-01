@@ -1,2 +1,31 @@
-.sp-cascade-select {
+.sp-cascade-select {}
+
+.sp-cascade-select-panel {
+  display: flex;
+  height: 240px;
+  border: 1px solid var(--border-common-default);
+}
+
+
+.sp-cascade-select-column {
+  padding: 8px;
+}
+
+.sp-cascade-select-column:not(:first-child) {
+  border-left: 1px solid var(--border-common-default);
+}
+
+.sp-cascade-select-option {
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+  font: var(--sp-text-b3);
+}
+
+.sp-cascade-select-option.active {
+  font: var(--sp-text-h8);
+  color: var(--text-brand-default);
+  background-color: var(--bg-brand-light-default);
 }
