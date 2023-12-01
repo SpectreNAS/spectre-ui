@@ -53,6 +53,7 @@ export const componentsRoutes = [
   {
     title: 'CascadeSelects',
     path: '/cascadeSelect',
+    component: lazy(() => import('../pages/cascade-selects'))
   },
   {
     title: 'Switches',
