@@ -282,6 +282,11 @@ export const CascadeSelects = () => {
       <Card>
         <SpCascadeSelectPanel options={options}></SpCascadeSelectPanel>
       </Card>
+
+      <Anchor href='#multiple'>多选</Anchor>
+      <Card>
+        <SpCascadeSelectPanel options={options} multiple></SpCascadeSelectPanel>
+      </Card>
     </ComponentPageLayout>
   )
 }
