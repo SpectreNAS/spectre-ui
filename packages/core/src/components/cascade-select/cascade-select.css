@@ -18,6 +18,7 @@
 }
 
 .sp-cascade-select-option {
+  justify-content: flex-start;
   --sp-button-padding: 8px;
   --sp-button-font: var(--sp-text-b3);
   --sp-button-bg-color: transparent;
@@ -29,4 +30,8 @@
   --sp-button-font: var(--sp-text-h8);
   --sp-button-text-color: var(--text-brand-default) !important;
   --sp-button-bg-color: var(--bg-brand-light-default) !important;
+}
+
+.sp-cascade-select-option-checkbox {
+  margin-right: 8px;
 }
