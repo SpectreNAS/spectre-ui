@@ -24,8 +24,8 @@ export const CascadeSelectPanel = (propsRaw: CascadeSelectPanelProps) => {
   const [eventHandlers, props] = generateProps(propsRaw)
 
   let optionsStatusMap: OptionStatusMap = new Map()
+  let multipleSelected: CascadeSelectMultipleValue = []
   const [selected, setSelected] = createSignal<CascadeSelectSingleValue>([])
-  const [multipleSelected, setMultipleSelected] = createSignal<CascadeSelectMultipleValue>([])
   const [cascades, setCascades] = createSignal<OptionStatus[][]>([])
 
   const cascadeSelectClasses = () => mergeClasses([
@@ -37,7 +37,7 @@ export const CascadeSelectPanel = (propsRaw: CascadeSelectPanelProps) => {
     optionsStatusMap = resetOptionsStatusMap(props.options)
     let leafValue: string | undefined
     if (props.multiple) {
-      const multipleSelected = setMultipleSelected(props.value as CascadeSelectMultipleValue)
+      multipleSelected = props.value as CascadeSelectMultipleValue
       const firstSelected = multipleSelected[0]
       if (firstSelected) {
         leafValue = firstSelected[firstSelected.length - 1]
@@ -186,8 +186,8 @@ export const CascadeSelectPanel = (propsRaw: CascadeSelectPanelProps) => {
     setChildrenCheckbox(option.childrenValues, option.checked)
     const cascades = setCascades((value) => [...value.map(options => [...options])])
     const rootOptions = cascades[0]?.map(option => option.value)
-    const selected = setMultipleSelected(generateMultipleSelected(rootOptions))
-    props.change?.(selected)
+    multipleSelected = generateMultipleSelected(rootOptions)
+    props.change?.(multipleSelected)
   }
 
   return (
