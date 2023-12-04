@@ -53,27 +53,25 @@ export const checkboxTheme: CheckboxTheme = {
 
   /* checkbox unchecked border */
   '--sp-checkbox-border-color': 'var(--text-common-quaternary)',
-  '--sp-checkbox-border-color-hover': 'var(--text-brand-hover)',
-  '--sp-checkbox-border-color-active': 'var(--text-brand-active)',
-  '--sp-checkbox-border-color-disable': 'var(--text-common-disabled)',
+  '--sp-checkbox-border-color-hover': 'var(--border-brand-hover)',
+  '--sp-checkbox-border-color-active': 'var(--border-brand-active)',
+  '--sp-checkbox-border-color-disable': 'var(--border-common-disabled)',
 
   /* checkbox indeterminate */
-  '--sp-checkbox-indeterminate-size': '12px',
-  '--sp-checkbox-indeterminate-margin': '2px',
+  '--sp-checkbox-indeterminate-padding': '2px',
   '--sp-checkbox-indeterminate-radius': '1px',
-  '--sp-checkbox-indeterminate-bg-color': 'var(--text-brand-default)',
-  '--sp-checkbox-indeterminate-bg-color-hover': 'var(--text-brand-hover)',
-  '--sp-checkbox-indeterminate-bg-color-active': 'var(--text-brand-active)',
-  '--sp-checkbox-indeterminate-bg-color-disable': 'var(--text-brand-disabled)',
+  '--sp-checkbox-indeterminate-bg-color': 'var(--bg-brand-default)',
+  '--sp-checkbox-indeterminate-bg-color-hover': 'var(--bg-brand-hover)',
+  '--sp-checkbox-indeterminate-bg-color-active': 'var(--bg-brand-active)',
+  '--sp-checkbox-indeterminate-bg-color-disable': 'var(--bg-brand-disabled)',
 
   /* checkbox checked */
-  '--sp-checkbox-checked-size': '16px',
-  '--sp-checkbox-checked-margin': '2px',
+  '--sp-checkbox-checked-padding': '2px',
   '--sp-checkbox-checked-text-color': 'var(--text-static-primary)',
-  '--sp-checkbox-checked-bg-color': 'var(--text-brand-default)',
-  '--sp-checkbox-checked-bg-color-hover': 'var(--text-brand-hover)',
-  '--sp-checkbox-checked-bg-color-active': 'var(--text-brand-active)',
-  '--sp-checkbox-checked-bg-color-disable': 'var(--text-brand-disabled)',
+  '--sp-checkbox-checked-bg-color': 'var(--bg-brand-default)',
+  '--sp-checkbox-checked-bg-color-hover': 'var(--bg-brand-hover)',
+  '--sp-checkbox-checked-bg-color-active': 'var(--bg-brand-active)',
+  '--sp-checkbox-checked-bg-color-disable': 'var(--bg-brand-disabled)',
 }
 
 export const inputTheme: InputTheme = {

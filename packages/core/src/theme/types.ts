@@ -186,8 +186,7 @@ export interface CheckboxTheme {
   '--sp-checkbox-border-color-disable'?: string
 
   /* checkbox half unchecked */
-  '--sp-checkbox-indeterminate-size'?: string
-  '--sp-checkbox-indeterminate-margin'?: string
+  '--sp-checkbox-indeterminate-padding'?: string
   '--sp-checkbox-indeterminate-radius'?: string
   '--sp-checkbox-indeterminate-bg-color'?: string
   '--sp-checkbox-indeterminate-bg-color-hover'?: string
@@ -195,8 +194,7 @@ export interface CheckboxTheme {
   '--sp-checkbox-indeterminate-bg-color-disable'?: string
 
   /* checkbox checked */
-  '--sp-checkbox-checked-size'?: string
-  '--sp-checkbox-checked-margin'?: string
+  '--sp-checkbox-checked-padding'?: string
   '--sp-checkbox-checked-text-color'?: string
   '--sp-checkbox-checked-bg-color'?: string
   '--sp-checkbox-checked-bg-color-hover'?: string

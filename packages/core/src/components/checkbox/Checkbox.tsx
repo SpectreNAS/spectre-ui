@@ -14,6 +14,7 @@ export const Checkbox = (propsRaw: CheckboxProps) => {
   const checkboxClasses = () => mergeClasses([
     'sp-checkbox',
     showChecked() ? 'checked' : '',
+    props.indeterminate ? 'indeterminate' : '',
     props.size ?? '',
     props.class ?? '',
   ])

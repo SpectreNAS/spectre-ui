@@ -40,32 +40,21 @@
   --sp-checkbox-border-radius: 2px;
 }
 
-.sp-checkbox-indeterminate {
+/* indeterminate */
+
+.sp-checkbox.indeterminate {
+  padding: var(--sp-checkbox-indeterminate-padding);
+  --sp-checkbox-indeterminate-radius: 1px;
+}
+
+.sp-checkbox.indeterminate>.sp-checkbox-indeterminate {
   background-color: var(--sp-checkbox-indeterminate-bg-color);
-  width: var(--sp-checkbox-indeterminate-size);
-  height: var(--sp-checkbox-indeterminate-size);
-  margin: var(--sp-checkbox-indeterminate-margin);
+  width: 100%;
+  height: 100%;
   border-radius: var(--sp-checkbox-indeterminate-radius);
 }
 
-.sp-checkbox.small>.sp-checkbox-indeterminate {
-  --sp-checkbox-indeterminate-size: 6px;
-  --sp-checkbox-indeterminate-margin: 2px;
-  --sp-checkbox-indeterminate-radius: 1px;
-}
-
-.sp-checkbox.medium>.sp-checkbox-indeterminate {
-  --sp-checkbox-indeterminate-size: 8px;
-  --sp-checkbox-indeterminate-margin: 2px;
-  --sp-checkbox-indeterminate-radius: 1px;
-}
-
-.sp-checkbox.large>.sp-checkbox-indeterminate {
-  --sp-checkbox-indeterminate-size: 16px;
-  --sp-checkbox-indeterminate-margin: 2px;
-  --sp-checkbox-indeterminate-radius: 1px;
-}
-
+/* checked */
 .sp-checkbox.checked {
   border: none;
   color: var(--sp-checkbox-checked-text-color);
@@ -73,21 +62,20 @@
 }
 
 .sp-checkbox.checked>.sp-checkbox-checked {
-  margin: var(--sp-checkbox-checked-margin);
-  font-size: var(--sp-checkbox-checked-size);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: var(--sp-checkbox-checked-padding);
 }
 
 .sp-checkbox.small.checked>.sp-checkbox-checked {
-  --sp-checkbox-checked-margin: 1px;
-  --sp-checkbox-checked-size: 10px;
+  --sp-checkbox-checked-padding: 1px;
 }
 
 .sp-checkbox.medium.checked>.sp-checkbox-checked {
-  --sp-checkbox-checked-margin: 2px;
-  --sp-checkbox-checked-size: 12px;
+  --sp-checkbox-checked-padding: 2px;
 }
 
 .sp-checkbox.large.checked>.sp-checkbox-checked {
-  --sp-checkbox-checked-margin: 2px;
-  --sp-checkbox-checked-size: 20px;
+  --sp-checkbox-checked-padding: 2px;
 }
