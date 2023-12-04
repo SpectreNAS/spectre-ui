@@ -50,3 +50,12 @@ export function clickOutside(elements: HTMLElement[], accessor?: ValueChanged<Ev
 export function fillNumber(value: number, maxLength = 2, fillString = '0') {
   return value.toString().padStart(maxLength, fillString)
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function eventHandlerCall<T extends HTMLElement, E extends Event>(eventHandler: JSX.EventHandlerUnion<T, E>, event: any) {
+  if (typeof eventHandler === 'function') {
+    eventHandler?.(event)
+  } else if (typeof eventHandler === 'object') {
+    eventHandler[0](eventHandler[1], event)
+  }
+}
