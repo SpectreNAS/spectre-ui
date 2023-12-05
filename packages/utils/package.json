@@ -16,7 +16,7 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsc --build --clean && tsc --project ./tsconfig.json"
+    "build:utils": "tsc --build --clean && tsc --project ./tsconfig.json"
   },
   "dependencies": {
     "dagre": "^0.8.5"

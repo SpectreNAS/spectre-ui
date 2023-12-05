@@ -2,24 +2,24 @@
   "targetDefaults": {
     "dev:docs": {
       "dependsOn": [
-        "@spectres/ui:build:css",
-        "@spectres/ui:build:core"
+        "^build:ui",
+        "^build:ui:css"
       ]
     },
-    "dev:core": {
+    "dev:ui": {
       "dependsOn": [
-        "@spectres/utils:build"
+        "^build:utils"
       ]
     },
     "build:docs": {
       "dependsOn": [
-        "@spectres/ui:build:css",
-        "@spectres/ui:build:core"
+        "^build:ui",
+        "^build:ui:css"
       ]
     },
-    "build:core": {
+    "build:ui": {
       "dependsOn": [
-        "@spectres/utils:build"
+        "^build:utils"
       ]
     }
   },

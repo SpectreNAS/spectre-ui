@@ -21,10 +21,10 @@
     "dist/**"
   ],
   "scripts": {
-    "build:core": "tsc --build --clean && tsc --project ./tsconfig.json",
-    "build:css": "postcss src/styles/index.css -o dist/styles.css",
-    "dev:core": "tsc --watch --project ./tsconfig.json",
-    "dev:css": "postcss -w src/styles/index.css -o dist/styles.css"
+    "build:ui": "tsc --build --clean && tsc --project ./tsconfig.json",
+    "build:ui:css": "postcss src/styles/index.css -o dist/styles.css",
+    "dev:ui": "tsc --watch --project ./tsconfig.json",
+    "dev:ui:css": "postcss -w src/styles/index.css -o dist/styles.css"
   },
   "dependencies": {
     "@spectres/utils": "workspace:^",
