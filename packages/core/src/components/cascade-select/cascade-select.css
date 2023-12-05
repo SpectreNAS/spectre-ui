@@ -34,4 +34,5 @@
 
 .sp-cascade-select-option-checkbox {
   margin-right: 8px;
+  flex-shrink: 0;
 }
