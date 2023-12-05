@@ -14,7 +14,7 @@ export const RouteConfig = () => {
       <Routes>
         <Route path='/' component={Home}>
         </Route>
-        <Route path='/' component={Scaffold}>
+        <Route path='/:lang' component={Scaffold}>
           <Route path='guides'>
             <For each={guidesRoutes}>
               {
