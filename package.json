@@ -4,7 +4,8 @@
   "packageManager": "pnpm@8.4.0",
   "scripts": {
     "dev": "nx run-many -t dev:docs dev:core dev:css --output-style stream",
-    "lint": "eslint --ext .ts,.tsx packages/**/src/"
+    "lint": "eslint --ext .ts,.tsx packages/**/src/ docs/src/",
+    "format": "eslint --ext .ts,.tsx packages/**/src/ docs/src/ --fix"
   },
   "devDependencies": {
     "@spectrekit/eslint-config": "^0.1.7",

@@ -1,8 +1,9 @@
 import { SpButton, SpIconButton } from '@spectre-ui/core'
-import { Menu } from '@/components/icon/Menu'
-import { ComponentPageLayout } from '@/components/layouts'
+
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'
+import { Menu } from '@/components/icon/Menu'
+import { ComponentPageLayout } from '@/components/layouts'
 
 export const Buttons = () => {
 

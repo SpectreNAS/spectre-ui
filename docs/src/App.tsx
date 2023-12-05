@@ -1,7 +1,8 @@
 import { SpConfigProvider } from '@spectre-ui/core'
+
 import '@spectre-ui/core/styles.css'
-import * as globalStore from './store/global'
 import { RouteConfig } from './router'
+import * as globalStore from './store/global'
 
 function App() {
   return (

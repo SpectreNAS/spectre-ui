@@ -1,12 +1,12 @@
-import { Github } from '@/components/icon/Github'
+import { Outlet, useNavigate } from '@solidjs/router'
+import { SpIconButton, SpScrollArea, SpDrawer } from '@spectre-ui/core'
+import { createSignal } from 'solid-js'
+
+import { SlideBar } from './SlideBar'
 import { Ghost } from '@/components/icon/Ghost'
+import { Github } from '@/components/icon/Github'
 import { Menu } from '@/components/icon/Menu'
 import { ThemeSwitch } from '@/components/theme-switch'
-import { Outlet } from '@solidjs/router'
-import { SpIconButton, SpScrollArea, SpDrawer } from '@spectre-ui/core'
-import { SlideBar } from './SlideBar'
-import { useNavigate } from '@solidjs/router'
-import { createSignal } from 'solid-js'
 
 export const Scaffold = () => {
   const navigate = useNavigate()

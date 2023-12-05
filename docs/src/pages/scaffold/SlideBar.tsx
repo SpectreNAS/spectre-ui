@@ -1,7 +1,8 @@
+import { useNavigate, useLocation } from '@solidjs/router'
 import { SpScrollArea, SpList } from '@spectre-ui/core'
+
 import { TagOutline } from '@/components/icon/TagOutline'
 import * as globalStore from '@/store/global'
-import { useNavigate, useLocation } from '@solidjs/router'
 
 interface SlideBarProps {
   selectItem?: (key: string) => void

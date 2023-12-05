@@ -1,5 +1,6 @@
-import { Ghost } from '@/components/icon/Ghost'
 import { useNavigate } from '@solidjs/router'
+
+import { Ghost } from '@/components/icon/Ghost'
 
 export const Home = () => {
   const navigate = useNavigate()

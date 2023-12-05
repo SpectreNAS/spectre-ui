@@ -1,7 +1,8 @@
 import { SpLink } from '@spectre-ui/core'
-import { ComponentPageLayout } from '@/components/layouts'
+
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'
+import { ComponentPageLayout } from '@/components/layouts'
 
 export const Links = () => {
 

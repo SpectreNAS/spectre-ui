@@ -1,7 +1,8 @@
-import { createStore } from 'solid-js/store'
 import { getSystemThemeType, SystemThemeType } from '@spectre-ui/core'
-import { guidesRoutes } from '@/router/guides.routes'
+import { createStore } from 'solid-js/store'
+
 import { componentsRoutes } from '@/router/components-routes'
+import { guidesRoutes } from '@/router/guides.routes'
 
 const [store, setStore] = createStore({ 
   themeType: getSystemThemeType(), 

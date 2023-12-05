@@ -271,10 +271,6 @@ export interface ScrollbarTheme {
   '--sp-horizontal-scrollbar-slider-bg-color'?: string
 }
 
-export interface ScrollAreaTheme {
-  
-}
-
 export interface SwitchTheme {
   '--sp-switch-on-bg-color'?: string
   '--sp-switch-on-bg-color-hover'?: string

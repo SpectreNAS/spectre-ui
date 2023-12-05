@@ -1,8 +1,9 @@
 import { Router, Route, Routes, hashIntegration } from '@solidjs/router'
 import { lazy, For } from 'solid-js'
-import Home from '../pages/home'
-import { guidesRoutes } from './guides.routes'
+
 import { componentsRoutes } from './components-routes'
+import { guidesRoutes } from './guides.routes'
+import Home from '../pages/home'
 
 const Scaffold = lazy(() => import('../pages/scaffold'))
 const NotFound = lazy(() => import('../pages/notFound'))

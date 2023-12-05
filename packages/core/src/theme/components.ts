@@ -1,4 +1,4 @@
-import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, InputTheme, LinkTheme, ListTheme, PopoverTheme, ProgressTheme, ScrollAreaTheme, ScrollbarTheme, SwitchTheme, TagTheme } from './types'
+import { AlertTheme, BadgeTheme, ButtonTheme, CheckboxTheme, InputTheme, LinkTheme, ListTheme, PopoverTheme, ProgressTheme, ScrollbarTheme, SwitchTheme, TagTheme } from './types'
 
 export const alertTheme: AlertTheme = {
   '--sp-alert-padding': '8px 16px',
@@ -142,10 +142,6 @@ export const scrollbarTheme: ScrollbarTheme = {
   '--sp-horizontal-scrollbar-slider-border-radius': '3px',
 }
 
-export const scrollAreaTheme: ScrollAreaTheme = {
-
-}
-
 export const switchTheme: SwitchTheme = {
   '--sp-switch-on-bg-color': 'var(--bg-brand-default)',
   '--sp-switch-on-bg-color-hover': 'var(--bg-brand-hover)',
@@ -193,7 +189,6 @@ export const componentsTheme = {
   ...popoverTheme,
   ...progressTheme,
   ...scrollbarTheme,
-  ...scrollAreaTheme,
   ...switchTheme,
   ...tagTheme,
 }

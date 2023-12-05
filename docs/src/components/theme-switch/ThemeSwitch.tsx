@@ -1,8 +1,9 @@
 import { SpSwitch } from '@spectre-ui/core'
-import { SunLinear } from '../icon/SunLinear'
-import { MoonLinear } from '../icon/MoonLinear'
-import * as globalStore from '../../store/global'
+
 import styles from './theme-switch.module.css'
+import * as globalStore from '../../store/global'
+import { MoonLinear } from '../icon/MoonLinear'
+import { SunLinear } from '../icon/SunLinear'
 
 export const ThemeSwitch = () => {
 
