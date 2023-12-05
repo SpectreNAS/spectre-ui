@@ -6,7 +6,7 @@ import { ComponentParentProps, ValueChanged } from '../../types'
 export interface ListItemData {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
-  title?: JSX.Element
+  title?: string
   value?: string
   children?: ListItemData[]
   disabled?: boolean
@@ -18,6 +18,7 @@ export interface ListProps extends ComponentParentProps<HTMLDivElement> {
   activeItem?: string
   expands?: string[] | 'all'
   selectItem?: ValueChanged<string>
+  renderItem?: (item: ListItemData) => JSX.Element
 }
 
 export interface ItemValue {

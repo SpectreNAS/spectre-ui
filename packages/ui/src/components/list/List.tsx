@@ -69,9 +69,9 @@ export const List = (propsRaw: ListProps) => {
     const children: JSX.Element = []
     for (const item of items) {
       if (Array.isArray(item.children)) {
-        children.push(<ListGroup title={item.title} value={item.value} children={generateTree(item.children)} />)
+        children.push(<ListGroup title={props.renderItem?.(item) ?? item.title} value={item.value} children={generateTree(item.children)} />)
       } else {
-        children.push(<ListItem children={item.title} value={item.value}></ListItem>)
+        children.push(<ListItem children={props.renderItem?.(item) ?? item.title} value={item.value} />)
       }
     }
     return children
