@@ -22,7 +22,7 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@spectre-ui/core": ["../packages/core/src/index.ts"]
+      "@spectre-ui/core": ["../packages/core/dist/index.d.ts"]
     }
   },
   "include": ["src"],
