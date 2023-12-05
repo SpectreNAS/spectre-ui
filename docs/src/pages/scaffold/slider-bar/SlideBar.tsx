@@ -3,7 +3,10 @@ import { SpScrollArea, SpList } from '@spectres/ui'
 
 import { useI18nContext, Dictionary } from '@/components/i18n'
 import { TagOutline } from '@/components/icon/TagOutline'
+import { componentsRoutes } from '@/router/components-routes'
+import { guidesRoutes } from '@/router/guides.routes'
 import * as globalStore from '@/store/global'
+
 interface SlideBarProps {
   selectItem?: (key: string) => void
 }
@@ -15,6 +18,17 @@ export const SlideBar = (props: SlideBarProps) => {
   const navigate = useNavigate()
   const location = useLocation()
 
+  const navMenus = [
+    {
+      title: 'guides',
+      children: guidesRoutes.map(item => ({ title: item.title, value: `guides${item.path}` }))
+    },
+    {
+      title: 'components',
+      children: componentsRoutes.map(item => ({ title: item.title, value: `components${item.path}` }))
+    }
+  ]
+
   function onSelectItem(value: string) {
     navigate(value)
     props.selectItem?.(value)
@@ -24,7 +38,7 @@ export const SlideBar = (props: SlideBarProps) => {
     <>
       <SpScrollArea>
         <SpList
-          items={globalStore.store.navMenus}
+          items={navMenus}
           activeItem={location.pathname}
           selectItem={onSelectItem}
           renderItem={(item) => <div>{t(item.title as (keyof Dictionary))}</div>}
