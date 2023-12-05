@@ -2,7 +2,7 @@ import { lazy } from 'solid-js'
 
 export const guidesRoutes = [
   {
-    title: 'Getting Started',
+    title: 'gettingStarted',
     path: '/getting-started',
     component: lazy(() => import('../pages/getting-started')),
   },

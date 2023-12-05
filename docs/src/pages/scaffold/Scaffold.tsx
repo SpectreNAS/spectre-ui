@@ -2,11 +2,12 @@ import { Outlet, useNavigate } from '@solidjs/router'
 import { SpIconButton, SpScrollArea, SpDrawer } from '@spectres/ui'
 import { createSignal } from 'solid-js'
 
-import { SlideBar } from './SlideBar'
+import { LanguageSwitch } from './language-switch'
+import { SlideBar } from './slider-bar'
+import { ThemeSwitch } from './theme-switch'
 import { Ghost } from '@/components/icon/Ghost'
 import { Github } from '@/components/icon/Github'
 import { Menu } from '@/components/icon/Menu'
-import { ThemeSwitch } from '@/components/theme-switch'
 
 export const Scaffold = () => {
   const navigate = useNavigate()
@@ -35,6 +36,8 @@ export const Scaffold = () => {
             <ThemeSwitch />
           </div>
           <div class=' h-6 ml-3 border-l border-l-solid border-[var(--border-common-default)]'></div>
+          <LanguageSwitch></LanguageSwitch>
+          <div class=' h-6 border-l border-l-solid border-[var(--border-common-default)]'></div>
           <a href='https://github.com/spectrenas/spectre-ui' target='_blank'>
             <SpIconButton size='large' type='text'>
               <Github />

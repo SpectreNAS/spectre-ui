@@ -40,6 +40,9 @@ importers:
 
   docs:
     dependencies:
+      '@solid-primitives/i18n':
+        specifier: ^2.0.0
+        version: 2.0.0(solid-js@1.8.5)
       '@solidjs/router':
         specifier: ^0.9.1
         version: 0.9.1(solid-js@1.8.5)
@@ -919,6 +922,14 @@ packages:
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
+
+  /@solid-primitives/i18n@2.0.0(solid-js@1.8.5):
+    resolution: {integrity: sha512-2sfhiUGl3eCPrDnPpQapbKnZ2iVo1IY6aI5vJTozc2fIf/yEM2+LlCY4PwQTf8vkM5B0Pf3jA+7vC70fR6xbmg==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      solid-js: 1.8.5
+    dev: false
 
   /@solidjs/router@0.9.1(solid-js@1.8.5):
     resolution: {integrity: sha512-kRY75piOQsyoH75E/RP6lr7uVGFCjeeCCCJx7Z2D1Vc6+I1yFQjLCvE+6agXGwqDoWi6vbETP1g7gmp/L1mNLg==}

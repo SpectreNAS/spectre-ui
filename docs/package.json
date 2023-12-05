@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@solid-primitives/i18n": "^2.0.0",
     "@solidjs/router": "^0.9.1",
     "@spectres/ui": "workspace:^",
     "solid-js": "^1.8.5"

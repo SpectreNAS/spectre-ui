@@ -1,14 +1,17 @@
 import { useNavigate, useLocation } from '@solidjs/router'
 import { SpScrollArea, SpList } from '@spectres/ui'
 
+import { useI18nContext, Dictionary } from '@/components/i18n'
 import { TagOutline } from '@/components/icon/TagOutline'
 import * as globalStore from '@/store/global'
-
 interface SlideBarProps {
   selectItem?: (key: string) => void
 }
 
 export const SlideBar = (props: SlideBarProps) => {
+
+  const { t } = useI18nContext()!
+
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -20,7 +23,12 @@ export const SlideBar = (props: SlideBarProps) => {
   return (
     <>
       <SpScrollArea>
-        <SpList items={globalStore.store.navMenus} activeItem={location.pathname} selectItem={onSelectItem} />
+        <SpList
+          items={globalStore.store.navMenus}
+          activeItem={location.pathname}
+          selectItem={onSelectItem}
+          renderItem={(item) => <div>{t(item.title as (keyof Dictionary))}</div>}
+        />
       </SpScrollArea>
       <div class='flex flex-shrink-0 p-2 h-7 border-t border-t-solid border-[var(--border-common-default)]'>
         <div class='flex items-center ml-auto'>

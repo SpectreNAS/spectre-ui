@@ -2,182 +2,182 @@ import { lazy } from 'solid-js'
 
 export const componentsRoutes = [
   {
-    title: 'Alerts',
+    title: 'alert',
     path: '/alerts',
     component: lazy(() => import('../pages/alerts')),
   },
   {
-    title: 'Badges',
+    title: 'badge',
     path: '/badges',
     component: lazy(() => import('../pages/badges')),
   },
   {
-    title: 'Buttons',
+    title: 'button',
     path: '/buttons',
     component: lazy(() => import('../pages/buttons')),
   },
   {
-    title: 'Links',
+    title: 'link',
     path: '/links',
     component: lazy(() => import('../pages/links')),
   },
   {
-    title: 'Tags',
+    title: 'tag',
     path: '/tags',
     component: lazy(() => import('../pages/tags')),
   },
 
   {
-    title: 'Checkboxes',
+    title: 'checkbox',
     path: '/checkboxes',
     component: lazy(() => import('../pages/checkboxes')),
   },
   {
-    title: 'Radios',
+    title: 'radio',
     path: '/radios',
   },
   {
-    title: 'Inputs',
+    title: 'input',
     path: '/inputs',
     component: lazy(() => import('../pages/inputs')),
   },
   {
-    title: 'InputNumbers',
+    title: 'inputNumber',
     path: '/inputNumbers',
     component: lazy(() => import('../pages/input-numbers')),
   },
   {
-    title: 'Selects',
+    title: 'select',
     path: '/selects',
   },
   {
-    title: 'CascadeSelects',
+    title: 'cascadeSelect',
     path: '/cascadeSelect',
     component: lazy(() => import('../pages/cascade-selects'))
   },
   {
-    title: 'Switches',
+    title: 'switch',
     path: '/switches',
     component: lazy(() => import('../pages/switches')),
   },
   {
-    title: 'Sliders',
+    title: 'slider',
     path: '/sliders',
   },
   {
-    title: 'DateTimePickers',
+    title: 'dateTimePicker',
     path: '/dateTimePickers',
   },
   {
-    title: 'TimePickers',
+    title: 'timePicker',
     path: '/timePickers',
     component: lazy(() => import('../pages/time-pickers')),
   },
   {
-    title: 'ColorPickers',
+    title: 'colorPicker',
     path: '/colorPickers',
     component: lazy(() => import('../pages/color-pickers')),
   },
   {
-    title: 'Transfers',
+    title: 'transfer',
     path: '/transfers',
   },
   {
-    title: 'Uploader',
+    title: 'uploader',
     path: '/uploader',
   },
   {
-    title: 'Forms',
+    title: 'form',
     path: '/forms',
   },
   {
-    title: 'ScrollAreas',
+    title: 'scrollArea',
     path: '/scrollAreas',
   },
   {
-    title: 'VirtualScrollAreas',
+    title: 'virtualScrollArea',
     path: '/virtualScrollAreas',
     component: lazy(() => import('../pages/virtual-scroll-areas')),
   },
   {
-    title: 'Table',
+    title: 'table',
     path: '/tables',
   },
   {
-    title: 'Pagination',
+    title: 'pagination',
     path: '/pagination',
     component: lazy(() => import('../pages/pagination')),
   },
   {
-    title: 'Lists',
+    title: 'list',
     path: '/lists',
     component: lazy(() => import('../pages/lists')),
   },
   {
-    title: 'Tabs',
+    title: 'tab',
     path: '/tabs',
   },
   {
-    title: 'Breadcrumbs',
+    title: 'breadcrumb',
     path: '/breadcrumbs',
   },
   {
-    title: 'ContextMenus',
+    title: 'contextMenu',
     path: '/contextMenus',
   },
   {
-    title: 'DropdownMenus',
+    title: 'dropdownMenu',
     path: '/dropdownMenus',
   },
   {
-    title: 'Dialogs',
+    title: 'dialog',
     path: '/dialogs',
   },
   {
-    title: 'Drawers',
+    title: 'drawer',
     path: '/drawers',
   },
   {
-    title: 'Messages',
+    title: 'message',
     path: '/messages',
   },
   {
-    title: 'Notifications',
+    title: 'notification',
     path: '/notifications',
   },
   {
-    title: 'Popovers',
+    title: 'popover',
     path: '/popovers',
     component: lazy(() => import('../pages/popovers')),
   },
   {
-    title: 'Tooltips',
+    title: 'tooltip',
     path: '/tooltips',
   },
   {
-    title: 'Loadings',
+    title: 'loading',
     path: '/loadings',
   },
   {
-    title: 'Progresses',
+    title: 'progress',
     path: '/progresses',
     component: lazy(() => import('../pages/progresses')),
   },
   {
-    title: 'Calendar',
+    title: 'calendar',
     path: '/calendars',
   },
   {
-    title: 'Brushes',
+    title: 'brush',
     path: '/brushes',
   },
   {
-    title: 'Draggable',
+    title: 'draggable',
     path: '/draggable',
     component: lazy(() => import('../pages/draggable')),
   },
   {
-    title: 'Resizable',
+    title: 'resizable',
     path: '/resizable',
   }
 ]

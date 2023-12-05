@@ -9,11 +9,11 @@ const [store, setStore] = createStore({
   version: '0.0.1',
   navMenus: [
     {
-      title: 'Guides',
+      title: 'guides',
       children: guidesRoutes.map(item => ({ title: item.title, value: `/guides${item.path}` }))
     },
     {
-      title: 'Components',
+      title: 'components',
       children: componentsRoutes.map(item => ({ title: item.title, value: `/components${item.path}` }))
     }
   ] 

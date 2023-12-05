@@ -1,16 +1,20 @@
 import { SpConfigProvider } from '@spectres/ui'
 
-import '@spectres/ui/styles.css'
 import { RouteConfig } from './router'
 import * as globalStore from './store/global'
+import { I18n } from '@/components/i18n'
+
+import '@spectres/ui/styles.css'
 
 function App() {
   return (
-    <SpConfigProvider themeType={globalStore.store.themeType}>
-      <div class='h-screen w-screen'>
-        <RouteConfig />
-      </div>
-    </SpConfigProvider>
+    <I18n>
+      <SpConfigProvider themeType={globalStore.store.themeType}>
+        <div class='h-screen w-screen'>
+          <RouteConfig />
+        </div>
+      </SpConfigProvider>
+    </I18n>
   )
 }
 
