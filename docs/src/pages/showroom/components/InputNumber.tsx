@@ -1,4 +1,4 @@
-import { SpInputNumber } from '@spectre-ui/core'
+import { SpInputNumber } from '@spectres/ui'
 
 export const InputNumberUsage = () => {
   return (

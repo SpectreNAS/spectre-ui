@@ -1,4 +1,4 @@
-import { SpSwitch } from '@spectre-ui/core'
+import { SpSwitch } from '@spectres/ui'
 
 import styles from './theme-switch.module.css'
 import * as globalStore from '../../store/global'

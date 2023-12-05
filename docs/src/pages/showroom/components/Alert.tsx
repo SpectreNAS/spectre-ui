@@ -1,4 +1,4 @@
-import { SpAlert } from '@spectre-ui/core'
+import { SpAlert } from '@spectres/ui'
 
 export const AlertUsage = () => {
   return (

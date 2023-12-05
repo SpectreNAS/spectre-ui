@@ -1,4 +1,4 @@
-import { SpCascadeSelectPanel } from '@spectre-ui/core'
+import { SpCascadeSelectPanel } from '@spectres/ui'
 
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'

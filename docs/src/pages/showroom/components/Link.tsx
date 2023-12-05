@@ -1,4 +1,4 @@
-import { SpLink } from '@spectre-ui/core'
+import { SpLink } from '@spectres/ui'
 
 export const LinkUsage = () => {
   return (

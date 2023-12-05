@@ -1,4 +1,4 @@
-import { SpCheckbox } from '@spectre-ui/core'
+import { SpCheckbox } from '@spectres/ui'
 
 export const CheckboxUsage = () => {
   return (

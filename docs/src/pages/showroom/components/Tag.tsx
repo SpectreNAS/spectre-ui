@@ -1,4 +1,4 @@
-import { SpTag } from '@spectre-ui/core'
+import { SpTag } from '@spectres/ui'
 
 export const TagUsage = () => {
 

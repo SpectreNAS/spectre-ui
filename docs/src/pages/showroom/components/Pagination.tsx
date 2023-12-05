@@ -1,4 +1,4 @@
-import { SpPagination, SpPaginationJumper } from '@spectre-ui/core'
+import { SpPagination, SpPaginationJumper } from '@spectres/ui'
 
 export const PaginationUsage = () => {
   return (

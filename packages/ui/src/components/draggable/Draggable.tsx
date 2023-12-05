@@ -1,4 +1,4 @@
-import { Point } from '@spectre-ui/utils'
+import { Point } from '@spectres/utils'
 import { createEffect, createSignal } from 'solid-js'
 
 import { DraggableProps, generateProps } from './draggable.props'

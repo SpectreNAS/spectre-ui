@@ -1,4 +1,4 @@
-import { SpPopover, SpButton } from '@spectre-ui/core'
+import { SpPopover, SpButton } from '@spectres/ui'
 
 export const PopoverUsage = () => {
   const content = () => <div class='p-4'>Title</div>

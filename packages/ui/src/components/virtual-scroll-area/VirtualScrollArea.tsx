@@ -1,4 +1,4 @@
-import { Point, Scrollbar } from '@spectre-ui/utils'
+import { Point, Scrollbar } from '@spectres/utils'
 import { createEffect, createSignal, onMount, on, createContext, useContext, Show } from 'solid-js'
 
 import { VirtualScrollAreaProps, generateProps, VirtualScrollAreaProviderValue } from './virtual-scroll-area.props'

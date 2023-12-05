@@ -1,5 +1,5 @@
 {
-  "name": "@spectre-ui/utils",
+  "name": "@spectres/utils",
   "version": "0.0.1",
   "license": "MIT",
   "types": "./dist/index.d.ts",

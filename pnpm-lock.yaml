@@ -43,9 +43,9 @@ importers:
       '@solidjs/router':
         specifier: ^0.9.1
         version: 0.9.1(solid-js@1.8.5)
-      '@spectre-ui/core':
+      '@spectres/ui':
         specifier: workspace:^
-        version: link:../packages/core
+        version: link:../packages/ui
       solid-js:
         specifier: ^1.8.5
         version: 1.8.5
@@ -70,9 +70,9 @@ importers:
         specifier: ^3.1.11
         version: 3.1.11
 
-  packages/core:
+  packages/ui:
     dependencies:
-      '@spectre-ui/utils':
+      '@spectres/utils':
         specifier: workspace:^
         version: link:../utils
       color:

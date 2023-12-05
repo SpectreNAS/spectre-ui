@@ -1,4 +1,4 @@
-import { SpButton, SpBadge } from '@spectre-ui/core'
+import { SpButton, SpBadge } from '@spectres/ui'
 
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'

@@ -1,4 +1,4 @@
-import { Point } from '@spectre-ui/utils'
+import { Point } from '@spectres/utils'
 import { createEffect, createSignal } from 'solid-js'
 
 import { ColorAlphaProps, generateProps } from './color-alpha.props'

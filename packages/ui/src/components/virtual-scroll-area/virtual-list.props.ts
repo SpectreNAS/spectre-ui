@@ -1,4 +1,4 @@
-import { VirtualScrollItemRaw, VirtualScrollItem } from '@spectre-ui/utils'
+import { VirtualScrollItemRaw, VirtualScrollItem } from '@spectres/utils'
 import { JSX, mergeProps, splitProps } from 'solid-js'
 
 import { customEventHandlersName } from '../../events'

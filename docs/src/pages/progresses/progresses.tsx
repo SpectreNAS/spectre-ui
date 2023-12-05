@@ -1,4 +1,4 @@
-import { SpProgress } from '@spectre-ui/core'
+import { SpProgress } from '@spectres/ui'
 
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'

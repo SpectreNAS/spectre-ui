@@ -1,4 +1,4 @@
-import { getSystemThemeType, SystemThemeType } from '@spectre-ui/core'
+import { getSystemThemeType, SystemThemeType } from '@spectres/ui'
 import { createStore } from 'solid-js/store'
 
 import { componentsRoutes } from '@/router/components-routes'

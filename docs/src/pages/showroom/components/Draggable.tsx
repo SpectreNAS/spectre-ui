@@ -1,4 +1,4 @@
-import { SpDraggable } from '@spectre-ui/core'
+import { SpDraggable } from '@spectres/ui'
 
 export const DraggableUsage = () => {
   return (

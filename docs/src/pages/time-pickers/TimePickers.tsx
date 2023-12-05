@@ -1,4 +1,4 @@
-import { SpTimePicker, SpTimePickerPanel } from '@spectre-ui/core'
+import { SpTimePicker, SpTimePickerPanel } from '@spectres/ui'
 
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'

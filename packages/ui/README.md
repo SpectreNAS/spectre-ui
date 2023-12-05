@@ -1,4 +1,4 @@
-# @spectre-ui/core
+# @spectres/ui
 
 40 Components
 

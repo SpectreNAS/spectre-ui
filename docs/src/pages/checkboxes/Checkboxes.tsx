@@ -1,4 +1,4 @@
-import { SpCheckbox } from '@spectre-ui/core'
+import { SpCheckbox } from '@spectres/ui'
 
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'

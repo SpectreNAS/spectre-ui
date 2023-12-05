@@ -1,4 +1,4 @@
-import { SpBadge, SpButton } from '@spectre-ui/core'
+import { SpBadge, SpButton } from '@spectres/ui'
 
 export const BadgeUsage = () => {
   return (

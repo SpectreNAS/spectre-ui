@@ -1,4 +1,4 @@
-import { Point } from '@spectre-ui/utils'
+import { Point } from '@spectres/utils'
 import { JSX, mergeProps, splitProps } from 'solid-js'
 
 import { customEventHandlersName } from '../../events'

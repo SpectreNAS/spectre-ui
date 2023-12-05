@@ -1,4 +1,4 @@
-import { Point } from '@spectre-ui/utils'
+import { Point } from '@spectres/utils'
 import dayjs from 'dayjs'
 import { Show, createSignal, For, createEffect, on } from 'solid-js'
 

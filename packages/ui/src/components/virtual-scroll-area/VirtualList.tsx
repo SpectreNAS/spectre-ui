@@ -1,4 +1,4 @@
-import { Point, VirtualScroll, VirtualScrollItem } from '@spectre-ui/utils'
+import { Point, VirtualScroll, VirtualScrollItem } from '@spectres/utils'
 import { For, createEffect, createSignal, on } from 'solid-js'
 
 import { VirtualListProps, generateProps } from './virtual-list.props'

@@ -1,5 +1,5 @@
 {
-  "name": "@spectre-ui/core",
+  "name": "@spectres/ui",
   "version": "0.0.1",
   "license": "MIT",
   "types": "./dist/index.d.ts",
@@ -27,7 +27,7 @@
     "dev:css": "postcss -w src/styles/index.css -o dist/styles.css"
   },
   "dependencies": {
-    "@spectre-ui/utils": "workspace:^",
+    "@spectres/utils": "workspace:^",
     "color": "^4.2.3",
     "dayjs": "^1.11.10",
     "mitt": "^3.0.1",

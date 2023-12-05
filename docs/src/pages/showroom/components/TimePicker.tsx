@@ -1,4 +1,4 @@
-import { SpTimePicker } from '@spectre-ui/core'
+import { SpTimePicker } from '@spectres/ui'
 
 export const TimePickerUsage = () => {
   return (

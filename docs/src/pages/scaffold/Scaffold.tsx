@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from '@solidjs/router'
-import { SpIconButton, SpScrollArea, SpDrawer } from '@spectre-ui/core'
+import { SpIconButton, SpScrollArea, SpDrawer } from '@spectres/ui'
 import { createSignal } from 'solid-js'
 
 import { SlideBar } from './SlideBar'

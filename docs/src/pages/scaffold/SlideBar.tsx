@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from '@solidjs/router'
-import { SpScrollArea, SpList } from '@spectre-ui/core'
+import { SpScrollArea, SpList } from '@spectres/ui'
 
 import { TagOutline } from '@/components/icon/TagOutline'
 import * as globalStore from '@/store/global'

@@ -1,4 +1,4 @@
-import { SpColorPickerPreset } from '@spectre-ui/core'
+import { SpColorPickerPreset } from '@spectres/ui'
 
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'

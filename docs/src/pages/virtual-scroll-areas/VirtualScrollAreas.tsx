@@ -1,4 +1,4 @@
-import { SpVirtualScrollArea, SpVirtualList } from '@spectre-ui/core'
+import { SpVirtualScrollArea, SpVirtualList } from '@spectres/ui'
 
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'

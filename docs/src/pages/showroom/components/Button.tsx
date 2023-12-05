@@ -1,4 +1,4 @@
-import { SpButton } from '@spectre-ui/core'
+import { SpButton } from '@spectres/ui'
 
 export const ButtonUsage = () => {
   return (

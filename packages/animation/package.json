@@ -1,5 +1,5 @@
 {
-  "name": "@spectre-ui/animation",
+  "name": "@spectres/animation",
   "type": "module",
   "exports": {
     ".": {

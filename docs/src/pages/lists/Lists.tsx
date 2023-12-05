@@ -1,4 +1,4 @@
-import { SpList, SpListGroup, SpListItem } from '@spectre-ui/core'
+import { SpList, SpListGroup, SpListItem } from '@spectres/ui'
 
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'

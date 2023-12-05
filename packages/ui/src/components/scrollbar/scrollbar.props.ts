@@ -1,4 +1,4 @@
-import { Point } from '@spectre-ui/utils'
+import { Point } from '@spectres/utils'
 
 import { ComponentSize, ComponentColor, ComponentParentProps, ValueChanged } from '../../types'
 

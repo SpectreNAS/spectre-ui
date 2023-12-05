@@ -1,5 +1,5 @@
 {
-  "name": "@spectre-ui/docs",
+  "name": "@spectres/docs",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.9.1",
-    "@spectre-ui/core": "workspace:^",
+    "@spectres/ui": "workspace:^",
     "solid-js": "^1.8.5"
   },
   "devDependencies": {

@@ -13,7 +13,7 @@
     "outDir": "./dist",
     "declaration": true,
     "paths": {
-      "@spectre-ui/utils": ["../utils/dist/index.d.ts"]
+      "@spectres/utils": ["../utils/dist/index.d.ts"]
     }
   },
   "watchOptions": {
