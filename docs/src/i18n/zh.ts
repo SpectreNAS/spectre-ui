@@ -15,6 +15,7 @@ export const dict = {
   cascadeSelect: 'Cascade Select 级联选择器',
   switch: 'Switch 开关',
   slider: 'Slider 滑块',
+  datePanel: 'Date Panel 日期面板',
   dateTimePicker: 'DateTime Picker 日期时间选择器',
   timePicker: 'Time Picker 时间选择器',
   colorPicker: 'Color Picker 颜色选择器',

@@ -65,6 +65,11 @@ export const componentsRoutes = [
     path: '/sliders',
   },
   {
+    title: 'datePanel',
+    path: '/datePanel',
+    component: lazy(() => import('../pages/date-panel'))
+  },
+  {
     title: 'dateTimePicker',
     path: '/dateTimePickers',
   },

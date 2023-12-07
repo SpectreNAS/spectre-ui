@@ -15,6 +15,7 @@ export const dict = {
   cascadeSelect: 'Cascade Select',
   switch: 'Switch',
   slider: 'Slider',
+  datePanel: 'Date Panel',
   dateTimePicker: 'DateTime Picker',
   timePicker: 'Time Picker',
   colorPicker: 'Color Picker',

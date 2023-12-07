@@ -1,0 +1,66 @@
+.sp-date-panel {
+  padding: 16px;
+}
+
+.sp-date-panel-week {
+  display: flex;
+  margin-bottom: 8px;
+  font: var(--sp-text-b4);
+  color: var(--text-common-tertiary);
+}
+
+.sp-date-panel-week-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 21px;
+  padding: 3px 8px 0;
+}
+
+.sp-date-panel-week-day:not(:last-child) {
+  margin-right: 4px;
+}
+
+
+.sp-date-panel-row {
+  display: flex;
+}
+
+.sp-date-panel-row:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.sp-date-panel-day {
+  width: 22px;
+  height: 22px;
+  box-sizing: content-box;
+  --sp-button-font: var(--sp-text-b2);
+  --sp-button-padding: 5px;
+  --sp-button-bg-color: none;
+  --sp-button-bg-color-hover: var(--bg-bgless-hover);
+  --sp-button-bg-color-active: var(--bg-bgless-hover);
+  --sp-button-text-color: var(--text-common-tertiary);
+}
+
+.sp-date-panel-day:not(:last-child) {
+  margin-right: 4px;
+}
+
+.sp-date-panel-day.in-month {
+  --sp-button-text-color: var(--text-common-primary);
+}
+
+.sp-date-panel-day.today {
+  --sp-button-text-color: var(--text-brand-default);
+  --sp-button-text-color-hover: var(--text-brand-default);
+  --sp-button-font: var(--sp-text-h7);
+}
+
+.sp-date-panel-day.selected {
+  --sp-button-bg-color-hover: var(--bg-brand-default);
+  --sp-button-bg-color-active: var(--bg-brand-default);
+  --sp-button-bg-color: var(--bg-brand-default);
+  --sp-button-text-color: var(--text-static-primary) !important;
+  --sp-button-font: var(--sp-text-b2) !important;
+}
