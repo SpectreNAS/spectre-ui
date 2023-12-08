@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { createEffect, createSignal } from 'solid-js'
+import { createEffect, createSignal, on } from 'solid-js'
 
 import { DatePanel } from './DatePanel'
 import { getDateKey } from '../../utils'
@@ -25,39 +25,27 @@ export const DateRangePanel = () => {
   const isInStartRange = (date: dayjs.Dayjs) => dateRangeDates()[getDateKey(date)]?.isSame(startMonth(), 'month') ? true : false
   const isInEndRange = (date: dayjs.Dayjs) => dateRangeDates()[getDateKey(date)]?.isSame(endMonth(), 'month') ? true : false
 
-  createEffect(() => {
+  createEffect(on([startMonth, endMonth], ([startMonth, endMonth]) => {
     const range = dateRange()
     if (range.start && range.end) {
-      const startM = startMonth()
-      if (!startM.isBefore(range.start, 'month')) {
-        setDateRangeDates(
-          getDateRangeDates(
-            [
-              ...generateDateRangeDates(startM.isSame(range.start, 'month') ? range.start : startM.set('date', 1), startM.set('date', 1).add(1, 'month').subtract(1, 'day')),
-              ...generateDateRangeDates(range.end.set('date', 1), range.end),
-            ]
-          )
-        )
+      if (range.start.isSame(range.end, 'month')) {
+        setDateRangeDates(getDateRangeDates(generateDateRangeDates(range.start, range.end)))
+        return
       }
-    }
-  })
-
-  createEffect(() => {
-    const range = dateRange()
-    if (range.start && range.end) {
-      const endM = endMonth()
-      if (!endM.isAfter(range.end, 'month')) {
-        setDateRangeDates(
-          getDateRangeDates(
-            [
-              ...generateDateRangeDates(range.start, range.start.set('date', 1).add(1, 'month').subtract(1, 'day')),
-              ...generateDateRangeDates(endM.set('date', 1), endM.isSame(range.end, 'month') ? range.end : range.end.set('date', 1).add(1, 'month').subtract(1, 'day')),
-            ]
-          )
-        )
+      let dates: dayjs.Dayjs[] = []
+      if (startMonth.isAfter(range.start, 'month')) {
+        dates = [...generateDateRangeDates(startMonth.set('date', 1), startMonth.set('date', 1).add(1, 'month').subtract(1, 'day'))]
+      } else if (startMonth.isSame(range.start, 'month')) {
+        dates = [...generateDateRangeDates(range.start, startMonth.set('date', 1).add(1, 'month').subtract(1, 'day'))]
       }
+      if (endMonth.isBefore(range.end, 'month')) {
+        dates = [...dates, ...generateDateRangeDates(endMonth.set('date', 1), endMonth.set('date', 1).add(1, 'month').subtract(1, 'day'))]
+      } else if (endMonth.isSame(range.end, 'month')) {
+        dates = [...dates, ...generateDateRangeDates(endMonth.set('date', 1), range.end)]
+      }
+      setDateRangeDates(getDateRangeDates(dates))
     }
-  })
+  }))
 
   function getDateRangeDates(dates: dayjs.Dayjs[]): Record<string, dayjs.Dayjs> {
     const d: Record<string, dayjs.Dayjs> = {}
