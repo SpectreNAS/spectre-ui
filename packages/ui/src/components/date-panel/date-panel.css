@@ -14,6 +14,9 @@
 
 .sp-date-panel-header-text {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sp-date-panel-week {
@@ -35,7 +38,6 @@
 .sp-date-panel-week-day:not(:last-child) {
   margin-right: 4px;
 }
-
 
 .sp-date-panel-row {
   display: flex;

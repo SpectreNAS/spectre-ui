@@ -17,6 +17,8 @@ export enum WeekDays {
 export interface DatePanelProps extends ComponentProps<HTMLDivElement> {
   value?: dayjs.Dayjs | dayjs.Dayjs[]
   currentMonth?: dayjs.Dayjs
+  min?: dayjs.Dayjs
+  max?: dayjs.Dayjs
   multiple?: boolean
   weekFirstDay?: WeekDays
   showHeader?: boolean

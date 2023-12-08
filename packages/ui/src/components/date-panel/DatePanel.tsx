@@ -39,7 +39,7 @@ export const DatePanel = (propsRaw: DatePanelProps) => {
 
   createEffect(() => {
     setWeekDays(generateWeekDays(props.weekFirstDay))
-    setCurrentMonth(props.currentMonth)
+    setCurrentMonth(getClampMonth(props.currentMonth))
   })
 
   createEffect(() => {
@@ -58,9 +58,13 @@ export const DatePanel = (propsRaw: DatePanelProps) => {
     setSelectedDate(Object.fromEntries(selectedDateMap))
   })
 
+  function getClampMonth(month: dayjs.Dayjs) {
+    return getClampDate(month, props.min, props.max)
+  }
+
   function switchMonth(month: dayjs.Dayjs) {
     if (month.isBefore(currentMonth(), 'month') || month.isAfter(currentMonth(), 'month')) {
-      setCurrentMonth(value => value.set('year', month.year()).set('month', month.month()))
+      setCurrentMonth(value => getClampMonth(value.set('year', month.year()).set('month', month.month())))
     }
   }
 
@@ -82,19 +86,19 @@ export const DatePanel = (propsRaw: DatePanelProps) => {
   }
 
   function onPrevYear() {
-    setCurrentMonth(value => value.subtract(1, 'year'))
+    setCurrentMonth(value => getClampMonth(value.subtract(1, 'year')))
   }
 
   function onPrevMonth() {
-    setCurrentMonth(value => value.subtract(1, 'month'))
+    setCurrentMonth(value => getClampMonth(value.subtract(1, 'month')))
   }
 
   function onNextYear() {
-    setCurrentMonth(value => value.add(1, 'year'))
+    setCurrentMonth(value => getClampMonth(value.add(1, 'year')))
   }
 
   function onNextMonth() {
-    setCurrentMonth(value => value.add(1, 'month'))
+    setCurrentMonth(value => getClampMonth(value.add(1, 'month')))
   }
 
   function emitCurrentMonthChange() {
@@ -104,24 +108,37 @@ export const DatePanel = (propsRaw: DatePanelProps) => {
   return (
     <div
       class={datePanelClasses()}
+      classList={props.classList}
+      style={props.style}
+      ref={props.ref}
+      {...eventHandlers}
     >
       <Show when={props.showHeader}>
         <div class='sp-date-panel-header'>
-          <SpIconButton type='text' onClick={onPrevYear}>
-            <ChevronDoubleLeftFilled />
-          </SpIconButton>
-          <SpIconButton type='text' onClick={onPrevMonth}>
-            <ChevronLeftFilled />
-          </SpIconButton>
+          <Show when={!props.min || currentMonth().isAfter(props.min, 'year')}>
+            <SpIconButton type='text' onClick={onPrevYear}>
+              <ChevronDoubleLeftFilled />
+            </SpIconButton>
+          </Show>
+          <Show when={!props.min || currentMonth().isAfter(props.min, 'month')}>
+            <SpIconButton type='text' onClick={onPrevMonth}>
+              <ChevronLeftFilled />
+            </SpIconButton>
+          </Show>
           <span class='sp-date-panel-header-text'>
-            { }
+            {currentMonth().format('MMM YYYY')}
           </span>
-          <SpIconButton type='text' onClick={onNextMonth}>
-            <ChevronRightFilled />
-          </SpIconButton>
-          <SpIconButton type='text' onClick={onNextYear}>
-            <ChevronDoubleRightFilled />
-          </SpIconButton>
+          <Show when={!props.max || currentMonth().isBefore(props.max, 'month')}>
+            <SpIconButton type='text' onClick={onNextMonth}>
+              <ChevronRightFilled />
+            </SpIconButton>
+          </Show>
+
+          <Show when={!props.max || currentMonth().isBefore(props.max, 'year')}>
+            <SpIconButton type='text' onClick={onNextYear}>
+              <ChevronDoubleRightFilled />
+            </SpIconButton>
+          </Show>
         </div>
       </Show>
       <div class='sp-date-panel-week'>
@@ -192,3 +209,12 @@ function generateMonthDates(month: dayjs.Dayjs, weekFirstDay: WeekDays = WeekDay
   return dates
 }
 
+function getClampDate(date: dayjs.Dayjs, min?: dayjs.Dayjs, max?: dayjs.Dayjs): dayjs.Dayjs {
+  if (min !== undefined && date.isBefore(min)) {
+    return min
+  }
+  if (max !== undefined && date.isAfter(max)) {
+    return max
+  }
+  return date
+}

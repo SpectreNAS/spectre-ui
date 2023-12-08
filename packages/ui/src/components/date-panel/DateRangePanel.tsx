@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { createSignal } from 'solid-js'
+import { createEffect, createSignal } from 'solid-js'
 
 import { DatePanel } from './DatePanel'
 import { getDateKey } from '../../utils'
@@ -24,6 +24,49 @@ export const DateRangePanel = () => {
   }
   const isInStartRange = (date: dayjs.Dayjs) => dateRangeDates()[getDateKey(date)]?.isSame(startMonth(), 'month') ? true : false
   const isInEndRange = (date: dayjs.Dayjs) => dateRangeDates()[getDateKey(date)]?.isSame(endMonth(), 'month') ? true : false
+
+  createEffect(() => {
+    const range = dateRange()
+    if (range.start && range.end) {
+      const startM = startMonth()
+      if (!startM.isBefore(range.start, 'month')) {
+        setDateRangeDates(
+          getDateRangeDates(
+            [
+              ...generateDateRangeDates(startM.isSame(range.start, 'month') ? range.start : startM.set('date', 1), startM.set('date', 1).add(1, 'month').subtract(1, 'day')),
+              ...generateDateRangeDates(range.end.set('date', 1), range.end),
+            ]
+          )
+        )
+      }
+    }
+  })
+
+  createEffect(() => {
+    const range = dateRange()
+    if (range.start && range.end) {
+      const endM = endMonth()
+      if (!endM.isAfter(range.end, 'month')) {
+        setDateRangeDates(
+          getDateRangeDates(
+            [
+              ...generateDateRangeDates(range.start, range.start.set('date', 1).add(1, 'month').subtract(1, 'day')),
+              ...generateDateRangeDates(endM.set('date', 1), endM.isSame(range.end, 'month') ? range.end : range.end.set('date', 1).add(1, 'month').subtract(1, 'day')),
+            ]
+          )
+        )
+      }
+    }
+  })
+
+  function getDateRangeDates(dates: dayjs.Dayjs[]): Record<string, dayjs.Dayjs> {
+    const d: Record<string, dayjs.Dayjs> = {}
+    for (const date of dates) {
+      d[getDateKey(date)] = date
+    }
+    return d
+  }
+
   function onHoverDate(date: dayjs.Dayjs) {
     const range = dateRange()
     if (range.start && range.end === undefined) {
@@ -36,11 +79,7 @@ export const DateRangePanel = () => {
           ...generateDateRangeDates(startDate, startDate.set('date', 1).add(1, 'month').subtract(1, 'day')),
           ...generateDateRangeDates(endDate.set('date', 1), endDate),
         ]
-      const d: Record<string, dayjs.Dayjs> = {}
-      for (const date of dates) {
-        d[getDateKey(date)] = date
-      }
-      setDateRangeDates(d)
+      setDateRangeDates(getDateRangeDates(dates))
       setHoverEndDate(endDate)
     }
   }
@@ -82,6 +121,7 @@ export const DateRangePanel = () => {
     <div class='sp-date-panel-range'>
       <DatePanel
         currentMonth={startMonth()}
+        max={endMonth().subtract(1, 'month')}
         renderDate={(date: dayjs.Dayjs) => (
           <div
             class='sp-date-panel-wrap'
@@ -108,6 +148,7 @@ export const DateRangePanel = () => {
       />
       <DatePanel
         currentMonth={endMonth()}
+        min={startMonth().add(1, 'month')}
         renderDate={(date: dayjs.Dayjs) => (
           <div
             class='sp-date-panel-wrap'
