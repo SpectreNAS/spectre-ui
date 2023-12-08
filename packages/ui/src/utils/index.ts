@@ -2,6 +2,8 @@ import { JSX, onCleanup } from 'solid-js'
 
 import { ValueChanged } from '../types'
 
+export * from './date'
+
 export function mergeClasses(classes: string[]): string {
   return classes.filter(item => item !== '').join(' ')
 }

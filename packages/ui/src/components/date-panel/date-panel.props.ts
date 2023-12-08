@@ -1,8 +1,8 @@
 import dayjs from 'dayjs'
-import { mergeProps, splitProps } from 'solid-js'
+import { JSX, mergeProps, splitProps } from 'solid-js'
 
 import { customEventHandlersName } from '../../events'
-import { ComponentProps } from '../../types'
+import { ComponentProps, ValueChanged } from '../../types'
 
 export enum WeekDays {
   Sunday = 0,
@@ -15,12 +15,21 @@ export enum WeekDays {
 }
 
 export interface DatePanelProps extends ComponentProps<HTMLDivElement> {
-  value?: dayjs.Dayjs
+  value?: dayjs.Dayjs | dayjs.Dayjs[]
   currentMonth?: dayjs.Dayjs
+  multiple?: boolean
+  weekFirstDay?: WeekDays
+  showHeader?: boolean
+  renderDate?: (date: dayjs.Dayjs) => JSX.Element
+  change?: ValueChanged<dayjs.Dayjs | undefined>
+  currentMonthChange?: ValueChanged<dayjs.Dayjs>
 }
 
 export function generateProps(propsRaw: DatePanelProps) {
   return splitProps(mergeProps({
-    currentMonth: dayjs()
+    currentMonth: dayjs(),
+    multiple: false,
+    weekFirstDay: WeekDays.Sunday,
+    showHeader: true,
   }, propsRaw), customEventHandlersName)
 }

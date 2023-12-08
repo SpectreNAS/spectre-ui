@@ -1,5 +1,19 @@
 .sp-date-panel {
+  width: 248px;
   padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sp-date-panel-header {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 3px 16px;
+}
+
+.sp-date-panel-header-text {
+  width: 100%;
 }
 
 .sp-date-panel-week {
@@ -43,7 +57,16 @@
   --sp-button-text-color: var(--text-common-tertiary);
 }
 
-.sp-date-panel-day:not(:last-child) {
+.sp-date-panel-wrap:not(:last-child) {
+  padding-right: 4px;
+}
+
+.sp-date-panel-wrap.in-range {
+  background-color: var(--bg-brand-light-default);
+}
+
+.sp-date-panel-wrap:not(:last-child).in-range.end {
+  padding-right: 0;
   margin-right: 4px;
 }
 
@@ -63,4 +86,8 @@
   --sp-button-bg-color: var(--bg-brand-default);
   --sp-button-text-color: var(--text-static-primary) !important;
   --sp-button-font: var(--sp-text-b2) !important;
+}
+
+.sp-date-panel-range {
+  display: flex;
 }
