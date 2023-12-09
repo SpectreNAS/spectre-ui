@@ -115,30 +115,37 @@ export const DatePanel = (propsRaw: DatePanelProps) => {
     >
       <Show when={props.showHeader}>
         <div class='sp-date-panel-header'>
-          <Show when={!props.min || currentMonth().isAfter(props.min, 'year')}>
-            <SpIconButton type='text' onClick={onPrevYear}>
-              <ChevronDoubleLeftFilled />
-            </SpIconButton>
-          </Show>
-          <Show when={!props.min || currentMonth().isAfter(props.min, 'month')}>
-            <SpIconButton type='text' onClick={onPrevMonth}>
-              <ChevronLeftFilled />
-            </SpIconButton>
-          </Show>
+          <div class='sp-date-panel-header-btn-wrap prev-year'>
+            <Show when={!props.min || currentMonth().isAfter(props.min, 'year')}>
+              <SpIconButton class='sp-date-panel-header-btn' type='text' onClick={onPrevYear}>
+                <ChevronDoubleLeftFilled />
+              </SpIconButton>
+            </Show>
+          </div>
+          <div class='sp-date-panel-header-btn-wrap'>
+            <Show when={!props.min || currentMonth().isAfter(props.min, 'month')}>
+              <SpIconButton class='sp-date-panel-header-btn' type='text' onClick={onPrevMonth}>
+                <ChevronLeftFilled />
+              </SpIconButton>
+            </Show>
+          </div>
           <span class='sp-date-panel-header-text'>
             {currentMonth().format('MMM YYYY')}
           </span>
-          <Show when={!props.max || currentMonth().isBefore(props.max, 'month')}>
-            <SpIconButton type='text' onClick={onNextMonth}>
-              <ChevronRightFilled />
-            </SpIconButton>
-          </Show>
-
-          <Show when={!props.max || currentMonth().isBefore(props.max, 'year')}>
-            <SpIconButton type='text' onClick={onNextYear}>
-              <ChevronDoubleRightFilled />
-            </SpIconButton>
-          </Show>
+          <div class='sp-date-panel-header-btn-wrap'>
+            <Show when={!props.max || currentMonth().isBefore(props.max, 'month')}>
+              <SpIconButton class='sp-date-panel-header-btn' type='text' onClick={onNextMonth}>
+                <ChevronRightFilled />
+              </SpIconButton>
+            </Show>
+          </div>
+          <div class='sp-date-panel-header-btn-wrap next-year'>
+            <Show when={!props.max || currentMonth().isBefore(props.max, 'year')}>
+              <SpIconButton class='sp-date-panel-header-btn' type='text' onClick={onNextYear}>
+                <ChevronDoubleRightFilled />
+              </SpIconButton>
+            </Show>
+          </div>
         </div>
       </Show>
       <div class='sp-date-panel-week'>

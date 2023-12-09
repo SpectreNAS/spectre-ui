@@ -87,7 +87,7 @@ export const DateRangePanel = () => {
   }
 
   function onSelectedDate(date: dayjs.Dayjs) {
-    setDateRange(value => {
+    const dateRange = setDateRange(value => {
       const dateRange: DateRange = { ...value }
       if (value.start !== undefined && value.end !== undefined) {
         dateRange.start = date
@@ -100,9 +100,11 @@ export const DateRangePanel = () => {
       } else {
         dateRange.end = date
       }
-
       return dateRange
     })
+    if (dateRange.end === undefined) {
+      setDateRangeDates({})
+    }
   }
 
   return (
