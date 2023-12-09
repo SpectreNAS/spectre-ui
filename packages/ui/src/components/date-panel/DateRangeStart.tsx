@@ -35,6 +35,8 @@ export const DateRangeStart = (propsRaw: DatePanelProps) => {
       style={props.style}
       ref={props.ref}
       {...eventHandlers}
+      weekFirstDay={props.weekFirstDay}
+      showHeader={props.showHeader}
       currentMonth={dateRangeContext.startMonth()}
       max={dateRangeContext.endMonth().subtract(1, 'month')}
       renderDate={(date: dayjs.Dayjs) => (

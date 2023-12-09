@@ -42,12 +42,12 @@ export const DateRangeContext = (propsRaw: DateRangePanelProps) => {
         return setDateRangeDates(getDateRangeDates(generateDateRangeDates(range.start, getMonthLastDate(range.start))))
       }
       let dates: dayjs.Dayjs[] = []
-      if (startMonth.isAfter(range.start, 'month')) {
+      if (startMonth.isAfter(range.start, 'month') && startMonth.isBefore(range.end, 'month')) {
         dates = [...generateDateRangeDates(startMonth.set('date', 1), getMonthLastDate(startMonth))]
       } else if (startMonth.isSame(range.start, 'month')) {
         dates = [...generateDateRangeDates(range.start, getMonthLastDate(startMonth))]
       }
-      if (endMonth.isBefore(range.end, 'month')) {
+      if (endMonth.isBefore(range.end, 'month') && endMonth.isAfter(range.start, 'month')) {
         dates = [...dates, ...generateDateRangeDates(endMonth.set('date', 1), getMonthLastDate(endMonth))]
       } else if (endMonth.isSame(range.end, 'month')) {
         dates = [...dates, ...generateDateRangeDates(endMonth.set('date', 1), range.end)]
