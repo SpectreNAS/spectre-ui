@@ -1,4 +1,4 @@
-import { SpDatePanel, SpDateRangePanel } from '@spectres/ui'
+import { SpDatePanel, SpDateRangeContext, SpDateRangeStart, SpDateRangeEnd, SpDateRange } from '@spectres/ui'
 
 import { Anchor } from '@/components/anchor'
 import { Card } from '@/components/card'
@@ -9,14 +9,6 @@ export const DatePanel = () => {
   return (
     <ComponentPageLayout>
       <h1>Date Panel</h1>
-
-      <Anchor href='#range'>日期范围</Anchor>
-      <Card>
-        <div class='mb-4'>
-          <SpDateRangePanel></SpDateRangePanel>
-        </div>
-      </Card>
-
       <Anchor href='#basic-usage'>基础用法</Anchor>
       <Card>
         <div class='mb-4'>
@@ -28,6 +20,25 @@ export const DatePanel = () => {
       <Card>
         <div class='mb-4'>
           <SpDatePanel multiple></SpDatePanel>
+        </div>
+      </Card>
+      <Anchor href='#small-range'>小型日期范围</Anchor>
+      <Card>
+        <div class='mb-4'>
+          <SpDateRangeContext>
+            <SpDateRange />
+          </SpDateRangeContext>
+        </div>
+      </Card>
+      <Anchor href='#range'>日期范围</Anchor>
+      <Card>
+        <div class='mb-4'>
+          <SpDateRangeContext>
+            <div class='flex flex-wrap'>
+              <SpDateRangeStart />
+              <SpDateRangeEnd />
+            </div>
+          </SpDateRangeContext>
         </div>
       </Card>
     </ComponentPageLayout>
