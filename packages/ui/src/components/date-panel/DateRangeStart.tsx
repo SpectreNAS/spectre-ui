@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { createEffect, on } from 'solid-js'
+import { Show, createEffect, on } from 'solid-js'
 
 import { DatePanelProps, generateProps } from './date-panel.props'
 import { DatePanel } from './DatePanel'
@@ -58,6 +58,9 @@ export const DateRangeStart = (propsRaw: DatePanelProps) => {
             onClick={[onSelectedStartDate, date]}
           >
             {date.date()}
+            <Show when={date.isSame(dayjs(), 'date')}>
+              <div class='sp-date-panel-today'></div>
+            </Show>
           </SpButton>
         </div>
       )}
