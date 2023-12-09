@@ -176,6 +176,9 @@ export const DatePanel = (propsRaw: DatePanelProps) => {
                           onClick={[onSelectedDate, date]}
                         >
                           {date.date()}
+                          <Show when={date.isSame(dayjs(), 'date')}>
+                            <div class='sp-date-panel-today'></div>
+                          </Show>
                         </SpButton>
                       </div>
                     )

@@ -69,6 +69,7 @@
 }
 
 .sp-date-panel-day {
+  position: relative;
   width: 22px;
   height: 22px;
   box-sizing: content-box;
@@ -78,6 +79,15 @@
   --sp-button-bg-color-hover: var(--bg-bgless-hover);
   --sp-button-bg-color-active: var(--bg-bgless-hover);
   --sp-button-text-color: var(--text-common-tertiary);
+}
+
+.sp-date-panel-today {
+  position: absolute;
+  bottom: 4px;
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--text-brand-default);
 }
 
 .sp-date-panel-wrap:not(:last-child) {
